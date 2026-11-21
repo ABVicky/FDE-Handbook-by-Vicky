@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 08 — Testing strategy | FDE Handbook by Vicky</title>
+<meta name="description" content="@pytest.fixture def client(tmppath): repo = JsonRepository(tmppath / &quot;store.json&quot;) repo.addleads(importfile(DATA / &quot;leadssample.csv&quot;, &quot;website&quot;).leads)…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-08-testing-strategy.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 08 — Testing strategy | FDE Handbook by Vicky">
+<meta property="og:description" content="@pytest.fixture def client(tmppath): repo = JsonRepository(tmppath / &quot;store.json&quot;) repo.addleads(importfile(DATA / &quot;leadssample.csv&quot;, &quot;website&quot;).leads)…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-08-testing-strategy.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 08 — Testing strategy | FDE Handbook by Vicky">
+<meta name="twitter:description" content="@pytest.fixture def client(tmppath): repo = JsonRepository(tmppath / &quot;store.json&quot;) repo.addleads(importfile(DATA / &quot;leadssample.csv&quot;, &quot;website&quot;).leads)…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 08 — Testing strategy", "description": "@pytest.fixture def client(tmppath): repo = JsonRepository(tmppath / \"store.json\") repo.addleads(importfile(DATA / \"leadssample.csv\", \"website\").leads)…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-08-testing-strategy.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/lessons/08-testing-strategy.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/lessons/08-testing-strategy.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#the-testing-pyramid">The testing pyramid</a></li><li><a href="#api-integration-tests-with-testclient">API integration tests with TestClient</a></li><li><a href="#what-to-test-in-an-api">What to test in an API</a></li><li><a href="#frontend-tests">Frontend tests</a></li><li><a href="#test-data">Test data</a></li><li><a href="#coverage-and-ci">Coverage and CI</a></li><li><a href="#a-note-on-slow-tests">A note on slow tests</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 08 — Testing strategy</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="the-testing-pyramid">The testing pyramid</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/04-software-engineering/lessons/08-testing-strategy.md">View it in the interactive reader</a>.</p>
+<div class="table-wrap"><table><thead><tr><th>Level</th><th>AdmitFlow examples</th><th>Speed</th><th>Catches</th></tr></thead><tbody><tr><td>Unit</td><td><code>tests/test_normalize.py</code>, <code>web/src/api.test.ts</code></td><td>ms</td><td>Logic errors</td></tr><tr><td>Integration</td><td><code>tests/test_api.py</code> with <code>TestClient</code></td><td>ms–s</td><td>Wiring: wrong status codes, missing auth, validation gaps</td></tr><tr><td>End-to-end</td><td>(stretch) Playwright script driving the real UI</td><td>seconds</td><td>Things only visible together: CORS, broken buttons</td></tr></tbody></table></div>
+<h2 id="api-integration-tests-with-testclient">API integration tests with TestClient</h2>
+<pre><code>from fastapi.testclient import TestClient
+
+@pytest.fixture
+def client(tmp_path):
+    repo = JsonRepository(tmp_path / &quot;store.json&quot;)
+    repo.add_leads(import_file(DATA / &quot;leads_sample.csv&quot;, &quot;website&quot;).leads)
+    repo.save_user(User(&quot;priya&quot;, &quot;Priya Nair&quot;, &quot;counsellor&quot;, hash_password(PASSWORD)))
+    return TestClient(create_app(repo))
+
+def auth(username, role=&quot;counsellor&quot;):
+    return {&quot;Authorization&quot;: f&quot;Bearer {create_token(username, role)}&quot;}
+
+def test_counsellor_cannot_assign(client):
+    response = client.patch(&quot;/leads/ENQ-0001&quot;, json={&quot;assigned_to&quot;: &quot;priya&quot;}, headers=auth(&quot;priya&quot;))
+    assert response.status_code == 403</code></pre>
+<p>Each test gets a <strong>fresh</strong> store (<code>tmp_path</code>), so tests never affect each other.</p>
+<h2 id="what-to-test-in-an-api">What to test in an API</h2>
+<p>For each endpoint, aim to cover:</p>
+<ul><li>✅ the happy path (right status code, right body)</li><li>🔒 <strong>no token → 401</strong>, <strong>wrong role → 403</strong></li><li>🚫 invalid input → 422 with the right field named</li><li>🔍 not found → 404</li><li>📄 pagination boundaries (first page, last page, page size cap)</li><li>🧭 business rules (counsellor can't edit others' leads; duplicates merge)</li></ul>
+<p>Security tests are the ones most often missing, and they catch the most dangerous bugs. <strong>Write a 401 test for every protected endpoint.</strong> A parametrized test can loop over all routes.</p>
+<h2 id="frontend-tests">Frontend tests</h2>
+<p>Unit-test logic outside components first (<code>api.ts</code>), mocking <code>fetch</code>:</p>
+<pre><code>vi.stubGlobal(&quot;fetch&quot;, vi.fn(async () =&gt; new Response(JSON.stringify(body), { status: 401 })));
+await expect(request(&quot;/auth/login&quot;)).rejects.toMatchObject({ status: 401 });</code></pre>
+<p>Then test components with <a href="https://testing-library.com/">Testing Library</a>, asserting what the <strong>user</strong> sees ("shows an error message when login fails"), not implementation details.</p>
+<p><em>Stretch:</em> <a href="https://playwright.dev/">Playwright</a> runs real browser end-to-end tests: log in, open a lead, add a note, check it appears. One or two such tests catch integration problems unit tests can't, such as CORS.</p>
+<h2 id="test-data">Test data</h2>
+<ul><li>Use <strong>realistic</strong> data: the AdmitFlow samples include accents, scripts, duplicates and blank values deliberately.</li><li>Never use real client personal data in tests or fixtures. Generate or anonymize it.</li><li>Build data with small helper functions (<code>lead(...)</code>, <code>auth(...)</code>) so tests stay readable.</li></ul>
+<h2 id="coverage-and-ci">Coverage and CI</h2>
+<p>Run all tests on every pull request (Module 06 sets up GitHub Actions). Keep a coverage floor (80%) as a safety net, but judge test quality by asking: <em>if I broke this rule, would a test fail?</em></p>
+<h2 id="a-note-on-slow-tests">A note on slow tests</h2>
+<p>AdmitFlow's API tests take ~12 seconds, mostly because PBKDF2 with 600,000 iterations is <em>deliberately</em> slow. Options: create users once per test module (fixture <code>scope=&quot;module&quot;</code>), or use fewer iterations <strong>in tests only</strong> via configuration. Never weaken production hashing to speed up tests.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>List every endpoint in your build. For each, check you have a 401 test, a validation test (if it takes input), and a 403 test (if roles matter). Fill the gaps.</p>
+<p>Next: <a href="modules-04-software-engineering-lessons-09-engineering-practice.html">Lesson 09 — Engineering practice</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-lessons-07-frontend-backend.html">← Lesson 07 — Connecting frontend and backend</a><a class="btn ghost" href="modules-04-software-engineering-lessons-09-engineering-practice.html">Lesson 09 — Engineering practice: structure, reviews, docs, unfamiliar code →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

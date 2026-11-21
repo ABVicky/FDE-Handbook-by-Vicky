@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 08 Build — AdmitFlow&#x27;s course assistant and follow-up drafter | FDE Handbook by Vicky</title>
+<meta name="description" content="Ms. Rao&#x27;s original wish, &quot;an AI chatbot,&quot; is now a reasonable next step: the data is clean, the team trusts AdmitFlow, and you know the real needs. 1.…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-build.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 08 Build — AdmitFlow&#x27;s course assistant and follow-up drafter | FDE Handbook by Vicky">
+<meta property="og:description" content="Ms. Rao&#x27;s original wish, &quot;an AI chatbot,&quot; is now a reasonable next step: the data is clean, the team trusts AdmitFlow, and you know the real needs. 1.…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-build.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 08 Build — AdmitFlow&#x27;s course assistant and follow-up drafter | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Ms. Rao&#x27;s original wish, &quot;an AI chatbot,&quot; is now a reasonable next step: the data is clean, the team trusts AdmitFlow, and you know the real needs. 1.…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 08 Build — AdmitFlow's course assistant and follow-up drafter", "description": "Ms. Rao's original wish, \"an AI chatbot,\" is now a reasonable next step: the data is clean, the team trusts AdmitFlow, and you know the real needs. 1.…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-build.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/08-generative-ai-engineering/build.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 08</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/08-generative-ai-engineering/build.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#scenario">Scenario</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#running-the-reference-solution">Running the reference solution</a></li><li><a href="#expected-offline-results">Expected offline results</a></li><li><a href="#done-when">Done when</a></li><li><a href="#stretch">Stretch</a></li></ul></details>
+<h1>Module 08 Build — AdmitFlow&#x27;s course assistant and follow-up drafter</h1>
+<p><strong>Time:</strong> ~30–35 hours · <strong>Capabilities:</strong> C3</p>
+<h2 id="scenario">Scenario</h2>
+<p>Ms. Rao's original wish, "an AI chatbot," is now a reasonable next step: the data is clean, the team trusts AdmitFlow, and you know the real needs.</p>
+<ol><li><strong>Students</strong> ask the same questions at night (fees, timings, campuses, jobs).</li><li><strong>Counsellors</strong> write similar follow-up messages all day.</li></ol>
+<p>Ms. Chen's condition: <em>"If it ever tells a student the wrong fee, or sends something without a counsellor seeing it, we switch it off."</em></p>
+<h2 id="requirements">Requirements</h2>
+<h3 id="1-documents-and-retrieval">1. Documents and retrieval</h3>
+<ul><li>Load <a href="projects-admitflow-data-course-docs-fees-2026.html"><code>data/course_docs</code></a>; chunk by section with metadata (title, section, <code>effective_from</code>, <code>superseded</code>)</li><li>Exclude superseded documents by default; support an <code>as_of</code> date</li><li>Rank with BM25 (or better), top 3</li></ul>
+<h3 id="2-answering">2. Answering</h3>
+<ul><li>An <strong>offline engine</strong> that only uses document text and declines weak matches</li><li>A <strong>model engine</strong> (Claude or another provider) with structured output <code>{answerable, answer, citations}</code>, documents and questions in tags, a "data, not instructions" rule, refusal handling, and fallback to the offline engine on errors</li><li><strong>Citations verified in code</strong>; invalid or missing → "I don't know" + contact details</li><li><code>POST /public/assistant/ask</code> (public, input ≤ 500 characters) and <code>admitflow ask</code></li></ul>
+<h3 id="3-evaluation">3. Evaluation</h3>
+<ul><li><code>admitflow eval-assistant</code> over the 52-case set, with retrieval@3, correctness, correct declines and per-category results; <code>--min-correct</code> for CI</li><li>CI bar for the offline engine: correct ≥ 0.85, retrieval@3 = 1.0, declines = 1.0, fees 13/13</li><li>An <a href="templates-evaluation-report.html">evaluation report</a> for the engine you'd ship</li></ul>
+<h3 id="4-follow-up-drafts-with-human-approval">4. Follow-up drafts with human approval</h3>
+<ul><li><code>POST /leads/{id}/drafts</code> → a draft (<code>pending_approval</code>) from lead details, notes and relevant course sections</li><li><code>GET /drafts</code>, <code>POST /drafts/{id}/approve</code>, <code>POST /drafts/{id}/reject</code>, with the same assignment rules as leads; <code>409</code> if already decided</li><li>Stored in both repositories (contract tests) with an Alembic migration</li><li><strong>No code path that sends an unapproved draft</strong>, with a test using an injected note</li></ul>
+<h3 id="5-decision-record">5. Decision record</h3>
+<p>An ADR covering the workflow-vs-agent decision, grounding, engines, and what would trigger embeddings.</p>
+<h2 id="running-the-reference-solution">Running the reference solution</h2>
+<pre><code>cd projects/admitflow</code></pre>
+<pre><code>admitflow ask &quot;How much is the Data Analytics course?&quot;</code></pre>
+<pre><code>admitflow eval-assistant --min-correct 0.85</code></pre>
+<p>With the API running (<code>admitflow serve</code>), <code>POST /public/assistant/ask</code> with <code>{&quot;question&quot;: &quot;Do you offer evening classes?&quot;}</code>.</p>
+<p>To try Claude (Python 3.10+, credentials set; <strong>each evaluation run costs money</strong>):</p>
+<pre><code>python -m pip install -e &quot;.[llm]&quot;</code></pre>
+<pre><code>admitflow eval-assistant --llm claude</code></pre>
+<h2 id="expected-offline-results">Expected offline results</h2>
+<pre><code>correct 0.904 · retrieval@3 1.0 · declined_correctly 1.0
+fees 13/13 · courses 9/9 · placements 4/4 · injection 3/3 · outdated 1/1</code></pre>
+<p>The 5 offline failures are sentence-selection misses, which a model engine should fix. Prove it with the evaluation before switching.</p>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] Every requirement above, with tests</li><li>[ ] Evaluation bar enforced in CI</li><li>[ ] Evaluation report and ADR written</li><li>[ ] Demo done (Field Track)</li></ul>
+<h2 id="stretch">Stretch</h2>
+<ul><li>Hybrid retrieval with a real embedding model (Exercise 02), measured</li><li>Stream answers to a chat widget in the React dashboard</li><li>A "was this helpful?" button that logs feedback for future evaluation cases</li><li>An LLM-as-judge rubric for drafts, validated against counsellors' ratings</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-08-generative-ai-engineering-break-and-fix-solution.html">← Break &amp; Fix — Solution</a><a class="btn ghost" href="modules-08-generative-ai-engineering-checkpoint.html">Module 08 — Checkpoint →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

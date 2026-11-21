@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Docker Compose | FDE Handbook by Vicky</title>
+<meta name="description" content="AdmitFlow is four things: a database, a migration step, an API and a dashboard. Compose describes them in one file and starts them with one command.…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Docker Compose | FDE Handbook by Vicky">
+<meta property="og:description" content="AdmitFlow is four things: a database, a migration step, an API and a dashboard. Compose describes them in one file and starts them with one command.…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Docker Compose | FDE Handbook by Vicky">
+<meta name="twitter:description" content="AdmitFlow is four things: a database, a migration step, an API and a dashboard. Compose describes them in one file and starts them with one command.…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Docker Compose", "description": "AdmitFlow is four things: a database, a migration step, an API and a dashboard. Compose describes them in one file and starts them with one command.…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/lessons/04-docker-compose.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/lessons/04-docker-compose.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-admitflow-compose-file">The AdmitFlow Compose file</a></li><li><a href="#networking-inside-compose">Networking inside Compose</a></li><li><a href="#startup-order-and-readiness">Startup order and readiness</a></li><li><a href="#secrets-and-env">Secrets and .env</a></li><li><a href="#everyday-commands">Everyday commands</a></li><li><a href="#compose-in-production">Compose in production?</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Docker Compose</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>AdmitFlow is four things: a database, a migration step, an API and a dashboard. Compose describes them in one file and starts them with one command. That gives every developer (and the office VM) an identical environment, and it's often exactly how a small client runs production on a single server.</p>
+<h2 id="the-admitflow-compose-file">The AdmitFlow Compose file</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/docker-compose.yml"><code>projects/admitflow/docker-compose.yml</code></a>:</p>
+<pre><code>services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admitflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}   # refuse to start without it
+      POSTGRES_DB: admitflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data      # data survives container re-creation
+    healthcheck:
+      test: [&quot;CMD-SHELL&quot;, &quot;pg_isready -U admitflow&quot;]
+    ports:
+      - &quot;127.0.0.1:5432:5432&quot;                # reachable from this machine only
+
+  migrate:
+    build: .
+    command: [&quot;alembic&quot;, &quot;upgrade&quot;, &quot;head&quot;]
+    environment:
+      DATABASE_URL: postgresql+psycopg://admitflow:${POSTGRES_PASSWORD}@db:5432/admitflow
+    depends_on:
+      db: { condition: service_healthy }      # wait until PostgreSQL accepts connections
+
+  api:
+    build: .
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+psycopg://admitflow:${POSTGRES_PASSWORD}@db:5432/admitflow
+      ADMITFLOW_SECRET_KEY: ${ADMITFLOW_SECRET_KEY:?set ADMITFLOW_SECRET_KEY in .env}
+      ADMITFLOW_CORS_ORIGINS: http://localhost:8080
+    ports: [&quot;8000:8000&quot;]
+    depends_on:
+      migrate: { condition: service_completed_successfully }   # never start against an old schema
+
+  web:
+    build: { context: web, args: { VITE_API_URL: http://localhost:8000 } }
+    ports: [&quot;8080:8080&quot;]
+
+volumes:
+  pgdata:</code></pre>
+<h2 id="networking-inside-compose">Networking inside Compose</h2>
+<p>Compose creates a private network where <strong>each service is reachable by its name</strong>. The api connects to <code>db:5432</code>, not <code>localhost:5432</code>, because inside the api container, <code>localhost</code> is the api container itself (break &amp; fix problem #2).</p>
+<p><code>ports: [&quot;8000:8000&quot;]</code> publishes a container port on the host (<code>host:container</code>). Services talk to each other on the private network without publishing anything. Publish only what users need; bind admin-only ports to <code>127.0.0.1:</code>.</p>
+<h2 id="startup-order-and-readiness">Startup order and readiness</h2>
+<p><code>depends_on</code> alone only waits for a container to <strong>start</strong>, not to be <strong>ready</strong>. Use health checks and conditions (<code>service_healthy</code>, <code>service_completed_successfully</code>). Your app should also retry its database connection at startup, because in the cloud there's no Compose to order things for you.</p>
+<h2 id="secrets-and-env">Secrets and <code>.env</code></h2>
+<p>Compose reads <code>${VARIABLES}</code> from a <code>.env</code> file next to the Compose file:</p>
+<pre><code>cp .env.example .env</code></pre>
+<p>Commit <code>.env.example</code> with placeholders, never <code>.env</code>. The <code>${VAR:?message}</code> syntax makes Compose refuse to start with a clear message if a required secret is missing, which is better than a 500 error on the first login (break &amp; fix problem #4).</p>
+<h2 id="everyday-commands">Everyday commands</h2>
+<pre><code>docker compose up --build -d        # build and start everything in the background</code></pre>
+<pre><code>docker compose ps                   # status, including health</code></pre>
+<pre><code>docker compose logs -f api          # follow one service&#x27;s logs</code></pre>
+<pre><code>docker compose run --rm api admitflow create-user priya --full-name &quot;Priya Nair&quot;   # one-off command</code></pre>
+<pre><code>docker compose down                 # stop and remove containers (the volume, and your data, remain)</code></pre>
+<p><code>docker compose down -v</code> also deletes volumes, <strong>including the database</strong>. Never run it on a server with real data.</p>
+<h2 id="compose-in-production">Compose in production?</h2>
+<p>For a single-server deployment at a small client, Compose with <code>restart: unless-stopped</code>, a volume, backups, and a reverse proxy for HTTPS (Caddy or nginx) is a reasonable, maintainable choice. When you need several servers, automatic scaling, or zero-downtime deploys, move to a managed container platform (Lesson 06) or Kubernetes (Lesson 08).</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Do the <a href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">break &amp; fix</a>. Then explain what would happen to the database's data in the <em>original</em> handover file if someone ran <code>docker compose down &amp;&amp; docker compose up</code>.</p>
+<p>Next: <a href="modules-06-cloud-and-infrastructure-lessons-05-ci-cd.html">Lesson 05 — CI/CD with GitHub Actions</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-lessons-03-docker.html">← Lesson 03 — Docker</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-lessons-05-ci-cd.html">Lesson 05 — CI/CD with GitHub Actions →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

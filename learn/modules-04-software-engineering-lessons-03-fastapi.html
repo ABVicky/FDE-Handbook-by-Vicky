@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — FastAPI fundamentals | FDE Handbook by Vicky</title>
+<meta name="description" content="FastAPI is a Python web framework that uses type hints for validation and documentation. It&#x27;s widely used for AI and data services, which is a large…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-03-fastapi.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — FastAPI fundamentals | FDE Handbook by Vicky">
+<meta property="og:description" content="FastAPI is a Python web framework that uses type hints for validation and documentation. It&#x27;s widely used for AI and data services, which is a large…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-03-fastapi.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — FastAPI fundamentals | FDE Handbook by Vicky">
+<meta name="twitter:description" content="FastAPI is a Python web framework that uses type hints for validation and documentation. It&#x27;s widely used for AI and data services, which is a large…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — FastAPI fundamentals", "description": "FastAPI is a Python web framework that uses type hints for validation and documentation. It's widely used for AI and data services, which is a large…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-03-fastapi.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/lessons/03-fastapi.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/lessons/03-fastapi.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-fastapi">Why FastAPI</a></li><li><a href="#hello-api">Hello, API</a></li><li><a href="#path-and-query-parameters">Path and query parameters</a></li><li><a href="#request-bodies-with-pydantic">Request bodies with Pydantic</a></li><li><a href="#response-models">Response models</a></li><li><a href="#dependency-injection-with-depends">Dependency injection with Depends</a></li><li><a href="#organizing-a-real-app">Organizing a real app</a></li><li><a href="#sync-or-async-routes">Sync or async routes?</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — FastAPI fundamentals</h1>
+<p><strong>Time:</strong> ~6 hours · <strong>Core</strong></p>
+<h2 id="why-fastapi">Why FastAPI</h2>
+<p><a href="https://fastapi.tiangolo.com/">FastAPI</a> is a Python web framework that uses type hints for validation and documentation. It's widely used for AI and data services, which is a large share of FDE work. (Flask and Django are also common; the concepts carry over.)</p>
+<pre><code>python -m pip install &quot;fastapi&gt;=0.115&quot; &quot;uvicorn&gt;=0.30&quot;</code></pre>
+<h2 id="hello-api">Hello, API</h2>
+<pre><code># main.py
+from fastapi import FastAPI
+
+app = FastAPI(title=&quot;Hello&quot;)
+
+@app.get(&quot;/health&quot;)
+def health():
+    return {&quot;status&quot;: &quot;ok&quot;}</code></pre>
+<pre><code>uvicorn main:app --reload</code></pre>
+<p>Open http://localhost:8000/health, then <strong>http://localhost:8000/docs</strong> for interactive documentation you didn't have to write.</p>
+<h2 id="path-and-query-parameters">Path and query parameters</h2>
+<pre><code>from typing import Optional
+from fastapi import Query
+
+@app.get(&quot;/leads/{lead_id}&quot;)
+def get_lead(lead_id: str):
+    ...
+
+@app.get(&quot;/leads&quot;)
+def list_leads(
+    status: Optional[str] = None,
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=25, ge=1, le=100),
+):
+    ...</code></pre>
+<p><code>page=abc</code> or <code>page_size=5000</code> automatically returns <code>422</code> with a clear message.</p>
+<h2 id="request-bodies-with-pydantic">Request bodies with Pydantic</h2>
+<pre><code>from typing import Literal, Optional
+from pydantic import BaseModel, Field, field_validator
+
+class LeadCreate(BaseModel):
+    name: str = Field(min_length=1, max_length=200)
+    phone: Optional[str] = None
+    source: Literal[&quot;website&quot;, &quot;ad&quot;, &quot;phone&quot;, &quot;walk-in&quot;, &quot;whatsapp&quot;]
+
+    @field_validator(&quot;name&quot;)
+    @classmethod
+    def has_a_letter(cls, value: str) -&gt; str:
+        if not any(ch.isalpha() for ch in value):
+            raise ValueError(&quot;name must contain at least one letter&quot;)
+        return value.strip()
+
+@app.post(&quot;/leads&quot;, status_code=201)
+def create_lead(body: LeadCreate):
+    return {&quot;name&quot;: body.name, &quot;source&quot;: body.source}</code></pre>
+<p>Pydantic parses JSON, converts types, runs your validators, and returns field-level <code>422</code> errors. Inside the function, <code>body</code> is guaranteed valid.</p>
+<h2 id="response-models">Response models</h2>
+<pre><code>class LeadOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)   # build from dataclasses/objects
+    lead_id: str
+    name: str
+    status: str
+
+@app.get(&quot;/leads/{lead_id}&quot;, response_model=LeadOut)
+def get_lead(lead_id: str):
+    return repo.get_lead(lead_id)    # extra fields (e.g. password hashes) are filtered out</code></pre>
+<p>A response model documents the output <em>and</em> acts as a filter, so internal fields never leak by accident.</p>
+<h2 id="dependency-injection-with-depends">Dependency injection with <code>Depends</code></h2>
+<p>Dependencies are functions FastAPI calls for you, per request:</p>
+<pre><code>from fastapi import Depends, Request
+
+def get_repo(request: Request):
+    return request.app.state.repo
+
+@app.get(&quot;/stats&quot;)
+def stats(repo = Depends(get_repo)):
+    ...</code></pre>
+<p>They're perfect for shared concerns: the data store, the current user, permission checks. In tests you can swap them. Read <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/api/deps.py"><code>admitflow/api/deps.py</code></a> to see <code>get_repo</code>, <code>current_user</code> and <code>require_admin</code>.</p>
+<h2 id="organizing-a-real-app">Organizing a real app</h2>
+<pre><code>admitflow/api/
+├── __init__.py   # create_app(): middleware, error handlers, include routers
+├── deps.py       # dependencies: repo, current user, roles
+├── schemas.py    # Pydantic request/response models
+└── routes.py     # the endpoints (APIRouter)</code></pre>
+<p>An <strong>app factory</strong> (<code>create_app(repo=None)</code>) lets tests create an app with a temporary store:</p>
+<pre><code>from fastapi.testclient import TestClient
+client = TestClient(create_app(JsonRepository(tmp_path / &quot;store.json&quot;)))</code></pre>
+<h2 id="sync-or-async-routes">Sync or async routes?</h2>
+<p>FastAPI supports both <code>def</code> and <code>async def</code> routes. Use <code>async def</code> only if everything inside is non-blocking (async database driver, <code>httpx.AsyncClient</code>). Plain <code>def</code> routes run in a thread pool, which is the safe default when you call blocking code, as AdmitFlow's JSON store does.</p>
+<p><em>Stretch:</em> Node.js + Express is the JavaScript equivalent; Django offers a "batteries-included" alternative with an admin UI and ORM. Build the health endpoint in one of them for comparison.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Add <code>GET /leads/{lead_id}/followups</code> to your build: it returns all follow-ups for one lead, <code>404</code> if the lead doesn't exist, and requires login. Write the test first.</p>
+<p>Next: <a href="modules-04-software-engineering-lessons-04-auth.html">Lesson 04 — Authentication and authorization</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-lessons-02-api-design.html">← Lesson 02 — Designing HTTP APIs</a><a class="btn ghost" href="modules-04-software-engineering-lessons-04-auth.html">Lesson 04 — Authentication and authorization →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

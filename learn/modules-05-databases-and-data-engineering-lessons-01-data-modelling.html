@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — Relational thinking and data modelling | FDE Handbook by Vicky</title>
+<meta name="description" content="The JSON file worked for a pilot. But when Mr. Fernandes asks &quot;which ad campaigns produce students who actually enrol?&quot;, you need to combine leads,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-01-data-modelling.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — Relational thinking and data modelling | FDE Handbook by Vicky">
+<meta property="og:description" content="The JSON file worked for a pilot. But when Mr. Fernandes asks &quot;which ad campaigns produce students who actually enrol?&quot;, you need to combine leads,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-01-data-modelling.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — Relational thinking and data modelling | FDE Handbook by Vicky">
+<meta name="twitter:description" content="The JSON file worked for a pilot. But when Mr. Fernandes asks &quot;which ad campaigns produce students who actually enrol?&quot;, you need to combine leads,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — Relational thinking and data modelling", "description": "The JSON file worked for a pilot. But when Mr. Fernandes asks \"which ad campaigns produce students who actually enrol?\", you need to combine leads,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-01-data-modelling.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/01-data-modelling.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/01-data-modelling.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#tables-rows-columns-keys">Tables, rows, columns, keys</a></li><li><a href="#the-admitflow-model">The AdmitFlow model</a></li><li><a href="#relationships">Relationships</a></li><li><a href="#normalization-in-practice">Normalization, in practice</a></li><li><a href="#choosing-types">Choosing types</a></li><li><a href="#natural-vs-surrogate-keys">Natural vs. surrogate keys</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — Relational thinking and data modelling</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>The JSON file worked for a pilot. But when Mr. Fernandes asks "which ad campaigns produce students who actually enrol?", you need to combine leads, channels and admissions, across thousands of records, reliably, with several people writing at once. That's what relational databases are for. A good data model makes those questions easy; a bad one makes them impossible.</p>
+<h2 id="tables-rows-columns-keys">Tables, rows, columns, keys</h2>
+<p>A <strong>table</strong> holds one kind of thing (leads); each <strong>row</strong> is one instance (one lead); each <strong>column</strong> is one attribute (name, received_at).</p>
+<ul><li><strong>Primary key:</strong> uniquely identifies a row (<code>leads.lead_id</code>).</li><li><strong>Foreign key:</strong> a column referring to another table's primary key (<code>notes.lead_id → leads.lead_id</code>). The database refuses notes for leads that don't exist.</li><li><strong>Constraints:</strong> rules the database enforces: <code>NOT NULL</code>, <code>UNIQUE</code>, <code>CHECK (fee &gt; 0)</code>.</li></ul>
+<p>Let the database enforce what it can. Code has bugs; constraints don't forget.</p>
+<h2 id="the-admitflow-model">The AdmitFlow model</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/05-databases-and-data-engineering/lessons/01-data-modelling.md">View it in the interactive reader</a>.</p>
+<p>Full definitions: <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/db.py"><code>admitflow/db.py</code></a>.</p>
+<h2 id="relationships">Relationships</h2>
+<div class="table-wrap"><table><thead><tr><th>Kind</th><th>Example</th><th>How it's stored</th></tr></thead><tbody><tr><td>One-to-many</td><td>A lead has many notes</td><td>Foreign key on the "many" side (<code>notes.lead_id</code>)</td></tr><tr><td>Many-to-many</td><td>Leads ↔ channels</td><td>A <strong>join table</strong> (<code>lead_sources</code>)</td></tr><tr><td>One-to-one</td><td>A lead ↔ an admission</td><td>A unique column (<code>leads.student_no UNIQUE</code>) or a separate table</td></tr></tbody></table></div>
+<h2 id="normalization-in-practice">Normalization, in practice</h2>
+<p><strong>Normalization</strong> means storing each fact once, in the right place.</p>
+<ul><li><strong>No lists in a column (1st normal form).</strong> The JSON store kept <code>sources: [&quot;website&quot;, &quot;ad&quot;]</code>. In SQL that becomes rows in <code>lead_sources</code>, so "how many leads came via WhatsApp?" is a simple, indexable query instead of string searching.</li><li><strong>No repeated facts.</strong> Don't copy the counsellor's full name into every lead; store <code>assigned_to</code> and look the name up in <code>users</code>. Change it in one place.</li><li><strong>No values derived from other values</strong>, unless deliberately cached for speed (and kept in sync).</li></ul>
+<p><strong>When to denormalize:</strong> reporting tables and analytics often copy data deliberately to make queries fast and simple. That's fine <em>as a derived copy</em>, rebuilt from the normalized source.</p>
+<h2 id="choosing-types">Choosing types</h2>
+<div class="table-wrap"><table><thead><tr><th>Data</th><th>Type</th><th>Watch out for</th></tr></thead><tbody><tr><td>IDs from other systems</td><td><code>VARCHAR</code>/<code>TEXT</code></td><td>Leading zeros vanish if stored as numbers</td></tr><tr><td>Money</td><td><code>INTEGER</code> (cents) or <code>NUMERIC(10,2)</code></td><td>Never <code>FLOAT</code></td></tr><tr><td>Timestamps</td><td><code>TIMESTAMP</code> (with or without time zone, deliberately)</td><td>Record your choice (<a href="projects-admitflow-docs-adr-002-local-time.html">ADR-002</a>)</td></tr><tr><td>Phone numbers</td><td><code>VARCHAR</code></td><td>Not numbers: <code>+</code>, leading zeros</td></tr><tr><td>Status</td><td><code>VARCHAR</code> + <code>CHECK</code>, or an enum</td><td>Keep the allowed list in one place</td></tr><tr><td>Free text</td><td><code>TEXT</code></td><td>Unicode: use UTF-8 databases</td></tr></tbody></table></div>
+<h2 id="natural-vs-surrogate-keys">Natural vs. surrogate keys</h2>
+<ul><li><strong>Natural key:</strong> something meaningful (<code>student_no</code>, <code>email</code>). Meanings change, emails get typed wrong, and two systems disagree.</li><li><strong>Surrogate key:</strong> a generated ID (<code>lead_id</code>, <code>id SERIAL</code>, a UUID). Stable and meaningless.</li></ul>
+<p>Use surrogate primary keys, and put <code>UNIQUE</code> constraints on natural keys where they really must be unique.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Extend the model for <strong>campus visits</strong> (Module 04, Exercise 01): a visit belongs to a lead and a counsellor, happens at a campus and time, and has a status and a cancellation reason. Draw the ERD. Which columns need constraints? (Answer: <a href="modules-05-databases-and-data-engineering-exercises-02-data-model.html">Exercise 02</a>.)</p>
+<p>Next: <a href="modules-05-databases-and-data-engineering-lessons-02-sql-fundamentals.html">Lesson 02 — SQL fundamentals</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-readme.html">← Module 05 — Databases and Data Engineering</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-02-sql-fundamentals.html">Lesson 02 — SQL fundamentals →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

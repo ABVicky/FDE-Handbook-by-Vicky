@@ -1,0 +1,43 @@
+# Exercise 02 — reference workflow. Save as .github/workflows/course-service-ci.yml
+# Assumes the service lives in services/course-service/ (adjust paths to your fork).
+name: Course service CI
+
+on:
+  pull_request:
+    paths: ["services/course-service/**", ".github/workflows/course-service-ci.yml"]
+  push:
+    branches: [main]
+    paths: ["services/course-service/**", ".github/workflows/course-service-ci.yml"]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: services/course-service
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt pytest httpx
+      - run: python -m pytest -q
+
+  image:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t course-service:${{ github.sha }} .
+      - name: Smoke test
+        run: |
+          docker run -d --name svc -p 8000:8000 -e ADMIN_TOKEN=ci-token course-service:${{ github.sha }}
+          for i in $(seq 1 20); do curl -fsS localhost:8000/courses && exit 0; sleep 1; done
+          docker logs svc; exit 1

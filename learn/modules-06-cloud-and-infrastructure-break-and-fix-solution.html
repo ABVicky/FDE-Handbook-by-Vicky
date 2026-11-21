@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Break &amp; Fix — Solution | FDE Handbook by Vicky</title>
+<meta name="description" content="Also worth fixing: no migrate step (tables would be missing on a fresh database), no database health check (dependson without condition only waits for…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-break-and-fix-solution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta property="og:description" content="Also worth fixing: no migrate step (tables would be missing on a fresh database), no database health check (dependson without condition only waits for…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-break-and-fix-solution.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Also worth fixing: no migrate step (tables would be missing on a fresh database), no database health check (dependson without condition only waits for…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Break & Fix — Solution", "description": "Also worth fixing: no migrate step (tables would be missing on a fresh database), no database health check (dependson without condition only waits for…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-break-and-fix-solution.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/break-and-fix/SOLUTION.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/break-and-fix/SOLUTION.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#corrected-file">Corrected file</a></li><li><a href="#go-live-checklist-that-would-have-caught-all-four">Go-live checklist that would have caught all four</a></li><li><a href="#message-to-mr-fernandes">Message to Mr. Fernandes</a></li></ul></details>
+<h1>Break &amp; Fix — Solution</h1>
+<blockquote><p>⚠️ Try it properly first.</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Symptom</th><th>Root cause</th><th>Fix</th><th>Prevention</th></tr></thead><tbody><tr><td>1</td><td><code>Uvicorn running on http://127.0.0.1:8000</code> + <code>Recv failure: Connection reset by peer</code></td><td>The server listens on the container's <strong>loopback</strong> only. Docker's port mapping forwards traffic to the container's network interface, where nothing listens</td><td><code>--host 0.0.0.0</code> (or use the image's default <code>CMD [&quot;admitflow&quot;, &quot;serve&quot;]</code>, which reads <code>HOST=0.0.0.0</code>)</td><td>Bake container-correct defaults into the image; smoke-test the image in CI (<code>curl /health</code> against <code>docker run</code>)</td></tr><tr><td>2</td><td><code>/ready</code> → 503; log: <code>connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused</code></td><td><code>DATABASE_URL</code> points to <code>localhost</code>, which, inside the api container, is the api container</td><td>Use the Compose service name: <code>@db:5432</code></td><td>Readiness endpoint that checks the database (it caught this); never copy laptop URLs into deployment config</td></tr><tr><td>3</td><td>Browser: <code>blocked by CORS policy … No &#x27;Access-Control-Allow-Origin&#x27; header</code></td><td><code>ADMITFLOW_CORS_ORIGINS</code> is the <strong>developer's</strong> origin (<code>http://localhost:5173</code>), not the real dashboard origin <code>http://10.20.0.15:8080</code></td><td><code>ADMITFLOW_CORS_ORIGINS: http://10.20.0.15:8080</code></td><td>Per-environment config files; a post-deploy check that logs in through the real dashboard</td></tr><tr><td>4</td><td>Login → 500; <code>RuntimeError: ADMITFLOW_SECRET_KEY must be set…</code></td><td>The required secret was never configured</td><td>Set it from <code>.env</code> (<code>${ADMITFLOW_SECRET_KEY:?…}</code>), generated randomly, never committed</td><td>Make Compose <strong>refuse to start</strong> when it's missing (<code>:?</code> syntax); in the cloud, use a secret manager</td></tr></tbody></table></div>
+<p>Also worth fixing: no <code>migrate</code> step (tables would be missing on a fresh database), no database health check (<code>depends_on</code> without <code>condition</code> only waits for the container to <em>start</em>, not for PostgreSQL to accept connections), and the database has no volume, so <strong>all data would be lost when the container is recreated</strong>. That last one is the most dangerous issue in the file, even though it isn't causing today's symptoms.</p>
+<h2 id="corrected-file">Corrected file</h2>
+<p>The reference <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/docker-compose.yml"><code>projects/admitflow/docker-compose.yml</code></a> fixes all of these, with the CORS origin changed for this VM:</p>
+<pre><code>  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://admitflow:${POSTGRES_PASSWORD}@db:5432/admitflow
+      ADMITFLOW_SECRET_KEY: ${ADMITFLOW_SECRET_KEY:?set ADMITFLOW_SECRET_KEY in .env}
+      ADMITFLOW_CORS_ORIGINS: http://10.20.0.15:8080
+    ports: [&quot;8000:8000&quot;]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully</code></pre>
+<h2 id="go-live-checklist-that-would-have-caught-all-four">Go-live checklist that would have caught all four</h2>
+<ul><li>[ ] <code>curl http://&lt;server&gt;:8000/health</code> from <strong>another machine</strong> returns ok (#1)</li><li>[ ] <code>curl http://&lt;server&gt;:8000/ready</code> returns ready (#2)</li><li>[ ] Log in through the <strong>real dashboard URL</strong> in a browser with dev tools open (#3, #4)</li><li>[ ] Every required variable is listed in <code>.env.example</code> and enforced with <code>:?</code> (#4)</li><li>[ ] Database on a named volume; backup and restore tested</li><li>[ ] Containers restart automatically (<code>restart: unless-stopped</code>) after a VM reboot</li></ul>
+<h2 id="message-to-mr-fernandes">Message to Mr. Fernandes</h2>
+<blockquote><p>The system was set up with settings from the engineer's laptop, so the server wasn't reachable, couldn't find its database, and blocked logins from the office network. I've corrected all four settings and tested logging in from a counsellor's browser. Counsellors can log in now. I also found that data wasn't being saved permanently, which is now fixed, with a daily backup. I'll be on site Monday morning for the start of the pilot.</p></blockquote>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">← Module 06 — Break &amp; Fix: &quot;Works on my laptop&quot;</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-break-and-fix-handover-notes-from-previous-engineer.html">Notes from previous engineer →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

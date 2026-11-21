@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 11 — Type hints | FDE Handbook by Vicky</title>
+<meta name="description" content="When you inherit a client&#x27;s codebase, the first question about every function is &quot;what does it take, and what does it return?&quot; Type hints answer that…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-11-type-hints.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 11 — Type hints | FDE Handbook by Vicky">
+<meta property="og:description" content="When you inherit a client&#x27;s codebase, the first question about every function is &quot;what does it take, and what does it return?&quot; Type hints answer that…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-11-type-hints.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 11 — Type hints | FDE Handbook by Vicky">
+<meta name="twitter:description" content="When you inherit a client&#x27;s codebase, the first question about every function is &quot;what does it take, and what does it return?&quot; Type hints answer that…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 11 — Type hints", "description": "When you inherit a client's codebase, the first question about every function is \"what does it take, and what does it return?\" Type hints answer that…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-11-type-hints.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/11-type-hints.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/11-type-hints.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-basics">The basics</a></li><li><a href="#optional-values-and-unions">Optional values and unions</a></li><li><a href="#common-types">Common types</a></li><li><a href="#checking-types">Checking types</a></li><li><a href="#how-much-to-annotate">How much to annotate</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 11 — Type hints</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>When you inherit a client's codebase, the first question about every function is "what does it take, and what does it return?" Type hints answer that in the code itself, and let tools catch mistakes before you run anything.</p>
+<h2 id="the-basics">The basics</h2>
+<pre><code>def priority(hours_waiting: float) -&gt; str:
+    ...
+
+count: int = 0
+names: list[str] = []          # Python 3.9+
+by_id: dict[str, &quot;Lead&quot;] = {}</code></pre>
+<p>Hints <strong>don't change how Python runs</strong>. They're for readers, editors and checkers.</p>
+<h2 id="optional-values-and-unions">Optional values and unions</h2>
+<pre><code>from typing import Optional
+
+def normalize_phone(value: Optional[str]) -&gt; Optional[str]:
+    &quot;&quot;&quot;Returns None if the number isn&#x27;t usable.&quot;&quot;&quot;</code></pre>
+<p><code>Optional[str]</code> means "a <code>str</code> or <code>None</code>". In Python 3.10+, you can also write <code>str | None</code>. To use that newer style on 3.9, put this at the very top of the file (the AdmitFlow code does):</p>
+<pre><code>from __future__ import annotations</code></pre>
+<h2 id="common-types">Common types</h2>
+<div class="table-wrap"><table><thead><tr><th>Hint</th><th>Meaning</th></tr></thead><tbody><tr><td><code>list[str]</code> / <code>List[str]</code></td><td>List of strings</td></tr><tr><td><code>dict[str, int]</code></td><td>Dict with string keys and int values</td></tr><tr><td><code>tuple[int, str]</code></td><td>Exactly an int then a str</td></tr><tr><td><code>Optional[X]</code></td><td>X or None</td></tr><tr><td><code>Iterator[X]</code></td><td>Something you can loop over that yields X</td></tr><tr><td><code>Callable[[dict], Lead]</code></td><td>A function taking a dict and returning a Lead</td></tr><tr><td><code>Any</code></td><td>Anything (use sparingly)</td></tr></tbody></table></div>
+<h2 id="checking-types">Checking types</h2>
+<p><a href="https://mypy.readthedocs.io/">mypy</a> reads your hints and reports mismatches without running the code:</p>
+<pre><code>python -m pip install mypy</code></pre>
+<pre><code>mypy admitflow/</code></pre>
+<pre><code>def greet(name: str) -&gt; str:
+    return &quot;Hi &quot; + name
+
+greet(None)   # mypy: Argument 1 has incompatible type &quot;None&quot;; expected &quot;str&quot;</code></pre>
+<p>VS Code's Python extension shows many of these problems as you type.</p>
+<h2 id="how-much-to-annotate">How much to annotate</h2>
+<ul><li><strong>Always:</strong> function parameters and return types in code others will read.</li><li><strong>Usually not needed:</strong> local variables, where the type is obvious (<code>count = 0</code>).</li><li>Hints are documentation that can't silently go out of date, because the checker complains.</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Add type hints to this function, then run mypy on it:</p>
+<pre><code>def count_by_source(leads, sources=None):
+    counts = {}
+    for lead in leads:
+        for s in lead[&quot;sources&quot;]:
+            if sources is None or s in sources:
+                counts[s] = counts.get(s, 0) + 1
+    return counts</code></pre>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-12-testing-with-pytest.html">Lesson 12 — Testing with pytest</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-10-classes-and-dataclasses.html">← Lesson 10 — Classes and dataclasses</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-12-testing-with-pytest.html">Lesson 12 — Testing with pytest →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+lead_id,created_time,full_name,phone_number,email,program_interest,campaign_name
+ad_900001,2026-09-01T12:26:00Z,Ana-María Mbeki,+1 202 555 0112,student437@example.org,digital_marketing,sept_intake_social
+ad_900002,2026-09-01T22:08:00Z,Nour Søndergaard,(202) 555-0169,hello302@example.org,digital_marketing,nursing_retarget
+ad_900003,2026-09-02T17:30:00Z,Sara Fischer,2025550183,hello448@example.org,data_analytics,sept_intake_search
+ad_900004,2026-09-02T21:25:00Z,Maya Nguyễn,2025550194,student266@example.org,web_dev,brand_awareness
+ad_900005,2026-09-03T00:45:00Z,Ana-María Fischer,202.555.0150,info651@example.org,web_dev,sept_intake_social
+ad_900006,2026-09-05T07:46:00Z,Mateo Okafor,202.555.0186,info794@example.org,nursing_assistant,sept_intake_search
+ad_900007,2026-09-05T14:02:00Z,Seán Rahman,2025550102,student970@example.org,web_dev,sept_intake_search
+ad_900008,2026-09-05T18:36:00Z,Mateo Søndergaard,2025550110,student850@example.org,accounting,nursing_retarget
+ad_900009,2026-09-06T07:27:00Z,Sara López,2025550165,lead962@example.org,accounting,brand_awareness
+ad_900010,2026-09-06T12:05:00Z,Dev Mbeki,+1 202 555 0171,student948@example.org,web_dev,sept_intake_search
+ad_900011,2026-09-07T17:18:00Z,Mateo Haddad,+1 202 555 0129,lead116@example.org,nursing_assistant,sept_intake_social
+ad_900012,2026-09-08T00:37:00Z,Maya López,(202) 555-0156,student541@example.org,accounting,sept_intake_social
+ad_900013,2026-09-09T08:23:00Z,Aisha Nguyễn,+1 202 555 0169,lead777@example.org,accounting,brand_awareness
+ad_900014,2026-09-09T10:36:00Z,Ølaf Berg,(202) 555-0182,lead618@example.org,accounting,nursing_retarget
+ad_900015,2026-09-10T20:08:00Z,Lina Kowalski,202.555.0168,student713@example.org,data_analytics,nursing_retarget
+ad_900016,2026-09-10T21:20:00Z,Ishaan Silva,2025550154,ISHAAN.SILVA97@EXAMPLE.COM,digital_marketing,nursing_retarget
+ad_900017,2026-09-12T07:03:00Z,Chloe Mensah,(202) 555-0115,CHLOE.MENSAH41@EXAMPLE.COM,business_admin,nursing_retarget
+ad_900018,2026-09-12T16:45:00Z,Renée Dubois,,lead158@example.org,data_analytics,brand_awareness
+ad_900019,2026-09-12T22:47:00Z,José Chen,+1 202 555 0178,hello763@example.org,nursing_assistant,nursing_retarget
+ad_900020,2026-09-13T00:09:00Z,Mateo García,202.555.0140,student741@example.org,web_dev,brand_awareness
+ad_900021,2026-09-13T01:46:00Z,Aisha Rahman,2025550196,student272@example.org,accounting,nursing_retarget
+ad_900022,2026-09-13T03:02:00Z,Mateo Nguyễn,2025550156,hello248@example.org,digital_marketing,nursing_retarget
+ad_900023,2026-09-13T03:41:00Z,Thu García,+1 202 555 0171,hello233@example.org,nursing_assistant,sept_intake_search
+ad_900024,2026-09-13T05:25:00Z,Hana Mbeki,+1 202 555 0141,lead898@example.org,web_dev,brand_awareness
+ad_900025,2026-09-13T13:12:00Z,Sara O'Brien,+1 202 555 0143,student483@example.org,web_dev,sept_intake_social
+ad_900026,2026-09-13T14:27:00Z,Nour Rahman,202.555.0179,hello180@example.org,web_dev,sept_intake_search
+ad_900027,2026-09-13T23:55:00Z,Ivan Okafor,(202) 555-0145,student497@example.org,web_dev,brand_awareness
+ad_900028,2026-09-14T06:48:00Z,Aisha Søndergaard,(202) 555-0145,lead853@example.org,accounting,nursing_retarget
+ad_900029,2026-09-15T02:30:00Z,Chidi Nguyễn,2025550115,lead802@example.org,accounting,nursing_retarget
+ad_900030,2026-09-15T07:37:00Z,Łucja Nowak,,hello362@example.org,nursing_assistant,brand_awareness
+ad_900031,2026-09-15T13:11:00Z,Omar Costa,2025550115,OMAR.COSTA67@EXAMPLE.COM,digital_marketing,sept_intake_social
+ad_900032,2026-09-15T20:23:00Z,Thu Kowalski,(202) 555-0162,lead994@example.org,nursing_assistant,nursing_retarget
+ad_900033,2026-09-16T01:02:00Z,Sara Søndergaard,2025550137,lead404@example.org,web_dev,nursing_retarget
+ad_900034,2026-09-16T02:22:00Z,Chidi Haddad,+1 202 555 0118,lead374@example.org,business_admin,brand_awareness
+ad_900035,2026-09-16T16:57:00Z,Sara Chen,+1 202 555 0110,lead897@example.org,accounting,nursing_retarget
+ad_900036,2026-09-16T20:42:00Z,Zoë García,+1 202 555 0197,hello519@example.org,digital_marketing,sept_intake_social
+ad_900037,2026-09-17T00:39:00Z,José Kowalski,202.555.0182,hello161@example.org,data_analytics,sept_intake_search
+ad_900038,2026-09-19T01:03:00Z,Rahul Costa,+1 202 555 0170,rahul.costa22@example.com,web_dev,brand_awareness
+ad_900039,2026-09-19T06:15:00Z,Kwame López,+1 202 555 0151,lead662@example.org,accounting,sept_intake_search
+ad_900040,2026-09-19T21:36:00Z,Nour Müller,202.555.0149,info345@example.org,digital_marketing,nursing_retarget
+ad_900041,2026-09-20T20:17:00Z,प्रिया शर्मा,,lead800@example.org,accounting,brand_awareness
+ad_900042,2026-09-21T18:07:00Z,Nour Okafor,202.555.0177,lead513@example.org,web_dev,sept_intake_search
+ad_900043,2026-09-22T01:21:00Z,Ana-María Chen,2025550154,lead803@example.org,nursing_assistant,nursing_retarget
+ad_900044,2026-09-22T13:48:00Z,Ivan López,+1 202 555 0186,hello292@example.org,digital_marketing,brand_awareness
+ad_900045,2026-09-22T23:28:00Z,Kwame Chen,(202) 555-0143,lead138@example.org,business_admin,nursing_retarget
+ad_900046,2026-09-23T01:35:00Z,Seán García,+1 202 555 0100,hello933@example.org,data_analytics,nursing_retarget
+ad_900047,2026-09-24T03:32:00Z,Sara Mbeki,202.555.0119,info824@example.org,web_dev,nursing_retarget
+ad_900048,2026-09-24T06:55:00Z,Daniel Mensah,+1 202 555 0138,DANIEL.MENSAH26@EXAMPLE.COM,nursing_assistant,sept_intake_social
+ad_900049,2026-09-24T11:49:00Z,Mateo Mbeki,202.555.0103,student422@example.org,data_analytics,sept_intake_search
+ad_900050,2026-09-25T22:03:00Z,daniel okoye,+1 202 555 0163,daniel.okoye55@example.com,web_dev,sept_intake_social
+ad_900051,2026-09-26T18:53:00Z,sam costa,2025550193,SAM.COSTA56@EXAMPLE.COM,business_admin,nursing_retarget
+ad_900052,2026-09-27T01:09:00Z,Zara Costa,+1 202 555 0196,zara.costa29@example.com,digital_marketing,brand_awareness
+ad_900053,2026-09-27T07:50:00Z,Amara Khan,+1 202 555 0121,amara.khan72@example.com,web_dev,sept_intake_search
+ad_900054,2026-09-27T12:54:00Z,Elena Lee,(202) 555-0157,elena.lee35@example.com,accounting,sept_intake_social
+ad_900055,2026-09-29T04:04:00Z,Hana Fischer,2025550115,lead139@example.org,web_dev,sept_intake_search
+ad_900056,2026-09-30T02:05:00Z,Ana-María López,2025550122,lead406@example.org,digital_marketing,brand_awareness
+ad_900057,2026-09-30T11:33:00Z,Thu Okafor,202.555.0161,info464@example.org,business_admin,sept_intake_social
+ad_900058,2026-09-30T11:40:00Z,Aisha O'Brien,202.555.0183,hello129@example.org,accounting,sept_intake_social
+ad_900059,2026-09-30T21:40:00Z,Lina O'Brien,+1 202 555 0163,info421@example.org,digital_marketing,brand_awareness
+ad_900060,2026-09-30T22:34:00Z,Ana-María García,,student581@example.org,digital_marketing,sept_intake_social

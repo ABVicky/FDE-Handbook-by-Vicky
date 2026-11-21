@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 08 — Model Context Protocol: giving AI safe access to systems | FDE Handbook by Vicky</title>
+<meta name="description" content="Clients increasingly want their AI assistants (in chat apps, IDEs, agent platforms) to work with internal systems: &quot;find my overdue leads,&quot; &quot;draft a…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-08-mcp.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 08 — Model Context Protocol: giving AI safe access to systems | FDE Handbook by Vicky">
+<meta property="og:description" content="Clients increasingly want their AI assistants (in chat apps, IDEs, agent platforms) to work with internal systems: &quot;find my overdue leads,&quot; &quot;draft a…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-08-mcp.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 08 — Model Context Protocol: giving AI safe access to systems | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Clients increasingly want their AI assistants (in chat apps, IDEs, agent platforms) to work with internal systems: &quot;find my overdue leads,&quot; &quot;draft a…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 08 — Model Context Protocol: giving AI safe access to systems", "description": "Clients increasingly want their AI assistants (in chat apps, IDEs, agent platforms) to work with internal systems: \"find my overdue leads,\" \"draft a…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-08-mcp.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/08-mcp.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 09</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/08-mcp.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-mcp">Why MCP</a></li><li><a href="#admitflows-mcp-server">AdmitFlow&#x27;s MCP server</a></li><li><a href="#designing-mcp-tools-safely">Designing MCP tools safely</a></li><li><a href="#remote-mcp-servers">Remote MCP servers</a></li><li><a href="#testing">Testing</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 08 — Model Context Protocol: giving AI safe access to systems</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-mcp">Why MCP</h2>
+<p>Clients increasingly want their AI assistants (in chat apps, IDEs, agent platforms) to work with internal systems: "find my overdue leads," "draft a follow-up for Grace." Without a standard, every AI app needs custom glue for every system. The <strong>Model Context Protocol (MCP)</strong> is an open standard: build an MCP <strong>server</strong> for your system once, and any MCP-capable <strong>client</strong> can use its tools.</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/09-enterprise-integration/lessons/08-mcp.md">View it in the interactive reader</a>.</p>
+<p>An MCP server exposes <strong>tools</strong> (actions with typed inputs), and can also expose <strong>resources</strong> (readable data) and <strong>prompts</strong> (templates).</p>
+<h2 id="admitflows-mcp-server">AdmitFlow's MCP server</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/mcp_server.py"><code>admitflow/mcp_server.py</code></a>, using the official Python SDK (<code>mcp</code> 2.x, Python 3.10+):</p>
+<pre><code>from mcp.server.mcpserver import MCPServer
+from mcp.server.mcpserver.exceptions import ToolError
+
+server = MCPServer(&quot;AdmitFlow&quot;, instructions=&quot;… You can search, read and draft, but never send …&quot;)
+
+@server.tool()
+def get_lead(lead_id: str) -&gt; dict:
+    &quot;&quot;&quot;Details and note history for one lead you are allowed to see.&quot;&quot;&quot;
+    lead = repo.get_lead(lead_id)
+    if lead is None or not visible(lead):
+        raise ToolError(f&quot;lead {lead_id} not found&quot;)      # same message either way
+    return {&quot;lead_id&quot;: lead.lead_id, &quot;name&quot;: lead.name, &quot;course&quot;: lead.course, …}</code></pre>
+<p>Run it for a counsellor (the stdio transport is what desktop AI apps launch):</p>
+<pre><code>admitflow mcp --user priya</code></pre>
+<p>In an MCP client's configuration, this becomes an entry like <code>{&quot;command&quot;: &quot;admitflow&quot;, &quot;args&quot;: [&quot;mcp&quot;, &quot;--user&quot;, &quot;priya&quot;]}</code>. Check your client's documentation for the exact format.</p>
+<p><strong>SDK versions change:</strong> in <code>mcp</code> 1.x the server class was <code>FastMCP</code>; in 2.x it's <code>MCPServer</code>, and unexpected exceptions are hidden from clients unless raised as <code>ToolError</code>. Pin the version and read the migration notes before upgrading.</p>
+<h2 id="designing-mcp-tools-safely">Designing MCP tools safely</h2>
+<div class="table-wrap"><table><thead><tr><th>Principle</th><th>AdmitFlow</th></tr></thead><tbody><tr><td><strong>Act as a specific identity</strong></td><td><code>--user priya</code>: tools see only Priya's leads</td></tr><tr><td><strong>Least privilege</strong></td><td>No send, update, delete or approve tools exist at all</td></tr><tr><td><strong>Don't leak existence</strong></td><td>Hidden and missing leads give the same "not found"</td></tr><tr><td><strong>Minimize data</strong></td><td><code>get_lead</code> returns <code>has_email: true</code>, not the address</td></tr><tr><td><strong>Side effects produce drafts</strong></td><td><code>draft_followup</code> creates a <code>pending_approval</code> draft and says so</td></tr><tr><td><strong>Clear descriptions</strong></td><td>The model chooses tools from their descriptions; say what they do and don't do</td></tr><tr><td><strong>Bounded inputs</strong></td><td>Queries truncated; <code>limit</code> capped at 25</td></tr><tr><td><strong>Audited</strong></td><td>Drafts record who requested them</td></tr></tbody></table></div>
+<p>Remember Module 08 Lesson 07: anything a tool returns (notes, emails, documents) can contain prompt injections. The protection is that no tool can do anything dangerous with them.</p>
+<h2 id="remote-mcp-servers">Remote MCP servers</h2>
+<p>For shared, hosted use, MCP also runs over HTTP (<code>server.run(&quot;streamable-http&quot;)</code>). Then you need authentication (the protocol supports OAuth), TLS, rate limits and the same security review as any API. Start with local stdio for a pilot.</p>
+<h2 id="testing">Testing</h2>
+<p>Tool functions can be called directly in tests (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/tests/test_mcp.py"><code>tests/test_mcp.py</code></a>):</p>
+<pre><code>def test_tools_are_read_and_draft_only(setup):
+    names = {tool.name for tool in asyncio.run(server.list_tools())}
+    assert names == {&quot;search_leads&quot;, &quot;get_lead&quot;, &quot;course_info&quot;, &quot;draft_followup&quot;}</code></pre>
+<p>Then try it in a real MCP client and watch what the model does with the tools. Good descriptions often matter more than code.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Add a <code>my_followups_due</code> tool (follow-ups due in the next 24 hours for the acting counsellor). Write tests proving it never returns another counsellor's follow-ups. Then connect the server to an MCP client and ask: "What should I do first this morning?"</p>
+<p>Next: <a href="modules-09-enterprise-integration-exercises-readme.html">Exercises</a> and the <a href="modules-09-enterprise-integration-build.html">build</a>.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-09-enterprise-integration-lessons-07-enterprise-platforms.html">← Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms</a><a class="btn ghost" href="modules-09-enterprise-integration-exercises-01-webhook-sender.html">Exercise 01 — Play the website: send signed webhooks →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

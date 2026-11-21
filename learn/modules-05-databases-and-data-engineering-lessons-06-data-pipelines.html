@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 06 — Data pipelines: ingestion, quality and matching | FDE Handbook by Vicky</title>
+<meta name="description" content="Clients&#x27; data arrives from systems you don&#x27;t control: weekly exports, nightly dumps, APIs, spreadsheets someone emails. A pipeline moves it into your…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 06 — Data pipelines: ingestion, quality and matching | FDE Handbook by Vicky">
+<meta property="og:description" content="Clients&#x27; data arrives from systems you don&#x27;t control: weekly exports, nightly dumps, APIs, spreadsheets someone emails. A pipeline moves it into your…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 06 — Data pipelines: ingestion, quality and matching | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Clients&#x27; data arrives from systems you don&#x27;t control: weekly exports, nightly dumps, APIs, spreadsheets someone emails. A pipeline moves it into your…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 06 — Data pipelines: ingestion, quality and matching", "description": "Clients' data arrives from systems you don't control: weekly exports, nightly dumps, APIs, spreadsheets someone emails. A pipeline moves it into your…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/06-data-pipelines.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/06-data-pipelines.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#etl-and-elt">ETL and ELT</a></li><li><a href="#the-four-properties-of-a-trustworthy-pipeline">The four properties of a trustworthy pipeline</a></li><li><a href="#data-quality-checks">Data quality checks</a></li><li><a href="#matching-records-across-systems-entity-resolution">Matching records across systems (entity resolution)</a></li><li><a href="#batch-vs-streaming">Batch vs. streaming</a></li><li><a href="#scheduling">Scheduling</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 06 — Data pipelines: ingestion, quality and matching</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Clients' data arrives from systems you don't control: weekly exports, nightly dumps, APIs, spreadsheets someone emails. A <strong>pipeline</strong> moves it into your system reliably, every time, and tells you when something's wrong. Most "the AI is giving wrong answers" problems turn out to be pipeline problems.</p>
+<h2 id="etl-and-elt">ETL and ELT</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>ETL</th><th>ELT</th></tr></thead><tbody><tr><td>Order</td><td>Extract → <strong>Transform</strong> → Load</td><td>Extract → Load raw → <strong>Transform</strong> in the database</td></tr><tr><td>Where cleaning happens</td><td>In code (Python) before loading</td><td>In SQL inside the warehouse (often with dbt)</td></tr><tr><td>Good for</td><td>Operational apps (AdmitFlow)</td><td>Analytics warehouses with lots of raw data</td></tr></tbody></table></div>
+<p>AdmitFlow is ETL: importers normalize in Python, then load clean rows.</p>
+<h2 id="the-four-properties-of-a-trustworthy-pipeline">The four properties of a trustworthy pipeline</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/05-databases-and-data-engineering/lessons/06-data-pipelines.md">View it in the interactive reader</a>.</p>
+<ol><li><strong>Idempotent:</strong> running it twice gives the same result as once. AdmitFlow records each file's SHA-256 checksum and skips files it has already loaded, and the dedupe rules mean even a forced re-run merges rather than duplicates.</li><li><strong>Auditable:</strong> every run is recorded (<code>import_runs</code>): file, time, counts, status.</li><li><strong>Reconcilable:</strong> <code>read = loaded + merged + rejected</code>, asserted on every run. If the numbers don't add up, stop.</li><li><strong>Loud about bad data:</strong> rejected rows are stored with line numbers and reasons, never silently dropped (remember the Module 03 break &amp; fix).</li></ol>
+<p>Code: <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/pipeline.py"><code>admitflow/pipeline.py</code></a>.</p>
+<pre><code>admitflow ingest --website data/leads_sample.csv --ads data/ad_leads.csv --walkins data/walkins.csv</code></pre>
+<pre><code>leads_sample.csv: read 120, new 120, merged 0, rejected 0
+ad_leads.csv: read 60, new 50, merged 10, rejected 0
+walkins.csv: read 25, new 20, merged 5, rejected 0</code></pre>
+<p>Run it again:</p>
+<pre><code>leads_sample.csv: skipped (already loaded)</code></pre>
+<h2 id="data-quality-checks">Data quality checks</h2>
+<p>Validate at several levels:</p>
+<div class="table-wrap"><table><thead><tr><th>Level</th><th>Example check</th><th>On failure</th></tr></thead><tbody><tr><td>Row</td><td>Date parses; name has a letter; source is known</td><td>Reject the row, record why</td></tr><tr><td>File</td><td>Expected columns present; row count within normal range</td><td>Fail the run before loading anything</td></tr><tr><td>Dataset</td><td>No duplicate emails; every note has a lead; enrolments ≤ leads</td><td>Alert someone</td></tr><tr><td>Business</td><td>This week's leads within ±50% of last week's</td><td>Flag for human review</td></tr></tbody></table></div>
+<p>A file with 3 rows when you normally get 900 probably isn't "a quiet week." It's a broken export. Check volume.</p>
+<h2 id="matching-records-across-systems-entity-resolution">Matching records across systems (entity resolution)</h2>
+<p>The admissions office uses a different system (the SIS) with its own IDs, name format (<code>&quot;NAIR, Tom&quot;</code>) and phone format (<code>02025550123</code>). To answer "which channels produce students who enrol?", you must <strong>match</strong> SIS records to leads:</p>
+<ol><li><strong>Normalize both sides the same way</strong> (names, emails, phones; including the SIS's leading <code>0</code>).</li><li><strong>Match on strong keys first</strong> (email), then weaker combinations (phone <strong>and</strong> name), never on weak keys alone (phone only: families share phones).</li><li><strong>Record the link</strong> (<code>leads.student_no</code>) so matching is idempotent.</li><li><strong>Report what didn't match</strong>, with reasons. 3 of 25 admissions didn't match a lead: they may be direct applications, or data entry errors. That list is valuable to the client.</li></ol>
+<pre><code>admitflow match-admissions data/admissions_export.csv</code></pre>
+<pre><code>matched 22, already matched 0, unmatched 3</code></pre>
+<p><em>Stretch:</em> fuzzy matching (e.g. edit distance between names) catches typos, but always review fuzzy matches with a human before acting on them.</p>
+<h2 id="batch-vs-streaming">Batch vs. streaming</h2>
+<ul><li><strong>Batch:</strong> process a file or a day's data at a time (AdmitFlow imports). Simple and robust.</li><li><strong>Event-driven / streaming:</strong> process each event as it happens (a webhook per website form submission, Module 09; Kafka at large scale). Lower latency, more moving parts.</li></ul>
+<p>Start with batch unless the business genuinely needs minutes or seconds.</p>
+<h2 id="scheduling">Scheduling</h2>
+<p>A pipeline that someone has to remember to run will stop being run. Options, from simplest:</p>
+<ol><li>A cron job or scheduled cloud task running <code>admitflow ingest</code> (Module 06)</li><li>A workflow orchestrator (Airflow, Dagster, Prefect) when there are many dependent steps, retries and backfills (Lesson 08)</li></ol>
+<h2 id="check-yourself">Check yourself</h2>
+<p>What happens in AdmitFlow if the ad platform changes its export and renames <code>phone_number</code> to <code>phone</code>? Trace it through <code>importers.py</code> and <code>pipeline.py</code>. Is the failure loud or silent? How would you make it fail <strong>before</strong> loading anything? (Hint: a file-level column check.)</p>
+<p>Next: <a href="modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">Lesson 07 — NoSQL and caching</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">← Lesson 05 — Python and databases: SQLAlchemy and migrations</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">Lesson 07 — NoSQL and caching →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

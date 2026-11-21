@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 06 — Field Track: Deploying into a restricted client environment | FDE Handbook by Vicky</title>
+<meta name="description" content="Real clients rarely say &quot;here&#x27;s an empty cloud account, do what you like.&quot; They say: &quot;It has to run in our account, in our region, through our network,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-field-track.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 06 — Field Track: Deploying into a restricted client environment | FDE Handbook by Vicky">
+<meta property="og:description" content="Real clients rarely say &quot;here&#x27;s an empty cloud account, do what you like.&quot; They say: &quot;It has to run in our account, in our region, through our network,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-field-track.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 06 — Field Track: Deploying into a restricted client environment | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Real clients rarely say &quot;here&#x27;s an empty cloud account, do what you like.&quot; They say: &quot;It has to run in our account, in our region, through our network,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 06 — Field Track: Deploying into a restricted client environment", "description": "Real clients rarely say \"here's an empty cloud account, do what you like.\" They say: \"It has to run in our account, in our region, through our network,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-field-track.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/field-track.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/field-track.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why">Why</a></li><li><a href="#the-scenario">The scenario</a></li><li><a href="#the-task">The task</a></li><li><a href="#done-when">Done when</a></li></ul></details>
+<h1>Module 06 — Field Track: Deploying into a restricted client environment</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Capabilities:</strong> C4, C5</p>
+<h2 id="why">Why</h2>
+<p>Real clients rarely say "here's an empty cloud account, do what you like." They say: <em>"It has to run in our account, in our region, through our network, using our approved images, and it must pass our security review."</em> FDEs who plan for that from the start get to go-live; those who don't get stuck in review for weeks.</p>
+<h2 id="the-scenario">The scenario</h2>
+<p>A second, larger client, a university hospital's nursing school, wants AdmitFlow. Their IT policy says:</p>
+<ul><li>Everything runs in <strong>their</strong> cloud account (Azure), in their approved region only</li><li>No public IP addresses on databases or VMs; inbound traffic only via their existing application gateway</li><li>Container images must come from their private registry, built from approved base images, and pass a vulnerability scan</li><li>External engineers get access only through their VPN, with accounts that expire after 90 days, and no admin rights</li><li>Every new system needs a <strong>security review</strong> (architecture, data flows, data classification, access model) before go-live, and changes go through a weekly change-approval board</li></ul>
+<h2 id="the-task">The task</h2>
+<p>Write <code>my-work/field-track/m06-deployment-plan.md</code>:</p>
+<ol><li><strong>Architecture</strong> adapted to their rules (a Mermaid diagram), mapping each AdmitFlow piece to an Azure service</li><li><strong>Access plan:</strong> what access you need, for how long, and what you can do <em>without</em> admin rights (and what you'll need <em>them</em> to do)</li><li><strong>Security review pack:</strong> list the documents and diagrams you'll prepare, and draft the one-paragraph data-flow description</li><li><strong>Timeline</strong> working backwards from a go-live date, including review and change-board lead times</li><li><strong>Risks</strong> (at least four) with mitigations, e.g. the review raises an issue, the base image fails the scan, the VPN account expires mid-project</li><li><strong>First email</strong> to their IT lead (≤ 200 words): introduce yourself, share the plan, and ask for the three things you need first</li></ol>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] Every policy rule is addressed explicitly in the architecture or access plan</li><li>[ ] The timeline includes the security review and change board</li><li>[ ] The email has a clear, small first ask</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-checkpoint.html">← Module 06 — Checkpoint</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-resources.html">Module 06 — Resources →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

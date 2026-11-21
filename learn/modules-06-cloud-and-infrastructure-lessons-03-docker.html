@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — Docker | FDE Handbook by Vicky</title>
+<meta name="description" content="&quot;It works on my laptop&quot; happens because your laptop has a particular Python version, packages, OS and environment variables. A container image packages…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-03-docker.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — Docker | FDE Handbook by Vicky">
+<meta property="og:description" content="&quot;It works on my laptop&quot; happens because your laptop has a particular Python version, packages, OS and environment variables. A container image packages…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-03-docker.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — Docker | FDE Handbook by Vicky">
+<meta name="twitter:description" content="&quot;It works on my laptop&quot; happens because your laptop has a particular Python version, packages, OS and environment variables. A container image packages…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — Docker", "description": "\"It works on my laptop\" happens because your laptop has a particular Python version, packages, OS and environment variables. A container image packages…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-lessons-03-docker.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/lessons/03-docker.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/lessons/03-docker.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#images-and-containers">Images and containers</a></li><li><a href="#the-admitflow-dockerfile-line-by-line">The AdmitFlow Dockerfile, line by line</a></li><li><a href="#dockerignore">.dockerignore</a></li><li><a href="#the-dashboard-image">The dashboard image</a></li><li><a href="#image-hygiene">Image hygiene</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — Docker</h1>
+<p><strong>Time:</strong> ~6 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>"It works on my laptop" happens because your laptop has a particular Python version, packages, OS and environment variables. A <strong>container image</strong> packages the application <em>with</em> everything it needs, so it runs the same way on your laptop, in CI, on the office VM and in the cloud. Almost every modern deployment target runs containers.</p>
+<p>Install Docker Desktop (macOS/Windows) or Docker Engine (Linux): https://docs.docker.com/get-started/</p>
+<h2 id="images-and-containers">Images and containers</h2>
+<ul><li><strong>Image:</strong> a read-only template (filesystem + metadata), built from a <code>Dockerfile</code>.</li><li><strong>Container:</strong> a running instance of an image, isolated from other processes.</li><li><strong>Registry:</strong> where images are stored and shared (Docker Hub, Artifact Registry, ECR, ACR).</li></ul>
+<pre><code>docker run --rm -p 5432:5432 -e POSTGRES_PASSWORD=devpassword postgres:16-alpine</code></pre>
+<p>That downloads PostgreSQL and runs it, with nothing installed on your machine.</p>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>docker build -t admitflow-api .</code></td><td>Build an image from the Dockerfile here</td></tr><tr><td><code>docker run -p 8000:8000 -e KEY=value admitflow-api</code></td><td>Run it, map a port, set env vars</td></tr><tr><td><code>docker ps</code> / <code>docker ps -a</code></td><td>Running / all containers</td></tr><tr><td><code>docker logs -f &lt;container&gt;</code></td><td>Follow its output</td></tr><tr><td><code>docker exec -it &lt;container&gt; sh</code></td><td>Open a shell inside it</td></tr><tr><td><code>docker stop &lt;container&gt;</code></td><td>Stop it</td></tr><tr><td><code>docker images</code> / <code>docker image prune</code></td><td>List / clean up images</td></tr></tbody></table></div>
+<h2 id="the-admitflow-dockerfile-line-by-line">The AdmitFlow Dockerfile, line by line</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/tree/main/projects/admitflow/Dockerfile"><code>projects/admitflow/Dockerfile</code></a>:</p>
+<pre><code>FROM python:3.12-slim AS build            # 1. start from an official, small base image
+WORKDIR /app
+RUN python -m venv /opt/venv
+ENV PATH=&quot;/opt/venv/bin:$PATH&quot;
+COPY pyproject.toml ./                    # 2. copy only what&#x27;s needed to install…
+COPY admitflow/ admitflow/
+RUN pip install &quot;.[api,db]&quot;               #    …so this slow layer is cached
+
+FROM python:3.12-slim AS runtime          # 3. multi-stage: a fresh, clean final image
+ENV PATH=&quot;/opt/venv/bin:$PATH&quot; PYTHONUNBUFFERED=1 HOST=0.0.0.0 PORT=8000 TZ=Asia/Kolkata
+WORKDIR /app
+COPY --from=build /opt/venv /opt/venv     # 4. bring over only the installed packages
+COPY alembic.ini ./
+COPY migrations/ migrations/
+RUN useradd --create-home --uid 10001 admitflow
+USER admitflow                            # 5. don&#x27;t run as root
+EXPOSE 8000
+HEALTHCHECK CMD python -c &quot;…urlopen(&#x27;http://127.0.0.1:8000/health&#x27;)…&quot;   # 6. Docker can tell if it&#x27;s healthy
+CMD [&quot;admitflow&quot;, &quot;serve&quot;]                # 7. the default command</code></pre>
+<p>Key ideas:</p>
+<ol><li><strong>Layers and caching:</strong> each instruction is a layer. Order from least to most frequently changing, so code edits don't reinstall dependencies.</li><li><strong>Multi-stage builds:</strong> build tools stay in the build stage; the final image is smaller and has less to attack.</li><li><strong>Non-root user:</strong> if the app is compromised, the attacker isn't root in the container.</li><li><strong><code>HOST=0.0.0.0</code>:</strong> inside a container, <code>127.0.0.1</code> means the container itself. A server listening there can't receive traffic forwarded from outside (this module's break &amp; fix, problem #1).</li><li><strong><code>PYTHONUNBUFFERED=1</code>:</strong> logs appear immediately in <code>docker logs</code>.</li><li><strong><code>TZ</code>:</strong> AdmitFlow stores local time (<a href="projects-admitflow-docs-adr-002-local-time.html">ADR-002</a>), so the container's zone must be explicit.</li></ol>
+<h2 id="dockerignore"><code>.dockerignore</code></h2>
+<p>Like <code>.gitignore</code>, for the build context. Keep out <code>.venv</code>, <code>.env</code> (secrets!), test data, <code>node_modules</code>. Smaller, faster, safer builds.</p>
+<h2 id="the-dashboard-image">The dashboard image</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/tree/main/projects/admitflow/web/Dockerfile"><code>web/Dockerfile</code></a> builds static files with Node, then serves them from a tiny nginx image. Node isn't in the final image at all. Note that <code>VITE_API_URL</code> is baked in <strong>at build time</strong>, so you build one dashboard image per environment (or serve a runtime config file; a common improvement).</p>
+<h2 id="image-hygiene">Image hygiene</h2>
+<ul><li>Pin base image versions (<code>python:3.12-slim</code>, not <code>python:latest</code>).</li><li>Rebuild regularly to pick up security patches; scan images (<code>docker scout</code>, Trivy, or your registry's scanner).</li><li><strong>Never put secrets in images.</strong> Anyone who can pull the image can read every layer. Pass secrets at runtime.</li><li>Build for the platform you run on. Apple-silicon laptops build <code>arm64</code> images by default; many servers are <code>amd64</code>. Use <code>docker build --platform linux/amd64 …</code>, or build in CI or the cloud.</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write a Dockerfile for the Module 04 course-catalogue service (<a href="modules-06-cloud-and-infrastructure-exercises-01-dockerfile.html">Exercise 01</a>). Build it, run it, and check <code>curl localhost:8000/courses</code> works, then check that the container runs as a non-root user (<code>docker exec &lt;id&gt; whoami</code>).</p>
+<p>Next: <a href="modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html">Lesson 04 — Docker Compose</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-lessons-02-linux-and-ssh.html">← Lesson 02 — Linux servers and SSH</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html">Lesson 04 — Docker Compose →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

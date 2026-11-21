@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 07 — NoSQL and caching | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: ~2 hours · Core (concepts) / Stretch (hands-on)">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 07 — NoSQL and caching | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: ~2 hours · Core (concepts) / Stretch (hands-on)">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 07 — NoSQL and caching | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: ~2 hours · Core (concepts) / Stretch (hands-on)">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 07 — NoSQL and caching", "description": "Time: ~2 hours · Core (concepts) / Stretch (hands-on)", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/07-nosql-and-caching.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/07-nosql-and-caching.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-main-families">The main families</a></li><li><a href="#a-sensible-default">A sensible default</a></li><li><a href="#documents-in-a-relational-database">Documents in a relational database</a></li><li><a href="#caching-with-redis">Caching with Redis</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 07 — NoSQL and caching</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong> (concepts) / <em>Stretch</em> (hands-on)</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Clients will have MongoDB, Redis, DynamoDB, Elasticsearch… and opinions about them. You need to know what each kind is good at, so you can integrate with them and push back when someone proposes the wrong tool.</p>
+<h2 id="the-main-families">The main families</h2>
+<div class="table-wrap"><table><thead><tr><th>Kind</th><th>Examples</th><th>Data shape</th><th>Good at</th><th>Weak at</th></tr></thead><tbody><tr><td><strong>Relational</strong></td><td>PostgreSQL, MySQL, SQL Server</td><td>Tables with relationships</td><td>Consistency, joins, ad-hoc questions</td><td>Huge write volumes across many machines</td></tr><tr><td><strong>Document</strong></td><td>MongoDB, Firestore, Cosmos DB</td><td>JSON-like documents</td><td>Flexible, nested records; one-record reads</td><td>Joins; cross-document consistency</td></tr><tr><td><strong>Key-value</strong></td><td>Redis, DynamoDB</td><td>Key → value</td><td>Extremely fast lookups, caching, counters</td><td>Querying by anything but the key</td></tr><tr><td><strong>Search</strong></td><td>Elasticsearch, OpenSearch</td><td>Indexed documents</td><td>Full-text search, relevance ranking</td><td>Being the source of truth</td></tr><tr><td><strong>Vector</strong></td><td>pgvector, Qdrant, Pinecone</td><td>Embeddings</td><td>Similarity search for AI (Module 08)</td><td>Everything else</td></tr><tr><td><strong>Wide-column / time-series</strong></td><td>Cassandra, TimescaleDB, InfluxDB</td><td>Rows by time/partition</td><td>Massive append-heavy data</td><td>Ad-hoc joins</td></tr></tbody></table></div>
+<h2 id="a-sensible-default">A sensible default</h2>
+<p><strong>Start with PostgreSQL.</strong> It's relational, handles JSON columns (<code>JSONB</code>), full-text search, and vector search (<code>pgvector</code>) well enough for most FDE projects. One database is one thing for the client's IT team to back up, secure and understand. Add a specialized store when you can name the specific problem it solves.</p>
+<h2 id="documents-in-a-relational-database">Documents in a relational database</h2>
+<pre><code>-- PostgreSQL: store the raw ad-platform payload alongside the clean columns
+ALTER TABLE leads ADD COLUMN raw_payload JSONB;
+SELECT raw_payload-&gt;&gt;&#x27;campaign_name&#x27; FROM leads WHERE raw_payload @&gt; &#x27;{&quot;platform&quot;: &quot;meta&quot;}&#x27;;</code></pre>
+<p>Keeping the raw record lets you re-process it later without asking the client for the export again.</p>
+<h2 id="caching-with-redis">Caching with Redis</h2>
+<p>A <strong>cache</strong> keeps the result of expensive work so the next request is fast:</p>
+<pre><code>import json
+import redis
+
+cache = redis.Redis.from_url(&quot;redis://localhost:6379/0&quot;)
+
+def stats(repo):
+    cached = cache.get(&quot;stats:v1&quot;)
+    if cached:
+        return json.loads(cached)
+    result = compute_stats(repo)                       # slow: scans all leads
+    cache.setex(&quot;stats:v1&quot;, 300, json.dumps(result))   # keep for 5 minutes
+    return result</code></pre>
+<p>The hard part of caching is <strong>invalidation</strong>: when the data changes, the cache is stale. Choose a short expiry the business can accept ("stats up to 5 minutes old"), or delete the key when the data changes. Don't cache until you've measured a real problem.</p>
+<p>Redis is also common for: rate-limiting counters (Module 10), background job queues, and session storage.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>The director wants a dashboard tile showing "leads received today," refreshed every time anyone loads the page, by 50 users. Would you cache it? For how long? What would you tell the director about how fresh the number is?</p>
+<p>Next: <a href="modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">Lesson 08 — The modern data stack and data governance</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">← Lesson 06 — Data pipelines: ingestion, quality and matching</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">Lesson 08 — The modern data stack and data governance →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

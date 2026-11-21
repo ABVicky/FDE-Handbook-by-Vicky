@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 05 — Python and databases: SQLAlchemy and migrations | FDE Handbook by Vicky</title>
+<meta name="description" content="You&#x27;ll rarely write raw SQL strings throughout an application. You&#x27;ll use a library that manages connections, parameters and transactions, and maps…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 05 — Python and databases: SQLAlchemy and migrations | FDE Handbook by Vicky">
+<meta property="og:description" content="You&#x27;ll rarely write raw SQL strings throughout an application. You&#x27;ll use a library that manages connections, parameters and transactions, and maps…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 05 — Python and databases: SQLAlchemy and migrations | FDE Handbook by Vicky">
+<meta name="twitter:description" content="You&#x27;ll rarely write raw SQL strings throughout an application. You&#x27;ll use a library that manages connections, parameters and transactions, and maps…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 05 — Python and databases: SQLAlchemy and migrations", "description": "You'll rarely write raw SQL strings throughout an application. You'll use a library that manages connections, parameters and transactions, and maps…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/05-sqlalchemy-and-migrations.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/05-sqlalchemy-and-migrations.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#connecting">Connecting</a></li><li><a href="#declaring-tables-as-classes-orm">Declaring tables as classes (ORM)</a></li><li><a href="#querying-with-sessions">Querying with sessions</a></li><li><a href="#writing-in-a-transaction">Writing in a transaction</a></li><li><a href="#the-repository-again">The repository, again</a></li><li><a href="#migrations-with-alembic">Migrations with Alembic</a></li><li><a href="#postgresql-locally">PostgreSQL locally</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 05 — Python and databases: SQLAlchemy and migrations</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>You'll rarely write raw SQL strings throughout an application. You'll use a library that manages connections, parameters and transactions, and maps rows to Python objects. And you'll need to <strong>change the schema safely</strong> on a database that already holds the client's data.</p>
+<pre><code>python -m pip install &quot;sqlalchemy&gt;=2.0&quot; &quot;alembic&gt;=1.13&quot; &quot;psycopg[binary]&gt;=3.2&quot;</code></pre>
+<h2 id="connecting">Connecting</h2>
+<pre><code>from sqlalchemy import create_engine
+
+engine = create_engine(&quot;sqlite:///admitflow.db&quot;)                                   # local file
+engine = create_engine(&quot;postgresql+psycopg://admitflow:secret@localhost/admitflow&quot;) # PostgreSQL</code></pre>
+<p>The URL comes from the <code>DATABASE_URL</code> environment variable, never hard-coded (it contains a password).</p>
+<h2 id="declaring-tables-as-classes-orm">Declaring tables as classes (ORM)</h2>
+<pre><code>from typing import Optional
+from datetime import datetime
+from sqlalchemy import ForeignKey, String
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+
+class Base(DeclarativeBase):
+    pass
+
+class LeadRow(Base):
+    __tablename__ = &quot;leads&quot;
+    lead_id: Mapped[str] = mapped_column(String(40), primary_key=True)
+    received_at: Mapped[datetime] = mapped_column(index=True)
+    email: Mapped[Optional[str]] = mapped_column(String(254), index=True)
+    sources: Mapped[list[&quot;LeadSourceRow&quot;]] = relationship(back_populates=&quot;lead&quot;, cascade=&quot;all, delete-orphan&quot;)
+
+class LeadSourceRow(Base):
+    __tablename__ = &quot;lead_sources&quot;
+    lead_id: Mapped[str] = mapped_column(ForeignKey(&quot;leads.lead_id&quot;), primary_key=True)
+    source: Mapped[str] = mapped_column(String(20), primary_key=True)
+    lead: Mapped[LeadRow] = relationship(back_populates=&quot;sources&quot;)</code></pre>
+<p><code>Optional[...]</code> makes the column nullable; otherwise it's <code>NOT NULL</code>.</p>
+<h2 id="querying-with-sessions">Querying with sessions</h2>
+<pre><code>from sqlalchemy import select, func
+from sqlalchemy.orm import Session, selectinload
+
+with Session(engine) as s:
+    query = (
+        select(LeadRow)
+        .where(LeadRow.sources.any(LeadSourceRow.source == &quot;whatsapp&quot;))
+        .options(selectinload(LeadRow.sources))      # load channels in one extra query, not one per lead
+        .order_by(LeadRow.received_at.desc())
+        .limit(25)
+    )
+    leads = s.scalars(query).all()
+    total = s.scalar(select(func.count()).select_from(LeadRow))</code></pre>
+<h3 id="the-n1-problem">The N+1 problem</h3>
+<p>Without <code>selectinload</code>, accessing <code>lead.sources</code> for 25 leads runs <strong>25 extra queries</strong> (1 + N). It's invisible in development and slow in production. Turn on <code>echo=True</code> on the engine to see every query SQLAlchemy runs, and count them.</p>
+<h2 id="writing-in-a-transaction">Writing in a transaction</h2>
+<pre><code>with Session(engine) as s, s.begin():
+    s.add(LeadRow(lead_id=&quot;PHONE-1a2b3c4d&quot;, ...))
+# committed here; rolled back if anything raised</code></pre>
+<h2 id="the-repository-again">The repository, again</h2>
+<p><code>SqlRepository</code> (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/db.py"><code>db.py</code></a>) implements the same interface as <code>JsonRepository</code>. The API switches with one environment variable:</p>
+<pre><code>export DATABASE_URL=sqlite:///admitflow.db      # or postgresql+psycopg://...</code></pre>
+<pre><code>admitflow serve</code></pre>
+<p><strong>Contract tests</strong> (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/tests/test_repository_contract.py"><code>tests/test_repository_contract.py</code></a>) run identical tests against both implementations. They caught a real difference while this module was written: the JSON store returned notes in the order saved, the SQL store in time order. The API tests also run against both stores.</p>
+<h2 id="migrations-with-alembic">Migrations with Alembic</h2>
+<p>You can't drop and recreate a production database to change its schema. <strong>Migrations</strong> are versioned scripts that move the schema forward (and back), applied in order.</p>
+<pre><code>export DATABASE_URL=sqlite:///admitflow.db</code></pre>
+<pre><code>alembic upgrade head          # apply all migrations</code></pre>
+<pre><code>alembic revision --autogenerate -m &quot;add visits table&quot;   # generate a migration from model changes</code></pre>
+<pre><code>alembic check                 # fail if models and migrations have drifted</code></pre>
+<pre><code>alembic downgrade -1          # undo the last migration</code></pre>
+<p>AdmitFlow's first migration: <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/migrations/versions/0001_initial_schema.py"><code>migrations/versions/0001_initial_schema.py</code></a>. A test runs upgrade → check → downgrade → upgrade on every test run.</p>
+<p><strong>Migration rules for client databases:</strong></p>
+<ol><li><strong>Always review</strong> autogenerated migrations. They can miss renames (seeing a drop + add, which loses data).</li><li><strong>Back up first</strong> and test the migration on a copy of production data.</li><li><strong>Make changes backward compatible</strong> where possible: add a nullable column, deploy code that writes it, backfill, then make it <code>NOT NULL</code>. Avoid renaming or dropping in one step while old code still runs.</li><li>Commit migrations to Git with the code that needs them.</li></ol>
+<h2 id="postgresql-locally">PostgreSQL locally</h2>
+<p>When you have Docker (Module 06):</p>
+<pre><code>docker run --name admitflow-db -e POSTGRES_USER=admitflow -e POSTGRES_PASSWORD=devpassword -e POSTGRES_DB=admitflow -p 5432:5432 -d postgres:16</code></pre>
+<pre><code>export DATABASE_URL=postgresql+psycopg://admitflow:devpassword@localhost:5432/admitflow</code></pre>
+<pre><code>alembic upgrade head</code></pre>
+<p>The project's CI workflow (Module 06) runs the whole test suite against a real PostgreSQL service on every pull request.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Add a <code>visits</code> table (from Exercise 02) to <code>db.py</code>, generate a migration, review it, run upgrade/check/downgrade, and add a contract-style test.</p>
+<p>Next: <a href="modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">Lesson 06 — Data pipelines</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-04-indexes-and-transactions.html">← Lesson 04 — Indexes, query plans and transactions</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">Lesson 06 — Data pipelines: ingestion, quality and matching →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

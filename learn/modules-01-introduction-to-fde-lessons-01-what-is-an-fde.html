@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — What is a Forward Deployed Engineer? | FDE Handbook by Vicky</title>
+<meta name="description" content="A Forward Deployed Engineer (FDE) is a software engineer who works directly with a customer, inside their environment, to build and deploy the solution…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-01-introduction-to-fde-lessons-01-what-is-an-fde.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — What is a Forward Deployed Engineer? | FDE Handbook by Vicky">
+<meta property="og:description" content="A Forward Deployed Engineer (FDE) is a software engineer who works directly with a customer, inside their environment, to build and deploy the solution…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-01-introduction-to-fde-lessons-01-what-is-an-fde.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — What is a Forward Deployed Engineer? | FDE Handbook by Vicky">
+<meta name="twitter:description" content="A Forward Deployed Engineer (FDE) is a software engineer who works directly with a customer, inside their environment, to build and deploy the solution…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — What is a Forward Deployed Engineer?", "description": "A Forward Deployed Engineer (FDE) is a software engineer who works directly with a customer, inside their environment, to build and deploy the solution…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-01-introduction-to-fde-lessons-01-what-is-an-fde.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/01-introduction-to-fde/lessons/01-what-is-an-fde.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 01</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/01-introduction-to-fde/lessons/01-what-is-an-fde.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#the-one-sentence-definition">The one-sentence definition</a></li><li><a href="#where-the-name-comes-from">Where the name comes from</a></li><li><a href="#two-halves-of-the-same-job">Two halves of the same job</a></li><li><a href="#what-fdes-typically-do">What FDEs typically do</a></li><li><a href="#what-an-fde-is-not">What an FDE is not</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — What is a Forward Deployed Engineer?</h1>
+<p><strong>Time:</strong> ~1 hour · <strong>Core</strong></p>
+<h2 id="the-one-sentence-definition">The one-sentence definition</h2>
+<blockquote><p>A <strong>Forward Deployed Engineer (FDE)</strong> is a software engineer who works directly with a customer, inside their environment, to build and deploy the solution that makes a technology actually deliver value for them.</p></blockquote>
+<p>Each part of that sentence matters:</p>
+<div class="table-wrap"><table><thead><tr><th>Phrase</th><th>What it means in practice</th></tr></thead><tbody><tr><td><strong>Software engineer</strong></td><td>You write real, production code. This is not a sales or advisory role, even though it involves both.</td></tr><tr><td><strong>Directly with a customer</strong></td><td>You talk to the people who have the problem: users, managers, IT, security. Not just through a product manager.</td></tr><tr><td><strong>Inside their environment</strong></td><td>Their data, their systems, their security rules, their politics. Sometimes physically on-site, often remote but embedded in their team.</td></tr><tr><td><strong>Build and deploy</strong></td><td>You don't stop at a demo or a recommendation. It has to run in their world.</td></tr><tr><td><strong>Actually deliver value</strong></td><td>Success is measured by the customer's outcome (hours saved, revenue gained, errors reduced), not by lines of code or features shipped.</td></tr></tbody></table></div>
+<h2 id="where-the-name-comes-from">Where the name comes from</h2>
+<p>"Forward deployed" is a military term for units positioned close to where operations happen, rather than at headquarters. The software meaning is the same idea: instead of engineers sitting at company HQ building a general product, some engineers are positioned <em>forward</em>, with the customer, where the product meets reality.</p>
+<p>The title is most closely associated with <strong>Palantir</strong>, which built much of its business around engineers embedded with customers such as government agencies and large enterprises. Those engineers adapted Palantir's platforms to each customer's data and problems. The model spread from there, and it grew rapidly as companies began adopting AI. AI products in particular tend to need heavy customer-specific work before they're useful.</p>
+<p>Today you'll see the role (and variations of it) at AI labs, data and AI platform companies, enterprise software vendors, startups and consultancies.</p>
+<h2 id="two-halves-of-the-same-job">Two halves of the same job</h2>
+<p>Think of an FDE as doing two jobs at once:</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/01-introduction-to-fde/lessons/01-what-is-an-fde.md">View it in the interactive reader</a>.</p>
+<p>Many people are good at one half. FDEs are valuable because they do both. They can sit in a meeting with a hospital's operations director in the morning and debug a data pipeline in the afternoon, and each activity improves the other.</p>
+<h2 id="what-fdes-typically-do">What FDEs typically do</h2>
+<ul><li>Run discovery sessions to understand a workflow and its pain points</li><li>Get access to customer data (often the slowest part!) and make sense of it</li><li>Prototype quickly on real data to prove an idea works</li><li>Build integrations between the product and the customer's existing systems</li><li>Deploy into environments with strict security and compliance requirements</li><li>Train users, write documentation and hand over ownership</li><li>Feed what they learn back to the product team so the product improves</li></ul>
+<p>That last point is important. FDEs are often the company's best source of truth about what customers really need. Patterns that FDEs build for one customer often become product features for all of them.</p>
+<h2 id="what-an-fde-is-not">What an FDE is not</h2>
+<ul><li><strong>Not "a developer who travels."</strong> Location doesn't matter as much as ownership of the customer outcome.</li><li><strong>Not a salesperson.</strong> FDEs usually work <em>after</em> the sale (though some roles help win deals).</li><li><strong>Not a consultant who only advises.</strong> FDEs build and ship.</li><li><strong>Not only an "AI engineer."</strong> Many FDE problems are data, integration and workflow problems where AI is a small part, or not needed at all.</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Without looking back, write down:</p>
+<ol><li>The one-sentence definition in your own words.</li><li>Two reasons why an FDE's success isn't measured in features shipped.</li></ol>
+<p>Next: <a href="modules-01-introduction-to-fde-lessons-02-why-the-role-exists.html">Lesson 02 — Why the role exists</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-01-introduction-to-fde-readme.html">← Module 01 — Introduction to Forward Deployed Engineering</a><a class="btn ghost" href="modules-01-introduction-to-fde-lessons-02-why-the-role-exists.html">Lesson 02 — Why the role exists →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

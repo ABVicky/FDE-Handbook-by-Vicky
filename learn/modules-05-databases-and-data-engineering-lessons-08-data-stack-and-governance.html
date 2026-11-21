@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 08 — The modern data stack and data governance | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: ~3 hours · Core (concepts) / Stretch (tools)">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 08 — The modern data stack and data governance | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: ~3 hours · Core (concepts) / Stretch (tools)">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 08 — The modern data stack and data governance | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: ~3 hours · Core (concepts) / Stretch (tools)">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 08 — The modern data stack and data governance", "description": "Time: ~3 hours · Core (concepts) / Stretch (tools)", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/08-data-stack-and-governance.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/08-data-stack-and-governance.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-typical-stack">The typical stack</a></li><li><a href="#when-admitflow-would-need-a-warehouse">When AdmitFlow would need a warehouse</a></li><li><a href="#data-governance-and-privacy">Data governance and privacy</a></li><li><a href="#data-contracts-a-habit-worth-building">Data contracts (a habit worth building)</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 08 — The modern data stack and data governance</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong> (concepts) / <em>Stretch</em> (tools)</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Large clients won't have one database. They'll have a <strong>data platform</strong>: a warehouse, pipelines, orchestration, BI dashboards, governance rules. As an FDE you'll often <em>plug into</em> that platform rather than build your own, and you'll need to speak its language with the client's data team.</p>
+<h2 id="the-typical-stack">The typical stack</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/05-databases-and-data-engineering/lessons/08-data-stack-and-governance.md">View it in the interactive reader</a>.</p>
+<div class="table-wrap"><table><thead><tr><th>Concept</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Operational database (OLTP)</strong></td><td>Runs the app: many small reads/writes (AdmitFlow's PostgreSQL)</td></tr><tr><td><strong>Warehouse (OLAP)</strong></td><td>Built for analytics: big scans and aggregates over lots of history</td></tr><tr><td><strong>Data lake</strong></td><td>Cheap storage of raw files (CSV, JSON, Parquet) in object storage</td></tr><tr><td><strong>Lakehouse</strong></td><td>Warehouse-style tables on top of lake storage (Databricks, Iceberg/Delta tables)</td></tr><tr><td><strong>dbt</strong></td><td>Transformations written as SQL <code>SELECT</code>s, version-controlled and tested</td></tr><tr><td><strong>Orchestrator</strong></td><td>Runs pipeline steps on schedules with dependencies, retries and backfills</td></tr><tr><td><strong>Streaming</strong></td><td>Kafka, Kinesis, Pub/Sub: events processed continuously</td></tr></tbody></table></div>
+<p><em>Stretch:</em> do the free <a href="https://learn.getdbt.com/">dbt Fundamentals</a> course, and try Airflow's tutorial. Both show up frequently in data-FDE job descriptions.</p>
+<h2 id="when-admitflow-would-need-a-warehouse">When AdmitFlow would need a warehouse</h2>
+<p>Not now. One PostgreSQL database answers every question at this scale. A warehouse makes sense when you combine many sources, keep years of history, or analysts need heavy queries that would slow the operational app. Then you'd copy (replicate) AdmitFlow's tables into the warehouse and report from there.</p>
+<h2 id="data-governance-and-privacy">Data governance and privacy</h2>
+<p>Governance means knowing <strong>what data you have, where it is, who can access it, and how long you keep it</strong>. For an FDE handling client data, these are non-negotiable:</p>
+<div class="table-wrap"><table><thead><tr><th>Practice</th><th>In AdmitFlow terms</th></tr></thead><tbody><tr><td><strong>Data inventory</strong></td><td>Which tables hold personal data (leads: name, phone, email; notes may contain anything)</td></tr><tr><td><strong>Least privilege</strong></td><td>Counsellors see leads; only admins export; the app's database user can't drop tables</td></tr><tr><td><strong>Minimization</strong></td><td>Don't import columns you don't need (the SIS <code>fee_paid</code> flag: do we need it?)</td></tr><tr><td><strong>Retention</strong></td><td>Delete or anonymize leads after N months without contact, as the client's policy requires</td></tr><tr><td><strong>Access logging</strong></td><td>Who exported what, when (Module 10)</td></tr><tr><td><strong>Environments</strong></td><td>Never copy real personal data to laptops or test databases; use synthetic or anonymized data</td></tr><tr><td><strong>Lawful basis</strong></td><td>Data-protection laws (e.g. GDPR in Europe, DPDP Act in India) set rules on consent, purpose and rights to deletion. The client's legal/privacy team decides; you implement and document</td></tr></tbody></table></div>
+<p><strong>PII</strong> (personally identifiable information) is any data that identifies a person, directly (name, email, phone) or in combination (course + campus + enrolment date might identify someone in a small class).</p>
+<h2 id="data-contracts-a-habit-worth-building">Data contracts (a habit worth building)</h2>
+<p>When you depend on another team's export, agree a <strong>data contract</strong>: columns, types, meanings, formats, delivery schedule, and who to call when it breaks. Even a one-page document prevents the "they renamed a column and nobody told us" incident.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write a one-page <strong>data inventory</strong> for AdmitFlow: every table, which columns are personal data, who can access them, how long they should be kept (propose a policy), and what happens when a student asks to be deleted.</p>
+<p>Next: <a href="modules-05-databases-and-data-engineering-exercises-readme.html">Exercises</a> and the <a href="modules-05-databases-and-data-engineering-build.html">build</a>.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">← Lesson 07 — NoSQL and caching</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-exercises-01-sql-drills.html">Exercise 01 — SQL drills on AdmitFlow data →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — How large language models work (for builders) | FDE Handbook by Vicky</title>
+<meta name="description" content="You don&#x27;t need to train a language model to deploy one well. But every design decision in this module (what to put in the prompt, how much context to…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-01-how-llms-work.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — How large language models work (for builders) | FDE Handbook by Vicky">
+<meta property="og:description" content="You don&#x27;t need to train a language model to deploy one well. But every design decision in this module (what to put in the prompt, how much context to…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-01-how-llms-work.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — How large language models work (for builders) | FDE Handbook by Vicky">
+<meta name="twitter:description" content="You don&#x27;t need to train a language model to deploy one well. But every design decision in this module (what to put in the prompt, how much context to…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — How large language models work (for builders)", "description": "You don't need to train a language model to deploy one well. But every design decision in this module (what to put in the prompt, how much context to…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-01-how-llms-work.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/01-how-llms-work.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 08</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/01-how-llms-work.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#tokens">Tokens</a></li><li><a href="#the-context-window">The context window</a></li><li><a href="#next-token-prediction-and-why-models-hallucinate">Next-token prediction, and why models &quot;hallucinate&quot;</a></li><li><a href="#model-families-and-choosing-one">Model families and choosing one</a></li><li><a href="#controls-youll-use">Controls you&#x27;ll use</a></li><li><a href="#cost-and-latency-roughly">Cost and latency, roughly</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — How large language models work (for builders)</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>You don't need to train a language model to deploy one well. But every design decision in this module (what to put in the prompt, how much context to send, how to stop it inventing fees, what it will cost) follows from a few facts about how these models behave.</p>
+<h2 id="tokens">Tokens</h2>
+<p>Models read and write <strong>tokens</strong>: chunks of text, often a word or part of a word. "Northbridge" might be 2–3 tokens; a number like "1,800" a few more. Everything is measured in tokens: limits, speed and price.</p>
+<ul><li>Non-English text, code and numbers often use more tokens per word.</li><li>Count, don't guess: providers offer token-counting endpoints (Anthropic: <code>messages.count_tokens</code>).</li></ul>
+<h2 id="the-context-window">The context window</h2>
+<p>The <strong>context window</strong> is everything the model sees in one request: system prompt, conversation, retrieved documents, tool definitions, and its own reply. Current frontier models accept very large contexts (hundreds of thousands to a million tokens), but more context means more cost and latency, and important details can get diluted. <strong>Send what's relevant, not everything you have.</strong> That's the whole idea behind retrieval (Lesson 03).</p>
+<h2 id="next-token-prediction-and-why-models-hallucinate">Next-token prediction, and why models "hallucinate"</h2>
+<p>A language model generates text one token at a time, choosing each token based on everything before it. It was trained to produce <em>plausible</em> text, then further trained to follow instructions and be helpful. It has no built-in notion of "I checked this."</p>
+<p>So when the answer isn't in its context, it may produce a fluent, confident, <strong>wrong</strong> answer, such as last year's fee or a plausible-sounding job guarantee. Hallucination is not a bug you can patch out; it's managed by design:</p>
+<ul><li>give the model the right facts in context (<strong>retrieval</strong>)</li><li>require it to <strong>cite</strong> them, and check the citations in code</li><li>let it (and make it) say <strong>"I don't know"</strong></li><li><strong>evaluate</strong> against real questions (Lesson 06)</li></ul>
+<h2 id="model-families-and-choosing-one">Model families and choosing one</h2>
+<p>Providers offer families with trade-offs between capability, speed and price. Anthropic's current models (late 2026) include Claude Opus 5.5 (<code>claude-opus-5-5</code>, the general default), Claude Sonnet 5.5 (fast, lower cost), Claude Haiku 5.5 (fastest, cheapest) and Claude Fable 5.2 (most capable, highest price). OpenAI, Google and others have equivalents, and open-weight models (Llama, Mistral, Qwen and others) can run on your own infrastructure.</p>
+<p>How to choose for a client:</p>
+<ol><li><strong>Start with a capable model</strong> and get the feature working and evaluated.</li><li><strong>Then</strong> optimize: lower effort settings, caching, smaller models for simple sub-tasks. Measure on your evaluation set at every step.</li><li>Consider <strong>where data may go.</strong> Some clients require a specific cloud (Claude is also available through AWS, Google Cloud and Microsoft Azure) or an open-weight model inside their network.</li></ol>
+<p>Model names and prices change every few months. Check the provider's current model list rather than trusting a blog post (or this lesson) from last year.</p>
+<h2 id="controls-youll-use">Controls you'll use</h2>
+<div class="table-wrap"><table><thead><tr><th>Control</th><th>What it does</th><th>AdmitFlow setting</th></tr></thead><tbody><tr><td><strong>System prompt</strong></td><td>Standing instructions and rules</td><td>Answer only from documents; cite; never promise jobs</td></tr><tr><td><strong>max_tokens</strong></td><td>Hard cap on the reply length</td><td>8,000 (generous, so answers aren't cut off)</td></tr><tr><td><strong>Effort / thinking</strong></td><td>How much the model reasons before answering. Current Claude models use <em>adaptive thinking</em>, tuned with an effort level</td><td><code>low</code>: short factual answers don't need deep reasoning</td></tr><tr><td><strong>Structured output</strong></td><td>Forces the reply into a JSON schema</td><td><code>{answerable, answer, citations}</code></td></tr><tr><td><strong>Stop reason</strong></td><td>Why the reply ended: finished, hit the token cap, wants a tool, or <strong>refused</strong></td><td>Refusals become "I don't know"</td></tr></tbody></table></div>
+<p>(Older material talks about <code>temperature</code> for randomness. Current Claude models don't accept sampling parameters; control behaviour with prompts, effort and structured outputs.)</p>
+<h2 id="cost-and-latency-roughly">Cost and latency, roughly</h2>
+<p>Price is per million input and output tokens; output costs more. A FAQ answer with three retrieved sections is ~1,500 input tokens and ~100 output tokens. Multiply by questions per month and you have a budget line Ms. Chen can approve. Lesson 08 covers caching and other levers.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>Explain to Ms. Rao in three sentences why "just use ChatGPT for our website" could tell students the wrong fee, and what we do instead.</li><li>What would happen if AdmitFlow sent all 25 document sections with every question instead of the top 3? Name one benefit and two costs.</li></ol>
+<p>Next: <a href="modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">Lesson 02 — Calling LLM APIs well</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-08-generative-ai-engineering-readme.html">← Module 08 — Generative AI Engineering</a><a class="btn ghost" href="modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">Lesson 02 — Calling LLM APIs well →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

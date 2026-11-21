@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — The command line | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: ~5 hours (the longest lesson, so practise as you read) · Core">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-03-command-line.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — The command line | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: ~5 hours (the longest lesson, so practise as you read) · Core">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-03-command-line.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — The command line | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: ~5 hours (the longest lesson, so practise as you read) · Core">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — The command line", "description": "Time: ~5 hours (the longest lesson, so practise as you read) · Core", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-03-command-line.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/02-computing-foundations/lessons/03-command-line.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 02</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/02-computing-foundations/lessons/03-command-line.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#terminal-shell-command">Terminal, shell, command</a></li><li><a href="#getting-help">Getting help</a></li><li><a href="#moving-around">Moving around</a></li><li><a href="#working-with-files">Working with files</a></li><li><a href="#reading-files">Reading files</a></li><li><a href="#searching">Searching</a></li><li><a href="#pipes-and-redirection-the-superpower">Pipes and redirection: the superpower</a></li><li><a href="#processes">Processes</a></li><li><a href="#writing-a-small-script">Writing a small script</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — The command line</h1>
+<p><strong>Time:</strong> ~5 hours (the longest lesson, so practise as you read) · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>The terminal is the one interface that works everywhere: your laptop, a client's server over SSH, a container, a cloud VM. It's also how you automate: anything you can type, you can put in a script.</p>
+<h2 id="terminal-shell-command">Terminal, shell, command</h2>
+<ul><li><strong>Terminal:</strong> the window you type in.</li><li><strong>Shell:</strong> the program that reads your commands and runs them (bash, zsh).</li><li><strong>Command:</strong> a program plus its arguments: <code>ls -l data/</code><br>• <code>ls</code> is the program<br>• <code>-l</code> is an <strong>option</strong> (flag) that changes its behaviour<br>• <code>data/</code> is an <strong>argument</strong> (what to act on)</li></ul>
+<h2 id="getting-help">Getting help</h2>
+<pre><code>man ls          # the manual (press q to quit, / to search)
+ls --help       # short help (on Linux; macOS often uses man)</code></pre>
+<p>And: copy the exact error into a search engine. Everyone does this.</p>
+<h2 id="moving-around">Moving around</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>pwd</code></td><td>Print where you are</td></tr><tr><td><code>ls</code> / <code>ls -la</code></td><td>List files / including hidden ones, with details</td></tr><tr><td><code>cd projects</code></td><td>Go into a folder</td></tr><tr><td><code>cd ..</code></td><td>Go up one level</td></tr><tr><td><code>cd ~</code> or <code>cd</code></td><td>Go home</td></tr><tr><td><code>cd -</code></td><td>Go back to the previous folder</td></tr></tbody></table></div>
+<p><strong>Tab completion:</strong> type the first few letters and press <kbd>Tab</kbd>. It saves time and prevents typos. Press <kbd>↑</kbd> to recall previous commands, and <kbd>Ctrl</kbd>+<kbd>R</kbd> to search your history.</p>
+<h2 id="working-with-files">Working with files</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>mkdir -p a/b/c</code></td><td>Create folders (and parents)</td></tr><tr><td><code>touch notes.md</code></td><td>Create an empty file</td></tr><tr><td><code>cp a.txt b.txt</code></td><td>Copy</td></tr><tr><td><code>mv a.txt b.txt</code></td><td>Move or rename</td></tr><tr><td><code>rm file.txt</code></td><td>Delete a file (<strong>no recycle bin!</strong>)</td></tr><tr><td><code>rm -r folder/</code></td><td>Delete a folder and everything in it (<strong>be careful</strong>)</td></tr></tbody></table></div>
+<p>⚠️ <code>rm</code> is permanent. Before running <code>rm -r</code> with a wildcard, run <code>ls</code> with the same pattern to see exactly what would be deleted.</p>
+<h2 id="reading-files">Reading files</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>cat file</code></td><td>Print the whole file</td></tr><tr><td><code>less file</code></td><td>Scroll through it (q to quit)</td></tr><tr><td><code>head -5 file</code></td><td>First 5 lines</td></tr><tr><td><code>tail -5 file</code></td><td>Last 5 lines</td></tr><tr><td><code>tail -f app.log</code></td><td>Follow a log as it grows (Ctrl+C to stop)</td></tr><tr><td><code>wc -l file</code></td><td>Count lines</td></tr></tbody></table></div>
+<h2 id="searching">Searching</h2>
+<pre><code>grep &quot;Website&quot; leads_sample.csv          # lines containing Website
+grep -i &quot;website&quot; leads_sample.csv       # ignore case
+grep -c -i &quot;website&quot; leads_sample.csv    # just count matching lines
+grep -rn &quot;ADMITFLOW&quot; .                   # search all files below here, show line numbers
+find . -name &quot;*.csv&quot;                     # find files by name</code></pre>
+<h2 id="pipes-and-redirection-the-superpower">Pipes and redirection: the superpower</h2>
+<p>Each command reads <strong>input</strong> and writes <strong>output</strong>. You can connect them.</p>
+<div class="table-wrap"><table><thead><tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>`\</td><td>`</td><td>Send output of one command into the next</td><td>`cat file \</td><td>grep x`</td></tr><tr><td><code>&gt;</code></td><td>Write output to a file (overwrites!)</td><td><code>ls &gt; files.txt</code></td></tr><tr><td><code>&gt;&gt;</code></td><td>Append output to a file</td><td><code>echo &quot;done&quot; &gt;&gt; log.txt</code></td></tr><tr><td><code>2&gt;</code></td><td>Write <strong>errors</strong> to a file</td><td><code>cmd 2&gt; errors.txt</code></td></tr><tr><td><code>&lt;</code></td><td>Read input from a file</td><td><code>wc -l &lt; file</code></td></tr></tbody></table></div>
+<p>A real pipeline, step by step, on the AdmitFlow data:</p>
+<pre><code>cut -d, -f6 leads_sample.csv | sort | uniq -c | sort -rn</code></pre>
+<ol><li><code>cut -d, -f6</code>: take the 6th comma-separated field (the course)</li><li><code>sort</code>: put identical values next to each other</li><li><code>uniq -c</code>: collapse duplicates and count them</li><li><code>sort -rn</code>: sort by count, highest first</li></ol>
+<p>Build pipelines <strong>one step at a time</strong>: run the first command, check the output, add the next.</p>
+<p><em>Note:</em> <code>cut</code> splits on every comma, even commas inside quoted values like <code>&quot;Rao, Anita&quot;</code>. That's a real problem with CSV files. The build task makes you deal with it.</p>
+<h2 id="processes">Processes</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>ps aux</code></td><td>List all processes</td></tr><tr><td>`ps aux \</td><td>grep python`</td><td>Find Python processes</td></tr><tr><td><code>top</code> (or <code>htop</code>)</td><td>Live view of CPU/memory use</td></tr><tr><td><code>kill 4182</code></td><td>Ask process 4182 to stop</td></tr><tr><td><code>kill -9 4182</code></td><td>Force it (last resort)</td></tr><tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Stop the program running in this terminal</td></tr><tr><td><code>command &amp;</code></td><td>Run in the background</td></tr></tbody></table></div>
+<h2 id="writing-a-small-script">Writing a small script</h2>
+<p>Put commands in a file to run them again later:</p>
+<pre><code>#!/usr/bin/env bash
+# count_lines.sh — print how many lines each CSV in a folder has
+set -euo pipefail
+
+folder=&quot;${1:-.}&quot;
+for f in &quot;$folder&quot;/*.csv; do
+  echo &quot;$(wc -l &lt; &quot;$f&quot;) $f&quot;
+done</code></pre>
+<ul><li>The first line (the "shebang") says which program runs the script.</li><li><code>set -euo pipefail</code> stops the script on errors instead of carrying on silently. Use it in every script.</li><li><code>$1</code> is the first argument; <code>${1:-.}</code> means "or <code>.</code> if none was given".</li><li>Always put variables in double quotes (<code>&quot;$f&quot;</code>), so file names with spaces don't break.</li></ul>
+<p>Make it executable and run it:</p>
+<pre><code>chmod +x count_lines.sh</code></pre>
+<pre><code>./count_lines.sh ../../projects/admitflow/data</code></pre>
+<p><em>Stretch:</em> learn <code>if</code>, <code>while</code>, functions and <code>case</code> in bash; read about <code>awk</code>, a small language for processing columns of text.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write a single pipeline that prints the <strong>five busiest days</strong> (most enquiries) in <code>leads_sample.csv</code>. Hint: <code>received_at</code> is field 2 and looks like <code>2026-09-01 10:55</code>; <code>cut -d&#x27; &#x27; -f1</code> keeps only the text before the first space. (Answer in <a href="modules-02-computing-foundations-exercises-solutions-readme.html#lesson-03-check-yourself">exercises/solutions</a>.)</p>
+<p>Next: <a href="modules-02-computing-foundations-lessons-04-environment-and-path.html">Lesson 04 — Environment variables, PATH and installing software</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-02-computing-foundations-lessons-02-operating-systems-and-files.html">← Lesson 02 — Operating systems, files and permissions</a><a class="btn ghost" href="modules-02-computing-foundations-lessons-04-environment-and-path.html">Lesson 04 — Environment variables, PATH and installing software →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

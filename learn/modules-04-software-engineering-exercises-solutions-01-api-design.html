@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise 01 — Model answer: campus-visits API | FDE Handbook by Vicky</title>
+<meta name="description" content="Cancel and attendance are actions with their own rules, so they get their own sub-resources rather than generic PATCH fields.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-01-api-design.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Exercise 01 — Model answer: campus-visits API | FDE Handbook by Vicky">
+<meta property="og:description" content="Cancel and attendance are actions with their own rules, so they get their own sub-resources rather than generic PATCH fields.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-01-api-design.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise 01 — Model answer: campus-visits API | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Cancel and attendance are actions with their own rules, so they get their own sub-resources rather than generic PATCH fields.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Exercise 01 — Model answer: campus-visits API", "description": "Cancel and attendance are actions with their own rules, so they get their own sub-resources rather than generic PATCH fields.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-01-api-design.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/exercises/solutions/01-api-design.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/exercises/solutions/01-api-design.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#resources-and-endpoints">Resources and endpoints</a></li><li><a href="#bodies">Bodies</a></li><li><a href="#errors">Errors</a></li><li><a href="#permissions-summary">Permissions summary</a></li><li><a href="#open-questions-for-the-client">Open questions for the client</a></li></ul></details>
+<h1>Exercise 01 — Model answer: campus-visits API</h1>
+<h2 id="resources-and-endpoints">Resources and endpoints</h2>
+<div class="table-wrap"><table><thead><tr><th>Method + path</th><th>Who</th><th>Purpose</th><th>Success</th></tr></thead><tbody><tr><td><code>POST /leads/{lead_id}/visits</code></td><td>Counsellor, admin</td><td>Book a visit</td><td><code>201</code></td></tr><tr><td><code>GET /visits</code></td><td>Counsellor (own), admin (all)</td><td>List visits</td><td><code>200</code></td></tr><tr><td><code>GET /visits/{visit_id}</code></td><td>Owner, admin, reception</td><td>One visit</td><td><code>200</code></td></tr><tr><td><code>PATCH /visits/{visit_id}</code></td><td>Owner, admin</td><td>Reschedule (<code>starts_at</code>, <code>campus</code>) or edit note</td><td><code>200</code></td></tr><tr><td><code>POST /visits/{visit_id}/cancel</code></td><td>Owner, admin</td><td>Cancel with a reason</td><td><code>200</code></td></tr><tr><td><code>POST /visits/{visit_id}/attendance</code></td><td>Reception, admin</td><td>Mark <code>attended</code> or <code>no_show</code></td><td><code>200</code></td></tr><tr><td><code>GET /campuses/{campus}/availability?date=2026-09-20</code></td><td>Any logged-in user</td><td>Remaining capacity per hour slot</td><td><code>200</code></td></tr></tbody></table></div>
+<p>Cancel and attendance are <strong>actions</strong> with their own rules, so they get their own sub-resources rather than generic <code>PATCH</code> fields.</p>
+<h2 id="bodies">Bodies</h2>
+<p>Book:</p>
+<pre><code>POST /leads/ENQ-0042/visits
+{&quot;starts_at&quot;: &quot;2026-09-20T10:00&quot;, &quot;campus&quot;: &quot;North&quot;, &quot;note&quot;: &quot;Bringing a parent&quot;}</code></pre>
+<p>Response <code>201</code>:</p>
+<pre><code>{&quot;visit_id&quot;: &quot;v_8f2c&quot;, &quot;lead_id&quot;: &quot;ENQ-0042&quot;, &quot;counsellor&quot;: &quot;priya&quot;, &quot;campus&quot;: &quot;North&quot;,
+ &quot;starts_at&quot;: &quot;2026-09-20T10:00&quot;, &quot;status&quot;: &quot;booked&quot;, &quot;note&quot;: &quot;Bringing a parent&quot;,
+ &quot;history&quot;: []}</code></pre>
+<p>Cancel:</p>
+<pre><code>POST /visits/v_8f2c/cancel
+{&quot;reason&quot;: &quot;Student unwell&quot;}</code></pre>
+<p>→ <code>200</code> with <code>&quot;status&quot;: &quot;cancelled&quot;</code>, and the history keeps the original booking.</p>
+<p>List:</p>
+<pre><code>GET /visits?from=2026-09-20&amp;to=2026-09-27&amp;campus=North&amp;status=booked&amp;page=1&amp;page_size=25</code></pre>
+<p>→ <code>{&quot;items&quot;: [...], &quot;total&quot;: 12, &quot;page&quot;: 1, &quot;page_size&quot;: 25}</code>, sorted by <code>starts_at</code>.</p>
+<h2 id="errors">Errors</h2>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>Code</th><th>Body detail</th></tr></thead><tbody><tr><td>Not logged in</td><td><code>401</code></td><td><code>Not logged in or session expired</code></td></tr><tr><td>Counsellor edits another counsellor's visit</td><td><code>403</code></td><td><code>This visit belongs to another counsellor</code></td></tr><tr><td>Lead or visit not found</td><td><code>404</code></td><td></td></tr><tr><td>Invalid campus, time not on the hour, time in the past</td><td><code>422</code></td><td>field-level messages</td></tr><tr><td>Slot already has 8 visits</td><td><code>409</code></td><td><code>{&quot;message&quot;: &quot;Slot full&quot;, &quot;next_available&quot;: [&quot;2026-09-20T11:00&quot;, …]}</code></td></tr><tr><td>Cancelling an already cancelled/attended visit</td><td><code>409</code></td><td><code>Visit is already cancelled</code></td></tr></tbody></table></div>
+<p>Returning <code>next_available</code> with the <code>409</code> saves the counsellor a round of guessing.</p>
+<h2 id="permissions-summary">Permissions summary</h2>
+<ul><li>Counsellors: book, reschedule, cancel <strong>their own</strong> visits; list their own.</li><li>Reception: list today's visits for their campus; mark attendance.</li><li>Admins: everything.</li></ul>
+<p>(This needs a third role, <code>reception</code>, which is worth raising with the client.)</p>
+<h2 id="open-questions-for-the-client">Open questions for the client</h2>
+<ul><li>Does "8 per slot" count only booked visits, or attended too? Do group visits (a student with 2 parents) count as one?</li><li>Should students receive a confirmation and reminder message? (Module 09 integration.)</li><li>What are the campus opening hours, and are there holidays?</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-exercises-readme.html">← Module 04 — Exercises</a><a class="btn ghost" href="modules-04-software-engineering-exercises-solutions-04-code-review.html">Exercise 04 — Model review →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

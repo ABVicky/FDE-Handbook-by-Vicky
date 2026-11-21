@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — Retrieval-augmented generation (RAG) | FDE Handbook by Vicky</title>
+<meta name="description" content="A model doesn&#x27;t know Northbridge&#x27;s 2026 fees, and shouldn&#x27;t be trusted to remember them. RAG retrieves the relevant passages from the client&#x27;s own…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-03-rag.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — Retrieval-augmented generation (RAG) | FDE Handbook by Vicky">
+<meta property="og:description" content="A model doesn&#x27;t know Northbridge&#x27;s 2026 fees, and shouldn&#x27;t be trusted to remember them. RAG retrieves the relevant passages from the client&#x27;s own…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-03-rag.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — Retrieval-augmented generation (RAG) | FDE Handbook by Vicky">
+<meta name="twitter:description" content="A model doesn&#x27;t know Northbridge&#x27;s 2026 fees, and shouldn&#x27;t be trusted to remember them. RAG retrieves the relevant passages from the client&#x27;s own…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — Retrieval-augmented generation (RAG)", "description": "A model doesn't know Northbridge's 2026 fees, and shouldn't be trusted to remember them. RAG retrieves the relevant passages from the client's own…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-03-rag.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/03-rag.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 08</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/03-rag.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-rag">Why RAG</a></li><li><a href="#step-1-ingest-and-chunk">Step 1: ingest and chunk</a></li><li><a href="#step-2-retrieve">Step 2: retrieve</a></li><li><a href="#step-3-generate-a-grounded-answer">Step 3: generate a grounded answer</a></li><li><a href="#step-4-say-i-dont-know-well">Step 4: say &quot;I don&#x27;t know&quot; well</a></li><li><a href="#the-offline-baseline">The offline baseline</a></li><li><a href="#permissions-in-rag">Permissions in RAG</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — Retrieval-augmented generation (RAG)</h1>
+<p><strong>Time:</strong> ~6 hours · <strong>Core</strong></p>
+<h2 id="why-rag">Why RAG</h2>
+<p>A model doesn't know Northbridge's 2026 fees, and shouldn't be trusted to remember them. <strong>RAG</strong> retrieves the relevant passages from the client's own documents at question time and asks the model to answer from those, with citations.</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/08-generative-ai-engineering/lessons/03-rag.md">View it in the interactive reader</a>.</p>
+<p>RAG is preferred over fine-tuning for factual Q&amp;A because documents change (new fees every year), answers can cite sources, and permissions can be enforced per document.</p>
+<h2 id="step-1-ingest-and-chunk">Step 1: ingest and chunk</h2>
+<p>Split documents into <strong>chunks</strong> small enough to be specific, big enough to make sense alone.</p>
+<div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td>Fixed size (e.g. 400 characters)</td><td>Simple</td><td>Cuts tables and sentences in half (the break &amp; fix)</td></tr><tr><td><strong>By structure</strong> (headings, sections)</td><td>Each chunk is one idea, with its heading</td><td>Sections vary in size</td></tr><tr><td>Fixed size with overlap</td><td>Fewer cut-off ideas</td><td>Duplicated text; still ignores structure</td></tr><tr><td>Semantic (split where the topic changes)</td><td>Good boundaries</td><td>More complex</td></tr></tbody></table></div>
+<p>AdmitFlow chunks by <code>##</code> section and prefixes each chunk with "document title — section" so it makes sense on its own (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/rag.py"><code>rag.py</code></a>).</p>
+<p><strong>Keep metadata with every chunk:</strong> source document, section, effective date, superseded flag, and, in larger systems, <strong>access permissions</strong>. Metadata is what lets retrieval filter out outdated or forbidden content.</p>
+<p>Real documents are messier than Markdown: PDFs, scans, Word files, web pages, spreadsheets. Budget real time for <strong>parsing</strong> (text extraction, tables, OCR for scans). It's usually the hardest part.</p>
+<h2 id="step-2-retrieve">Step 2: retrieve</h2>
+<div class="table-wrap"><table><thead><tr><th>Method</th><th>Matches</th><th>AdmitFlow</th></tr></thead><tbody><tr><td><strong>Keyword (BM25)</strong></td><td>Shared words, weighted by rarity</td><td>✅ default: pure Python, transparent</td></tr><tr><td><strong>Vector (embeddings)</strong></td><td>Similar meaning</td><td>Lesson 04</td></tr><tr><td><strong>Hybrid</strong></td><td>Both, combined</td><td>Recommended as corpora grow</td></tr><tr><td><strong>Reranking</strong></td><td>A second model re-orders the top 20–50 candidates</td><td>Stretch</td></tr></tbody></table></div>
+<p>Before ranking, <strong>filter</strong> by metadata: <code>superseded = false</code>, <code>effective_from &lt;= as_of</code>, and permissions (only documents this user may see).</p>
+<p>Keyword search misses paraphrases ("evening classes" vs. "evening batch"). AdmitFlow uses three cheap fixes, then measures:</p>
+<ol><li>a tiny stemmer (instalments → instalment)</li><li>ignoring filler words ("get", "offer", "much")</li><li>explicit query expansion ("how much" → "fee")</li></ol>
+<p>…and one content fix: an <strong>FAQ document written from questions students actually ask</strong>. When the evaluation showed gaps, improving the documents beat clever code.</p>
+<h2 id="step-3-generate-a-grounded-answer">Step 3: generate a grounded answer</h2>
+<p>Give the model the retrieved chunks with IDs, and require citations:</p>
+<pre><code>&lt;documents&gt;
+&lt;document chunk_id=&quot;fees-2026#diploma-fees&quot; title=&quot;Fee schedule 2026–27&quot; section=&quot;Diploma fees&quot;&gt;
+…
+&lt;/document&gt;
+&lt;/documents&gt;
+
+&lt;question&gt;How much is Data Analytics?&lt;/question&gt;</code></pre>
+<p>Then <strong>verify in code</strong> (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/llm.py"><code>llm.py</code></a> <code>_grounded</code>): drop citations to sections that weren't retrieved; if nothing valid remains, return "I don't know." Don't rely on the prompt alone.</p>
+<h2 id="step-4-say-i-dont-know-well">Step 4: say "I don't know" well</h2>
+<p>A good refusal is helpful: "I'm not sure about that from our course information. A counsellor can help: call … or email …". AdmitFlow's evaluation has unanswerable questions ("PhD in astrophysics", "capital of France") and requires 100% correct declines.</p>
+<h2 id="the-offline-baseline">The offline baseline</h2>
+<p>AdmitFlow's default answerer is <strong>extractive</strong>: it picks the best-matching sentences from the top chunk and never writes anything new. It's free, deterministic, and runs in CI. On the 52-case evaluation:</p>
+<pre><code>correct 0.904 · retrieval@3 1.0 · correct declines 1.0 · fees 13/13</code></pre>
+<p>The 5 failures are cases where it picks the right section but the wrong sentence. That's exactly where a language model helps, and why you evaluate the model against the same cases before switching it on.</p>
+<pre><code>admitflow ask &quot;Do you offer evening classes?&quot;</code></pre>
+<pre><code>admitflow eval-assistant</code></pre>
+<pre><code>admitflow eval-assistant --llm claude      # needs credentials; costs money per run</code></pre>
+<h2 id="permissions-in-rag">Permissions in RAG</h2>
+<p>If documents have different audiences (staff-only policies, student records), filter by the <strong>user's permissions at retrieval time</strong>, before anything reaches the model. Never retrieve everything and hope the prompt keeps secrets. Module 03's hospital case study is this exact failure.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Do the <a href="modules-08-generative-ai-engineering-break-and-fix-readme.html">break &amp; fix</a>. Then add a new document, <code>hostels.md</code>, with two sections, and add three evaluation cases for it. Does anything else get worse?</p>
+<p>Next: <a href="modules-08-generative-ai-engineering-lessons-04-embeddings-and-vector-search.html">Lesson 04 — Embeddings and vector search</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">← Lesson 02 — Calling LLM APIs well</a><a class="btn ghost" href="modules-08-generative-ai-engineering-lessons-04-embeddings-and-vector-search.html">Lesson 04 — Embeddings and vector search →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

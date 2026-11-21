@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 — Calling LLM APIs well | FDE Handbook by Vicky</title>
+<meta name="description" content="Examples use the official Anthropic Python SDK (anthropic, version 2.x, which needs Python 3.10+). Other providers&#x27; SDKs follow similar shapes;…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 02 — Calling LLM APIs well | FDE Handbook by Vicky">
+<meta property="og:description" content="Examples use the official Anthropic Python SDK (anthropic, version 2.x, which needs Python 3.10+). Other providers&#x27; SDKs follow similar shapes;…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 02 — Calling LLM APIs well | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Examples use the official Anthropic Python SDK (anthropic, version 2.x, which needs Python 3.10+). Other providers&#x27; SDKs follow similar shapes;…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 02 — Calling LLM APIs well", "description": "Examples use the official Anthropic Python SDK (anthropic, version 2.x, which needs Python 3.10+). Other providers' SDKs follow similar shapes;…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/02-calling-llm-apis.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 08</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/08-generative-ai-engineering/lessons/02-calling-llm-apis.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#a-basic-call">A basic call</a></li><li><a href="#structured-outputs-json-you-can-trust">Structured outputs: JSON you can trust</a></li><li><a href="#streaming">Streaming</a></li><li><a href="#errors-and-retries">Errors and retries</a></li><li><a href="#prompt-structure-that-works">Prompt structure that works</a></li><li><a href="#model-choice-in-code">Model choice in code</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 02 — Calling LLM APIs well</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<p>Examples use the official Anthropic Python SDK (<code>anthropic</code>, version 2.x, which needs Python 3.10+). Other providers' SDKs follow similar shapes; AdmitFlow keeps provider code behind small interfaces (<code>Answerer</code>, <code>Drafter</code>) so it can be swapped.</p>
+<pre><code>python -m pip install anthropic</code></pre>
+<p>Credentials come from the environment (<code>ANTHROPIC_API_KEY</code>) or from <code>ant auth login</code>. <strong>Never</strong> put a key in code, a frontend, or a Git repository.</p>
+<h2 id="a-basic-call">A basic call</h2>
+<pre><code>import anthropic
+
+client = anthropic.Anthropic()          # reads credentials from the environment
+
+response = client.messages.create(
+    model=&quot;claude-opus-5-5&quot;,
+    max_tokens=16000,
+    system=&quot;You help prospective students of Northbridge Institute. Be brief and friendly.&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What courses do you offer in the evening?&quot;}],
+)
+
+if response.stop_reason == &quot;refusal&quot;:
+    print(&quot;The model declined.&quot;)
+else:
+    for block in response.content:       # a list of blocks: text, thinking, tool_use…
+        if block.type == &quot;text&quot;:
+            print(block.text)</code></pre>
+<p>The API is <strong>stateless</strong>: for a conversation, send the whole history each time (<code>messages</code> alternates <code>user</code> / <code>assistant</code>).</p>
+<h2 id="structured-outputs-json-you-can-trust">Structured outputs: JSON you can trust</h2>
+<p>When code consumes the answer, ask for a schema instead of parsing prose. AdmitFlow's answerer (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/llm.py"><code>llm.py</code></a>):</p>
+<pre><code>from typing import List
+from pydantic import BaseModel
+
+class GroundedAnswer(BaseModel):
+    answerable: bool
+    answer: str
+    citations: List[str]
+
+response = client.beta.messages.parse(
+    model=&quot;claude-opus-5-5&quot;,
+    max_tokens=8000,
+    system=ANSWER_SYSTEM,
+    output_config={&quot;effort&quot;: &quot;low&quot;},
+    betas=[&quot;server-side-fallback-2026-07-01&quot;],
+    fallbacks=&quot;default&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: f&quot;{documents}\n\n&lt;question&gt;{question}&lt;/question&gt;&quot;}],
+    output_format=GroundedAnswer,
+)
+result = response.parsed_output        # a validated GroundedAnswer (or None if the model refused)</code></pre>
+<p>What each setting is for:</p>
+<ul><li><strong><code>output_format</code></strong>: the reply must match the schema; the SDK validates it into a Pydantic object.</li><li><strong><code>output_config={&quot;effort&quot;: &quot;low&quot;}</code></strong>: short factual answers don't need much reasoning; lower effort is faster and cheaper. Measure quality on your evaluation set before lowering it for harder tasks.</li><li><strong><code>fallbacks=&quot;default&quot;</code></strong> (with its beta flag): if the model declines a request for safety reasons, the API automatically retries it on a fallback model within the same call. Your code must still check <code>stop_reason == &quot;refusal&quot;</code>, because the whole chain can decline.</li></ul>
+<p>The handbook verified this exact request against SDK 2.12 with a local stand-in server: it sends the <code>anthropic-beta: server-side-fallback-2026-07-01</code> header, <code>fallbacks: &quot;default&quot;</code>, <code>effort: &quot;low&quot;</code> and a <code>json_schema</code> output format.</p>
+<h2 id="streaming">Streaming</h2>
+<p>For chat interfaces, show text as it arrives:</p>
+<pre><code>with client.messages.stream(
+    model=&quot;claude-opus-5-5&quot;,
+    max_tokens=64000,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: question}],
+) as stream:
+    for text in stream.text_stream:
+        print(text, end=&quot;&quot;, flush=True)
+    final = stream.get_final_message()   # the complete message, with usage and stop_reason</code></pre>
+<p>Use streaming whenever replies may be long. It also avoids request timeouts on long generations.</p>
+<h2 id="errors-and-retries">Errors and retries</h2>
+<p>The SDK retries connection errors, 429 (rate limited) and 5xx responses automatically (2 retries by default). Handle what's left specifically, most specific first:</p>
+<pre><code>try:
+    response = client.messages.create(...)
+except anthropic.RateLimitError:
+    ...   # back off; show &quot;busy, try again&quot;
+except anthropic.APIStatusError as error:
+    if error.status_code &gt;= 500:
+        ...   # provider problem: fall back to the offline answerer
+    else:
+        raise  # 400s are our bug: log and fix
+except anthropic.APIConnectionError:
+    ...   # network: fall back</code></pre>
+<p><strong>Design for the provider being down.</strong> AdmitFlow falls back to its offline engine; a draft request falls back to the template. The core system must keep working without the model.</p>
+<h2 id="prompt-structure-that-works">Prompt structure that works</h2>
+<ul><li><strong>System prompt:</strong> role, audience, rules, output expectations. Keep it stable (it can be cached; Lesson 08).</li><li><strong>Data in tags:</strong> wrap retrieved documents, user questions and records in clear tags (<code>&lt;documents&gt;</code>, <code>&lt;question&gt;</code>, <code>&lt;lead_record&gt;</code>), and say that tag contents are data, not instructions (Lesson 07).</li><li><strong>Be specific about failure:</strong> "If the documents don't contain the answer, set answerable=false" works better than "don't make things up."</li><li><strong>Version prompts in Git</strong> next to the code, and re-run the evaluation whenever they change.</li></ul>
+<h2 id="model-choice-in-code">Model choice in code</h2>
+<p>Keep the model ID in one place (<code>MODEL = &quot;claude-opus-5-5&quot;</code> in <code>llm.py</code>), and record it with every output (AdmitFlow stores <code>engine</code> on drafts). When a new model comes out, change one line, then run the evaluation.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write a function <code>classify_enquiry(text) -&gt; {&quot;course&quot;: str | None, &quot;wants_callback&quot;: bool, &quot;language&quot;: str}</code> using structured outputs. Then write three unit tests that use a fake client (see <code>FakeClient</code> in <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/tests/test_assistant.py"><code>tests/test_assistant.py</code></a>) so they run without network or cost.</p>
+<p>Next: <a href="modules-08-generative-ai-engineering-lessons-03-rag.html">Lesson 03 — Retrieval-augmented generation</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-08-generative-ai-engineering-lessons-01-how-llms-work.html">← Lesson 01 — How large language models work (for builders)</a><a class="btn ghost" href="modules-08-generative-ai-engineering-lessons-03-rag.html">Lesson 03 — Retrieval-augmented generation (RAG) →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

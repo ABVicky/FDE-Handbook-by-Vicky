@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: ~3 hours · Core (awareness) / Stretch (hands-on with a developer account)">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-07-enterprise-platforms.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: ~3 hours · Core (awareness) / Stretch (hands-on with a developer account)">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-07-enterprise-platforms.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: ~3 hours · Core (awareness) / Stretch (hands-on with a developer account)">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms", "description": "Time: ~3 hours · Core (awareness) / Stretch (hands-on with a developer account)", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-07-enterprise-platforms.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/07-enterprise-platforms.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 09</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/07-enterprise-platforms.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#what-to-ask-for-whatever-the-platform">What to ask for, whatever the platform</a></li><li><a href="#the-platforms">The platforms</a></li><li><a href="#low-code-clients">Low-code clients</a></li><li><a href="#working-inside-a-platform-vs-alongside-it">Working inside a platform vs. alongside it</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong> (awareness) / <em>Stretch</em> (hands-on with a developer account)</p>
+<p>You won't master these platforms in a module. The goal is to recognize them, know how they're usually integrated, and know what to ask for on day one.</p>
+<h2 id="what-to-ask-for-whatever-the-platform">What to ask for, whatever the platform</h2>
+<ol><li>A <strong>sandbox / developer environment</strong>, never production for development</li><li>An <strong>integration user or service account</strong> with the minimum permissions, plus who approves it</li><li>The <strong>API limits</strong> for the client's licence (calls per day, bulk limits)</li><li>Their <strong>custom objects and fields</strong> (every enterprise customizes heavily)</li><li>The <strong>admin contact</strong> for the platform, and their change process</li></ol>
+<h2 id="the-platforms">The platforms</h2>
+<div class="table-wrap"><table><thead><tr><th>Platform</th><th>What it is</th><th>Integration surfaces</th><th>FDE notes</th></tr></thead><tbody><tr><td><strong>Salesforce</strong></td><td>CRM and much more; huge ecosystem</td><td>REST &amp; SOAP APIs, Bulk API, Streaming/Platform Events, Apex code, Flows</td><td>Strict per-org API limits; objects heavily customized; Connected Apps for OAuth</td></tr><tr><td><strong>HubSpot</strong></td><td>Marketing/sales CRM, common in mid-size orgs</td><td>REST APIs (contacts, deals…), webhooks, private-app tokens</td><td>Search API is eventually consistent; custom properties needed for your fields</td></tr><tr><td><strong>Microsoft Dynamics 365 / Power Platform</strong></td><td>CRM/ERP plus low-code (Power Apps, Power Automate) on Dataverse</td><td>Dataverse Web API (OData), Power Automate connectors, Entra ID auth</td><td>Expect Entra ID everywhere; clients often want your API exposed as a connector</td></tr><tr><td><strong>SAP</strong></td><td>ERP: finance, procurement, HR, supply chain</td><td>OData/REST via SAP BTP, BAPIs/RFCs, IDocs, SAP Integration Suite</td><td>Slow-moving and change-controlled; always integrate through the client's SAP team</td></tr><tr><td><strong>ServiceNow</strong></td><td>IT service management and workflows</td><td>REST Table API, Scripted REST, IntegrationHub, webhooks</td><td>Great place to raise tickets and approvals from AI workflows</td></tr><tr><td><strong>Palantir Foundry / AIP</strong></td><td>Data integration and operational platform with an ontology; AIP adds LLM capabilities</td><td>Platform SDKs, ontology actions, pipelines</td><td>Often the client's system of record for integrated data; FDE work happens <em>inside</em> it</td></tr><tr><td><strong>Snowflake / Databricks / BigQuery</strong></td><td>Data warehouses and lakehouses</td><td>SQL, connectors, platform-native apps and ML</td><td>Read from curated tables; respect the data team's governance</td></tr></tbody></table></div>
+<h2 id="low-code-clients">Low-code clients</h2>
+<p>Many organizations build workflows themselves in Power Automate, Zapier or Salesforce Flow. A clean, documented REST API with an OpenAPI spec (FastAPI generates <code>/openapi.json</code>) lets them connect your system without you. That's a strong handover asset.</p>
+<h2 id="working-inside-a-platform-vs-alongside-it">Working inside a platform vs. alongside it</h2>
+<ul><li><strong>Alongside:</strong> your own service (like AdmitFlow) integrates with the platform via its API. More freedom; more to operate.</li><li><strong>Inside:</strong> you build within the platform (Salesforce Apex/Flows, Power Apps, Foundry). Less infrastructure, more vendor coupling, and the client's admins can maintain it.</li></ul>
+<p>Choose with the client's team. Who will maintain this in two years is usually the deciding question.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Create a free developer account on one platform (HubSpot developer test account, Salesforce Developer Edition, or a ServiceNow Personal Developer Instance). Create one custom field, then create and update a record through its API with a script. Note: auth method, rate limits, how errors look, and how long setup took.</p>
+<p>Next: <a href="modules-09-enterprise-integration-lessons-08-mcp.html">Lesson 08 — Model Context Protocol: giving AI safe access to systems</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-09-enterprise-integration-lessons-06-permissions-and-audit.html">← Lesson 06 — Permissions, multi-tenancy and audit</a><a class="btn ghost" href="modules-09-enterprise-integration-lessons-08-mcp.html">Lesson 08 — Model Context Protocol: giving AI safe access to systems →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

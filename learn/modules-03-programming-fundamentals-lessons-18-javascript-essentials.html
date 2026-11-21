@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 18 — JavaScript essentials | FDE Handbook by Vicky</title>
+<meta name="description" content="Every web dashboard you build (Module 04) runs JavaScript in the browser. Many client systems, webhooks and automation tools also use JavaScript or…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-18-javascript-essentials.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 18 — JavaScript essentials | FDE Handbook by Vicky">
+<meta property="og:description" content="Every web dashboard you build (Module 04) runs JavaScript in the browser. Many client systems, webhooks and automation tools also use JavaScript or…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-18-javascript-essentials.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 18 — JavaScript essentials | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Every web dashboard you build (Module 04) runs JavaScript in the browser. Many client systems, webhooks and automation tools also use JavaScript or…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 18 — JavaScript essentials", "description": "Every web dashboard you build (Module 04) runs JavaScript in the browser. Many client systems, webhooks and automation tools also use JavaScript or…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-18-javascript-essentials.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/18-javascript-essentials.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/18-javascript-essentials.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#running-javascript">Running JavaScript</a></li><li><a href="#python--javascript-cheat-sheet">Python → JavaScript cheat sheet</a></li><li><a href="#gotchas-for-python-programmers">Gotchas for Python programmers</a></li><li><a href="#arrays-and-objects">Arrays and objects</a></li><li><a href="#modules">Modules</a></li><li><a href="#promises-and-asyncawait">Promises and async/await</a></li><li><a href="#the-dom-briefly">The DOM, briefly</a></li><li><a href="#npm">npm</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 18 — JavaScript essentials</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Every web dashboard you build (Module 04) runs JavaScript in the browser. Many client systems, webhooks and automation tools also use JavaScript or TypeScript on the server (Node.js). You don't need to be a JavaScript expert yet, but you must be able to read it, write small programs, and call APIs with it.</p>
+<p>You already know how to program. Most concepts carry over from Python; this lesson focuses on the differences.</p>
+<h2 id="running-javascript">Running JavaScript</h2>
+<ul><li><strong>In the browser:</strong> open Developer Tools (<kbd>F12</kbd>) → <em>Console</em>.</li><li><strong>With Node.js</strong> (install from https://nodejs.org, LTS version):</li></ul>
+<pre><code>  node --version</code></pre>
+<pre><code>  node hello.js</code></pre>
+<h2 id="python--javascript-cheat-sheet">Python → JavaScript cheat sheet</h2>
+<div class="table-wrap"><table><thead><tr><th>Python</th><th>JavaScript</th></tr></thead><tbody><tr><td><code>name = &quot;Zoë&quot;</code></td><td><code>const name = &quot;Zoë&quot;;</code> (or <code>let</code> if it will change)</td></tr><tr><td><code>None</code></td><td><code>null</code> (and <code>undefined</code> for "never set")</td></tr><tr><td><code>True</code> / <code>False</code></td><td><code>true</code> / <code>false</code></td></tr><tr><td><code>f&quot;Hi {name}&quot;</code></td><td>`<code> </code>Hi ${name}<code> </code>` (backticks)</td></tr><tr><td><code>print(x)</code></td><td><code>console.log(x)</code></td></tr><tr><td><code>len(items)</code></td><td><code>items.length</code></td></tr><tr><td><code>items.append(x)</code></td><td><code>items.push(x)</code></td></tr><tr><td><code>dict</code> <code>{&quot;a&quot;: 1}</code></td><td>object <code>{ a: 1 }</code></td></tr><tr><td><code>if x == 1:</code></td><td><code>if (x === 1) { … }</code></td></tr><tr><td><code>for x in items:</code></td><td><code>for (const x of items) { … }</code></td></tr><tr><td><code>def f(a, b=2):</code></td><td><code>function f(a, b = 2) { … }</code> or <code>const f = (a, b = 2) =&gt; …</code></td></tr><tr><td><code>[x * 2 for x in xs if x &gt; 1]</code></td><td><code>xs.filter(x =&gt; x &gt; 1).map(x =&gt; x * 2)</code></td></tr><tr><td><code>import json</code> / <code>json.loads(s)</code></td><td><code>JSON.parse(s)</code> (built in)</td></tr></tbody></table></div>
+<h2 id="gotchas-for-python-programmers">Gotchas for Python programmers</h2>
+<pre><code>// Always use === (strict equality). == does surprising type conversions.
+0 == &quot;0&quot;;     // true  😬
+0 === &quot;0&quot;;    // false ✅
+
+// const means the variable can&#x27;t be reassigned, not that the object can&#x27;t change
+const lead = { name: &quot;Grace&quot; };
+lead.name = &quot;Grace Patel&quot;;   // allowed
+
+// Missing properties are undefined, not an error
+lead.phone;                  // undefined
+lead.phone?.trim();          // undefined: optional chaining avoids a crash
+lead.phone ?? &quot;no phone&quot;;    // &quot;no phone&quot;: default for null/undefined
+
+// Numbers: one type, floating point
+0.1 + 0.2;                   // 0.30000000000000004</code></pre>
+<h2 id="arrays-and-objects">Arrays and objects</h2>
+<pre><code>const leads = [
+  { name: &quot;Grace Patel&quot;, source: &quot;website&quot;, hours: 30 },
+  { name: &quot;Omar Ali&quot;, source: &quot;ad&quot;, hours: 2 },
+];
+
+const late = leads.filter((l) =&gt; l.hours &gt; 24).map((l) =&gt; l.name);    // [&quot;Grace Patel&quot;]
+
+const bySource = {};
+for (const l of leads) {
+  bySource[l.source] = (bySource[l.source] ?? 0) + 1;
+}
+console.log(bySource);    // { website: 1, ad: 1 }
+
+const { name, source } = leads[0];   // destructuring
+const copy = { ...leads[0], hours: 0 };   // spread: copy with a change</code></pre>
+<h2 id="modules">Modules</h2>
+<pre><code>// normalize.js
+export function normalizeEmail(value) {
+  return value.trim().toLowerCase();
+}
+
+// main.js
+import { normalizeEmail } from &quot;./normalize.js&quot;;</code></pre>
+<p>(For <code>import</code> to work in Node, name files <code>.mjs</code> or add <code>&quot;type&quot;: &quot;module&quot;</code> to <code>package.json</code>.)</p>
+<h2 id="promises-and-asyncawait">Promises and async/await</h2>
+<p>JavaScript is built around non-blocking I/O, so network calls return a <strong>Promise</strong>, a value that will arrive later. Use <code>async</code>/<code>await</code>, just like Python (Lesson 15):</p>
+<pre><code>async function getRepo() {
+  const response = await fetch(&quot;https://api.github.com/repos/python/cpython&quot;);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  const data = await response.json();
+  return data.full_name;
+}
+
+getRepo()
+  .then((name) =&gt; console.log(name))
+  .catch((err) =&gt; console.error(&quot;failed:&quot;, err.message));</code></pre>
+<p>Concurrent requests: <code>await Promise.all([fetch(a), fetch(b)])</code>, the equivalent of <code>asyncio.gather</code>.</p>
+<h2 id="the-dom-briefly">The DOM, briefly</h2>
+<p>In a browser, JavaScript changes the page through the <strong>DOM</strong> (Document Object Model):</p>
+<pre><code>&lt;button id=&quot;load&quot;&gt;Load leads&lt;/button&gt;
+&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
+&lt;script&gt;
+  document.querySelector(&quot;#load&quot;).addEventListener(&quot;click&quot;, async () =&gt; {
+    const leads = await (await fetch(&quot;/leads.json&quot;)).json();
+    const list = document.querySelector(&quot;#list&quot;);
+    list.innerHTML = &quot;&quot;;
+    for (const lead of leads) {
+      const li = document.createElement(&quot;li&quot;);
+      li.textContent = `${lead.name} (${lead.course})`;   // textContent, never innerHTML, for data
+      list.appendChild(li);
+    }
+  });
+&lt;/script&gt;</code></pre>
+<p>Use <code>textContent</code> for data: putting user-supplied text into <code>innerHTML</code> lets attackers inject scripts (cross-site scripting, covered in Module 10). In Module 04, React handles the DOM for you.</p>
+<h2 id="npm">npm</h2>
+<p><code>npm</code> is JavaScript's package manager, like pip:</p>
+<pre><code>npm init -y</code></pre>
+<pre><code>npm install date-fns</code></pre>
+<p>Dependencies are recorded in <code>package.json</code>; installed code goes in <code>node_modules/</code> (never commit it).</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write <code>stats.mjs</code> that reads an AdmitFlow JSON export (<code>leads.json</code>, created by <code>admitflow import</code>) with <code>import { readFile } from &quot;node:fs/promises&quot;</code> and prints the number of leads per course, highest first. (Exercise set 05 walks through this.)</p>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-19-typescript-basics.html">Lesson 19 — TypeScript basics</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-17-git-and-github.html">← Lesson 17 — Git and GitHub</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-19-typescript-basics.html">Lesson 19 — TypeScript basics →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

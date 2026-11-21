@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI workflow and agent patterns cookbook | FDE Handbook by Vicky</title>
+<meta name="description" content="AI workflow and agent patterns cookbook, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/cookbooks-agent-patterns-readme.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="AI workflow and agent patterns cookbook | FDE Handbook by Vicky">
+<meta property="og:description" content="AI workflow and agent patterns cookbook, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/cookbooks-agent-patterns-readme.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI workflow and agent patterns cookbook | FDE Handbook by Vicky">
+<meta name="twitter:description" content="AI workflow and agent patterns cookbook, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "AI workflow and agent patterns cookbook", "description": "AI workflow and agent patterns cookbook, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/cookbooks-agent-patterns-readme.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#cookbooks/agent-patterns/README.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Cookbooks</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#cookbooks/agent-patterns/README.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+
+<h1>AI workflow and agent patterns cookbook</h1>
+<div class="table-wrap"><table><thead><tr><th>Recipe</th><th>Use when</th><th>Code</th><th>Lesson</th></tr></thead><tbody><tr><td><strong>Grounded answer with verified citations</strong></td><td>Q&amp;A over the client's documents</td><td><code>ClaudeAnswerer</code> + <code>_grounded</code> in <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/llm.py"><code>llm.py</code></a></td><td><a href="modules-08-generative-ai-engineering-lessons-03-rag.html">M08 L03</a></td></tr><tr><td><strong>Offline fallback engine</strong></td><td>The model must never be a single point of failure</td><td><code>ExtractiveAnswerer</code>, <code>TemplateDrafter</code></td><td>M08 L02</td></tr><tr><td><strong>Structured output</strong></td><td>Code consumes the model's answer</td><td><code>client.beta.messages.parse(..., output_format=Model)</code> in <code>llm.py</code></td><td><a href="modules-08-generative-ai-engineering-lessons-02-calling-llm-apis.html">M08 L02</a></td></tr><tr><td><strong>Draft-and-approve workflow</strong></td><td>The model proposes an action with side effects</td><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/assistant.py"><code>assistant.py</code></a> + <code>/drafts/{id}/approve</code></td><td><a href="modules-08-generative-ai-engineering-lessons-05-tools-and-agents.html">M08 L05</a></td></tr><tr><td><strong>Manual tool-use loop</strong></td><td>The model needs to look things up in several steps</td><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/08-generative-ai-engineering/exercises/solutions/tool_loop.py"><code>tool_loop.py</code></a></td><td>M08 L05</td></tr><tr><td><strong>Scoped MCP server</strong></td><td>Letting AI apps use your system as one user</td><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/mcp_server.py"><code>mcp_server.py</code></a></td><td><a href="modules-09-enterprise-integration-lessons-08-mcp.html">M09 L08</a></td></tr><tr><td><strong>Evaluation in CI</strong></td><td>Any AI feature you'll change over time</td><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/evals.py"><code>evals.py</code></a>, <code>test_evaluation_meets_the_bar</code></td><td><a href="modules-08-generative-ai-engineering-lessons-06-evaluation.html">M08 L06</a></td></tr><tr><td><strong>Fake model client for tests</strong></td><td>Testing model-backed code without network or cost</td><td><code>FakeClient</code> in <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/tests/test_assistant.py"><code>tests/test_assistant.py</code></a></td><td>M08 L02</td></tr><tr><td><strong>Circuit breaker around a provider</strong></td><td>Provider outages shouldn't slow every request</td><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/10-production-security-reliability/exercises/solutions/circuit_breaker.py"><code>circuit_breaker.py</code></a></td><td>M10 L06</td></tr><tr><td><strong>Data minimization before the model</strong></td><td>Personal data in prompts</td><td><code>redact</code> in <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/privacy.py"><code>privacy.py</code></a></td><td>M10 L02</td></tr></tbody></table></div>
+<h2 id="rules-of-thumb">Rules of thumb</h2>
+<ul><li>Start with a single call; use a workflow when steps are known; use an agent only when the task needs the model to choose.</li><li>Facts come from systems and documents; the model writes around them.</li><li>The model can't do anything dangerous if no tool lets it.</li><li>No evaluation, no launch.</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="case-studies-03-hospital-policies.html">← Case 03 — Permissions first</a><a class="btn ghost" href="cookbooks-integration-patterns-readme.html">Integration patterns cookbook →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Indexes, query plans and transactions | FDE Handbook by Vicky</title>
+<meta name="description" content="Two of the most common production problems an FDE gets called about: &quot;the report has become unbearably slow&quot; and &quot;the numbers don&#x27;t add up after the…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-04-indexes-and-transactions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Indexes, query plans and transactions | FDE Handbook by Vicky">
+<meta property="og:description" content="Two of the most common production problems an FDE gets called about: &quot;the report has become unbearably slow&quot; and &quot;the numbers don&#x27;t add up after the…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-04-indexes-and-transactions.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Indexes, query plans and transactions | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Two of the most common production problems an FDE gets called about: &quot;the report has become unbearably slow&quot; and &quot;the numbers don&#x27;t add up after the…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Indexes, query plans and transactions", "description": "Two of the most common production problems an FDE gets called about: \"the report has become unbearably slow\" and \"the numbers don't add up after the…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-lessons-04-indexes-and-transactions.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/04-indexes-and-transactions.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/lessons/04-indexes-and-transactions.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#indexes">Indexes</a></li><li><a href="#reading-a-query-plan">Reading a query plan</a></li><li><a href="#transactions">Transactions</a></li><li><a href="#concurrency-briefly">Concurrency, briefly</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Indexes, query plans and transactions</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Two of the most common production problems an FDE gets called about: "the report has become unbearably slow" and "the numbers don't add up after the import crashed." Indexes fix the first; transactions prevent the second.</p>
+<h2 id="indexes">Indexes</h2>
+<p>Without an index, finding rows means reading the whole table (a <strong>scan</strong>). An <strong>index</strong> is a sorted structure (usually a B-tree) that lets the database jump to matching rows, like the index at the back of a book.</p>
+<pre><code>CREATE INDEX ix_notes_lead_created ON notes (lead_id, created_at);</code></pre>
+<p>Index the columns you <strong>filter, join and sort on</strong>: foreign keys (<code>notes.lead_id</code>), common filters (<code>leads.status</code>), lookup columns (<code>leads.email</code>).</p>
+<h3 id="composite-indexes-order-matters">Composite indexes: order matters</h3>
+<p>An index on <code>(lead_id, created_at)</code> helps:</p>
+<ul><li><code>WHERE lead_id = ?</code> ✅</li><li><code>WHERE lead_id = ? AND created_at &gt;= ?</code> ✅ (best)</li><li><code>WHERE created_at &gt;= ?</code> ❌ (it's sorted by lead_id first)</li></ul>
+<h3 id="things-that-stop-an-index-being-used">Things that stop an index being used</h3>
+<pre><code>WHERE date(created_at) &gt;= &#x27;2026-11-06&#x27;   -- ❌ a function on the column: must compute for every row
+WHERE created_at &gt;= &#x27;2026-11-06&#x27;         -- ✅ compare the raw column to a value
+WHERE lower(email) = &#x27;a@b.com&#x27;           -- ❌ unless you have an index on lower(email)
+WHERE email LIKE &#x27;%@example.com&#x27;         -- ❌ leading wildcard</code></pre>
+<h3 id="indexes-arent-free">Indexes aren't free</h3>
+<p>Each index slows down inserts and updates slightly and uses disk. Don't index everything; index what queries need, and measure.</p>
+<h2 id="reading-a-query-plan">Reading a query plan</h2>
+<p>Ask the database how it will run a query:</p>
+<pre><code>EXPLAIN QUERY PLAN SELECT ...;   -- SQLite
+EXPLAIN ANALYZE SELECT ...;      -- PostgreSQL: actually runs it and shows real timings</code></pre>
+<p>From this module's break &amp; fix:</p>
+<pre><code>SCAN l
+CORRELATED SCALAR SUBQUERY 1
+SCAN n                                   ← reads every note, once per lead!   (26.5 s)</code></pre>
+<p>After adding the index and removing <code>date()</code>:</p>
+<pre><code>SCAN l
+CORRELATED SCALAR SUBQUERY 1
+SEARCH n USING COVERING INDEX ix_notes_lead_created (lead_id=? AND created_at&gt;?)   (0.007 s)</code></pre>
+<p><code>SCAN</code> on a big table inside a loop is the red flag. <code>SEARCH ... USING INDEX</code> is what you want. "Covering" means the index alone answered the question, without even reading the table.</p>
+<h2 id="transactions">Transactions</h2>
+<p>A <strong>transaction</strong> groups changes so they happen <strong>all or nothing</strong>:</p>
+<pre><code>BEGIN;
+UPDATE leads SET status = &#x27;enrolled&#x27;, student_no = &#x27;NB260010&#x27; WHERE lead_id = &#x27;ENQ-0042&#x27;;
+INSERT INTO notes (lead_id, author, text, created_at) VALUES (&#x27;ENQ-0042&#x27;, &#x27;system&#x27;, &#x27;Enrolled&#x27;, &#x27;2026-10-10&#x27;);
+COMMIT;      -- or ROLLBACK; to undo everything since BEGIN</code></pre>
+<p>The <strong>ACID</strong> guarantees:</p>
+<ul><li><strong>Atomic:</strong> all or nothing</li><li><strong>Consistent:</strong> constraints hold before and after</li><li><strong>Isolated:</strong> concurrent transactions don't see each other's half-done work</li><li><strong>Durable:</strong> once committed, it survives a crash</li></ul>
+<p>In SQLAlchemy:</p>
+<pre><code>with repo.session() as s, s.begin():   # commits at the end, rolls back on any exception
+    for lead in leads:
+        ...</code></pre>
+<p><code>SqlRepository.add_leads</code> loads a whole file in one transaction: if row 3,000 fails, none of the file is half-loaded.</p>
+<p><strong>Keep transactions short.</strong> A transaction left open (say, waiting for a user or an API call) holds locks and blocks other users.</p>
+<h2 id="concurrency-briefly">Concurrency, briefly</h2>
+<p>Two counsellors update the same lead at once: who wins? Options:</p>
+<ul><li><strong>Last write wins</strong> (simple; usually fine for status changes)</li><li><strong>Optimistic locking:</strong> a <code>version</code> column; update <code>WHERE lead_id = ? AND version = ?</code>, and if 0 rows changed, someone else got there first</li><li><code>SELECT ... FOR UPDATE</code> (PostgreSQL): lock the row while you work on it</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>Run the <a href="modules-05-databases-and-data-engineering-break-and-fix-readme.html">break &amp; fix</a> and read both query plans yourself.</li><li>Which indexes does <code>SqlRepository</code> define, and which query does each one serve? (Read <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/db.py"><code>db.py</code></a>.)</li></ol>
+<p>Next: <a href="modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">Lesson 05 — Python and databases: SQLAlchemy and migrations</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-03-analytical-sql.html">← Lesson 03 — Analytical SQL: CTEs and window functions</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">Lesson 05 — Python and databases: SQLAlchemy and migrations →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — Training models with scikit-learn | FDE Handbook by Vicky</title>
+<meta name="description" content="(Or pip install -e &quot;.[ml]&quot; in projects/admitflow.)">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-03-training-models.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — Training models with scikit-learn | FDE Handbook by Vicky">
+<meta property="og:description" content="(Or pip install -e &quot;.[ml]&quot; in projects/admitflow.)">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-03-training-models.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — Training models with scikit-learn | FDE Handbook by Vicky">
+<meta name="twitter:description" content="(Or pip install -e &quot;.[ml]&quot; in projects/admitflow.)">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — Training models with scikit-learn", "description": "(Or pip install -e \".[ml]\" in projects/admitflow.)", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-03-training-models.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/03-training-models.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 07</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/03-training-models.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#pipelines-preprocessing--model-as-one-object">Pipelines: preprocessing + model as one object</a></li><li><a href="#models-worth-knowing">Models worth knowing</a></li><li><a href="#overfitting-and-underfitting">Overfitting and underfitting</a></li><li><a href="#cross-validation">Cross-validation</a></li><li><a href="#the-admitflow-implementation">The AdmitFlow implementation</a></li><li><a href="#reproducibility">Reproducibility</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — Training models with scikit-learn</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<pre><code>python -m pip install &quot;scikit-learn&gt;=1.5&quot; pandas joblib</code></pre>
+<p>(Or <code>pip install -e &quot;.[ml]&quot;</code> in <code>projects/admitflow</code>.)</p>
+<h2 id="pipelines-preprocessing--model-as-one-object">Pipelines: preprocessing + model as one object</h2>
+<pre><code>from sklearn.compose import ColumnTransformer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
+
+CATEGORICAL = [&quot;primary_source&quot;, &quot;course&quot;]
+NUMERIC = [&quot;extra_channels&quot;, &quot;has_email&quot;, &quot;has_phone&quot;, &quot;out_of_hours&quot;]
+
+pipeline = Pipeline([
+    (&quot;features&quot;, ColumnTransformer([
+        (&quot;categorical&quot;, OneHotEncoder(handle_unknown=&quot;ignore&quot;), CATEGORICAL),
+        (&quot;numeric&quot;, &quot;passthrough&quot;, NUMERIC),
+    ])),
+    (&quot;model&quot;, LogisticRegression(max_iter=1000)),
+])
+
+pipeline.fit(X_train, y_train)
+probabilities = pipeline.predict_proba(X_test)[:, 1]</code></pre>
+<p>Why a pipeline:</p>
+<ul><li>Preprocessing is <strong>learned from training data only</strong>, which prevents contamination.</li><li>The saved object contains everything needed to score a new lead.</li><li><code>handle_unknown=&quot;ignore&quot;</code>: a course the model never saw doesn't crash it.</li></ul>
+<h2 id="models-worth-knowing">Models worth knowing</h2>
+<div class="table-wrap"><table><thead><tr><th>Model</th><th>How it works (intuition)</th><th>Strengths</th><th>Weaknesses</th></tr></thead><tbody><tr><td><strong>Logistic regression</strong></td><td>Weighted sum of features → probability</td><td>Fast, stable, explainable, good with little data</td><td>Misses interactions unless you add them</td></tr><tr><td><strong>Decision tree</strong></td><td>A flowchart of yes/no questions</td><td>Easy to read</td><td>Overfits easily</td></tr><tr><td><strong>Random forest</strong></td><td>Many trees voting</td><td>Strong default, little tuning</td><td>Less explainable, larger</td></tr><tr><td><strong>Gradient boosting</strong> (sklearn, XGBoost, LightGBM)</td><td>Trees added one by one to fix errors</td><td>Often the best on tabular data</td><td>Needs care to avoid overfitting</td></tr></tbody></table></div>
+<p>Start with logistic regression. Move to trees or boosting only if they clearly win on your validation data. In AdmitFlow's case they don't (<a href="modules-07-ai-and-machine-learning-exercises-02-compare-models.html">Exercise 02</a>): the data, not the algorithm, is the limit.</p>
+<h2 id="overfitting-and-underfitting">Overfitting and underfitting</h2>
+<ul><li><strong>Overfitting:</strong> learns noise in the training data; great on train, poor on test.</li><li><strong>Underfitting:</strong> too simple to capture real patterns; poor on both.</li></ul>
+<p>Compare training and test scores. A big gap means overfitting. Fix it with simpler models, regularization (<code>C</code> in logistic regression, <code>min_samples_leaf</code> in trees), or more data.</p>
+<h2 id="cross-validation">Cross-validation</h2>
+<p>When data is limited, <code>cross_val_score</code> trains and tests on several splits and averages them, giving a steadier estimate for <strong>choosing between options</strong>. Keep a final, untouched test set (for AdmitFlow, the 2025 intake) for the honest final number.</p>
+<h2 id="the-admitflow-implementation">The AdmitFlow implementation</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/scoring.py"><code>admitflow/scoring.py</code></a>:</p>
+<pre><code>admitflow train-model data/historical_leads.csv --out models/lead_score.joblib</code></pre>
+<pre><code>            ROC AUC  prec@20%   Brier
+baseline      0.609     0.143  0.0949
+model         0.605     0.157  0.0942
+
+enrolment rate by time to first contact (descriptive, all history):
+  under 1 hour     159 leads  14.5%
+  1–24 hours      1580 leads  16.3%
+  24–72 hours      734 leads  8.4%
+  over 72 hours    527 leads  2.5%</code></pre>
+<p>Lesson 04 explains each number, and why this result leads to the decision in <a href="projects-admitflow-docs-adr-004-lead-scoring.html">ADR-004</a>.</p>
+<h2 id="reproducibility">Reproducibility</h2>
+<p>Fix random seeds (<code>random_state=…</code>), pin library versions, record the data file and its checksum, and save metrics with the model. AdmitFlow writes <code>lead_score.json</code> next to the model: version, training date, features, row counts, metrics.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Train a <code>RandomForestClassifier</code> with the same features and split. Compare train and test AUC. Is it overfitting? Try <code>min_samples_leaf=20</code> and compare again.</p>
+<p>Next: <a href="modules-07-ai-and-machine-learning-lessons-04-evaluation.html">Lesson 04 — Evaluating models honestly</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-07-ai-and-machine-learning-lessons-02-data-for-ml.html">← Lesson 02 — Data for machine learning: features, labels, splits and leakage</a><a class="btn ghost" href="modules-07-ai-and-machine-learning-lessons-04-evaluation.html">Lesson 04 — Evaluating models honestly →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

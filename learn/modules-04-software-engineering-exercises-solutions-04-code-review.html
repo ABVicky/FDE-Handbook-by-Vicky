@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise 04 — Model review | FDE Handbook by Vicky</title>
+<meta name="description" content="Overall: Request changes. The idea is useful, but this endpoint exposes every student&#x27;s contact details to anyone on the internet.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-04-code-review.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Exercise 04 — Model review | FDE Handbook by Vicky">
+<meta property="og:description" content="Overall: Request changes. The idea is useful, but this endpoint exposes every student&#x27;s contact details to anyone on the internet.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-04-code-review.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise 04 — Model review | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Overall: Request changes. The idea is useful, but this endpoint exposes every student&#x27;s contact details to anyone on the internet.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Exercise 04 — Model review", "description": "Overall: Request changes. The idea is useful, but this endpoint exposes every student's contact details to anyone on the internet.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-exercises-solutions-04-code-review.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/exercises/solutions/04-code-review.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/exercises/solutions/04-code-review.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+
+<h1>Exercise 04 — Model review</h1>
+<p><strong>Overall: Request changes.</strong> The idea is useful, but this endpoint exposes every student's contact details to anyone on the internet.</p>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Severity</th><th>Issue</th><th>Why it matters</th><th>Suggested fix</th></tr></thead><tbody><tr><td>1</td><td>🔴 Critical</td><td><strong>No authentication</strong>: no <code>current_user</code> dependency</td><td>Anyone who finds <code>/export</code> downloads all names, phones and emails, which is a data-protection breach</td><td>Add <code>Depends(require_admin)</code> (the director/admin only), plus a test that it returns <code>401</code>/<code>403</code></td></tr><tr><td>2</td><td>🔴 High</td><td><strong>Personal data printed to stdout</strong> (<code>print(&quot;exported&quot;, rows)</code>)</td><td>Logs are kept, copied and shared; now they contain every student's contact details</td><td>Remove it. If needed, log <code>exported %d leads</code> with the count only</td></tr><tr><td>3</td><td>🟠 High</td><td><strong>Hand-built CSV</strong></td><td>Names like <code>&quot;Lee, Chloe&quot;</code> or with quotes break the columns; values starting with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code> can execute as formulas in Excel (CSV injection)</td><td>Use <code>csv.writer</code> (or the existing <code>store.export_csv</code>), and prefix risky leading characters with <code>&#x27;</code></td></tr><tr><td>4</td><td>🟠 Medium</td><td><strong>Silently truncated to 100 leads</strong> (<code>limit=100</code>)</td><td>The director gets a partial file and thinks it's complete</td><td>Export everything (stream it if large), or paginate explicitly and say so</td></tr><tr><td>5</td><td>🟡 Medium</td><td><code>None</code> written as the text <code>None</code></td><td>Spreadsheet shows "None" for missing phones</td><td>Write empty strings for missing values</td></tr><tr><td>6</td><td>🟡 Medium</td><td>No <code>Content-Disposition</code> header; not UTF-8 BOM</td><td>Browser may display rather than download; Excel garbles <code>Nguyễn</code></td><td><code>Content-Disposition: attachment; filename=&quot;leads.csv&quot;</code>, encode <code>utf-8-sig</code></td></tr><tr><td>7</td><td>🟡 Low</td><td>String concatenation in a loop</td><td>Quadratic-ish for big exports</td><td><code>csv.writer</code> into <code>io.StringIO</code>, or a <code>StreamingResponse</code></td></tr><tr><td>8</td><td>⚪ Process</td><td>No tests, vague description</td><td>Reviewers can't tell what was checked</td><td>Tests for auth, quoting, full export; description with what/why/how tested</td></tr></tbody></table></div>
+<p><strong>Comment to the author (tone matters):</strong></p>
+<blockquote><p>Thanks, the director will love this. Before merging, could we lock it to admins and drop the <code>print</code>? Right now it would expose all student contacts publicly. I'd also suggest reusing <code>store.export_csv</code>, which already handles quoting and Excel encoding. Happy to pair on the tests if useful.</p></blockquote>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-exercises-solutions-01-api-design.html">← Exercise 01 — Model answer: campus-visits API</a><a class="btn ghost" href="modules-04-software-engineering-break-and-fix-readme.html">Module 04 — Break &amp; Fix: The inherited follow-up service →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

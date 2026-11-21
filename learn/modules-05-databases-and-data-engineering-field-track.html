@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 05 — Field Track: Ask for data access the right way | FDE Handbook by Vicky</title>
+<meta name="description" content="On real engagements, data access is the most common critical-path delay. FDEs wait days or weeks for exports, database credentials, firewall rules and…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-field-track.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 05 — Field Track: Ask for data access the right way | FDE Handbook by Vicky">
+<meta property="og:description" content="On real engagements, data access is the most common critical-path delay. FDEs wait days or weeks for exports, database credentials, firewall rules and…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-field-track.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 05 — Field Track: Ask for data access the right way | FDE Handbook by Vicky">
+<meta name="twitter:description" content="On real engagements, data access is the most common critical-path delay. FDEs wait days or weeks for exports, database credentials, firewall rules and…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 05 — Field Track: Ask for data access the right way", "description": "On real engagements, data access is the most common critical-path delay. FDEs wait days or weeks for exports, database credentials, firewall rules and…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-field-track.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/field-track.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/field-track.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why">Why</a></li><li><a href="#the-task">The task</a></li><li><a href="#rules">Rules</a></li><li><a href="#done-when">Done when</a></li></ul></details>
+<h1>Module 05 — Field Track: Ask for data access the right way</h1>
+<p><strong>Time:</strong> ~1.5 hours · <strong>Capabilities:</strong> C1, C5</p>
+<h2 id="why">Why</h2>
+<p>On real engagements, <strong>data access is the most common critical-path delay</strong>. FDEs wait days or weeks for exports, database credentials, firewall rules and approvals. A clear, specific, security-conscious request gets approved faster, and builds trust with the people who'll decide whether your system goes live.</p>
+<h2 id="the-task">The task</h2>
+<p>AdmitFlow needs a regular admissions feed from the institute's student information system (SIS), which runs on an old server in the office (Mr. Okafor maintains it). Write the email you'd send to Mr. Okafor, copying Mr. Fernandes, in <code>my-work/field-track/m05-data-access-request.md</code>.</p>
+<p>It must cover:</p>
+<ol><li><strong>Purpose:</strong> why you need it, in business terms (which decision it supports)</li><li><strong>Exactly what:</strong> the fields you need, and the ones you <strong>don't</strong> (data minimization). Do you need <code>fee_paid</code>? Date of birth? Home address?</li><li><strong>How often and how:</strong> e.g. a weekly CSV export to a shared folder; or read-only database access; or an API. Offer options, from least to most effort for him, and say which you recommend.</li><li><strong>Minimum access:</strong> read-only; specific tables or views only; a dedicated service account, not a personal login</li><li><strong>Protection:</strong> where the data will be stored, encrypted in transit and at rest, who can see it, retention period, and deletion on request</li><li><strong>What you'll give back:</strong> e.g. the unmatched-admissions list (data quality feedback for his system)</li><li><strong>A specific ask with a date:</strong> "Could we have a 20-minute call on Thursday to choose an option?"</li></ol>
+<h2 id="rules">Rules</h2>
+<ul><li>≤ 250 words in the email body (attach detail if needed)</li><li>No jargon he wouldn't use; no blame for the old system</li><li>Assume he's busy and cautious, and that he's right to be cautious</li></ul>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] All seven points covered</li><li>[ ] Lists fields you deliberately <strong>won't</strong> take</li><li>[ ] Offers at least two delivery options with a recommendation</li><li>[ ] Read by someone else, who could say in one sentence what you're asking for</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-checkpoint.html">← Module 05 — Checkpoint</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-resources.html">Module 05 — Resources →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 — Designing HTTP APIs | FDE Handbook by Vicky</title>
+<meta name="description" content="An API is a contract. Your frontend depends on it, and soon other systems will too: the website form, the CRM, an AI agent. A clear, predictable API is…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-02-api-design.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 02 — Designing HTTP APIs | FDE Handbook by Vicky">
+<meta property="og:description" content="An API is a contract. Your frontend depends on it, and soon other systems will too: the website form, the CRM, an AI agent. A clear, predictable API is…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-02-api-design.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 02 — Designing HTTP APIs | FDE Handbook by Vicky">
+<meta name="twitter:description" content="An API is a contract. Your frontend depends on it, and soon other systems will too: the website form, the CRM, an AI agent. A clear, predictable API is…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 02 — Designing HTTP APIs", "description": "An API is a contract. Your frontend depends on it, and soon other systems will too: the website form, the CRM, an AI agent. A clear, predictable API is…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-02-api-design.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/lessons/02-api-design.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/lessons/02-api-design.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#resources-not-actions">Resources, not actions</a></li><li><a href="#status-codes-that-tell-the-truth">Status codes that tell the truth</a></li><li><a href="#a-consistent-error-shape">A consistent error shape</a></li><li><a href="#filtering-searching-pagination">Filtering, searching, pagination</a></li><li><a href="#validation-at-the-edge">Validation at the edge</a></li><li><a href="#versioning-and-changes">Versioning and changes</a></li><li><a href="#idempotency-youll-need-this-in-module-09">Idempotency (you&#x27;ll need this in Module 09)</a></li><li><a href="#documenting-it">Documenting it</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 02 — Designing HTTP APIs</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>An API is a contract. Your frontend depends on it, and soon other systems will too: the website form, the CRM, an AI agent. A clear, predictable API is easy to use correctly and hard to misuse. A messy one generates support requests for as long as it exists.</p>
+<h2 id="resources-not-actions">Resources, not actions</h2>
+<p>REST-style APIs are organized around <strong>resources</strong> (nouns) and use HTTP <strong>methods</strong> (verbs):</p>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Method + path</th><th>Success code</th></tr></thead><tbody><tr><td>List leads</td><td><code>GET /leads</code></td><td>200</td></tr><tr><td>Get one lead</td><td><code>GET /leads/{lead_id}</code></td><td>200</td></tr><tr><td>Create a lead</td><td><code>POST /leads</code></td><td>201</td></tr><tr><td>Update part of a lead</td><td><code>PATCH /leads/{lead_id}</code></td><td>200</td></tr><tr><td>Add a note to a lead</td><td><code>POST /leads/{lead_id}/notes</code></td><td>201</td></tr><tr><td>Schedule a follow-up</td><td><code>POST /leads/{lead_id}/followups</code></td><td>201</td></tr><tr><td>Complete a follow-up</td><td><code>POST /followups/{id}/complete</code></td><td>200</td></tr></tbody></table></div>
+<p>Prefer <code>/leads/{id}</code> over <code>/getLead?id=…</code>. Use plural nouns. Nest only one level (<code>/leads/{id}/notes</code>), not five.</p>
+<p>Some operations aren't simple field updates ("complete", "send", "approve"). A small action sub-resource like <code>POST /followups/{id}/complete</code> is clearer than pretending it's a field change.</p>
+<h2 id="status-codes-that-tell-the-truth">Status codes that tell the truth</h2>
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Use it when</th></tr></thead><tbody><tr><td><code>200 OK</code></td><td>Success with a body</td></tr><tr><td><code>201 Created</code></td><td>Something new was created</td></tr><tr><td><code>204 No Content</code></td><td>Success, nothing to return (e.g. delete)</td></tr><tr><td><code>400 Bad Request</code></td><td>Malformed request</td></tr><tr><td><code>401 Unauthorized</code></td><td>Not logged in / bad or expired token</td></tr><tr><td><code>403 Forbidden</code></td><td>Logged in but not allowed</td></tr><tr><td><code>404 Not Found</code></td><td>The resource doesn't exist (or the caller mustn't know it exists)</td></tr><tr><td><code>409 Conflict</code></td><td>Clashes with current state (e.g. duplicate that can't be merged)</td></tr><tr><td><code>422 Unprocessable Entity</code></td><td>Validation failed (FastAPI's default)</td></tr><tr><td><code>429 Too Many Requests</code></td><td>Rate limited</td></tr><tr><td><code>500</code></td><td>Bug on the server. Never return this on purpose</td></tr></tbody></table></div>
+<h2 id="a-consistent-error-shape">A consistent error shape</h2>
+<p>Pick one error format and use it everywhere. AdmitFlow uses:</p>
+<pre><code>{&quot;error&quot;: {&quot;status&quot;: 422, &quot;detail&quot;: [{&quot;field&quot;: &quot;phone&quot;, &quot;message&quot;: &quot;not a valid phone number&quot;}]}}</code></pre>
+<p>The frontend can then show any error the same way (see <code>web/src/api.ts</code>).</p>
+<h2 id="filtering-searching-pagination">Filtering, searching, pagination</h2>
+<pre><code>GET /leads?status=new&amp;source=whatsapp&amp;search=nguyen&amp;page=2&amp;page_size=25</code></pre>
+<pre><code>{&quot;items&quot;: [...], &quot;total&quot;: 190, &quot;page&quot;: 2, &quot;page_size&quot;: 25}</code></pre>
+<ul><li><strong>Always cap page size</strong> (AdmitFlow: max 100). Otherwise one request can ask for a million rows.</li><li>Return the <strong>total</strong> so the UI can show "Page 2 of 8."</li><li><em>Stretch:</em> for very large or fast-changing data, <strong>cursor pagination</strong> (<code>?after=&lt;last_id&gt;</code>) is more reliable than page numbers.</li></ul>
+<h2 id="validation-at-the-edge">Validation at the edge</h2>
+<p>Validate <strong>every</strong> input at the API boundary: types, lengths, allowed values, formats. Reject bad data with <code>422</code> and a message saying exactly which field is wrong. Once data is inside your system, the rest of your code can trust it.</p>
+<h2 id="versioning-and-changes">Versioning and changes</h2>
+<p>Once others depend on your API:</p>
+<ul><li><strong>Adding</strong> fields or endpoints is safe.</li><li><strong>Removing or renaming</strong> fields breaks clients. Add the new one, deprecate the old one, remove it later.</li><li>For bigger changes, version the API (<code>/v2/leads</code>) or use a version header.</li></ul>
+<h2 id="idempotency-youll-need-this-in-module-09">Idempotency (you'll need this in Module 09)</h2>
+<p><code>GET</code>, <code>PUT</code> and <code>DELETE</code> should be <strong>idempotent</strong>: doing them twice has the same effect as once. <code>POST</code> usually isn't, so a retried <code>POST /leads</code> could create two leads. AdmitFlow's dedupe protects against that for leads. Module 09 covers idempotency keys for integrations.</p>
+<h2 id="documenting-it">Documenting it</h2>
+<p>FastAPI generates interactive docs at <code>/docs</code> from your code. Add what generated docs can't explain: the purpose, workflows and conventions. Use the <a href="templates-api-documentation.html">API documentation template</a>.</p>
+<p><em>Stretch:</em> <strong>GraphQL</strong> lets clients request exactly the fields they need in one query. It's useful when many different clients need different shapes of data, but it adds complexity. REST is the right default for most FDE work.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Design the API (methods, paths, status codes, request and response bodies) for <strong>campus visits</strong>: a counsellor books a visit for a lead at a date and time, can reschedule or cancel it, and can list upcoming visits. Compare with the solution in <a href="modules-04-software-engineering-exercises-01-api-design.html">Exercise 01</a>.</p>
+<p>Next: <a href="modules-04-software-engineering-lessons-03-fastapi.html">Lesson 03 — FastAPI fundamentals</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-lessons-01-web-app-architecture.html">← Lesson 01 — How a web application fits together</a><a class="btn ghost" href="modules-04-software-engineering-lessons-03-fastapi.html">Lesson 03 — FastAPI fundamentals →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

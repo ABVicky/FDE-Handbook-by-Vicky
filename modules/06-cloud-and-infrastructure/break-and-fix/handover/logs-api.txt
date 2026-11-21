@@ -1,0 +1,5 @@
+# docker compose logs api   (illustrative log output from the client's VM)
+api-1  | INFO:     Started server process [1]
+api-1  | INFO:     Waiting for application startup.
+api-1  | INFO:     Application startup complete.
+api-1  | INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)

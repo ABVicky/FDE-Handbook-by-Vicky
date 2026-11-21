@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADR-005: A grounded course assistant as a workflow, with human-approved drafts | FDE Handbook by Vicky</title>
+<meta name="description" content="ADR-005: A grounded course assistant as a workflow, with human-approved drafts, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-docs-adr-005-course-assistant.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="ADR-005: A grounded course assistant as a workflow, with human-approved drafts | FDE Handbook by Vicky">
+<meta property="og:description" content="ADR-005: A grounded course assistant as a workflow, with human-approved drafts, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-docs-adr-005-course-assistant.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ADR-005: A grounded course assistant as a workflow, with human-approved drafts | FDE Handbook by Vicky">
+<meta name="twitter:description" content="ADR-005: A grounded course assistant as a workflow, with human-approved drafts, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "ADR-005: A grounded course assistant as a workflow, with human-approved drafts", "description": "ADR-005: A grounded course assistant as a workflow, with human-approved drafts, part of FDE Handbook by Vicky: learn to become a Forward Deployed Engineer step by step.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-docs-adr-005-course-assistant.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#projects/admitflow/docs/adr/005-course-assistant.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › AdmitFlow project</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#projects/admitflow/docs/adr/005-course-assistant.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#context">Context</a></li><li><a href="#decision">Decision</a></li><li><a href="#consequences">Consequences</a></li><li><a href="#alternatives-considered">Alternatives considered</a></li></ul></details>
+<h1>ADR-005: A grounded course assistant as a workflow, with human-approved drafts</h1>
+<p><strong>Status:</strong> Accepted · <strong>Date:</strong> Module 08</p>
+<h2 id="context">Context</h2>
+<p>Ms. Rao's original request (Module 01) was "an AI chatbot." By now the real needs are clear: (1) prospective students ask the same ~20 questions, often at night; (2) counsellors spend time writing similar follow-up messages. Wrong answers about fees or promises about jobs carry real risk (complaints, data-protection and consumer issues). The institute is budget-conscious and has little IT capacity.</p>
+<h2 id="decision">Decision</h2>
+<ul><li><strong>Retrieval-augmented answers</strong> from the institute's own documents only (<code>data/course_docs</code>), chunked by section with metadata; superseded documents excluded; BM25 retrieval (top 3).</li><li><strong>Grounding enforced in code:</strong> answers must cite retrieved sections; invented or missing citations become "I don't know" with the admissions phone number.</li><li><strong>Two engines behind one interface:</strong> an offline extractive engine (default: free, deterministic, used in CI) and Claude (<code>ADMITFLOW_LLM=claude</code>, <code>claude-opus-5-5</code>, low effort, structured outputs, server-side refusal fallbacks).</li><li><strong>Follow-up drafting is a fixed workflow, not an autonomous agent:</strong> retrieve → draft → store as <code>pending_approval</code>. The model has no tool that sends anything; a counsellor approves the exact text (Module 09 sends approved drafts).</li><li><strong>Evaluation gates changes:</strong> 52 cases; CI requires correct ≥ 0.85, retrieval@3 = 1.0, correct declines = 1.0 and fees 13/13 for the offline engine.</li></ul>
+<h2 id="consequences">Consequences</h2>
+<ul><li>✅ The riskiest failure (wrong or outdated fees, invented promises) is controlled structurally, not by prompt wording alone.</li><li>✅ Works without any API key; Claude is an upgrade, not a dependency.</li><li>⚠️ The offline engine misses paraphrases; an FAQ document written from real questions closes the biggest gaps. Claude's answers must be evaluated on the same set before being switched on (<code>admitflow eval-assistant --llm claude</code>, which costs money per run).</li><li>⚠️ The public endpoint needs rate limiting and abuse monitoring (Module 10).</li><li>➡️ Revisit embeddings / hybrid search if the document set grows past a few hundred sections, or students ask in other languages.</li></ul>
+<h2 id="alternatives-considered">Alternatives considered</h2>
+<ul><li><strong>Off-the-shelf chatbot builder:</strong> fast to demo, but no control over grounding, citations or data location.</li><li><strong>Autonomous agent with a "send message" tool:</strong> rejected. One injected instruction in a lead's note could cause messages to be sent. Approval must be structural.</li><li><strong>Fine-tuning a model on the documents:</strong> unnecessary for ~25 sections that change every year; RAG updates when a document changes.</li></ul>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="projects-admitflow-docs-adr-004-lead-scoring.html">← ADR-004: Lead scoring as a tie-breaker, not a gatekeeper</a><a class="btn ghost" href="projects-admitflow-docs-adr-006-integrations.html">ADR-006: Integrations: push for enquiries, outbox for messages, one-way CRM sync, Google SSO, scoped MCP →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

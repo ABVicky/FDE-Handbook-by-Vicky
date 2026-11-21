@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Break &amp; Fix — Solution | FDE Handbook by Vicky</title>
+<meta name="description" content="At Monday 14:00 the WhatsApp provider access token expired. From then on every WhatsApp send failed with HTTP 401: access token has expired. The outbox…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-break-and-fix-solution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta property="og:description" content="At Monday 14:00 the WhatsApp provider access token expired. From then on every WhatsApp send failed with HTTP 401: access token has expired. The outbox…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-break-and-fix-solution.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta name="twitter:description" content="At Monday 14:00 the WhatsApp provider access token expired. From then on every WhatsApp send failed with HTTP 401: access token has expired. The outbox…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Break & Fix — Solution", "description": "At Monday 14:00 the WhatsApp provider access token expired. From then on every WhatsApp send failed with HTTP 401: access token has expired. The outbox…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-break-and-fix-solution.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/10-production-security-reliability/break-and-fix/SOLUTION.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 10</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/10-production-security-reliability/break-and-fix/SOLUTION.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#what-happened">What happened</a></li><li><a href="#why-nobody-noticed-contributing-factors">Why nobody noticed (contributing factors)</a></li><li><a href="#first-30-minutes-on-thursday">First 30 minutes on Thursday</a></li><li><a href="#sample-incident-report-abridged">Sample incident report (abridged)</a></li><li><a href="#message-to-mr-fernandes">Message to Mr. Fernandes</a></li><li><a href="#the-general-lesson">The general lesson</a></li></ul></details>
+<h1>Break &amp; Fix — Solution</h1>
+<blockquote><p>⚠️ Try it properly first.</p></blockquote>
+<h2 id="what-happened">What happened</h2>
+<p>At <strong>Monday 14:00</strong> the WhatsApp provider access token expired. From then on every WhatsApp send failed with <code>HTTP 401: access token has expired</code>. The outbox behaved as designed: it left the drafts <code>approved</code> and retried them every hour, so 30 follow-ups (every WhatsApp message approved after 14:00) waited three days. Email kept working, which made the system look healthy.</p>
+<h2 id="why-nobody-noticed-contributing-factors">Why nobody noticed (contributing factors)</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Gap</th><th>Fix</th></tr></thead><tbody><tr><td>1</td><td><strong>No alert on what students experience.</strong> Nothing measured how long approved messages waited</td><td><code>admitflow_outbox_oldest_approved_minutes</code> + <code>AdmitFlowOutboxStuck</code> alert (&gt; 30 min)</td></tr><tr><td>2</td><td><strong>The scheduler ignored the job's exit code</strong> (<code>send-approved</code> returns 1 when sends fail)</td><td>Scheduler marks the job failed and notifies on non-zero exit; plus <code>AdmitFlowOutboxFailures</code></td></tr><tr><td>3</td><td><strong>1,125 warnings in a log nobody reads.</strong> Logs are for investigating, not for detecting</td><td>Alerts on metrics; logs searched during the incident</td></tr><tr><td>4</td><td><strong>A credential with an expiry date and no owner reminder</strong></td><td>Credential inventory with expiry dates; reminder 30 days before; prefer non-expiring system-user tokens where the provider allows, rotated deliberately</td></tr><tr><td>5</td><td><strong>Retrying a permanent error.</strong> A 401 won't fix itself, but it was treated like a temporary failure</td><td>Classify errors: on 401/403, stop retrying that channel and raise an alert immediately</td></tr><tr><td>6</td><td><strong>The dashboard showed "approved", which counsellors read as "sent"</strong></td><td>Show "approved, not yet sent (waiting 3 h)" in the UI</td></tr></tbody></table></div>
+<p>With the alert from <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/deploy/monitoring/alerts.yml"><code>deploy/monitoring/alerts.yml</code></a>:</p>
+<pre><code>python solution/with_alert.py</code></pre>
+<pre><code>token expired:      Mon 14:00
+alert first fired:  Mon 15:00  (1 h later)</code></pre>
+<h2 id="first-30-minutes-on-thursday">First 30 minutes on Thursday</h2>
+<ol><li>Acknowledge the incident; tell Mr. Fernandes you're on it (2 minutes, before investigating).</li><li><code>admitflow send-approved --dry-run</code>, then a real run: read the failure reason (401, expired token).</li><li>Generate a new token at the provider; store it in the secret manager; restart/redeploy the job.</li><li>Run <code>send-approved</code> once by hand. <strong>Before</strong> that, decide with Mr. Fernandes whether three-day-old messages should go out as written. Some may now be wrong ("see you at the campus visit tomorrow"). Usually: counsellors review and re-approve, or send a short apology plus the original content.</li><li>Confirm <code>admitflow_outbox_oldest_approved_minutes</code> is back to 0.</li><li>List affected students (drafts approved after Monday 14:00 that were sent late) for the follow-up.</li></ol>
+<h2 id="sample-incident-report-abridged">Sample incident report (abridged)</h2>
+<blockquote><p><strong>Summary.</strong> From Monday 14:00 to Thursday 11:05, WhatsApp follow-ups approved in AdmitFlow were not sent because the provider token expired. 30 students received no reply for up to 3 days. Email follow-ups were unaffected. <strong>Detection.</strong> A parent's phone call on Thursday 10:15. No automated alert existed for unsent messages. <strong>Root cause.</strong> An expiring provider token with no renewal reminder; the scheduled job's failures were logged but not alerted on, and the scheduler ignored its exit code. <strong>Actions.</strong> (1) Alert when approved messages wait &gt; 30 minutes: <em>done</em>. (2) Stop retrying 401/403 and alert immediately: FDE, Friday. (3) Credential inventory with expiry reminders: Mr. Okafor, next week. (4) Show "not yet sent" in the dashboard: FDE, next sprint. (5) Counsellors call the 30 affected students today: Mr. Fernandes.</p></blockquote>
+<h2 id="message-to-mr-fernandes">Message to Mr. Fernandes</h2>
+<blockquote><p>WhatsApp follow-ups stopped sending on Monday afternoon because the provider's access key expired, and our system didn't alert anyone. It's fixed and the messages are ready to go. Before sending them, could counsellors check the 30 affected students' messages in case anything is now out of date? I've added an alert so this would now be caught within an hour, and I'll send you the full report by Monday.</p></blockquote>
+<h2 id="the-general-lesson">The general lesson</h2>
+<p>Monitor what users experience (<em>"are approved messages reaching students?"</em>), not just whether processes run. An alert that fires in an hour beats a thousand log lines.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-10-production-security-reliability-break-and-fix-readme.html">← Module 10 — Break &amp; Fix: The follow-ups nobody sent</a><a class="btn ghost" href="modules-10-production-security-reliability-build.html">Module 10 Build — AdmitFlow, hardened →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

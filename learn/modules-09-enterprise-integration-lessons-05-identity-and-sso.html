@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO | FDE Handbook by Vicky</title>
+<meta name="description" content="Enterprises don&#x27;t want another password per app. They want staff to sign in with the company identity (Google Workspace, Microsoft Entra ID, Okta),…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-05-identity-and-sso.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO | FDE Handbook by Vicky">
+<meta property="og:description" content="Enterprises don&#x27;t want another password per app. They want staff to sign in with the company identity (Google Workspace, Microsoft Entra ID, Okta),…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-05-identity-and-sso.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Enterprises don&#x27;t want another password per app. They want staff to sign in with the company identity (Google Workspace, Microsoft Entra ID, Okta),…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO", "description": "Enterprises don't want another password per app. They want staff to sign in with the company identity (Google Workspace, Microsoft Entra ID, Okta),…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-05-identity-and-sso.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/05-identity-and-sso.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 09</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/05-identity-and-sso.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why">Why</a></li><li><a href="#the-vocabulary">The vocabulary</a></li><li><a href="#admitflows-google-sign-in">AdmitFlow&#x27;s Google sign-in</a></li><li><a href="#which-flow">Which flow?</a></li><li><a href="#provisioning-and-leavers">Provisioning and leavers</a></li><li><a href="#service-accounts-and-api-keys">Service accounts and API keys</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why">Why</h2>
+<p>Enterprises don't want another password per app. They want staff to sign in with the <strong>company identity</strong> (Google Workspace, Microsoft Entra ID, Okta), where IT controls passwords, multi-factor authentication and, crucially, <strong>leavers</strong>. Disable someone's company account and they lose access everywhere at once. Single sign-on (SSO) is often a hard requirement in security reviews.</p>
+<h2 id="the-vocabulary">The vocabulary</h2>
+<div class="table-wrap"><table><thead><tr><th>Term</th><th>Means</th></tr></thead><tbody><tr><td><strong>Identity provider (IdP)</strong></td><td>Who verifies the person: Google, Entra ID, Okta</td></tr><tr><td><strong>OAuth 2.0</strong></td><td>A framework for granting an app <strong>access</strong> to an API on a user's behalf (authorization)</td></tr><tr><td><strong>OpenID Connect (OIDC)</strong></td><td>A layer on OAuth 2.0 that tells the app <strong>who the user is</strong> (authentication), via an <strong>ID token</strong></td></tr><tr><td><strong>SAML 2.0</strong></td><td>An older XML-based SSO standard, still common in large enterprises</td></tr><tr><td><strong>ID token</strong></td><td>A signed JWT from the IdP: issuer, audience, subject, email, expiry</td></tr><tr><td><strong>Access token</strong></td><td>A credential to call an API (may or may not be a JWT)</td></tr><tr><td><strong>SCIM</strong></td><td>A standard for the IdP to create and remove users in your app automatically</td></tr><tr><td><strong>Service account</strong></td><td>A non-human identity for system-to-system calls</td></tr></tbody></table></div>
+<h2 id="admitflows-google-sign-in">AdmitFlow's Google sign-in</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/09-enterprise-integration/lessons/05-identity-and-sso.md">View it in the interactive reader</a>.</p>
+<p>The verification (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/integrations/oidc.py"><code>integrations/oidc.py</code></a>):</p>
+<pre><code>signing_key = jwks_client.get_signing_key_from_jwt(token)        # Google&#x27;s current public keys
+claims = jwt.decode(token, signing_key.key, algorithms=[&quot;RS256&quot;], audience=client_id,
+                    options={&quot;require&quot;: [&quot;exp&quot;, &quot;iat&quot;, &quot;iss&quot;, &quot;aud&quot;, &quot;sub&quot;]})
+if claims[&quot;iss&quot;] not in (&quot;https://accounts.google.com&quot;, &quot;accounts.google.com&quot;): raise SsoError(...)
+if not claims.get(&quot;email_verified&quot;): raise SsoError(...)
+if claims.get(&quot;hd&quot;) != allowed_domain: raise SsoError(...)</code></pre>
+<p>Every check matters:</p>
+<ul><li><strong>Signature:</strong> proves Google issued it</li><li><strong><code>aud</code> = our client ID:</strong> otherwise a token issued to <em>any</em> app using Google sign-in would work on ours</li><li><strong><code>exp</code>:</strong> rejects old tokens</li><li><strong><code>hd</code></strong> (hosted domain): only the institute's Workspace accounts, not any Gmail user</li><li><strong>Provisioned user:</strong> a valid Google identity isn't enough; the person must exist in AdmitFlow (<code>403</code> otherwise)</li></ul>
+<p>Tests generate their own RSA key and sign tokens with it, so every rejection path is covered offline (<code>tests/test_integrations.py</code>).</p>
+<h2 id="which-flow">Which flow?</h2>
+<div class="table-wrap"><table><thead><tr><th>App type</th><th>Recommended flow</th></tr></thead><tbody><tr><td>Browser app + your API (AdmitFlow)</td><td>IdP's sign-in library → ID token → your API verifies; or <strong>Authorization Code + PKCE</strong> with a backend</td></tr><tr><td>Server-to-server</td><td><strong>Client credentials</strong> (service account)</td></tr><tr><td>Mobile / desktop</td><td>Authorization Code + PKCE</td></tr><tr><td>Large enterprise IdP requiring SAML</td><td>A SAML library, or an identity broker (Auth0, Keycloak, Entra ID) that speaks SAML to them and OIDC to you</td></tr></tbody></table></div>
+<p>Don't implement OAuth/SAML protocol details yourself beyond verification; use maintained libraries or the IdP's SDK.</p>
+<h2 id="provisioning-and-leavers">Provisioning and leavers</h2>
+<p>SSO handles sign-in; you still need to decide <strong>who has an account</strong> and <strong>with what role</strong>:</p>
+<ul><li><strong>Manual:</strong> an admin creates users (AdmitFlow: <code>admitflow create-user priya@northbridge.example --role counsellor</code>)</li><li><strong>Group mapping:</strong> a Google/Entra group "admitflow-counsellors" grants the role</li><li><strong>SCIM:</strong> the IdP creates, updates and <strong>deactivates</strong> users automatically. It's the gold standard for leavers.</li></ul>
+<p>Also: keep AdmitFlow's own session short (8 hours), so a disabled Google account loses access within a working day.</p>
+<h2 id="service-accounts-and-api-keys">Service accounts and API keys</h2>
+<p>For system-to-system access (the website's webhook, the CRM token, an MCP client):</p>
+<ul><li>one credential <strong>per integration</strong>, never shared</li><li><strong>least privilege:</strong> only the scopes it needs</li><li>stored in the secret manager; rotated on a schedule and immediately on suspicion</li><li>an owner and an expiry date recorded</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Map AdmitFlow's identities: every human role and every system credential (webhook secret, CRM token, SMTP password, WhatsApp token, LLM API key, MCP user). For each: who owns it, what it can do, where it's stored, how it's rotated, and what happens when the person responsible leaves.</p>
+<p>Next: <a href="modules-09-enterprise-integration-lessons-06-permissions-and-audit.html">Lesson 06 — Permissions, multi-tenancy and audit</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-09-enterprise-integration-lessons-04-calling-third-party-apis.html">← Lesson 04 — Calling third-party APIs reliably</a><a class="btn ghost" href="modules-09-enterprise-integration-lessons-06-permissions-and-audit.html">Lesson 06 — Permissions, multi-tenancy and audit →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

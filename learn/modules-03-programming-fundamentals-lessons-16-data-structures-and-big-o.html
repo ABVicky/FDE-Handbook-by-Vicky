@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 16 — Data structures and Big-O | FDE Handbook by Vicky</title>
+<meta name="description" content="Code that&#x27;s instant on a 200-row sample can take hours on the client&#x27;s 2 million rows. Big-O is a quick way to predict that before it happens. It&#x27;s…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-16-data-structures-and-big-o.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 16 — Data structures and Big-O | FDE Handbook by Vicky">
+<meta property="og:description" content="Code that&#x27;s instant on a 200-row sample can take hours on the client&#x27;s 2 million rows. Big-O is a quick way to predict that before it happens. It&#x27;s…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-16-data-structures-and-big-o.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 16 — Data structures and Big-O | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Code that&#x27;s instant on a 200-row sample can take hours on the client&#x27;s 2 million rows. Big-O is a quick way to predict that before it happens. It&#x27;s…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 16 — Data structures and Big-O", "description": "Code that's instant on a 200-row sample can take hours on the client's 2 million rows. Big-O is a quick way to predict that before it happens. It's…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-16-data-structures-and-big-o.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/16-data-structures-and-big-o.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/16-data-structures-and-big-o.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#big-o-in-one-idea">Big-O in one idea</a></li><li><a href="#the-classic-fde-performance-bug">The classic FDE performance bug</a></li><li><a href="#pythons-built-in-structures-by-cost">Python&#x27;s built-in structures, by cost</a></li><li><a href="#other-structures-worth-knowing">Other structures worth knowing</a></li><li><a href="#measuring-instead-of-guessing">Measuring instead of guessing</a></li><li><a href="#interview-practice">Interview practice</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 16 — Data structures and Big-O</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Code that's instant on a 200-row sample can take hours on the client's 2 million rows. Big-O is a quick way to predict that <em>before</em> it happens. It's also a staple of coding interviews (Module 12).</p>
+<h2 id="big-o-in-one-idea">Big-O in one idea</h2>
+<p>Big-O describes <strong>how the work grows as the input grows</strong>, ignoring constant details.</p>
+<div class="table-wrap"><table><thead><tr><th>Big-O</th><th>Name</th><th>Example</th><th>1,000 items</th><th>1,000,000 items</th></tr></thead><tbody><tr><td>O(1)</td><td>Constant</td><td><code>email in seen_set</code>, <code>d[key]</code></td><td>1 step</td><td>1 step</td></tr><tr><td>O(log n)</td><td>Logarithmic</td><td>Binary search in a sorted list</td><td>~10</td><td>~20</td></tr><tr><td>O(n)</td><td>Linear</td><td>One loop over the data</td><td>1,000</td><td>1,000,000</td></tr><tr><td>O(n log n)</td><td></td><td>Sorting</td><td>~10,000</td><td>~20,000,000</td></tr><tr><td>O(n²)</td><td>Quadratic</td><td>Loop inside a loop over the same data</td><td>1,000,000</td><td>1,000,000,000,000 😱</td></tr></tbody></table></div>
+<h2 id="the-classic-fde-performance-bug">The classic FDE performance bug</h2>
+<p>Deduplicating by comparing every lead with every other lead:</p>
+<pre><code># O(n²): fine for 200 leads, hopeless for 2 million
+duplicates = []
+for i, a in enumerate(leads):
+    for b in leads[i + 1:]:
+        if a[&quot;email&quot;] == b[&quot;email&quot;]:
+            duplicates.append((a, b))</code></pre>
+<p>Using a dict as an index:</p>
+<pre><code># O(n): one pass
+first_seen = {}
+duplicates = []
+for lead in leads:
+    key = lead[&quot;email&quot;]
+    if key in first_seen:
+        duplicates.append((first_seen[key], lead))
+    else:
+        first_seen[key] = lead</code></pre>
+<p>This is exactly how <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/dedupe.py"><code>dedupe.py</code></a> works: dicts keyed by email and by <code>(phone, name)</code>.</p>
+<p>Similarly, <code>if email in some_list</code> inside a loop is O(n²) overall. Convert the list to a set first.</p>
+<h2 id="pythons-built-in-structures-by-cost">Python's built-in structures, by cost</h2>
+<div class="table-wrap"><table><thead><tr><th>Operation</th><th>list</th><th>dict / set</th></tr></thead><tbody><tr><td>Look up by position <code>x[i]</code></td><td>O(1)</td><td>n/a</td></tr><tr><td>Is <code>x</code> in it?</td><td><strong>O(n)</strong></td><td><strong>O(1)</strong> average</td></tr><tr><td>Add to the end / add a key</td><td>O(1)</td><td>O(1)</td></tr><tr><td>Insert/remove at the front</td><td>O(n)</td><td>n/a</td></tr><tr><td>Sort</td><td>O(n log n)</td><td>n/a</td></tr></tbody></table></div>
+<p>Need a fast queue (add at one end, remove at the other)? <code>collections.deque</code>. Need the smallest item repeatedly (e.g. next follow-up due)? <code>heapq</code>.</p>
+<h2 id="other-structures-worth-knowing">Other structures worth knowing</h2>
+<div class="table-wrap"><table><thead><tr><th>Structure</th><th>What it is</th><th>Where it shows up</th></tr></thead><tbody><tr><td><strong>Stack</strong> (last in, first out)</td><td><code>list</code> with <code>append</code>/<code>pop</code></td><td>Undo, parsing, depth-first search</td></tr><tr><td><strong>Queue</strong> (first in, first out)</td><td><code>deque</code></td><td>Job queues, breadth-first search</td></tr><tr><td><strong>Heap</strong></td><td><code>heapq</code></td><td>Priority queues, scheduling</td></tr><tr><td><strong>Tree</strong></td><td>Nested nodes</td><td>File systems, JSON, database indexes</td></tr><tr><td><strong>Graph</strong></td><td>Nodes and edges</td><td>Org charts, dependency maps, networks</td></tr></tbody></table></div>
+<h2 id="measuring-instead-of-guessing">Measuring instead of guessing</h2>
+<pre><code>import time
+start = time.perf_counter()
+run_import()
+print(f&quot;{time.perf_counter() - start:.2f}s&quot;)</code></pre>
+<p>Test with <strong>realistic volume</strong>: generate 100,000 fake leads and time your code. If doubling the input quadruples the time, look for a nested loop.</p>
+<h2 id="interview-practice">Interview practice</h2>
+<p>Many FDE interviews include data-structure problems. Practise on a platform such as LeetCode or HackerRank. Start with "easy" problems on arrays, strings and hash maps (dicts/sets), which are the most relevant to real FDE work. Aim to explain your solution's Big-O out loud.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>What's the Big-O of this, and how would you make it O(n)?<br>```python<br>unsubscribed = [...]   # a list of 50,000 emails<br>to_contact = [l for l in leads if l["email"] not in unsubscribed]<br>```</li><li>You need the 10 most overdue follow-ups from 1 million. Sorting all of them is O(n log n). What's a faster approach?</li></ol>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-17-git-and-github.html">Lesson 17 — Git and GitHub</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-15-async-basics.html">← Lesson 15 — Async basics</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-17-git-and-github.html">Lesson 17 — Git and GitHub →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 03 Build — The AdmitFlow command-line lead manager | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: weeks 3–6, about 20–25 hours in total · Capabilities: C2">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-build.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 03 Build — The AdmitFlow command-line lead manager | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: weeks 3–6, about 20–25 hours in total · Capabilities: C2">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-build.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 03 Build — The AdmitFlow command-line lead manager | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: weeks 3–6, about 20–25 hours in total · Capabilities: C2">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 03 Build — The AdmitFlow command-line lead manager", "description": "Time: weeks 3–6, about 20–25 hours in total · Capabilities: C2", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-build.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/build.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/build.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#scenario">Scenario</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#expected-results-on-the-sample-data">Expected results on the sample data</a></li><li><a href="#suggested-structure">Suggested structure</a></li><li><a href="#getting-started">Getting started</a></li><li><a href="#done-when">Done when</a></li><li><a href="#stretch">Stretch</a></li><li><a href="#reference-solution">Reference solution</a></li></ul></details>
+<h1>Module 03 Build — The AdmitFlow command-line lead manager</h1>
+<p><strong>Time:</strong> weeks 3–6, about 20–25 hours in total · <strong>Capabilities:</strong> C2</p>
+<h2 id="scenario">Scenario</h2>
+<p>Your Module 02 shell script answered one question about one file. Now Mr. Fernandes has three exports:</p>
+<div class="table-wrap"><table><thead><tr><th>File</th><th>From</th><th>Rows</th></tr></thead><tbody><tr><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/data/leads_sample.csv"><code>leads_sample.csv</code></a></td><td>Website, phone, walk-ins and WhatsApp, typed up by reception</td><td>120</td></tr><tr><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/data/ad_leads.csv"><code>ad_leads.csv</code></a></td><td>The ad platform's lead-form export</td><td>60</td></tr><tr><td><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/data/walkins.csv"><code>walkins.csv</code></a></td><td>Paper forms from an education fair, typed into Excel</td><td>25</td></tr></tbody></table></div>
+<p>Many students appear in more than one file. Counsellors are calling the same student twice and missing others. He needs <strong>one clean list</strong>, with no duplicates, that counsellors can search.</p>
+<p>The institute's office machines can't install much software, so the tool must run on <strong>plain Python with no third-party packages</strong> (pytest is fine for development).</p>
+<h2 id="requirements">Requirements</h2>
+<p>Build a Python package with a command-line tool called <code>admitflow</code>:</p>
+<h3 id="1-import-and-normalize">1. Import and normalize</h3>
+<pre><code>admitflow import --website data/leads_sample.csv --ads data/ad_leads.csv --walkins data/walkins.csv</code></pre>
+<ul><li>One importer per format, all producing the same <code>Lead</code> dataclass</li><li><strong>Names:</strong> whitespace collapsed, <code>&quot;Lee, Chloe&quot;</code> → <code>&quot;Chloe Lee&quot;</code>, ALL CAPS fixed, every alphabet preserved (<code>Nguyễn</code>, <code>प्रिया</code>)</li><li><strong>Phones:</strong> every format becomes <code>+12025550141</code> (E.164 style)</li><li><strong>Emails:</strong> lower-cased; invalid ones treated as missing</li><li><strong>Courses:</strong> codes and abbreviations (<code>DA</code>, <code>web_dev</code>, <code>BBA</code>) mapped to official names</li><li><strong>Dates:</strong> each file's format parsed explicitly (walk-ins are <strong>day first</strong>)</li><li><strong>Bad rows are reported with a line number and reason, never silently dropped</strong></li></ul>
+<h3 id="2-deduplicate">2. Deduplicate</h3>
+<p>Agreed rule with the Head of Admissions:</p>
+<ul><li>same email → same person</li><li>same phone <strong>and</strong> same name → same person</li><li>same phone only → <strong>not</strong> merged (families often share one phone)</li></ul>
+<p>When merging, keep the earliest enquiry and record every channel the person used.</p>
+<p>Importing the same files twice must not create duplicates.</p>
+<h3 id="3-store">3. Store</h3>
+<p>Save to a JSON file. The location comes from the <code>ADMITFLOW_STORE</code> environment variable (default <code>leads.json</code>). Writes must not corrupt the file if interrupted (write to a temp file, then rename).</p>
+<h3 id="4-use">4. Use</h3>
+<pre><code>admitflow list --source whatsapp --course nursing</code></pre>
+<pre><code>admitflow search &quot;nguyễn&quot;</code></pre>
+<pre><code>admitflow stats</code></pre>
+<pre><code>admitflow export walkins.csv --source walk-in</code></pre>
+<p>CSV exports must open correctly in Excel, including accented names.</p>
+<h3 id="5-quality">5. Quality</h3>
+<ul><li>pytest tests for normalization, each importer, dedupe, and the CLI end to end</li><li><strong>≥ 80% coverage</strong></li><li>Type hints on all functions</li><li>A README: install, usage, how to run tests, and the dedupe rule</li><li>Built through <strong>at least three pull requests</strong> (suggested: importers → dedupe → CLI)</li></ul>
+<h2 id="expected-results-on-the-sample-data">Expected results on the sample data</h2>
+<pre><code>data/leads_sample.csv: 120 imported, 0 rejected
+data/ad_leads.csv: 60 imported, 0 rejected
+data/walkins.csv: 25 imported, 0 rejected
+15 duplicate(s) merged; 190 new; 190 unique lead(s) saved to leads.json</code></pre>
+<p><code>admitflow stats</code> should report <strong>190 unique leads</strong>, <strong>11</strong> who enquired through more than one channel, and <strong>5</strong> with no usable contact details.</p>
+<p>Why is "15 merged" bigger than "11 multi-channel"? Work it out from the data. (Hint: look at the <code>source</code> column of the website file for the students who also appear in the ad export.)</p>
+<h2 id="suggested-structure">Suggested structure</h2>
+<pre><code>my-work/admitflow/
+├── pyproject.toml
+├── README.md
+├── admitflow/
+│   ├── __init__.py
+│   ├── models.py      # Lead dataclass
+│   ├── normalize.py   # pure functions: names, phones, emails, courses
+│   ├── importers.py   # one reader per file format
+│   ├── dedupe.py
+│   ├── store.py       # JSON load/save, CSV export
+│   └── cli.py         # argparse commands
+└── tests/</code></pre>
+<h2 id="getting-started">Getting started</h2>
+<pre><code>cd my-work/admitflow</code></pre>
+<pre><code>python3 -m venv .venv &amp;&amp; source .venv/bin/activate</code></pre>
+<pre><code>python -m pip install --upgrade pip</code></pre>
+<pre><code>python -m pip install -e &quot;.[dev]&quot;</code></pre>
+<p>Start with <code>normalize.py</code> and its tests. It's pure functions, so it's the easiest place to begin, and everything else depends on it.</p>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] The sample import gives exactly the expected results above</li><li>[ ] Re-running the import changes nothing</li><li>[ ] <code>admitflow search &quot;nguyễn&quot;</code> finds the Nguyễn leads; <code>search &quot;प्रिया&quot;</code> finds प्रिया शर्मा</li><li>[ ] Siblings sharing a phone number (Amara Costa and Zara Costa style) are <strong>not</strong> merged; write a test for it</li><li>[ ] <code>pytest</code> passes with ≥ 80% coverage</li><li>[ ] Merged via ≥ 3 reviewed pull requests</li><li>[ ] README written</li></ul>
+<h2 id="stretch">Stretch</h2>
+<ul><li><code>admitflow import --dry-run</code> shows what would change without saving</li><li>A <code>--since 2026-09-15</code> filter on <code>list</code> and <code>export</code></li><li>A report of possible duplicates the rules didn't merge (same phone, <em>similar</em> name) for a human to review</li><li>Time the import on 100,000 generated leads. Is it still fast? (Lesson 16)</li></ul>
+<h2 id="reference-solution">Reference solution</h2>
+<p><a href="projects-admitflow-readme.html"><code>projects/admitflow/</code></a>. Compare <strong>after</strong> you finish. Reading it is also good practice for <a href="modules-03-programming-fundamentals-lessons-13-debugging.html">Lesson 13's</a> "reading unfamiliar code" routine.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-break-and-fix-solution.html">← Break &amp; Fix — Solution</a><a class="btn ghost" href="modules-03-programming-fundamentals-checkpoint.html">Module 03 — Checkpoint →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

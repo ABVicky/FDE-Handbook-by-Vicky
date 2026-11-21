@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise 02 — Model answer | FDE Handbook by Vicky</title>
+<meta name="description" content="- Add unsubscribed: bool = False and unsubscribedat to Lead; Alembic migration (nullable/default false, so it&#x27;s backward compatible). - In syncleads,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-exercises-solutions-02-unsubscribes.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Exercise 02 — Model answer | FDE Handbook by Vicky">
+<meta property="og:description" content="- Add unsubscribed: bool = False and unsubscribedat to Lead; Alembic migration (nullable/default false, so it&#x27;s backward compatible). - In syncleads,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-exercises-solutions-02-unsubscribes.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise 02 — Model answer | FDE Handbook by Vicky">
+<meta name="twitter:description" content="- Add unsubscribed: bool = False and unsubscribedat to Lead; Alembic migration (nullable/default false, so it&#x27;s backward compatible). - In syncleads,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Exercise 02 — Model answer", "description": "- Add unsubscribed: bool = False and unsubscribedat to Lead; Alembic migration (nullable/default false, so it's backward compatible). - In syncleads,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-exercises-solutions-02-unsubscribes.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/09-enterprise-integration/exercises/solutions/02-unsubscribes.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 09</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/09-enterprise-integration/exercises/solutions/02-unsubscribes.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#field-ownership">Field ownership</a></li><li><a href="#design">Design</a></li><li><a href="#tests-sketch">Tests (sketch)</a></li><li><a href="#dashboard">Dashboard</a></li></ul></details>
+<h1>Exercise 02 — Model answer</h1>
+<h2 id="field-ownership">Field ownership</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>System of record</th><th>AdmitFlow behaviour</th></tr></thead><tbody><tr><td><code>unsubscribed</code> (marketing consent)</td><td><strong>CRM</strong></td><td>Read on every sync; never written by AdmitFlow</td></tr><tr><td><code>status</code>, <code>course</code>, <code>assigned_to</code></td><td>AdmitFlow</td><td>Written to the CRM</td></tr><tr><td>Contact details</td><td>AdmitFlow (from enquiries)</td><td>Written to the CRM; CRM edits are not pulled back (one-way)</td></tr></tbody></table></div>
+<h2 id="design">Design</h2>
+<ul><li>Add <code>unsubscribed: bool = False</code> and <code>unsubscribed_at</code> to <code>Lead</code>; Alembic migration (nullable/default false, so it's backward compatible).</li><li>In <code>sync_leads</code>, after search/update, <strong>read</strong> the CRM's consent property (e.g. <code>hs_email_optout</code> on HubSpot-style CRMs; confirm the real property name with the client's CRM admin) and set the flag on the lead. Never include it in the properties AdmitFlow writes.</li><li>In <code>send_approved</code>, before sending: if <code>lead.unsubscribed</code>, <strong>skip</strong> with reason <code>&quot;unsubscribed in CRM&quot;</code> and set the draft to <code>rejected</code> (so it isn't retried forever), recording <code>decided_by=&quot;system&quot;</code>.</li><li>Dedupe (<code>_merge</code>) must keep <code>unsubscribed=True</code> if <em>either</em> record has it: a new enquiry never silently re-subscribes someone. (They might want to hear back about <em>this</em> enquiry, so a counsellor can call them; that's a human decision, not an automatic resubscribe.)</li><li>Sync frequency: nightly is too slow for consent. Run the consent read every 15 minutes, or use the CRM's webhook for subscription changes.</li></ul>
+<h2 id="tests-sketch">Tests (sketch)</h2>
+<pre><code>def test_unsubscribe_is_read_not_written(repo, crm):
+    fake, client = crm
+    sync_leads(repo, client)
+    contact_id = repo.get_lead(&quot;ENQ-0001&quot;).crm_id
+    fake.contacts[contact_id][&quot;unsubscribed&quot;] = &quot;true&quot;
+    sync_leads(repo, client)
+    assert repo.get_lead(&quot;ENQ-0001&quot;).unsubscribed is True
+    assert &quot;unsubscribed&quot; not in fake.last_written_properties        # AdmitFlow never writes it
+
+def test_outbox_skips_unsubscribed(repo):
+    ...  # approved draft for an unsubscribed lead → skipped with reason, status rejected, nothing sent
+
+def test_new_enquiry_keeps_unsubscribe(repo):
+    ...  # merge an unsubscribed lead with a fresh website enquiry → still unsubscribed</code></pre>
+<h2 id="dashboard">Dashboard</h2>
+<p>Show a clear badge ("Unsubscribed from messages: call only if they contacted us") and disable the "Draft follow-up" button for those leads.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-09-enterprise-integration-exercises-readme.html">← Module 09 — Exercises</a><a class="btn ghost" href="modules-09-enterprise-integration-exercises-solutions-04-integration-review.html">Exercise 04 — What a strong review covers (excerpt) →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

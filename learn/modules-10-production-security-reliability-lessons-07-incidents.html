@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 07 — Incidents: response, communication and learning | FDE Handbook by Vicky</title>
+<meta name="description" content="Something will go wrong in production. Clients remember how you handled it more than the fact that it happened: how quickly they heard from you,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-07-incidents.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 07 — Incidents: response, communication and learning | FDE Handbook by Vicky">
+<meta property="og:description" content="Something will go wrong in production. Clients remember how you handled it more than the fact that it happened: how quickly they heard from you,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-07-incidents.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 07 — Incidents: response, communication and learning | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Something will go wrong in production. Clients remember how you handled it more than the fact that it happened: how quickly they heard from you,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 07 — Incidents: response, communication and learning", "description": "Something will go wrong in production. Clients remember how you handled it more than the fact that it happened: how quickly they heard from you,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-07-incidents.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/07-incidents.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 10</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/07-incidents.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#during-an-incident">During an incident</a></li><li><a href="#severity-levels-agree-them-with-the-client">Severity levels (agree them with the client)</a></li><li><a href="#communicating">Communicating</a></li><li><a href="#after-the-incident-blameless-reviews">After the incident: blameless reviews</a></li><li><a href="#runbooks">Runbooks</a></li><li><a href="#game-days">Game days</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 07 — Incidents: response, communication and learning</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Something will go wrong in production. Clients remember <strong>how you handled it</strong> more than the fact that it happened: how quickly they heard from you, whether you were honest, and whether it happened again.</p>
+<h2 id="during-an-incident">During an incident</h2>
+<ol><li><strong>Acknowledge</strong> quickly: tell the client you know and you're on it, before you understand it.</li><li><strong>Mitigate first, diagnose second:</strong> roll back, switch to the fallback engine, restart. Restore service, then find the root cause.</li><li><strong>One person coordinates</strong> (even if it's you alone: write things down).</li><li><strong>Keep a timeline</strong> as you go: times, observations, actions.</li><li><strong>Communicate on a schedule:</strong> every 30–60 minutes for a major incident, even if there's no news.</li><li><strong>Declare it over</strong> when users are unaffected, and say what's still to do.</li></ol>
+<h2 id="severity-levels-agree-them-with-the-client">Severity levels (agree them with the client)</h2>
+<div class="table-wrap"><table><thead><tr><th>Severity</th><th>Example</th><th>Response</th></tr></thead><tbody><tr><td><strong>SEV1</strong></td><td>AdmitFlow down during an intake deadline; data exposed</td><td>Immediately, any hour; client leadership informed</td></tr><tr><td><strong>SEV2</strong></td><td>Messages not sending; assistant giving wrong fees</td><td>Within 1 hour in working hours</td></tr><tr><td><strong>SEV3</strong></td><td>Slow reports; one feature broken</td><td>Next working day</td></tr></tbody></table></div>
+<p>A suspected <strong>data breach</strong> has extra obligations: involve the client's privacy lead immediately; many laws have strict notification deadlines.</p>
+<h2 id="communicating">Communicating</h2>
+<p>To non-technical stakeholders: <strong>what's affected, since when, what we're doing, when they'll hear next.</strong> No jargon, no guesses presented as facts.</p>
+<blockquote><p><strong>10:40</strong> WhatsApp follow-ups have not been sending since Monday afternoon. Email is fine. We've found the cause (an expired access key) and expect to fix it within 30 minutes. Next update 11:15.</p></blockquote>
+<h2 id="after-the-incident-blameless-reviews">After the incident: blameless reviews</h2>
+<p>Write an <a href="templates-incident-report.html">incident report</a> within two working days:</p>
+<ul><li><strong>Blameless:</strong> "the token expired and nothing alerted us," not "Priya forgot to renew the token." People make mistakes; systems should catch them.</li><li><strong>Contributing factors:</strong> why it happened <em>and</em> why it wasn't detected sooner.</li><li><strong>Actions</strong> with owners and dates: prevent, detect, mitigate. Then actually do them, and check in a month.</li></ul>
+<p>The <a href="modules-10-production-security-reliability-break-and-fix-readme.html">break &amp; fix</a> is a complete example: six contributing factors, each with a fix.</p>
+<h2 id="runbooks">Runbooks</h2>
+<p>A runbook turns 2am panic into a checklist: for each alert, what it means, first checks, likely causes, fixes and who to tell. AdmitFlow's: <a href="projects-admitflow-docs-runbook.html"><code>docs/runbook.md</code></a>. Every incident should improve it.</p>
+<h2 id="game-days">Game days</h2>
+<p>Practise before it's real: break something on purpose in staging (stop the database, revoke a token, fill the disk) and run the response with the team. You'll find missing alerts, wrong runbook steps and access problems while the stakes are low.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Do the break &amp; fix, then the <a href="modules-10-production-security-reliability-field-track.html">Field Track</a> game day.</p>
+<p>Next: <a href="modules-10-production-security-reliability-lessons-08-backups-and-compliance.html">Lesson 08 — Backups, disaster recovery and compliance</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-10-production-security-reliability-lessons-06-reliability-patterns.html">← Lesson 06 — Reliability patterns</a><a class="btn ghost" href="modules-10-production-security-reliability-lessons-08-backups-and-compliance.html">Lesson 08 — Backups, disaster recovery, audit and compliance →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

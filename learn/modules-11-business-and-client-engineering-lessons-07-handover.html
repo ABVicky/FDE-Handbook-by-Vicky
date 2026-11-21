@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 07 — Handover and post-deployment support | FDE Handbook by Vicky</title>
+<meta name="description" content="An FDE&#x27;s work is judged a year later: is the system still running, still used, still improving? If it collapses when you leave, the engagement failed,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-07-handover.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 07 — Handover and post-deployment support | FDE Handbook by Vicky">
+<meta property="og:description" content="An FDE&#x27;s work is judged a year later: is the system still running, still used, still improving? If it collapses when you leave, the engagement failed,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-07-handover.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 07 — Handover and post-deployment support | FDE Handbook by Vicky">
+<meta name="twitter:description" content="An FDE&#x27;s work is judged a year later: is the system still running, still used, still improving? If it collapses when you leave, the engagement failed,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 07 — Handover and post-deployment support", "description": "An FDE's work is judged a year later: is the system still running, still used, still improving? If it collapses when you leave, the engagement failed,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-07-handover.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/07-handover.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 11</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/07-handover.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why">Why</a></li><li><a href="#who-owns-what-after-you-leave">Who owns what after you leave</a></li><li><a href="#the-handover-pack">The handover pack</a></li><li><a href="#training-that-sticks">Training that sticks</a></li><li><a href="#post-deployment-support">Post-deployment support</a></li><li><a href="#measuring-impact-and-closing">Measuring impact, and closing</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 07 — Handover and post-deployment support</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why">Why</h2>
+<p>An FDE's work is judged a year later: is the system still running, still used, still improving? If it collapses when you leave, the engagement failed, however good the code was. Plan the handover from the first week.</p>
+<h2 id="who-owns-what-after-you-leave">Who owns what after you leave</h2>
+<p>Agree it explicitly:</p>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>Owner at the client</th><th>Backup</th><th>What they need</th></tr></thead><tbody><tr><td>Day-to-day use, training new staff</td><td>Mr. Fernandes (and Priya as champion)</td><td>—</td><td>User guide, training material</td></tr><tr><td>Accounts and access</td><td>Mr. Okafor</td><td>Mr. Fernandes</td><td>Runbook: offboarding, roles</td></tr><tr><td>Operations (alerts, backups, restarts)</td><td>Mr. Okafor</td><td>FDE support contract</td><td>Runbook, dashboards, access</td></tr><tr><td>Course documents for the assistant</td><td>Admissions office</td><td>Mr. Fernandes</td><td>How to update and re-run the evaluation</td></tr><tr><td>Code changes</td><td>Vendor / future developer</td><td>—</td><td>README, ADRs, tests, CI</td></tr><tr><td>Budget and vendor contracts</td><td>Ms. Chen</td><td>—</td><td>Cost estimate and actuals</td></tr></tbody></table></div>
+<h2 id="the-handover-pack">The handover pack</h2>
+<ol><li><strong>User guide</strong> for counsellors and reception (<a href="templates-user-guide.html">template</a>): task-based ("add a phone enquiry"), with screenshots, one page per task</li><li><strong>Handover document</strong> (<a href="templates-handover.html">template</a>): what exists, who owns what, how to get help, known issues, the roadmap</li><li><strong>Runbook</strong> (Module 10) and <strong>deployment guide</strong> (Module 06)</li><li><strong>Architecture and decisions:</strong> technical design + ADRs</li><li><strong>Access:</strong> every credential transferred to client-owned accounts; yours removed</li><li><strong>Recorded walkthroughs:</strong> 10-minute videos for the most common tasks</li></ol>
+<p>AdmitFlow's examples: <a href="projects-admitflow-docs-user-guide.html"><code>docs/user-guide.md</code></a>, <a href="projects-admitflow-docs-handover.html"><code>docs/handover.md</code></a>.</p>
+<h2 id="training-that-sticks">Training that sticks</h2>
+<ul><li>Short sessions per role, hands-on with their own data</li><li>A one-page quick reference per role</li><li>"Train the trainer": the champion can onboard new staff without you</li><li>A check after two weeks: can each person do the five core tasks unaided?</li></ul>
+<h2 id="post-deployment-support">Post-deployment support</h2>
+<p>Agree a support model before go-live: how issues are reported (one channel, not WhatsApp messages to the FDE's personal phone), response times by severity, what's included, and when it ends. A <strong>hypercare</strong> period (2–4 weeks of close support after go-live) catches adoption problems while they're small.</p>
+<h2 id="measuring-impact-and-closing">Measuring impact, and closing</h2>
+<p>At the end of the engagement:</p>
+<ul><li>Report the outcome against the agreed metrics (the 24-hour contact rate, enrolments by channel), honestly</li><li>Capture <strong>lessons learned</strong> with the client</li><li>Write up <strong>reusable assets</strong> for your own organization: connectors, templates, patterns (FDEs feed the product, Module 01)</li><li>Agree what happens next: support, phase 2, or a clean exit</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write AdmitFlow's handover document using the template, then ask someone who has never seen AdmitFlow to answer, from the documents alone: "The outbox alert fired. What do you do?" and "A new counsellor starts Monday. What do they need?"</p>
+<p>Next: <a href="modules-11-business-and-client-engineering-exercises-readme.html">Exercises</a> and the <a href="modules-11-business-and-client-engineering-build.html">build</a>.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-06-delivery-and-change.html">← Lesson 06 — Delivery and change management</a><a class="btn ghost" href="modules-11-business-and-client-engineering-exercises-01-process-map.html">Exercise 01 — Map the campus-visit process →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

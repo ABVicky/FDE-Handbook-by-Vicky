@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Functions | FDE Handbook by Vicky</title>
+<meta name="description" content="Functions are how you turn a script into something testable and reusable. In the AdmitFlow reference code, every cleaning rule (normalizephone,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-04-functions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Functions | FDE Handbook by Vicky">
+<meta property="og:description" content="Functions are how you turn a script into something testable and reusable. In the AdmitFlow reference code, every cleaning rule (normalizephone,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-04-functions.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Functions | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Functions are how you turn a script into something testable and reusable. In the AdmitFlow reference code, every cleaning rule (normalizephone,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Functions", "description": "Functions are how you turn a script into something testable and reusable. In the AdmitFlow reference code, every cleaning rule (normalizephone,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-04-functions.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/04-functions.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/04-functions.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#defining-and-calling">Defining and calling</a></li><li><a href="#parameters">Parameters</a></li><li><a href="#returning-several-values">Returning several values</a></li><li><a href="#pure-functions-are-easy-to-trust">Pure functions are easy to trust</a></li><li><a href="#scope">Scope</a></li><li><a href="#small-functions-good-names">Small functions, good names</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Functions</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Functions are how you turn a script into something testable and reusable. In the AdmitFlow reference code, every cleaning rule (<code>normalize_phone</code>, <code>normalize_name</code>, …) is a small function with its own tests. When the client says "phone numbers from the new kiosk look different," you change one function and its tests, not a 500-line script.</p>
+<h2 id="defining-and-calling">Defining and calling</h2>
+<pre><code>def priority(hours_waiting):
+    &quot;&quot;&quot;Return a follow-up priority for a lead.&quot;&quot;&quot;
+    if hours_waiting &gt; 48:
+        return &quot;urgent&quot;
+    if hours_waiting &gt; 24:
+        return &quot;high&quot;
+    return &quot;normal&quot;
+
+print(priority(30))   # high</code></pre>
+<ul><li><code>def</code> defines; the indented block is the body.</li><li><code>return</code> sends a value back. Without <code>return</code>, a function returns <code>None</code>.</li><li>The <code>&quot;&quot;&quot;docstring&quot;&quot;&quot;</code> explains what it does. Write one for anything non-obvious.</li></ul>
+<h2 id="parameters">Parameters</h2>
+<pre><code>def greeting(name, course, channel=&quot;email&quot;):
+    return f&quot;[{channel}] Hi {name}, thanks for your interest in {course}!&quot;
+
+greeting(&quot;Grace&quot;, &quot;Accounting&quot;)                       # default channel
+greeting(&quot;Omar&quot;, &quot;Web Development&quot;, channel=&quot;sms&quot;)   # keyword argument
+greeting(course=&quot;DA&quot;, name=&quot;Zoë&quot;)                    # any order with keywords</code></pre>
+<h3 id="the-mutable-default-trap">The mutable default trap</h3>
+<pre><code>def add_note(note, notes=[]):   # ❌ the same list is reused on every call
+    notes.append(note)
+    return notes
+
+def add_note(note, notes=None): # ✅
+    if notes is None:
+        notes = []
+    notes.append(note)
+    return notes</code></pre>
+<h2 id="returning-several-values">Returning several values</h2>
+<pre><code>def split_name(full):
+    first, _, last = full.partition(&quot; &quot;)
+    return first, last          # returns a tuple
+
+first, last = split_name(&quot;Grace Patel&quot;)</code></pre>
+<h2 id="pure-functions-are-easy-to-trust">Pure functions are easy to trust</h2>
+<p>A <strong>pure</strong> function's output depends only on its inputs, and it changes nothing outside itself (no files, no globals, no network).</p>
+<pre><code>def normalize_email(value):              # pure: easy to test
+    return value.strip().lower()
+
+def save_email(value):                   # not pure: touches a file
+    with open(&quot;emails.txt&quot;, &quot;a&quot;) as fh:
+        fh.write(normalize_email(value) + &quot;\n&quot;)</code></pre>
+<p><strong>Design habit:</strong> keep the logic in pure functions; keep reading and writing (I/O) at the edges. You'll see this pattern in <code>projects/admitflow/admitflow/normalize.py</code> (pure) versus <code>store.py</code> (I/O).</p>
+<h2 id="scope">Scope</h2>
+<p>Variables created inside a function exist only inside it. Pass values in as parameters and return results; avoid <code>global</code>.</p>
+<h2 id="small-functions-good-names">Small functions, good names</h2>
+<p>If you can't name a function clearly, it's probably doing too much. <code>clean_and_save_and_email_leads()</code> should be three functions.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Write <code>hours_between(start, end)</code> that takes two strings like <code>&quot;2026-09-01 10:00&quot;</code> and returns the number of hours between them as a float. (Hint: <code>from datetime import datetime</code>, <code>datetime.strptime(s, &quot;%Y-%m-%d %H:%M&quot;)</code>, and subtracting two datetimes gives a <code>timedelta</code> with <code>.total_seconds()</code>.)</p>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-05-collections.html">Lesson 05 — Collections</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-03-control-flow.html">← Lesson 03 — Control flow: if, for, while</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-05-collections.html">Lesson 05 — Collections: lists, dicts, sets, tuples →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 15 — Async basics | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: ~2 hours · Core (concepts) / Stretch (going deeper)">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-15-async-basics.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 15 — Async basics | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: ~2 hours · Core (concepts) / Stretch (going deeper)">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-15-async-basics.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 15 — Async basics | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: ~2 hours · Core (concepts) / Stretch (going deeper)">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 15 — Async basics", "description": "Time: ~2 hours · Core (concepts) / Stretch (going deeper)", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-15-async-basics.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/15-async-basics.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/15-async-basics.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-idea">The idea</a></li><li><a href="#async-and-await">async and await</a></li><li><a href="#real-http-calls-concurrently">Real HTTP calls, concurrently</a></li><li><a href="#be-a-polite-client-limit-concurrency">Be a polite client: limit concurrency</a></li><li><a href="#common-mistakes">Common mistakes</a></li><li><a href="#when-to-use-it">When to use it</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 15 — Async basics</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong> (concepts) / <em>Stretch</em> (going deeper)</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Much of an FDE's code spends its time <strong>waiting</strong>: for an API, a database, an LLM. If you need 200 API calls that each take 1 second, doing them one after another takes over 3 minutes. Doing them <em>concurrently</em> (overlapping the waits) can take a few seconds. FastAPI (Module 04) and most LLM SDKs (Module 08) are built around async, so you need to recognize it.</p>
+<h2 id="the-idea">The idea</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/03-programming-fundamentals/lessons/15-async-basics.md">View it in the interactive reader</a>.</p>
+<p>Async doesn't make your code compute faster. It stops your program sitting idle while it waits.</p>
+<h2 id="async-and-await">async and await</h2>
+<pre><code>import asyncio
+
+async def fetch_status(lead_id: str) -&gt; str:
+    await asyncio.sleep(1)          # stands in for a network call
+    return f&quot;{lead_id}: ok&quot;
+
+async def main():
+    ids = [f&quot;ENQ-{i:04d}&quot; for i in range(1, 11)]
+    results = await asyncio.gather(*(fetch_status(i) for i in ids))
+    print(results)
+
+asyncio.run(main())                 # ~1 second, not ~10</code></pre>
+<ul><li><code>async def</code> defines a <strong>coroutine</strong> function. Calling it doesn't run it; it creates a coroutine object.</li><li><code>await</code> pauses <em>this</em> coroutine until the result is ready, letting others run meanwhile.</li><li><code>asyncio.gather</code> runs many coroutines concurrently and collects the results.</li><li><code>asyncio.run</code> starts the event loop from normal code.</li></ul>
+<h2 id="real-http-calls-concurrently">Real HTTP calls, concurrently</h2>
+<pre><code>import asyncio
+import httpx
+
+async def main():
+    async with httpx.AsyncClient(timeout=10) as client:
+        urls = [&quot;https://example.com&quot;, &quot;https://example.org&quot;]
+        responses = await asyncio.gather(*(client.get(u) for u in urls))
+        for r in responses:
+            print(r.url, r.status_code)
+
+asyncio.run(main())</code></pre>
+<h2 id="be-a-polite-client-limit-concurrency">Be a polite client: limit concurrency</h2>
+<p>Firing 1,000 requests at once will hit rate limits (429s) or overload the client's server. Use a semaphore:</p>
+<pre><code>limit = asyncio.Semaphore(5)        # at most 5 at a time
+
+async def polite_get(client, url):
+    async with limit:
+        return await client.get(url)</code></pre>
+<h2 id="common-mistakes">Common mistakes</h2>
+<div class="table-wrap"><table><thead><tr><th>Mistake</th><th>Effect</th></tr></thead><tbody><tr><td>Forgetting <code>await</code></td><td>You get a coroutine object, not the result (and a warning)</td></tr><tr><td>Calling blocking code (<code>time.sleep</code>, <code>requests.get</code>) inside async code</td><td>Blocks <em>everything</em>. Use <code>asyncio.sleep</code>, <code>httpx.AsyncClient</code></td></tr><tr><td>Using async for CPU-heavy work</td><td>No speed-up; async helps with waiting, not computing</td></tr></tbody></table></div>
+<h2 id="when-to-use-it">When to use it</h2>
+<p>Use async when you have many independent network waits, or when your framework is async (FastAPI, many LLM SDKs). For a simple script that makes a few calls, synchronous code is simpler and perfectly fine.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Modify the first example to run 50 <code>fetch_status</code> calls with at most 10 at a time. Roughly how long should it take, and why?</p>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-16-data-structures-and-big-o.html">Lesson 16 — Data structures and Big-O</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-14-calling-http-apis.html">← Lesson 14 — Calling HTTP APIs</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-16-data-structures-and-big-o.html">Lesson 16 — Data structures and Big-O →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Business cases and ROI | FDE Handbook by Vicky</title>
+<meta name="description" content="Ms. Rao&#x27;s board asked: &quot;What did we get for the money?&quot; A business case answers that before the work (should we do it?) and after (did it work?). FDEs…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-04-business-cases-and-roi.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Business cases and ROI | FDE Handbook by Vicky">
+<meta property="og:description" content="Ms. Rao&#x27;s board asked: &quot;What did we get for the money?&quot; A business case answers that before the work (should we do it?) and after (did it work?). FDEs…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-04-business-cases-and-roi.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Business cases and ROI | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Ms. Rao&#x27;s board asked: &quot;What did we get for the money?&quot; A business case answers that before the work (should we do it?) and after (did it work?). FDEs…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Business cases and ROI", "description": "Ms. Rao's board asked: \"What did we get for the money?\" A business case answers that before the work (should we do it?) and after (did it work?). FDEs…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-04-business-cases-and-roi.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/04-business-cases-and-roi.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 11</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/04-business-cases-and-roi.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why">Why</a></li><li><a href="#the-parts-of-a-business-case">The parts of a business case</a></li><li><a href="#admitflows-roi-model">AdmitFlow&#x27;s ROI model</a></li><li><a href="#presenting-it">Presenting it</a></li><li><a href="#measuring-after-launch">Measuring after launch</a></li><li><a href="#time-savings-count-carefully">Time savings: count carefully</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Business cases and ROI</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why">Why</h2>
+<p>Ms. Rao's board asked: <em>"What did we get for the money?"</em> A business case answers that <strong>before</strong> the work (should we do it?) and <strong>after</strong> (did it work?). FDEs who can build an honest one earn the trust to do the next project.</p>
+<h2 id="the-parts-of-a-business-case">The parts of a business case</h2>
+<ol><li><strong>Problem and baseline:</strong> what happens today, in numbers</li><li><strong>Proposed change</strong> and how it's expected to move the numbers</li><li><strong>Benefits:</strong> revenue, cost, risk, with the reasoning</li><li><strong>Costs:</strong> one-off and running, <strong>including the client's own people's time</strong></li><li><strong>Assumptions</strong>, each labelled with who provided or agreed it</li><li><strong>Scenarios:</strong> conservative / middle / optimistic</li><li><strong>How we'll measure it</strong> after launch</li></ol>
+<h2 id="admitflows-roi-model">AdmitFlow's ROI model</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/11-business-and-client-engineering/exercises/solutions/roi_model.py"><code>exercises/solutions/roi_model.py</code></a> separates <strong>measured</strong> numbers from <strong>assumptions</strong>:</p>
+<pre><code>Measured on 3000 past leads: enrolment 16.2% if contacted within 24h, 5.9% if later.
+Assumed shift: 45% → 85% of 9,000 enquiries a year contacted within 24h.
+Today&#x27;s expected enrolments from these enquiries: about 949 a year.
+
+scenario       extra enrol.  vs today    revenue  contribution  net year 1   payback
+conservative           91.9       10%    399,763       139,917      96,597     2.8 mo
+middle                183.8       19%    799,525       279,834     236,514     1.4 mo
+optimistic            275.7       29%  1,199,288       419,751     376,431     0.9 mo</code></pre>
+<p>How it was made honest:</p>
+<ul><li><strong>Correlation isn't causation.</strong> Leads called quickly may differ in other ways (they enquired in office hours, they're keener). The model assumes only 25–75% of the observed gap is <em>caused</em> by speed (<code>causal_share</code>).</li><li><strong>Contribution, not revenue.</strong> An extra student brings fees but also costs to teach; the model counts 35% as contribution.</li><li><strong>Hidden costs included.</strong> Contacting 85% of leads within a day needs more counsellor time, so the model adds a part-time counsellor.</li><li><strong>Sanity check.</strong> The first version (revenue only, no extra counsellor) showed payback in under a month. When a business case looks that good, look for what's missing before presenting it.</li><li><strong>Compared with today</strong> (about 949 enrolments a year), so "+92" means "+10%", which people can judge.</li></ul>
+<h2 id="presenting-it">Presenting it</h2>
+<p>Lead with the <strong>conservative</strong> case. Clients forgive under-promising; they don't forget over-promising.</p>
+<blockquote><p><em>"Based on two years of your own data, getting 85% of enquiries contacted within a day is likely to add 90–280 enrolments a year (10–30%). Even in the cautious case, the project and an extra part-time counsellor pay for themselves within one intake. The pilot will tell us which end of the range is right."</em></p></blockquote>
+<h2 id="measuring-after-launch">Measuring after launch</h2>
+<p>Plan the measurement <strong>before</strong> launch:</p>
+<ul><li><strong>Baseline</strong> the metric for a period before (the pilot measured the real 24-hour rate)</li><li><strong>Compare like with like:</strong> same intake period year on year, or a staged rollout (some counsellors first) as a rough control group</li><li><strong>Report regularly</strong> in the client's own reports (Ms. Rao's board pack)</li><li><strong>Separate effects:</strong> if ad spend also changed, say so</li></ul>
+<h2 id="time-savings-count-carefully">Time savings: count carefully</h2>
+<p>"15 hours a week saved" is only a <em>financial</em> saving if those hours are used for something valuable (more calls) or reduce a cost. Otherwise present it as capacity freed, not money saved.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Do <a href="modules-11-business-and-client-engineering-exercises-02-roi.html">Exercise 02</a>: change three assumptions you think are too optimistic, re-run the model, and write the one-paragraph summary for the board. Then list what the pilot must measure to replace your two most uncertain assumptions with facts.</p>
+<p>Next: <a href="modules-11-business-and-client-engineering-lessons-05-communication.html">Lesson 05 — Communicating with stakeholders</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html">← Lesson 03 — Discovery and requirements, in depth</a><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-05-communication.html">Lesson 05 — Communicating with stakeholders →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

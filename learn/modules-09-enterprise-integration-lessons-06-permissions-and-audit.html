@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 06 — Permissions, multi-tenancy and audit | FDE Handbook by Vicky</title>
+<meta name="description" content="Most real systems combine RBAC with row-level rules. Write the rules in one place, test each one, and deny by default.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-06-permissions-and-audit.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 06 — Permissions, multi-tenancy and audit | FDE Handbook by Vicky">
+<meta property="og:description" content="Most real systems combine RBAC with row-level rules. Write the rules in one place, test each one, and deny by default.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-06-permissions-and-audit.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 06 — Permissions, multi-tenancy and audit | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Most real systems combine RBAC with row-level rules. Write the rules in one place, test each one, and deny by default.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 06 — Permissions, multi-tenancy and audit", "description": "Most real systems combine RBAC with row-level rules. Write the rules in one place, test each one, and deny by default.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-09-enterprise-integration-lessons-06-permissions-and-audit.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/06-permissions-and-audit.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 09</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/09-enterprise-integration/lessons/06-permissions-and-audit.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#authorization-models">Authorization models</a></li><li><a href="#respecting-the-source-systems-permissions">Respecting the source system&#x27;s permissions</a></li><li><a href="#least-privilege-for-integrations-and-ai-tools">Least privilege for integrations and AI tools</a></li><li><a href="#multi-tenancy">Multi-tenancy</a></li><li><a href="#audit-logs">Audit logs</a></li><li><a href="#data-migration">Data migration</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 06 — Permissions, multi-tenancy and audit</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="authorization-models">Authorization models</h2>
+<div class="table-wrap"><table><thead><tr><th>Model</th><th>Idea</th><th>AdmitFlow</th></tr></thead><tbody><tr><td><strong>RBAC</strong> (role-based)</td><td>Permissions come from roles</td><td><code>counsellor</code>, <code>admin</code></td></tr><tr><td><strong>Ownership / row-level</strong></td><td>You can act on records you own</td><td>Counsellors change only leads assigned to them (or unassigned)</td></tr><tr><td><strong>ABAC</strong> (attribute-based)</td><td>Rules over attributes ("same campus", "office hours")</td><td>A later extension: campus-scoped counsellors</td></tr></tbody></table></div>
+<p>Most real systems combine RBAC with row-level rules. Write the rules in <strong>one place</strong>, test each one, and <strong>deny by default</strong>.</p>
+<h2 id="respecting-the-source-systems-permissions">Respecting the source system's permissions</h2>
+<p>When you pull data from another system, you inherit its access rules. If a hospital's document system says only senior staff can read HR policies, your AI assistant must enforce the same rule. That means:</p>
+<ul><li>import the <strong>permissions</strong> with the data (who/which groups can see each record)</li><li><strong>filter at query time</strong> by the current user's identity, before anything reaches a model or a screen</li><li>re-sync permissions regularly; access changes as people change roles</li></ul>
+<p>Copying data without its permissions is one of the most common enterprise integration security failures.</p>
+<h2 id="least-privilege-for-integrations-and-ai-tools">Least privilege for integrations and AI tools</h2>
+<p>AdmitFlow's MCP server acts <strong>as one named counsellor</strong>, sees only that counsellor's leads, returns the same "not found" for leads that exist but aren't theirs (so it doesn't reveal what exists), omits contact details, and has no tools that send or modify. Apply the same thinking to every service account and token.</p>
+<h2 id="multi-tenancy">Multi-tenancy</h2>
+<p>If you'll serve several clients from one deployment (a second institute wants AdmitFlow), choose how to isolate them:</p>
+<div class="table-wrap"><table><thead><tr><th>Approach</th><th>Isolation</th><th>Cost / effort</th></tr></thead><tbody><tr><td>Separate deployment per client</td><td>Strongest</td><td>Highest operational cost</td></tr><tr><td>Separate database per client</td><td>Strong</td><td>Medium</td></tr><tr><td>Shared database, <code>tenant_id</code> on every row</td><td>Weakest; one missing filter leaks data</td><td>Lowest</td></tr></tbody></table></div>
+<p>With a shared database, enforce the tenant filter centrally (repository layer, or PostgreSQL <strong>row-level security</strong>), and test cross-tenant access explicitly. Many enterprise clients will require separate deployments or databases; ask early.</p>
+<h2 id="audit-logs">Audit logs</h2>
+<p>Security reviews will ask: <strong>who did what, when?</strong> Log security-relevant events:</p>
+<ul><li>sign-ins (success and failure), role changes, user creation and removal</li><li>assignments, status changes, exports</li><li>draft approvals and rejections (AdmitFlow stores <code>decided_by</code>, <code>decided_at</code>)</li><li>integration actions (what was sent, synced, imported)</li></ul>
+<p>Audit logs should be <strong>append-only</strong> (nobody edits history), kept for an agreed period, and contain identifiers rather than full personal data. Module 10 adds structured audit logging.</p>
+<h2 id="data-migration">Data migration</h2>
+<p>Moving data from an old system into a new one is its own project:</p>
+<ol><li><strong>Map</strong> fields and values (old statuses → new statuses)</li><li><strong>Profile</strong> the old data: duplicates, blanks, invalid values</li><li><strong>Dry-run</strong> into a copy; reconcile counts and spot-check records with users</li><li><strong>Cut over</strong> with a freeze window, a final delta load, and a rollback plan</li><li><strong>Keep</strong> the old system read-only for a while</li></ol>
+<p>AdmitFlow's pipeline habits (idempotent loads, rejected-row reports, reconciliation) are exactly what a migration needs.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>A second institute will use AdmitFlow. Write a one-page proposal for tenant isolation: which approach, what changes in the code (every table, query, token, background job, and the MCP server), how you'd test that institute A can never see institute B's leads, and what you'd tell each client's security team.</p>
+<p>Next: <a href="modules-09-enterprise-integration-lessons-07-enterprise-platforms.html">Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-09-enterprise-integration-lessons-05-identity-and-sso.html">← Lesson 05 — Identity: OAuth, OpenID Connect, SAML and SSO</a><a class="btn ghost" href="modules-09-enterprise-integration-lessons-07-enterprise-platforms.html">Lesson 07 — Enterprise platforms: CRM, ERP, ITSM and data platforms →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

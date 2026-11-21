@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 05 — Databases and Data Engineering | FDE Handbook by Vicky</title>
+<meta name="description" content="Real businesses run on data, and their data is always messy. You&#x27;ll learn SQL (the language for asking databases questions), how to make slow queries…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-readme.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 05 — Databases and Data Engineering | FDE Handbook by Vicky">
+<meta property="og:description" content="Real businesses run on data, and their data is always messy. You&#x27;ll learn SQL (the language for asking databases questions), how to make slow queries…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-readme.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 05 — Databases and Data Engineering | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Real businesses run on data, and their data is always messy. You&#x27;ll learn SQL (the language for asking databases questions), how to make slow queries…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 05 — Databases and Data Engineering", "description": "Real businesses run on data, and their data is always messy. You'll learn SQL (the language for asking databases questions), how to make slow queries…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-05-databases-and-data-engineering-readme.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/05-databases-and-data-engineering/README.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 05</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/05-databases-and-data-engineering/README.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#outcome">Outcome</a></li><li><a href="#why-this-matters-to-an-fde">Why this matters to an FDE</a></li><li><a href="#checkpoint">Checkpoint</a></li><li><a href="#lessons">Lessons</a></li><li><a href="#practice">Practice</a></li><li><a href="#build-admitflow-on-a-real-database-with-a-pipeline">Build: AdmitFlow on a real database, with a pipeline</a></li><li><a href="#break-amp-fix">Break &amp;amp; fix</a></li><li><a href="#field-track">Field Track</a></li><li><a href="#done-when">Done when</a></li><li><a href="#resources">Resources</a></li></ul></details>
+<h1>Module 05 — Databases and Data Engineering</h1>
+<blockquote><p><strong>In plain words:</strong> Real businesses run on data, and their data is always messy. You'll learn SQL (the language for asking databases questions), how to make slow queries fast, and how to bring data from different systems together reliably.</p>
+<p><strong>What you'll build:</strong> A proper database for AdmitFlow, plus a report that finally answers the director's question: which channels bring students who actually enrol?</p>
+<p><strong>You can skip for now:</strong> Lessons 07–08 are mostly awareness; read them lightly on a first pass.</p>
+<p><strong>Comes after:</strong> <a href="modules-04-software-engineering-readme.html">Module 04: Software Engineering</a> · <strong>Leads to:</strong> <a href="modules-06-cloud-and-infrastructure-readme.html">Module 06: Cloud and Infrastructure</a></p>
+<p><strong>How to work through it:</strong> read the lessons in order → try the exercises → do the build → do the break &amp; fix → do the Field Track → tick the "Done when" list. New here? Read <a href="start-here.html">Start Here</a> first.</p></blockquote>
+<p><strong>Stage:</strong> 2 — Engineering · <strong>Time:</strong> ~3 weeks at 15–20 h/week · <strong>Builds:</strong> C2 (Build software), C3 (Apply AI and data) <strong>Prerequisites:</strong> <a href="modules-04-software-engineering-readme.html">Module 04</a>: the AdmitFlow API and dashboard.</p>
+<h2 id="outcome">Outcome</h2>
+<p>After this module you can model data, write analytical SQL, make slow queries fast, move an application onto a real database with migrations, and build a pipeline that turns messy multi-source data into numbers a client can trust.</p>
+<h2 id="why-this-matters-to-an-fde">Why this matters to an FDE</h2>
+<p>The pilot worked. Now Ms. Rao asks the question she's wanted answered since Module 01: <strong>"Which channels actually produce students who enrol?"</strong> Answering it means combining AdmitFlow's leads with a different system's admissions records, which have different IDs, name formats and phone formats, and producing a number she'll use to move real advertising budget.</p>
+<p>That's FDE data work in miniature: get data out of systems you don't control, match it, store it properly, and report on it in a way you can defend line by line.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<p>Comfortable with SQL, indexes and migrations? Take the <a href="modules-05-databases-and-data-engineering-checkpoint.html">checkpoint</a>. Score ≥ 80% <strong>and</strong> complete the <a href="modules-05-databases-and-data-engineering-build.html">build</a> and <a href="modules-05-databases-and-data-engineering-break-and-fix-readme.html">break &amp; fix</a> to move on.</p>
+<h2 id="lessons">Lessons</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Lesson</th><th>Core / Stretch</th><th>Time</th></tr></thead><tbody><tr><td>01</td><td><a href="modules-05-databases-and-data-engineering-lessons-01-data-modelling.html">Relational thinking and data modelling</a></td><td>Core</td><td>4 h</td></tr><tr><td>02</td><td><a href="modules-05-databases-and-data-engineering-lessons-02-sql-fundamentals.html">SQL fundamentals</a></td><td>Core</td><td>6 h</td></tr><tr><td>03</td><td><a href="modules-05-databases-and-data-engineering-lessons-03-analytical-sql.html">Analytical SQL: CTEs and window functions</a></td><td>Core</td><td>4 h</td></tr><tr><td>04</td><td><a href="modules-05-databases-and-data-engineering-lessons-04-indexes-and-transactions.html">Indexes, query plans and transactions</a></td><td>Core</td><td>4 h</td></tr><tr><td>05</td><td><a href="modules-05-databases-and-data-engineering-lessons-05-sqlalchemy-and-migrations.html">Python and databases: SQLAlchemy and migrations</a></td><td>Core</td><td>5 h</td></tr><tr><td>06</td><td><a href="modules-05-databases-and-data-engineering-lessons-06-data-pipelines.html">Data pipelines: ingestion, quality and matching</a></td><td>Core</td><td>5 h</td></tr><tr><td>07</td><td><a href="modules-05-databases-and-data-engineering-lessons-07-nosql-and-caching.html">NoSQL and caching</a></td><td>Core / Stretch</td><td>2 h</td></tr><tr><td>08</td><td><a href="modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">The modern data stack and data governance</a></td><td>Core / Stretch</td><td>3 h</td></tr></tbody></table></div>
+<h2 id="practice">Practice</h2>
+<p><a href="modules-05-databases-and-data-engineering-exercises-readme.html">exercises/</a>: ten SQL drills on AdmitFlow data (with a self-checking answer script), a data-modelling exercise, and an idempotent loader with history.</p>
+<h2 id="build-admitflow-on-a-real-database-with-a-pipeline">Build: AdmitFlow on a real database, with a pipeline</h2>
+<p>See <a href="modules-05-databases-and-data-engineering-build.html">build.md</a>.</p>
+<ul><li><strong>Starting point:</strong> your Module 04 API and dashboard</li><li><strong>Goal:</strong> SQL repository with migrations, an audited ingestion pipeline, admissions matching, and a conversion-by-channel report</li><li><strong>Reference solution:</strong> <a href="projects-admitflow-readme.html"><code>projects/admitflow/</code></a>: <code>admitflow/db.py</code>, <code>admitflow/pipeline.py</code>, <code>migrations/</code></li></ul>
+<h2 id="break-amp-fix">Break &amp; fix</h2>
+<p><a href="modules-05-databases-and-data-engineering-break-and-fix-readme.html">break-and-fix/</a>: the Monday "neglected leads" report now takes 26 seconds. Make it take milliseconds, and prove why.</p>
+<h2 id="field-track">Field Track</h2>
+<p>See <a href="modules-05-databases-and-data-engineering-field-track.html">field-track.md</a>. Write the data-access request you'd send the client's IT team.</p>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] The API runs on SQL (SQLite locally) via <code>DATABASE_URL</code>, with schema created by migrations</li><li>[ ] Contract tests pass for both JSON and SQL repositories</li><li>[ ] Ingesting all three files gives <strong>190 leads</strong>; re-running changes nothing</li><li>[ ] Every run is recorded; every rejected row is stored with a reason; counts reconcile</li><li>[ ] Admissions matching links <strong>22</strong> enrolments and reports the <strong>3</strong> unmatched</li><li>[ ] You can explain the conversion-by-channel numbers, including why channel totals exceed 190</li><li>[ ] The break &amp; fix report runs in under 0.1 s, with the query plan to prove it</li><li>[ ] SQL drills done; data inventory written (<a href="modules-05-databases-and-data-engineering-lessons-08-data-stack-and-governance.html">Lesson 08</a>)</li><li>[ ] <a href="progress-self-assessment.html"><code>progress/self-assessment.md</code></a> updated</li></ul>
+<h2 id="resources">Resources</h2>
+<p>See <a href="modules-05-databases-and-data-engineering-resources.html">resources.md</a>.</p>
+<hr>
+<p><em>Last verified: 2026-11-21 · Tested with: SQLite 3.54, SQLAlchemy 2.0.58, Alembic (current 1.x), Python 3.9+. PostgreSQL steps are written for PostgreSQL 16 and run in CI; not run on the author's machine.</em></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-resources.html">← Module 04 — Resources</a><a class="btn ghost" href="modules-05-databases-and-data-engineering-lessons-01-data-modelling.html">Lesson 01 — Relational thinking and data modelling →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 06 — Checkpoint | FDE Handbook by Vicky</title>
+<meta name="description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-checkpoint.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 06 — Checkpoint | FDE Handbook by Vicky">
+<meta property="og:description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-checkpoint.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 06 — Checkpoint | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 06 — Checkpoint", "description": "Pass mark: 10 / 12, plus the build and break & fix.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-checkpoint.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/checkpoint.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/checkpoint.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+
+<h1>Module 06 — Checkpoint</h1>
+<p>Pass mark: <strong>10 / 12</strong>, plus the <a href="modules-06-cloud-and-infrastructure-build.html">build</a> and <a href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">break &amp; fix</a>.</p>
+<hr>
+<p><strong>1.</strong> Explain the difference between IaaS, PaaS and a managed service, with an AdmitFlow example of each.</p>
+<p><strong>2.</strong> What is the shared responsibility model? Give two things that are always <em>your</em> responsibility in the cloud.</p>
+<p><strong>3.</strong> What's the difference between a Docker image and a container?</p>
+<p><strong>4.</strong> Why does the AdmitFlow Dockerfile copy <code>pyproject.toml</code> and install dependencies <em>before</em> copying the rest of the code?</p>
+<p><strong>5.</strong> A containerized API logs <code>Uvicorn running on http://127.0.0.1:8000</code>, and <code>curl localhost:8000</code> from the host fails. Why?</p>
+<p><strong>6.</strong> In Docker Compose, the API's <code>DATABASE_URL</code> uses <code>localhost:5432</code> and can't connect. What should it be, and why?</p>
+<p><strong>7.</strong> What does <code>depends_on</code> without a <code>condition</code> guarantee, and what doesn't it?</p>
+<p><strong>8.</strong> Name three things AdmitFlow's CI checks that a plain "run pytest" workflow wouldn't.</p>
+<p><strong>9.</strong> What's the difference between a liveness check and a readiness check? Which one should touch the database?</p>
+<p><strong>10.</strong> Where should <code>ADMITFLOW_SECRET_KEY</code> live in (a) local development, (b) CI, (c) production? Where must it never be?</p>
+<p><strong>11.</strong> You need to rename the column <code>course</code> to <code>programme</code> without downtime. Outline the steps.</p>
+<p><strong>12.</strong> Name three ways to keep a cloud bill predictable.</p>
+<hr>
+<details>
+<summary><strong>Answers</strong></summary>
+<ol><li>IaaS: you manage the OS (the office VM). PaaS: you bring the app, the platform runs it (Cloud Run / App Runner for the API). Managed service: the provider runs the whole component (Cloud SQL / RDS for PostgreSQL).</li><li>The provider secures the underlying infrastructure; you secure what you configure and put in it. Always yours: identities and permissions (IAM), your data, secrets, network exposure (firewall rules, public buckets), application code.</li><li>An image is a read-only template built from a Dockerfile; a container is a running (or stopped) instance of it.</li><li>Layer caching: dependency installation is slow and changes rarely, so putting it first means code-only changes rebuild in seconds.</li><li>Inside the container, <code>127.0.0.1</code> is the container's own loopback. Traffic forwarded from the host arrives on the container's network interface, where nothing listens. Bind to <code>0.0.0.0</code>.</li><li><code>db:5432</code> (the Compose service name). Inside the api container, <code>localhost</code> is the api container itself.</li><li>It guarantees start <strong>order</strong> only. It doesn't wait for the dependency to be <strong>ready</strong> (e.g. PostgreSQL accepting connections) or for a migration to finish. Use <code>condition: service_healthy</code> / <code>service_completed_successfully</code>.</li><li>Any three: tests on two Python versions; tests against real PostgreSQL; tests in two time zones; migrations applied and <code>alembic check</code> for drift; frontend strict type-check and build; Docker images built and smoke-tested.</li><li>Liveness: "is the process alive?" (restart if not), cheap, no dependencies. Readiness: "can it serve now?" (route traffic only if yes); this one checks the database.</li><li>(a) A <code>.env</code> file that's git-ignored; (b) GitHub Actions secrets (or no long-lived secret at all, via OIDC); (c) the cloud secret manager, injected at runtime. Never in Git, images, logs, tickets or chat.</li><li>Expand and contract: add <code>programme</code> (nullable) → deploy code that writes both and reads <code>programme</code> with fallback → backfill → deploy code that uses only <code>programme</code> → later, drop <code>course</code>. Back up before each migration.</li><li>Budget alerts to you and the client; caps (<code>max_instances</code>, log retention); labels on every resource; right-size the database; delete unused resources; monthly bill review.</li></ol>
+</details>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-build.html">← Module 06 Build — AdmitFlow, deployed</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-field-track.html">Module 06 — Field Track: Deploying into a restricted client environment →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

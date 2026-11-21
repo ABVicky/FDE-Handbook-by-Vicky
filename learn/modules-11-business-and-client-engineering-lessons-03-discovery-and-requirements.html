@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03 — Discovery and requirements, in depth | FDE Handbook by Vicky</title>
+<meta name="description" content="Module 01 introduced discovery. This lesson is the professional version: running workshops, handling conflicting stakeholders, and keeping scope under…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 03 — Discovery and requirements, in depth | FDE Handbook by Vicky">
+<meta property="og:description" content="Module 01 introduced discovery. This lesson is the professional version: running workshops, handling conflicting stakeholders, and keeping scope under…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 03 — Discovery and requirements, in depth | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Module 01 introduced discovery. This lesson is the professional version: running workshops, handling conflicting stakeholders, and keeping scope under…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 03 — Discovery and requirements, in depth", "description": "Module 01 introduced discovery. This lesson is the professional version: running workshops, handling conflicting stakeholders, and keeping scope under…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/03-discovery-and-requirements.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 11</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/03-discovery-and-requirements.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#discovery-methods">Discovery methods</a></li><li><a href="#running-a-90-minute-discovery-workshop">Running a 90-minute discovery workshop</a></li><li><a href="#when-stakeholders-disagree">When stakeholders disagree</a></li><li><a href="#requirements-that-hold-up">Requirements that hold up</a></li><li><a href="#scope-control-and-change-requests">Scope control and change requests</a></li><li><a href="#working-with-incomplete-information">Working with incomplete information</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 03 — Discovery and requirements, in depth</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<p>Module 01 introduced discovery. This lesson is the professional version: running workshops, handling conflicting stakeholders, and keeping scope under control.</p>
+<h2 id="discovery-methods">Discovery methods</h2>
+<div class="table-wrap"><table><thead><tr><th>Method</th><th>Best for</th><th>Watch out for</th></tr></thead><tbody><tr><td><strong>One-to-one interviews</strong></td><td>Honest pain points, politics</td><td>People describe the official process</td></tr><tr><td><strong>Observation ("shadowing")</strong></td><td>What actually happens</td><td>Takes time; ask permission</td></tr><tr><td><strong>Workshops</strong></td><td>Shared understanding, prioritization</td><td>Loud voices dominate; prepare structure</td></tr><tr><td><strong>Data review</strong></td><td>Volumes, baselines, quality</td><td>Data reflects the old process's blind spots</td></tr><tr><td><strong>Artefact review</strong></td><td>Forms, reports, spreadsheets in use</td><td>Shadow spreadsheets reveal real needs</td></tr></tbody></table></div>
+<p>Use several. Interviews tell you what people think; observation and data tell you what happens.</p>
+<h2 id="running-a-90-minute-discovery-workshop">Running a 90-minute discovery workshop</h2>
+<ol><li><strong>Purpose and outcome</strong> (5 min): "By the end we'll agree the top three problems and how we'd measure improvement."</li><li><strong>Current-state walkthrough</strong> (25 min): draw the process together on a wall or whiteboard</li><li><strong>Pain points</strong> (20 min): everyone adds notes silently, then groups them (silent writing stops the loudest person setting the agenda)</li><li><strong>Prioritize</strong> (20 min): vote, then discuss impact vs effort</li><li><strong>Success measures</strong> (15 min): for the top items, what number would show improvement?</li><li><strong>Next steps</strong> (5 min): who, what, when</li></ol>
+<p>Send a one-page summary within 24 hours, and ask for corrections.</p>
+<h2 id="when-stakeholders-disagree">When stakeholders disagree</h2>
+<p>Ms. Rao wants a chatbot; Mr. Fernandes wants control over his team; counsellors want less copying; Ms. Chen wants predictable cost. Don't pick a side in the room:</p>
+<ul><li><strong>Restate each goal</strong> in measurable terms</li><li>Find the <strong>shared outcome</strong> (more students enrolled, with less effort)</li><li>Show <strong>trade-offs</strong> explicitly ("the chatbot first means the team view comes in month three")</li><li>Let the <strong>sponsor decide</strong>, with the trade-offs written down</li></ul>
+<h2 id="requirements-that-hold-up">Requirements that hold up</h2>
+<p>From the <a href="templates-requirements.html">requirements template</a>: user stories with <strong>testable acceptance criteria</strong>, priorities (MoSCoW: Must, Should, Could, Won't this time), non-functional requirements, and an explicit <strong>out of scope</strong> list.</p>
+<p>The most important line in many requirement documents is <strong>"Won't (this phase)"</strong>. It's how you protect the timeline.</p>
+<h2 id="scope-control-and-change-requests">Scope control and change requests</h2>
+<p>New ideas will keep arriving ("can it also send birthday wishes?"). A lightweight process:</p>
+<ol><li>Write the request down; thank the person</li><li>Estimate impact (effort, risk, timeline)</li><li>Offer options: add it and move the date; swap it for something else; put it in phase 2</li><li>The sponsor decides; record the decision (an ADR or a change log)</li></ol>
+<p>Saying yes to everything isn't helpful; it's how projects fail late. Saying no with options is.</p>
+<h2 id="working-with-incomplete-information">Working with incomplete information</h2>
+<p>Clients often don't know what they need, documentation is missing, and systems are undocumented. Habits that help:</p>
+<ul><li><strong>State assumptions explicitly</strong> and confirm the risky ones first</li><li><strong>Build the smallest thing that tests the riskiest assumption</strong> (a prototype with real data in week 2)</li><li><strong>Keep an open-questions list</strong> with owners and dates, visible to the client</li><li><strong>Prefer reversible decisions</strong> early</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Plan a 90-minute workshop with Northbridge's counsellors, reception and Mr. Fernandes about the <strong>next phase</strong> of AdmitFlow: agenda, materials, the exact questions you'd ask, how you'd handle Mr. Fernandes dominating, and the summary email you'd send.</p>
+<p>Next: <a href="modules-11-business-and-client-engineering-lessons-04-business-cases-and-roi.html">Lesson 04 — Business cases and ROI</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-02-process-mapping.html">← Lesson 02 — Mapping processes and finding root causes</a><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-04-business-cases-and-roi.html">Lesson 04 — Business cases and ROI →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

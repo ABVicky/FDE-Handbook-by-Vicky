@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 07 — Connecting frontend and backend | FDE Handbook by Vicky</title>
+<meta name="description" content="Put every HTTP call in one file (web/src/api.ts), so auth headers, base URLs and error handling live in one place:">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-07-frontend-backend.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 07 — Connecting frontend and backend | FDE Handbook by Vicky">
+<meta property="og:description" content="Put every HTTP call in one file (web/src/api.ts), so auth headers, base URLs and error handling live in one place:">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-07-frontend-backend.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 07 — Connecting frontend and backend | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Put every HTTP call in one file (web/src/api.ts), so auth headers, base URLs and error handling live in one place:">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 07 — Connecting frontend and backend", "description": "Put every HTTP call in one file (web/src/api.ts), so auth headers, base URLs and error handling live in one place:", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-07-frontend-backend.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/lessons/07-frontend-backend.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/lessons/07-frontend-backend.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#one-api-client-module">One API client module</a></li><li><a href="#configuration-per-environment">Configuration per environment</a></li><li><a href="#cors-why-the-browser-blocks-your-request">CORS: why the browser blocks your request</a></li><li><a href="#where-to-keep-the-token">Where to keep the token</a></li><li><a href="#handling-auth-errors">Handling auth errors</a></li><li><a href="#keep-types-in-sync">Keep types in sync</a></li><li><a href="#running-both-together">Running both together</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 07 — Connecting frontend and backend</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="one-api-client-module">One API client module</h2>
+<p>Put every HTTP call in one file (<code>web/src/api.ts</code>), so auth headers, base URLs and error handling live in one place:</p>
+<pre><code>const BASE_URL = import.meta.env.VITE_API_URL ?? &quot;http://localhost:8000&quot;;
+
+export class ApiError extends Error {
+  constructor(public status: number, message: string) { super(message); }
+}
+
+export async function request&lt;T&gt;(path: string, options: RequestInit = {}, token?: string): Promise&lt;T&gt; {
+  const headers: Record&lt;string, string&gt; = { &quot;Content-Type&quot;: &quot;application/json&quot; };
+  if (token) headers.Authorization = `Bearer ${token}`;
+  let response: Response;
+  try {
+    response = await fetch(`${BASE_URL}${path}`, { ...options, headers });
+  } catch {
+    throw new ApiError(0, &quot;Can&#x27;t reach the AdmitFlow server. Check your connection.&quot;);
+  }
+  const body = await response.json().catch(() =&gt; null);
+  if (!response.ok) throw new ApiError(response.status, body?.error?.detail ?? &quot;Request failed&quot;);
+  return body as T;
+}</code></pre>
+<p>Components then call <code>api.leads(token, {...})</code> and never think about headers.</p>
+<h2 id="configuration-per-environment">Configuration per environment</h2>
+<p>The API's address differs on your laptop, in staging and in production. Vite reads <code>VITE_*</code> variables from <code>.env</code> files:</p>
+<pre><code># .env.local (not committed)
+VITE_API_URL=http://localhost:8000</code></pre>
+<p>Commit a <code>.env.example</code>. Remember: <strong>everything in frontend code is public</strong>. Never put secrets (API keys) in <code>VITE_*</code> variables. The browser downloads them.</p>
+<h2 id="cors-why-the-browser-blocks-your-request">CORS: why the browser blocks your request</h2>
+<p>Your dashboard runs at <code>http://localhost:5173</code> and the API at <code>http://localhost:8000</code>. Different ports are different <strong>origins</strong>, and browsers block cross-origin requests unless the server explicitly allows them:</p>
+<pre><code>Access to fetch at &#x27;http://localhost:8000/auth/login&#x27; from origin &#x27;http://localhost:5173&#x27;
+has been blocked by CORS policy</code></pre>
+<p>Fix it on the <strong>server</strong>:</p>
+<pre><code>from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[&quot;http://localhost:5173&quot;],          # from configuration, per environment
+    allow_methods=[&quot;GET&quot;, &quot;POST&quot;, &quot;PATCH&quot;],
+    allow_headers=[&quot;Authorization&quot;, &quot;Content-Type&quot;],
+)</code></pre>
+<p>Never use <code>allow_origins=[&quot;*&quot;]</code> with credentials on a system holding personal data. List the real dashboard origin(s).</p>
+<p><strong>Debugging tip:</strong> a CORS failure looks like a network error to your JavaScript. The real reason is only in the browser console. Also check that the API is actually running on that port. While testing this module's reference app, an old process was still holding port 8000, so the "API" answering was a different program with no CORS headers at all. <code>lsof -i :8000</code> found it in seconds (Module 02).</p>
+<h2 id="where-to-keep-the-token">Where to keep the token</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Survives refresh</th><th>Readable by JS (XSS risk)</th><th>Sent automatically (CSRF risk)</th></tr></thead><tbody><tr><td>React state only</td><td>No</td><td>Yes</td><td>No</td></tr><tr><td><code>sessionStorage</code></td><td>Yes, until the tab closes</td><td>Yes</td><td>No</td></tr><tr><td><code>localStorage</code></td><td>Yes, indefinitely</td><td>Yes</td><td>No</td></tr><tr><td><code>HttpOnly</code> cookie</td><td>Yes</td><td><strong>No</strong></td><td>Yes, so CSRF protection is needed</td></tr></tbody></table></div>
+<p>AdmitFlow uses <code>sessionStorage</code> (a reasonable trade-off for a pilot, recorded in ADR-003). Many production systems use <code>HttpOnly</code> cookies with CSRF protection. Know the trade-offs; record your choice.</p>
+<h2 id="handling-auth-errors">Handling auth errors</h2>
+<p>When any request returns <code>401</code>, the session is over: clear it and show the login screen.</p>
+<pre><code>catch (err) {
+  if (err instanceof ApiError &amp;&amp; err.status === 401) return onAuthError();   // → logout()
+  setError(err instanceof Error ? err.message : &quot;Failed to load leads&quot;);
+}</code></pre>
+<p><code>403</code> is different: the user <em>is</em> logged in but not allowed. Show the message; don't log them out.</p>
+<h2 id="keep-types-in-sync">Keep types in sync</h2>
+<p><code>web/src/types.ts</code> mirrors <code>admitflow/api/schemas.py</code>. When they drift, bugs follow. Options:</p>
+<ul><li>Keep both by hand and review together (fine for small projects).</li><li>Generate TypeScript types from FastAPI's <code>/openapi.json</code> (e.g. <code>openapi-typescript</code>). Better as the API grows.</li></ul>
+<h2 id="running-both-together">Running both together</h2>
+<p>Terminal 1:</p>
+<pre><code>export ADMITFLOW_SECRET_KEY=$(python -c &#x27;import secrets; print(secrets.token_urlsafe(48))&#x27;)</code></pre>
+<pre><code>admitflow serve</code></pre>
+<p>Terminal 2:</p>
+<pre><code>cd web &amp;&amp; npm run dev</code></pre>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Stop the API while the dashboard is open, then try to open a lead. What does the user see? Is it clear what happened and what to do? Improve the message if not.</p>
+<p>Next: <a href="modules-04-software-engineering-lessons-08-testing-strategy.html">Lesson 08 — Testing strategy</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-lessons-06-react.html">← Lesson 06 — Frontend fundamentals: HTML, CSS and React</a><a class="btn ghost" href="modules-04-software-engineering-lessons-08-testing-strategy.html">Lesson 08 — Testing strategy →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

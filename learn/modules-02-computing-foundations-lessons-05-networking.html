@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 05 — Networking fundamentals | FDE Handbook by Vicky</title>
+<meta name="description" content="Integration is a huge part of FDE work, and integration means machines talking to machines. When &quot;the integration doesn&#x27;t work,&quot; the cause is very…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-05-networking.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 05 — Networking fundamentals | FDE Handbook by Vicky">
+<meta property="og:description" content="Integration is a huge part of FDE work, and integration means machines talking to machines. When &quot;the integration doesn&#x27;t work,&quot; the cause is very…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-05-networking.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 05 — Networking fundamentals | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Integration is a huge part of FDE work, and integration means machines talking to machines. When &quot;the integration doesn&#x27;t work,&quot; the cause is very…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 05 — Networking fundamentals", "description": "Integration is a huge part of FDE work, and integration means machines talking to machines. When \"the integration doesn't work,\" the cause is very…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-05-networking.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/02-computing-foundations/lessons/05-networking.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 02</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/02-computing-foundations/lessons/05-networking.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-big-picture">The big picture</a></li><li><a href="#ip-addresses">IP addresses</a></li><li><a href="#dns-names-to-addresses">DNS: names to addresses</a></li><li><a href="#ports-which-program">Ports: which program?</a></li><li><a href="#tcp-and-udp">TCP and UDP</a></li><li><a href="#firewalls-vpns-and-proxies">Firewalls, VPNs and proxies</a></li><li><a href="#two-errors-worth-memorizing">Two errors worth memorizing</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 05 — Networking fundamentals</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Integration is a huge part of FDE work, and integration means machines talking to machines. When "the integration doesn't work," the cause is very often the network: a firewall rule, a DNS entry, a wrong port, a VPN. You need to be able to narrow it down yourself.</p>
+<h2 id="the-big-picture">The big picture</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/02-computing-foundations/lessons/05-networking.md">View it in the interactive reader</a>.</p>
+<p>To reach a program on another machine you need:</p>
+<ol><li><strong>Its address</strong> (IP address), usually found by looking up a <strong>name</strong> (DNS)</li><li><strong>A route</strong> to it: networks, routers, firewalls that allow the traffic</li><li><strong>The right port</strong>: which program on that machine should receive it</li><li><strong>A protocol</strong> both sides understand (e.g. HTTP)</li></ol>
+<h2 id="ip-addresses">IP addresses</h2>
+<p>An <strong>IP address</strong> identifies a machine (more precisely, a network interface).</p>
+<ul><li><strong>IPv4:</strong> <code>93.184.215.14</code>: four numbers 0–255. Still the most common.</li><li><strong>IPv6:</strong> <code>2606:2800:21f:cb07:6820:80da:af6b:8b2c</code>: longer, increasingly common.</li></ul>
+<p>Special ranges you'll see constantly:</p>
+<div class="table-wrap"><table><thead><tr><th>Address</th><th>Meaning</th></tr></thead><tbody><tr><td><code>127.0.0.1</code> / <code>localhost</code></td><td>This machine itself</td></tr><tr><td><code>10.x.x.x</code>, <code>172.16–31.x.x</code>, <code>192.168.x.x</code></td><td><strong>Private</strong> networks: offices, homes, cloud VPCs. Not reachable directly from the internet</td></tr><tr><td><code>0.0.0.0</code> (when a server listens on it)</td><td>"Accept connections on every network interface"</td></tr></tbody></table></div>
+<p><strong>Why this matters on a client site:</strong> a server at <code>10.20.0.15</code> is on the client's private network. You can only reach it from inside that network, e.g. via their <strong>VPN</strong>.</p>
+<h2 id="dns-names-to-addresses">DNS: names to addresses</h2>
+<p>People use names (<code>api.northbridge.example</code>); machines use IP addresses. <strong>DNS</strong> (Domain Name System) translates between them, like a phone book.</p>
+<pre><code>dig +short example.com        # macOS/Linux
+nslookup example.com          # works almost everywhere</code></pre>
+<p>Things to know:</p>
+<ul><li>DNS answers are <strong>cached</strong> for a while (the TTL), so changes don't appear instantly everywhere.</li><li>Companies often have <strong>internal DNS</strong> that only works inside their network. A name may resolve on the VPN and fail off it.</li><li>"Is it DNS?" is a running joke among engineers because it so often is.</li></ul>
+<h2 id="ports-which-program">Ports: which program?</h2>
+<p>One machine runs many programs. A <strong>port</strong> number (0–65535) tells the machine which program should receive the traffic.</p>
+<div class="table-wrap"><table><thead><tr><th>Port</th><th>Usually</th></tr></thead><tbody><tr><td>22</td><td>SSH</td></tr><tr><td>80</td><td>HTTP</td></tr><tr><td>443</td><td>HTTPS</td></tr><tr><td>5432</td><td>PostgreSQL</td></tr><tr><td>6379</td><td>Redis</td></tr><tr><td>3000, 5173, 8000, 8080</td><td>Development web servers</td></tr></tbody></table></div>
+<p>An address plus a port identifies one program: <code>10.20.0.15:5432</code> = the Postgres database on that server.</p>
+<p>See what's listening on your machine:</p>
+<pre><code>lsof -nP -iTCP -sTCP:LISTEN        # macOS / Linux</code></pre>
+<pre><code>ss -ltnp                           # Linux</code></pre>
+<h2 id="tcp-and-udp">TCP and UDP</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>Connection</td><td>Set up first ("handshake")</td><td>None, just send</td></tr><tr><td>Reliability</td><td>Guarantees delivery and order</td><td>No guarantees</td></tr><tr><td>Used for</td><td>Web, APIs, databases, SSH: almost everything you'll build</td><td>DNS lookups, video calls, streaming</td></tr></tbody></table></div>
+<h2 id="firewalls-vpns-and-proxies">Firewalls, VPNs and proxies</h2>
+<ul><li><strong>Firewall:</strong> rules that allow or block traffic by address and port. Corporate networks block most things by default. A request that <strong>hangs and then times out</strong> is often a firewall silently dropping it.</li><li><strong>VPN:</strong> puts your laptop "inside" a private network remotely.</li><li><strong>Proxy:</strong> a middleman that corporate traffic must pass through. If <code>curl</code> works at home but not on the client's network, check whether a proxy is required (<code>HTTPS_PROXY</code> environment variable).</li></ul>
+<h2 id="two-errors-worth-memorizing">Two errors worth memorizing</h2>
+<div class="table-wrap"><table><thead><tr><th>Error</th><th>What it usually means</th></tr></thead><tbody><tr><td><strong>Connection refused</strong></td><td>You reached the machine, but nothing is listening on that port (wrong port, or the app isn't running)</td></tr><tr><td><strong>Timed out</strong></td><td>Your traffic never got an answer: firewall, wrong IP, no route, VPN not connected</td></tr></tbody></table></div>
+<p>This one distinction will save you hours.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>From your laptop on the client's VPN, <code>curl http://10.20.0.15:8080</code> returns <code>Connection refused</code>. Off the VPN, the same command times out. Explain both results.</p>
+<p>Next: <a href="modules-02-computing-foundations-lessons-06-http-and-client-server.html">Lesson 06 — HTTP and the client–server model</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-02-computing-foundations-lessons-04-environment-and-path.html">← Lesson 04 — Environment variables, PATH and installing software</a><a class="btn ghost" href="modules-02-computing-foundations-lessons-06-http-and-client-server.html">Lesson 06 — HTTP and the client–server model →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

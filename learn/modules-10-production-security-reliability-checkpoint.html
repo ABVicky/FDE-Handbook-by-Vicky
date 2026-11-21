@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 10 — Checkpoint | FDE Handbook by Vicky</title>
+<meta name="description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-checkpoint.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 10 — Checkpoint | FDE Handbook by Vicky">
+<meta property="og:description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-checkpoint.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 10 — Checkpoint | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Pass mark: 10 / 12, plus the build and break &amp; fix.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 10 — Checkpoint", "description": "Pass mark: 10 / 12, plus the build and break & fix.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-checkpoint.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/10-production-security-reliability/checkpoint.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 10</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/10-production-security-reliability/checkpoint.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+
+<h1>Module 10 — Checkpoint</h1>
+<p>Pass mark: <strong>10 / 12</strong>, plus the <a href="modules-10-production-security-reliability-build.html">build</a> and <a href="modules-10-production-security-reliability-break-and-fix-readme.html">break &amp; fix</a>.</p>
+<hr>
+<p><strong>1.</strong> Name the six STRIDE categories, with one AdmitFlow example each.</p>
+<p><strong>2.</strong> Why rate-limit login by username <em>and</em> by IP? What's the catch with an in-memory limiter behind a load balancer?</p>
+<p><strong>3.</strong> What does <code>Cache-Control: no-store</code> protect against on an API that returns student records?</p>
+<p><strong>4.</strong> Give two reasons not to log phone numbers, and one way the redaction filter could go wrong.</p>
+<p><strong>5.</strong> What's the difference between an SLI, an SLO and an error budget? Give AdmitFlow examples.</p>
+<p><strong>6.</strong> Why label metrics by route template (<code>/leads/{lead_id}</code>) rather than the actual path?</p>
+<p><strong>7.</strong> "Alert on symptoms, not causes." What does that mean? Give one good and one bad alert.</p>
+<p><strong>8.</strong> A dependency returns 401. Should the outbox keep retrying every hour? What should happen instead?</p>
+<p><strong>9.</strong> What is graceful degradation? What does AdmitFlow do when the LLM provider is down?</p>
+<p><strong>10.</strong> During an incident, what do you do first: find the root cause, or restore service? Why?</p>
+<p><strong>11.</strong> What makes an incident review "blameless", and why does it matter?</p>
+<p><strong>12.</strong> Define RPO and RTO. What does "a backup you haven't restored is a hope" mean in practice?</p>
+<hr>
+<details>
+<summary><strong>Answers</strong></summary>
+<ol><li>Spoofing (forged webhook), Tampering (edited form body), Repudiation ("I didn't approve that"), Information disclosure (another counsellor's leads, logs), Denial of service (flooding the assistant), Elevation of privilege (counsellor assigning leads, agent sending messages).</li><li>Username limits stop many-IP attacks on one account; IP limits stop one source trying many accounts. In-memory limits are per instance (N instances = N× the limit), and behind a proxy all clients may appear as one IP unless forwarded headers are configured correctly.</li><li>Browsers, proxies and CDNs storing personal data, so it can't be read later from a shared computer or cache.</li><li>Logs are copied widely and kept long; they're read by people without access to the data. Redaction can over-match (masking timestamps, making logs useless) or under-match (missing unusual formats). Test it on realistic lines.</li><li>SLI: a measurement (share of non-5xx requests). SLO: a target for it (99.5%/month). Error budget: the allowed failure (0.5% ≈ 3.6 h/month). Also: 99% of approved messages sent within 15 minutes.</li><li>Each distinct label value creates a time series; raw paths create one per lead (unbounded cardinality), which breaks monitoring systems and may leak IDs.</li><li>Alert on what users experience. Good: approved messages waiting &gt; 30 min; 5xx rate &gt; 2%. Bad: CPU &gt; 80% (may be fine), any single warning log line.</li><li>No. A 401 won't fix itself. Stop retrying that channel, alert immediately, and keep the drafts queued until the credential is fixed.</li><li>Keeping the core working when a part fails. AdmitFlow falls back to the offline assistant and the template drafter.</li><li>Restore service first (rollback, fallback, restart); then diagnose. Users care about service; the evidence can usually be kept (logs, metrics) while you mitigate.</li><li>It focuses on how the system allowed the mistake, not on who made it. People then report problems honestly, and fixes target the system so it can't recur.</li><li>RPO: maximum acceptable data loss (time). RTO: maximum acceptable downtime. Untested backups often fail (corrupt, incomplete, missing permissions, unknown procedure), so you schedule restore drills and record them.</li></ol>
+</details>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-10-production-security-reliability-build.html">← Module 10 Build — AdmitFlow, hardened</a><a class="btn ghost" href="modules-10-production-security-reliability-field-track.html">Module 10 — Field Track: Game day →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 — Operating systems, files and permissions | FDE Handbook by Vicky</title>
+<meta name="description" content="Most servers you&#x27;ll touch at client sites run Linux. Your laptop might run macOS or Windows. Knowing what&#x27;s the same and what&#x27;s different, especially…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-02-operating-systems-and-files.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 02 — Operating systems, files and permissions | FDE Handbook by Vicky">
+<meta property="og:description" content="Most servers you&#x27;ll touch at client sites run Linux. Your laptop might run macOS or Windows. Knowing what&#x27;s the same and what&#x27;s different, especially…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-02-operating-systems-and-files.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 02 — Operating systems, files and permissions | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Most servers you&#x27;ll touch at client sites run Linux. Your laptop might run macOS or Windows. Knowing what&#x27;s the same and what&#x27;s different, especially…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 02 — Operating systems, files and permissions", "description": "Most servers you'll touch at client sites run Linux. Your laptop might run macOS or Windows. Knowing what's the same and what's different, especially…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-02-operating-systems-and-files.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/02-computing-foundations/lessons/02-operating-systems-and-files.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 02</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/02-computing-foundations/lessons/02-operating-systems-and-files.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#what-an-operating-system-does">What an operating system does</a></li><li><a href="#the-three-youll-meet">The three you&#x27;ll meet</a></li><li><a href="#files-folders-and-paths">Files, folders and paths</a></li><li><a href="#users-and-permissions">Users and permissions</a></li><li><a href="#the-superuser">The superuser</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 02 — Operating systems, files and permissions</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Most servers you'll touch at client sites run <strong>Linux</strong>. Your laptop might run macOS or Windows. Knowing what's the same and what's different, especially around files and permissions, prevents hours of confusion.</p>
+<h2 id="what-an-operating-system-does">What an operating system does</h2>
+<p>The OS is the manager between programs and hardware:</p>
+<ul><li><strong>Runs processes</strong> and shares the CPU between them</li><li><strong>Manages memory</strong> so programs don't overwrite each other</li><li><strong>Manages files</strong> on storage</li><li><strong>Controls access</strong>: users, groups and permissions</li><li><strong>Handles devices and networking</strong></li></ul>
+<h2 id="the-three-youll-meet">The three you'll meet</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>Linux</th><th>macOS</th><th>Windows</th></tr></thead><tbody><tr><td>Where you'll see it</td><td>Almost all servers, containers, cloud</td><td>Many developer laptops</td><td>Many corporate laptops and some servers</td></tr><tr><td>Default shell</td><td>bash</td><td>zsh</td><td>PowerShell (use WSL for this handbook)</td></tr><tr><td>Path separator</td><td><code>/</code></td><td><code>/</code></td><td><code>\</code></td></tr><tr><td>Root of file system</td><td><code>/</code></td><td><code>/</code></td><td><code>C:\</code></td></tr><tr><td>Home folder</td><td><code>/home/you</code></td><td><code>/Users/you</code></td><td><code>C:\Users\you</code></td></tr><tr><td>Case-sensitive file names?</td><td>Yes</td><td>Usually no</td><td>No</td></tr><tr><td>Line endings in text files</td><td>LF</td><td>LF</td><td>CRLF</td></tr></tbody></table></div>
+<p>Two gotchas worth memorizing:</p>
+<ol><li><strong>Case sensitivity:</strong> <code>Leads.csv</code> and <code>leads.csv</code> are <em>different files</em> on Linux. Code that works on your Mac can fail on the server.</li><li><strong>Line endings:</strong> files edited on Windows may end lines with <code>\r\n</code>. Linux tools may then see a stray <code>\r</code> at the end of each line (you'll hit this in the build task).</li></ol>
+<h2 id="files-folders-and-paths">Files, folders and paths</h2>
+<p>The file system is a tree, starting at the root <code>/</code>:</p>
+<pre><code>/
+├── home/
+│   └── priya/
+│       └── projects/
+│           └── admitflow/
+│               └── data/leads_sample.csv
+├── etc/          ← system configuration
+├── var/log/      ← log files
+└── tmp/          ← temporary files</code></pre>
+<ul><li><strong>Absolute path:</strong> starts from the root: <code>/home/priya/projects/admitflow/data/leads_sample.csv</code></li><li><strong>Relative path:</strong> starts from where you are now: <code>data/leads_sample.csv</code></li><li>Special names: <code>.</code> (this folder), <code>..</code> (parent folder), <code>~</code> (your home folder)</li></ul>
+<h2 id="users-and-permissions">Users and permissions</h2>
+<p>Every file has an <strong>owner</strong>, a <strong>group</strong>, and <strong>permissions</strong> for three audiences: the owner (<strong>u</strong>ser), the <strong>g</strong>roup, and <strong>o</strong>thers.</p>
+<pre><code>ls -l start.sh</code></pre>
+<pre><code>-rw-r--r--  1 priya  staff  182 Nov 21 10:00 start.sh</code></pre>
+<p>Read the first column in groups:</p>
+<pre><code>-   rw-   r--   r--
+│   │     │     └── others: read
+│   │     └──────── group:  read
+│   └────────────── owner:  read, write
+└────────────────── type: - file, d directory, l link</code></pre>
+<div class="table-wrap"><table><thead><tr><th>Letter</th><th>On a file</th><th>On a directory</th></tr></thead><tbody><tr><td><code>r</code> read</td><td>View contents</td><td>List contents</td></tr><tr><td><code>w</code> write</td><td>Change contents</td><td>Create/delete files inside</td></tr><tr><td><code>x</code> execute</td><td>Run it as a program</td><td>Enter it (<code>cd</code>)</td></tr></tbody></table></div>
+<p>Changing permissions:</p>
+<pre><code>chmod +x start.sh      # add execute for everyone
+chmod u+x start.sh     # add execute for the owner only
+chmod 600 secrets.env  # owner read+write, nobody else anything</code></pre>
+<p>The number form: <code>r=4, w=2, x=1</code>, added up per audience. <code>755</code> = owner <code>rwx</code>, group <code>r-x</code>, others <code>r-x</code>. <code>600</code> = owner <code>rw-</code>, others nothing. That's a sensible setting for files holding secrets.</p>
+<h2 id="the-superuser">The superuser</h2>
+<p><code>root</code> (Linux/macOS) can do anything. <code>sudo</code> runs a single command as root:</p>
+<pre><code>sudo apt install curl</code></pre>
+<p><strong>FDE rule:</strong> on a client machine, never use <code>sudo</code> casually. You may not have the right, it may be logged and audited, and it's the fastest way to break something you can't fix. If you think you need root, ask first and explain why.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>What does <code>chmod 640 report.csv</code> allow, and for whom?</li><li>A script works on your Mac but on the Linux server fails with <code>No such file or directory: Data/leads.csv</code>. The folder is called <code>data</code>. Why did it work on your Mac?</li></ol>
+<p>Next: <a href="modules-02-computing-foundations-lessons-03-command-line.html">Lesson 03 — The command line</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-02-computing-foundations-lessons-01-how-computers-work.html">← Lesson 01 — How computers run programs</a><a class="btn ghost" href="modules-02-computing-foundations-lessons-03-command-line.html">Lesson 03 — The command line →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

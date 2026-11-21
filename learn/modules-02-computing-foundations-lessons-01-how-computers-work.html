@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — How computers run programs | FDE Handbook by Vicky</title>
+<meta name="description" content="When a client says &quot;the system is slow,&quot; you need a mental model of what could be slow: the processor, the memory, the disk or the network. This lesson…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-01-how-computers-work.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — How computers run programs | FDE Handbook by Vicky">
+<meta property="og:description" content="When a client says &quot;the system is slow,&quot; you need a mental model of what could be slow: the processor, the memory, the disk or the network. This lesson…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-01-how-computers-work.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — How computers run programs | FDE Handbook by Vicky">
+<meta name="twitter:description" content="When a client says &quot;the system is slow,&quot; you need a mental model of what could be slow: the processor, the memory, the disk or the network. This lesson…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — How computers run programs", "description": "When a client says \"the system is slow,\" you need a mental model of what could be slow: the processor, the memory, the disk or the network. This lesson…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-01-how-computers-work.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/02-computing-foundations/lessons/01-how-computers-work.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 02</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/02-computing-foundations/lessons/01-how-computers-work.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-four-parts-that-matter">The four parts that matter</a></li><li><a href="#hardware-vs-software">Hardware vs. software</a></li><li><a href="#programs-and-processes">Programs and processes</a></li><li><a href="#how-your-code-actually-runs">How your code actually runs</a></li><li><a href="#watching-your-own-machine">Watching your own machine</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — How computers run programs</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>When a client says "the system is slow," you need a mental model of <em>what</em> could be slow: the processor, the memory, the disk or the network. This lesson gives you that model.</p>
+<h2 id="the-four-parts-that-matter">The four parts that matter</h2>
+<div class="table-wrap"><table><thead><tr><th>Part</th><th>What it does</th><th>Analogy</th><th>Typical problem it causes</th></tr></thead><tbody><tr><td><strong>CPU</strong> (processor)</td><td>Executes instructions, billions per second</td><td>The cook</td><td>"CPU at 100%": a program is doing heavy work or stuck in a loop</td></tr><tr><td><strong>RAM</strong> (memory)</td><td>Holds data the CPU is working on <em>right now</em>; fast; erased at power-off</td><td>The kitchen counter</td><td>Out of memory: the program crashes or everything slows down</td></tr><tr><td><strong>Storage</strong> (SSD/HDD)</td><td>Keeps files permanently; much slower than RAM</td><td>The pantry</td><td>Disk full: logs or databases stop writing; apps fail strangely</td></tr><tr><td><strong>Network</strong></td><td>Connects to other machines</td><td>The delivery van</td><td>Timeouts, slow responses, "can't connect"</td></tr></tbody></table></div>
+<p>A rough sense of speed (orders of magnitude, not exact):</p>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Rough time</th></tr></thead><tbody><tr><td>Read from RAM</td><td>~100 nanoseconds</td></tr><tr><td>Read from an SSD</td><td>~100 microseconds (≈ 1,000× slower than RAM)</td></tr><tr><td>Network round trip in the same data centre</td><td>~0.5 milliseconds</td></tr><tr><td>Network round trip across continents</td><td>~150 milliseconds</td></tr></tbody></table></div>
+<p>This is why "cache it in memory" and "don't call the network in a loop" are common performance fixes.</p>
+<h2 id="hardware-vs-software">Hardware vs. software</h2>
+<ul><li><strong>Hardware:</strong> the physical parts above.</li><li><strong>Software:</strong> instructions that tell hardware what to do.<br>• <strong>Operating system</strong> (Linux, macOS, Windows): manages the hardware and lets programs share it.<br>• <strong>Applications:</strong> everything else: browsers, databases, your Python scripts.</li></ul>
+<h2 id="programs-and-processes">Programs and processes</h2>
+<p>A <strong>program</strong> is a file on disk: instructions waiting to run. A <strong>process</strong> is a program that is <em>running</em>. It has memory, a process ID (PID), and an owner (a user).</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/02-computing-foundations/lessons/01-how-computers-work.md">View it in the interactive reader</a>.</p>
+<ul><li>One program can run as many processes at once (e.g. several copies of a web server).</li><li>A <strong>thread</strong> is a sequence of work inside a process. Threads share the process's memory, which lets them cooperate quickly but also lets them interfere with each other.</li></ul>
+<p>You'll see processes in action in Lesson 03 with <code>ps</code>, <code>top</code> and <code>kill</code>.</p>
+<h2 id="how-your-code-actually-runs">How your code actually runs</h2>
+<div class="table-wrap"><table><thead><tr><th>Kind</th><th>How it works</th><th>Examples</th></tr></thead><tbody><tr><td><strong>Compiled</strong></td><td>Translated to machine code <em>before</em> running; produces an executable</td><td>C, Go, Rust</td></tr><tr><td><strong>Interpreted / bytecode</strong></td><td>An interpreter reads and runs your code when you start it</td><td>Python, JavaScript (Node.js)</td></tr></tbody></table></div>
+<p>When you run <code>python3 server.py</code>, the process is actually the <strong>Python interpreter</strong>, and your file is its input. That's why "which Python is installed?" matters so much (Lesson 04).</p>
+<p><em>Stretch:</em> look up "just-in-time (JIT) compilation" to see how JavaScript engines blur this line.</p>
+<h2 id="watching-your-own-machine">Watching your own machine</h2>
+<p>macOS: open <em>Activity Monitor</em>. Windows: <em>Task Manager</em>. Linux/WSL: run <code>top</code> (press <code>q</code> to quit).</p>
+<p>Find: which process is using the most CPU right now? The most memory?</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>A client's report generation takes 10 minutes. During that time, CPU is at 5%, memory is fine, but the program makes 50,000 separate database calls over the network. Which part of the system is the bottleneck, and what would you suggest?</p>
+<p>Next: <a href="modules-02-computing-foundations-lessons-02-operating-systems-and-files.html">Lesson 02 — Operating systems, files and permissions</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-02-computing-foundations-readme.html">← Module 02 — Computing Foundations</a><a class="btn ghost" href="modules-02-computing-foundations-lessons-02-operating-systems-and-files.html">Lesson 02 — Operating systems, files and permissions →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

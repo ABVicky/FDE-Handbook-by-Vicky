@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deploying AdmitFlow | FDE Handbook by Vicky</title>
+<meta name="description" content="Module 06 reference. Commands are written for current CLIs as of late 2026. Cloud consoles and CLIs change often: check each provider&#x27;s official docs…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-deploy-readme.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Deploying AdmitFlow | FDE Handbook by Vicky">
+<meta property="og:description" content="Module 06 reference. Commands are written for current CLIs as of late 2026. Cloud consoles and CLIs change often: check each provider&#x27;s official docs…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-deploy-readme.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deploying AdmitFlow | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Module 06 reference. Commands are written for current CLIs as of late 2026. Cloud consoles and CLIs change often: check each provider&#x27;s official docs…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Deploying AdmitFlow", "description": "Module 06 reference. Commands are written for current CLIs as of late 2026. Cloud consoles and CLIs change often: check each provider's official docs…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/projects-admitflow-deploy-readme.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#projects/admitflow/deploy/README.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › AdmitFlow project</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#projects/admitflow/deploy/README.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#what-gets-deployed">What gets deployed</a></li><li><a href="#1-run-everything-locally">1. Run everything locally</a></li><li><a href="#2-deploy-to-google-cloud-run-the-walkthrough-used-in-module-06">2. Deploy to Google Cloud Run (the walkthrough used in Module 06)</a></li><li><a href="#3-rolling-back">3. Rolling back</a></li><li><a href="#4-infrastructure-as-code-stretch">4. Infrastructure as Code (stretch)</a></li><li><a href="#5-before-go-live-checklist">5. Before go-live checklist</a></li></ul></details>
+<h1>Deploying AdmitFlow</h1>
+<blockquote><p>Module 06 reference. Commands are written for current CLIs as of late 2026. <strong>Cloud consoles and CLIs change often: check each provider's official docs as you go.</strong> The handbook authors validated the YAML and Python; the Docker and cloud steps were <strong>not executed</strong> while writing (no Docker or cloud account in the writing environment), and CI builds the images on every pull request.</p></blockquote>
+<h2 id="what-gets-deployed">What gets deployed</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#projects/admitflow/deploy/README.md">View it in the interactive reader</a>.</p>
+<div class="table-wrap"><table><thead><tr><th>Piece</th><th>Local (Compose)</th><th>Google Cloud</th><th>AWS</th><th>Azure</th></tr></thead><tbody><tr><td>API container</td><td><code>api</code> service</td><td>Cloud Run service</td><td>App Runner or ECS Fargate</td><td>Container Apps</td></tr><tr><td>Dashboard</td><td><code>web</code> service</td><td>Cloud Run or Cloud Storage + CDN</td><td>S3 + CloudFront</td><td>Static Web Apps</td></tr><tr><td>Database</td><td><code>db</code> (postgres:16)</td><td>Cloud SQL for PostgreSQL</td><td>RDS for PostgreSQL</td><td>Azure Database for PostgreSQL</td></tr><tr><td>Secrets</td><td><code>.env</code> file</td><td>Secret Manager</td><td>Secrets Manager / SSM</td><td>Key Vault</td></tr><tr><td>Migrations</td><td><code>migrate</code> service</td><td>Cloud Run job, before deploy</td><td>ECS task / CodeBuild step</td><td>Container Apps job</td></tr><tr><td>Scheduled ingest</td><td>(manual)</td><td>Cloud Run job + Cloud Scheduler</td><td>EventBridge Scheduler + ECS task</td><td>Container Apps job (cron)</td></tr><tr><td>Images</td><td>local build</td><td>Artifact Registry</td><td>ECR</td><td>Azure Container Registry</td></tr><tr><td>Logs/metrics</td><td><code>docker compose logs</code></td><td>Cloud Logging / Monitoring</td><td>CloudWatch</td><td>Azure Monitor</td></tr></tbody></table></div>
+<h2 id="1-run-everything-locally">1. Run everything locally</h2>
+<pre><code>cd projects/admitflow</code></pre>
+<pre><code>cp .env.example .env</code></pre>
+<p>Edit <code>.env</code> and set real random values, then:</p>
+<pre><code>docker compose up --build</code></pre>
+<p>Load data and create a user (in another terminal):</p>
+<pre><code>docker compose run --rm -v &quot;$PWD/data:/data:ro&quot; api admitflow ingest --website /data/leads_sample.csv --ads /data/ad_leads.csv --walkins /data/walkins.csv</code></pre>
+<pre><code>docker compose run --rm api admitflow create-user priya --full-name &quot;Priya Nair&quot;</code></pre>
+<p>Open http://localhost:8080.</p>
+<h2 id="2-deploy-to-google-cloud-run-the-walkthrough-used-in-module-06">2. Deploy to Google Cloud Run (the walkthrough used in Module 06)</h2>
+<p>Prerequisites: a Google Cloud project with billing, the <code>gcloud</code> CLI, and permission to create resources. <strong>On a client engagement, this happens in the client's project, under their policies.</strong></p>
+<p>Set the project and region (pick a region close to users and allowed by the client's data rules):</p>
+<pre><code>gcloud config set project YOUR_PROJECT_ID</code></pre>
+<pre><code>gcloud config set run/region asia-south1</code></pre>
+<p>Enable the services:</p>
+<pre><code>gcloud services enable run.googleapis.com sqladmin.googleapis.com secretmanager.googleapis.com artifactregistry.googleapis.com</code></pre>
+<p>Create a container registry and build the image in the cloud (no local Docker needed):</p>
+<pre><code>gcloud artifacts repositories create admitflow --repository-format=docker --location=asia-south1</code></pre>
+<pre><code>gcloud builds submit --tag asia-south1-docker.pkg.dev/YOUR_PROJECT_ID/admitflow/api:v1 .</code></pre>
+<p>Create the database (smallest tier for a pilot; check pricing first):</p>
+<pre><code>gcloud sql instances create admitflow-db --database-version=POSTGRES_16 --tier=db-f1-micro --region=asia-south1 --backup</code></pre>
+<pre><code>gcloud sql databases create admitflow --instance=admitflow-db</code></pre>
+<pre><code>gcloud sql users create admitflow --instance=admitflow-db --password=&quot;$(python3 -c &#x27;import secrets; print(secrets.token_urlsafe(24))&#x27;)&quot;</code></pre>
+<p>Store secrets (never as plain environment variables in the console):</p>
+<pre><code>python3 -c &#x27;import secrets; print(secrets.token_urlsafe(48), end=&quot;&quot;)&#x27; | gcloud secrets create admitflow-secret-key --data-file=-</code></pre>
+<p>Create a <code>admitflow-database-url</code> secret the same way, containing <code>postgresql+psycopg://admitflow:PASSWORD@/admitflow?host=/cloudsql/YOUR_PROJECT_ID:asia-south1:admitflow-db</code>.</p>
+<p>Run migrations as a one-off job, then deploy the service:</p>
+<pre><code>gcloud run jobs create admitflow-migrate --image asia-south1-docker.pkg.dev/YOUR_PROJECT_ID/admitflow/api:v1 --command alembic --args upgrade,head --set-cloudsql-instances YOUR_PROJECT_ID:asia-south1:admitflow-db --set-secrets DATABASE_URL=admitflow-database-url:latest</code></pre>
+<pre><code>gcloud run jobs execute admitflow-migrate --wait</code></pre>
+<pre><code>gcloud run deploy admitflow-api --image asia-south1-docker.pkg.dev/YOUR_PROJECT_ID/admitflow/api:v1 --set-cloudsql-instances YOUR_PROJECT_ID:asia-south1:admitflow-db --set-secrets ADMITFLOW_SECRET_KEY=admitflow-secret-key:latest,DATABASE_URL=admitflow-database-url:latest --set-env-vars ADMITFLOW_CORS_ORIGINS=https://YOUR-DASHBOARD-ORIGIN,TZ=Asia/Kolkata --allow-unauthenticated</code></pre>
+<p><code>--allow-unauthenticated</code> makes the API reachable from browsers. The API still requires a login token for everything except <code>/health</code> and <code>/ready</code>.</p>
+<p>Build the dashboard with the API's URL and deploy it the same way (<code>web/Dockerfile</code>, <code>--build-arg VITE_API_URL=https://admitflow-api-….run.app</code>), or upload <code>web/dist/</code> to a storage bucket behind a CDN.</p>
+<h2 id="3-rolling-back">3. Rolling back</h2>
+<p>Cloud Run keeps every revision:</p>
+<pre><code>gcloud run revisions list --service admitflow-api</code></pre>
+<pre><code>gcloud run services update-traffic admitflow-api --to-revisions REVISION_NAME=100</code></pre>
+<p>Database migrations don't roll back automatically. That's why Module 06 Lesson 07 insists on backward-compatible migrations.</p>
+<h2 id="4-infrastructure-as-code-stretch">4. Infrastructure as Code (stretch)</h2>
+<p><a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/deploy/terraform-cloud-run/main.tf"><code>terraform-cloud-run/main.tf</code></a> describes the same setup declaratively: database with backups and no public IP, least-privilege service account, secret, and Cloud Run service with startup and liveness probes. Review it with <code>terraform plan</code> before applying anything.</p>
+<h2 id="5-before-go-live-checklist">5. Before go-live checklist</h2>
+<p>Use the <a href="templates-deployment-guide.html">deployment guide template</a>. At minimum: backups verified by a test restore, secrets in a secret manager, HTTPS only, CORS limited to the real dashboard origin, budget alert set, a named owner on the client side, and a rollback tested once.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="projects-admitflow-readme.html">← AdmitFlow</a><a class="btn ghost" href="projects-practice-readme.html">Practice →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

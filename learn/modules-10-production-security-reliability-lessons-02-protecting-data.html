@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 — Protecting data: encryption, secrets, minimization and retention | FDE Handbook by Vicky</title>
+<meta name="description" content="Passwords are hashed, not encrypted (Module 04): there&#x27;s no way back to the original.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-02-protecting-data.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 02 — Protecting data: encryption, secrets, minimization and retention | FDE Handbook by Vicky">
+<meta property="og:description" content="Passwords are hashed, not encrypted (Module 04): there&#x27;s no way back to the original.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-02-protecting-data.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 02 — Protecting data: encryption, secrets, minimization and retention | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Passwords are hashed, not encrypted (Module 04): there&#x27;s no way back to the original.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 02 — Protecting data: encryption, secrets, minimization and retention", "description": "Passwords are hashed, not encrypted (Module 04): there's no way back to the original.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-02-protecting-data.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/02-protecting-data.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 10</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/02-protecting-data.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#encryption">Encryption</a></li><li><a href="#secrets">Secrets</a></li><li><a href="#data-minimization">Data minimization</a></li><li><a href="#retention-and-deletion">Retention and deletion</a></li><li><a href="#data-residency-and-processors">Data residency and processors</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 02 — Protecting data: encryption, secrets, minimization and retention</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="encryption">Encryption</h2>
+<div class="table-wrap"><table><thead><tr><th>Where</th><th>How</th><th>AdmitFlow</th></tr></thead><tbody><tr><td><strong>In transit</strong></td><td>TLS (HTTPS) everywhere: browser ↔ API, API ↔ database, API ↔ third parties</td><td>Managed HTTPS on the platform; <code>Strict-Transport-Security</code> header; database connections over TLS</td></tr><tr><td><strong>At rest</strong></td><td>Disk/database encryption (usually on by default in managed cloud services)</td><td>Managed PostgreSQL encrypted at rest; backups encrypted</td></tr><tr><td><strong>Application-level</strong></td><td>Encrypting specific fields yourself</td><td>Not needed yet; consider for highly sensitive fields (e.g. ID documents)</td></tr></tbody></table></div>
+<p>Passwords are <strong>hashed</strong>, not encrypted (Module 04): there's no way back to the original.</p>
+<h2 id="secrets">Secrets</h2>
+<p>Recap from Module 06, Lesson 07, plus an inventory. Every credential should have an owner, a scope, a storage place, an expiry and a rotation plan:</p>
+<div class="table-wrap"><table><thead><tr><th>Secret</th><th>Scope</th><th>Stored</th><th>Expires / rotation</th></tr></thead><tbody><tr><td><code>ADMITFLOW_SECRET_KEY</code></td><td>Signs sessions</td><td>Secret manager</td><td>Rotate yearly (logs everyone out)</td></tr><tr><td>Database password</td><td>AdmitFlow DB user (no DDL in production)</td><td>Secret manager</td><td>Yearly</td></tr><tr><td><code>ADMITFLOW_WEBHOOK_SECRET</code></td><td>Website → AdmitFlow</td><td>Both secret managers</td><td>Yearly, with overlap</td></tr><tr><td>WhatsApp / SMTP / CRM tokens</td><td>Send / sync only</td><td>Secret manager</td><td><strong>Check provider expiry</strong> (the Module 10 incident)</td></tr><tr><td>LLM API key</td><td>Model calls; spending limit set</td><td>Secret manager</td><td>Yearly; budget alerts</td></tr><tr><td><code>ADMITFLOW_METRICS_TOKEN</code></td><td>Read metrics</td><td>Monitoring system</td><td>Yearly</td></tr></tbody></table></div>
+<h2 id="data-minimization">Data minimization</h2>
+<p>Collect, keep and share only what you need.</p>
+<ul><li><strong>Don't import</strong> columns you don't use (Module 05).</li><li><strong>Don't send</strong> more than necessary to third parties. AdmitFlow's drafter now sends the student's <strong>first name only</strong> and <strong>masks phone numbers and emails</strong> in notes before they reach the language model (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/llm.py"><code>llm.py</code></a>, tested in <code>test_drafter_sends_minimal_personal_data</code>).</li><li><strong>Don't log</strong> personal data. A <code>RedactingFilter</code> masks emails and phone numbers in every log line (<a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/admitflow/privacy.py"><code>privacy.py</code></a>):</li></ul>
+<pre><code>redact(&quot;Call +1 202-555-0141 or grace.patel@example.com&quot;)
+# &#x27;Call [phone] or g***@example.com&#x27;
+redact(&quot;fee 1,800, ENQ-0001, 2026-09-01 10:55&quot;)
+# unchanged: dates, fees and IDs aren&#x27;t phone numbers</code></pre>
+<p>Writing that filter showed a classic trap: the first version also masked timestamps, which would have made the logs useless for investigating incidents. Test redaction on realistic log lines, not just on phone numbers.</p>
+<p>Masking is a safety net, not a licence: log IDs (<code>lead_id</code>), not names and contact details, in the first place.</p>
+<h2 id="retention-and-deletion">Retention and deletion</h2>
+<p>Keep personal data only as long as needed, and be able to delete it on request.</p>
+<ul><li>Agree a <strong>retention policy</strong> with the client (e.g. delete or anonymize leads 24 months after last contact unless they enrolled; enrolled students move to the SIS).</li><li>Implement it as a <strong>scheduled job</strong>, with an audit entry for every deletion.</li><li>Handle <strong>deletion requests:</strong> remove from AdmitFlow, the CRM (via its API), drafts and notes; log the request (not the deleted data).</li><li>Remember <strong>backups</strong>: deleted data persists in backups until they expire. Document this in the privacy notice.</li></ul>
+<h2 id="data-residency-and-processors">Data residency and processors</h2>
+<p>Every third party that processes students' data (hosting, CRM, messaging, AI provider) is a <strong>processor</strong> under most data-protection laws. The client needs a contract with each, and needs to know where data is stored and processed. Your job: list them accurately (the security review) and choose regions and settings that match the client's obligations.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Implement <code>admitflow purge --older-than-months 24 --dry-run</code>: list (and with <code>--apply</code>, anonymize) leads with no activity for 24 months that aren't enrolled, writing one audit event per lead. Anonymize rather than delete if reports need the counts. What happens to their notes and drafts?</p>
+<p>Next: <a href="modules-10-production-security-reliability-lessons-03-abuse-protection.html">Lesson 03 — Protecting against abuse</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-10-production-security-reliability-lessons-01-security-foundations.html">← Lesson 01 — Security foundations: threat modelling and the OWASP Top 10</a><a class="btn ghost" href="modules-10-production-security-reliability-lessons-03-abuse-protection.html">Lesson 03 — Protecting against abuse: rate limits, input limits and browser security →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

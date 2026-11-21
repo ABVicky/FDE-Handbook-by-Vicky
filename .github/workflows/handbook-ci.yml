@@ -1,0 +1,37 @@
+# Keeps the handbook honest: every runnable exercise solution must pass, and every internal link must work.
+name: Handbook checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 1 * *"   # monthly: catch breakage from new library versions
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/check_links.py
+
+  solutions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install AdmitFlow and exercise dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e "projects/admitflow[api,db,ml,llm,integrations,dev]"
+          pip install -r scripts/requirements-solutions.txt
+      - name: Run every exercise solution
+        run: python scripts/run_solutions.py

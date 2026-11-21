@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — What AI and machine learning are (and when not to use them) | FDE Handbook by Vicky</title>
+<meta name="description" content="Clients ask for &quot;AI&quot; when they mean very different things: a rule, a report, a prediction, a chatbot. Part of an FDE&#x27;s value is translating the request…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-01-what-ai-and-ml-are.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — What AI and machine learning are (and when not to use them) | FDE Handbook by Vicky">
+<meta property="og:description" content="Clients ask for &quot;AI&quot; when they mean very different things: a rule, a report, a prediction, a chatbot. Part of an FDE&#x27;s value is translating the request…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-01-what-ai-and-ml-are.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — What AI and machine learning are (and when not to use them) | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Clients ask for &quot;AI&quot; when they mean very different things: a rule, a report, a prediction, a chatbot. Part of an FDE&#x27;s value is translating the request…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — What AI and machine learning are (and when not to use them)", "description": "Clients ask for \"AI\" when they mean very different things: a rule, a report, a prediction, a chatbot. Part of an FDE's value is translating the request…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-01-what-ai-and-ml-are.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/01-what-ai-and-ml-are.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 07</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/01-what-ai-and-ml-are.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#the-vocabulary">The vocabulary</a></li><li><a href="#training-vs-inference">Training vs. inference</a></li><li><a href="#when-ml-is-the-right-tool">When ML is the right tool</a></li><li><a href="#when-it-isnt">When it isn&#x27;t</a></li><li><a href="#where-generative-ai-fits">Where generative AI fits</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — What AI and machine learning are (and when not to use them)</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Clients ask for "AI" when they mean very different things: a rule, a report, a prediction, a chatbot. Part of an FDE's value is translating the request into the right tool, and saying honestly when ML isn't it.</p>
+<h2 id="the-vocabulary">The vocabulary</h2>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/07-ai-and-machine-learning/lessons/01-what-ai-and-ml-are.md">View it in the interactive reader</a>.</p>
+<div class="table-wrap"><table><thead><tr><th>Kind of ML</th><th>Learns from</th><th>AdmitFlow example</th></tr></thead><tbody><tr><td><strong>Supervised</strong></td><td>Examples with known answers (labels)</td><td>Past leads + whether they enrolled → predict for new leads</td></tr><tr><td><strong>Unsupervised</strong></td><td>Data without labels</td><td>Group enquiries into similar types (clustering)</td></tr><tr><td><strong>Reinforcement</strong></td><td>Rewards from trial and error</td><td>Rarely relevant to FDE work (<em>awareness only</em>)</td></tr></tbody></table></div>
+<p>Supervised tasks are either <strong>classification</strong> (a category: enrol / not) or <strong>regression</strong> (a number: days until enrolment).</p>
+<h2 id="training-vs-inference">Training vs. inference</h2>
+<ul><li><strong>Training:</strong> fit the model to historical examples. Done occasionally (each intake).</li><li><strong>Inference:</strong> use the trained model on a new case. Done constantly (every new lead).</li></ul>
+<p>They often run in different places: train in a notebook or job, serve inference in the API (Lesson 05).</p>
+<h2 id="when-ml-is-the-right-tool">When ML is the right tool</h2>
+<ul><li>There's a <strong>repeated decision</strong> at volume (hundreds of leads a month)</li><li>You have <strong>historical examples with outcomes</strong> (hundreds to thousands, at least)</li><li>The pattern is <strong>too fuzzy for rules</strong> but present in the data</li><li>An imperfect answer is <strong>useful</strong>, and mistakes are tolerable or can be reviewed</li></ul>
+<h2 id="when-it-isnt">When it isn't</h2>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>Better tool</th></tr></thead><tbody><tr><td>The rule is known ("leads waiting &gt; 24h go first")</td><td>Code / SQL</td></tr><tr><td>The question is "what happened?"</td><td>A report (Module 05)</td></tr><tr><td>No labelled history</td><td>Collect data first; start with rules</td></tr><tr><td>Mistakes are very costly and unexplainable answers aren't allowed</td><td>Rules + human decision</td></tr><tr><td>The real problem is a process (nobody calls back)</td><td>Fix the process</td></tr></tbody></table></div>
+<p><strong>AdmitFlow, honestly:</strong> the biggest gain available to the institute is calling leads within 24 hours, which is a process fix. This module builds the scoring model anyway, <em>and measures that it adds only a little</em>. Learning to show that clearly is as valuable as learning to build the model.</p>
+<h2 id="where-generative-ai-fits">Where generative AI fits</h2>
+<p>LLMs (Module 08) are excellent at language: answering questions from documents, drafting messages, extracting fields from text. They're poor at precise prediction from tabular data, which is what scikit-learn-style models are for. Use each for what it's good at.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>For each request, say: rule, report, classic ML, LLM, or process change, and why.</p>
+<ol><li>"Flag leads who haven't been called in 2 days."</li><li>"Which ad campaign gives the most enrolments per rupee?"</li><li>"Answer students' questions about fees and timings at night."</li><li>"Predict which students will drop out in the first term."</li><li>"Make counsellors respond faster."</li></ol>
+<p>Next: <a href="modules-07-ai-and-machine-learning-lessons-02-data-for-ml.html">Lesson 02 — Data for machine learning</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-07-ai-and-machine-learning-readme.html">← Module 07 — AI and Machine Learning Fundamentals</a><a class="btn ghost" href="modules-07-ai-and-machine-learning-lessons-02-data-for-ml.html">Lesson 02 — Data for machine learning: features, labels, splits and leakage →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

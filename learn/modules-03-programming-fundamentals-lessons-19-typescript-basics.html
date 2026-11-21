@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 19 — TypeScript basics | FDE Handbook by Vicky</title>
+<meta name="description" content="TypeScript is JavaScript plus type annotations, checked before your code runs. Most professional frontends (including the React dashboard in Module 04)…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-19-typescript-basics.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 19 — TypeScript basics | FDE Handbook by Vicky">
+<meta property="og:description" content="TypeScript is JavaScript plus type annotations, checked before your code runs. Most professional frontends (including the React dashboard in Module 04)…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-19-typescript-basics.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 19 — TypeScript basics | FDE Handbook by Vicky">
+<meta name="twitter:description" content="TypeScript is JavaScript plus type annotations, checked before your code runs. Most professional frontends (including the React dashboard in Module 04)…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 19 — TypeScript basics", "description": "TypeScript is JavaScript plus type annotations, checked before your code runs. Most professional frontends (including the React dashboard in Module 04)…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-19-typescript-basics.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/19-typescript-basics.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/19-typescript-basics.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#setup">Setup</a></li><li><a href="#types-on-variables-and-functions">Types on variables and functions</a></li><li><a href="#describing-objects-interfaces-and-types">Describing objects: interfaces and types</a></li><li><a href="#handling-null-safely">Handling null safely</a></li><li><a href="#typing-api-responses">Typing API responses</a></li><li><a href="#generics-briefly">Generics, briefly</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 19 — TypeScript basics</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>TypeScript is JavaScript plus type annotations, checked before your code runs. Most professional frontends (including the React dashboard in Module 04) and many Node.js backends use it. It's the JavaScript equivalent of Python's type hints (Lesson 11), but enforced more strictly.</p>
+<h2 id="setup">Setup</h2>
+<pre><code>mkdir ts-practice &amp;&amp; cd ts-practice</code></pre>
+<pre><code>npm init -y</code></pre>
+<pre><code>npm install --save-dev typescript tsx</code></pre>
+<ul><li><code>typescript</code> provides <code>tsc</code>, the type checker and compiler.</li><li><code>tsx</code> runs <code>.ts</code> files directly: <code>npx tsx main.ts</code>.</li></ul>
+<p>Check types without running:</p>
+<pre><code>npx tsc --noEmit --strict main.ts</code></pre>
+<h2 id="types-on-variables-and-functions">Types on variables and functions</h2>
+<pre><code>const course: string = &quot;Data Analytics&quot;;
+let seats: number = 30;
+const isOpen: boolean = true;
+
+function priority(hoursWaiting: number): &quot;urgent&quot; | &quot;high&quot; | &quot;normal&quot; {
+  if (hoursWaiting &gt; 48) return &quot;urgent&quot;;
+  if (hoursWaiting &gt; 24) return &quot;high&quot;;
+  return &quot;normal&quot;;
+}
+
+priority(&quot;30&quot;);   // ❌ error: Argument of type &#x27;string&#x27; is not assignable to parameter of type &#x27;number&#x27;</code></pre>
+<p>TypeScript <strong>infers</strong> many types, so <code>const seats = 30</code> is already a <code>number</code>. Annotate function parameters and return values; let inference handle the rest.</p>
+<h2 id="describing-objects-interfaces-and-types">Describing objects: interfaces and types</h2>
+<pre><code>type Source = &quot;website&quot; | &quot;ad&quot; | &quot;phone&quot; | &quot;walk-in&quot; | &quot;whatsapp&quot;;   // a union of exact strings
+
+interface Lead {
+  leadId: string;
+  name: string;
+  email?: string;          // optional
+  phone: string | null;    // may be null
+  sources: Source[];
+}
+
+const zoe: Lead = {
+  leadId: &quot;ad_900036&quot;,
+  name: &quot;Zoë García&quot;,
+  phone: null,
+  sources: [&quot;ad&quot;],
+};
+
+zoe.sources.push(&quot;fax&quot;);   // ❌ error: &#x27;&quot;fax&quot;&#x27; is not assignable to type &#x27;Source&#x27;</code></pre>
+<p><code>interface</code> and <code>type</code> are mostly interchangeable for objects; pick one style per project.</p>
+<h2 id="handling-null-safely">Handling null safely</h2>
+<p>With <code>--strict</code>, TypeScript forces you to handle missing values:</p>
+<pre><code>function displayPhone(lead: Lead): string {
+  return lead.phone.trim();          // ❌ error: &#x27;lead.phone&#x27; is possibly &#x27;null&#x27;
+}
+
+function displayPhoneSafely(lead: Lead): string {
+  return lead.phone?.trim() ?? &quot;no phone&quot;;   // ✅
+}</code></pre>
+<p>This catches a whole category of "undefined is not a function" bugs before they reach a client's users.</p>
+<h2 id="typing-api-responses">Typing API responses</h2>
+<p>Data from <code>fetch</code> is <code>unknown</code> to TypeScript until you say what it is:</p>
+<pre><code>async function loadLeads(): Promise&lt;Lead[]&gt; {
+  const response = await fetch(&quot;/api/leads&quot;);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return (await response.json()) as Lead[];
+}</code></pre>
+<p><code>as Lead[]</code> is a <em>promise to the compiler</em>, not a check. If the API sends something else, you'll find out at runtime. For data from systems you don't control, validate it, e.g. with the <a href="https://zod.dev/">zod</a> library (the JavaScript equivalent of Pydantic, which you'll use in Module 04).</p>
+<h2 id="generics-briefly">Generics, briefly</h2>
+<pre><code>function first&lt;T&gt;(items: T[]): T | undefined {
+  return items[0];
+}
+
+const firstLead = first([zoe]);   // type: Lead | undefined</code></pre>
+<p><code>T</code> is a type parameter, so one function works for any type, safely.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Convert your <code>stats.mjs</code> from Lesson 18 to <code>stats.ts</code> with a <code>Lead</code> interface. Run it with <code>npx tsx stats.ts</code>, then introduce a deliberate typo (<code>lead.cuorse</code>) and see what <code>npx tsc --noEmit --strict stats.ts</code> reports.</p>
+<p>Next: <a href="modules-03-programming-fundamentals-exercises-readme.html">Exercises</a> and the <a href="modules-03-programming-fundamentals-build.html">build</a>.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-18-javascript-essentials.html">← Lesson 18 — JavaScript essentials</a><a class="btn ghost" href="modules-03-programming-fundamentals-exercises-01-basics.html">Exercise set 01 — Basics →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

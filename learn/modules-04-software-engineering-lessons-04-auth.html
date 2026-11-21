@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Authentication and authorization | FDE Handbook by Vicky</title>
+<meta name="description" content="AdmitFlow holds students&#x27; names, phone numbers and emails. One mistake in auth, and anyone on the internet can read or change them. A data-protection…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-04-auth.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Authentication and authorization | FDE Handbook by Vicky">
+<meta property="og:description" content="AdmitFlow holds students&#x27; names, phone numbers and emails. One mistake in auth, and anyone on the internet can read or change them. A data-protection…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-04-auth.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Authentication and authorization | FDE Handbook by Vicky">
+<meta name="twitter:description" content="AdmitFlow holds students&#x27; names, phone numbers and emails. One mistake in auth, and anyone on the internet can read or change them. A data-protection…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Authentication and authorization", "description": "AdmitFlow holds students' names, phone numbers and emails. One mistake in auth, and anyone on the internet can read or change them. A data-protection…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-lessons-04-auth.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/lessons/04-auth.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/lessons/04-auth.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#storing-passwords">Storing passwords</a></li><li><a href="#sessions-vs-tokens">Sessions vs. tokens</a></li><li><a href="#protecting-routes">Protecting routes</a></li><li><a href="#authorization-rules-belong-in-one-place">Authorization rules belong in one place</a></li><li><a href="#login-endpoint-hygiene">Login endpoint hygiene</a></li><li><a href="#single-sign-on-preview">Single sign-on (preview)</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Authentication and authorization</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>AdmitFlow holds students' names, phone numbers and emails. One mistake in auth, and anyone on the internet can read or change them. A data-protection complaint (Ms. Chen's worry in Module 01) can end an engagement. Auth is the part of the system where "mostly works" isn't acceptable.</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>Question</th><th>AdmitFlow example</th><th>Failure code</th></tr></thead><tbody><tr><td><strong>Authentication</strong></td><td><em>Who are you?</em></td><td>Logging in; verifying the token on each request</td><td><code>401</code></td></tr><tr><td><strong>Authorization</strong></td><td><em>Are you allowed to do this?</em></td><td>Only admins assign leads; counsellors edit only their own</td><td><code>403</code></td></tr></tbody></table></div>
+<h2 id="storing-passwords">Storing passwords</h2>
+<p><strong>Never store passwords.</strong> Store a <strong>slow, salted hash</strong>:</p>
+<pre><code>import base64, hashlib, hmac, secrets
+
+ITERATIONS = 600_000   # OWASP&#x27;s recommendation for PBKDF2-HMAC-SHA256
+
+def hash_password(password: str) -&gt; str:
+    salt = secrets.token_bytes(16)
+    digest = hashlib.pbkdf2_hmac(&quot;sha256&quot;, password.encode(), salt, ITERATIONS)
+    return f&quot;pbkdf2_sha256${ITERATIONS}${base64.b64encode(salt).decode()}${base64.b64encode(digest).decode()}&quot;
+
+def verify_password(password: str, stored: str) -&gt; bool:
+    _, iterations, salt, digest = stored.split(&quot;$&quot;)
+    candidate = hashlib.pbkdf2_hmac(&quot;sha256&quot;, password.encode(), base64.b64decode(salt), int(iterations))
+    return hmac.compare_digest(candidate, base64.b64decode(digest))</code></pre>
+<ul><li><strong>Salt</strong> (random per user): identical passwords get different hashes, and precomputed tables are useless.</li><li><strong>Slow</strong> (many iterations): each guess costs an attacker real time.</li><li><strong><code>compare_digest</code></strong>: constant-time comparison, so response timing doesn't leak information.</li></ul>
+<p>In production code, prefer a maintained library (e.g. <code>argon2-cffi</code> or <code>passlib</code>). AdmitFlow uses the standard library so it runs on locked-down machines.</p>
+<h2 id="sessions-vs-tokens">Sessions vs. tokens</h2>
+<p>After login, the server must recognize the user on later requests:</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>Server-side session</th><th>Signed token (JWT)</th></tr></thead><tbody><tr><td>How</td><td>Random session ID in a cookie; server stores who it belongs to</td><td>Server signs <code>{&quot;sub&quot;: &quot;priya&quot;, &quot;role&quot;: &quot;counsellor&quot;, &quot;exp&quot;: …}</code>; client sends it back</td></tr><tr><td>Revocation</td><td>Easy: delete the session</td><td>Hard until it expires</td></tr><tr><td>Server storage</td><td>Needed (DB/Redis)</td><td>None</td></tr><tr><td>Typical use</td><td>Traditional web apps</td><td>APIs, mobile apps, multiple services</td></tr></tbody></table></div>
+<p>AdmitFlow uses short-lived JWTs (<a href="projects-admitflow-docs-adr-003-token-auth.html">ADR-003</a>):</p>
+<pre><code>import jwt   # PyJWT
+from datetime import datetime, timedelta, timezone
+
+def create_token(username, role):
+    now = datetime.now(timezone.utc)
+    return jwt.encode({&quot;sub&quot;: username, &quot;role&quot;: role, &quot;iat&quot;: now, &quot;exp&quot;: now + timedelta(hours=8)},
+                      SECRET_KEY, algorithm=&quot;HS256&quot;)
+
+claims = jwt.decode(token, SECRET_KEY, algorithms=[&quot;HS256&quot;])   # raises if tampered with or expired</code></pre>
+<p>JWTs are <strong>signed, not encrypted</strong>: anyone can read the payload. Never put secrets or personal data in them. Always specify <code>algorithms=[...]</code> when decoding.</p>
+<p>The signing key is a secret: load it from an environment variable, make it long and random, and fail loudly if it's missing (see <code>admitflow/auth.py</code>).</p>
+<h2 id="protecting-routes">Protecting routes</h2>
+<pre><code>def current_user(credentials = Depends(HTTPBearer(auto_error=False)), repo = Depends(get_repo)) -&gt; User:
+    if credentials is None:
+        raise HTTPException(401, &quot;Not logged in&quot;, headers={&quot;WWW-Authenticate&quot;: &quot;Bearer&quot;})
+    try:
+        claims = decode_token(credentials.credentials)
+    except jwt.InvalidTokenError:
+        raise HTTPException(401, &quot;Not logged in or session expired&quot;)
+    user = repo.get_user(claims[&quot;sub&quot;])
+    if user is None:
+        raise HTTPException(401, &quot;Not logged in&quot;)
+    return user
+
+def require_admin(user: User = Depends(current_user)) -&gt; User:
+    if user.role != &quot;admin&quot;:
+        raise HTTPException(403, &quot;Admins only&quot;)
+    return user</code></pre>
+<p>Note the lookup: the token says "priya", but we still load priya from the store, so a deleted user's token stops working.</p>
+<h2 id="authorization-rules-belong-in-one-place">Authorization rules belong in one place</h2>
+<p>Write rules explicitly and test each one:</p>
+<pre><code>if &quot;assigned_to&quot; in changes and user.role != &quot;admin&quot;:
+    raise HTTPException(403, &quot;Only admins can assign leads&quot;)
+if lead.assigned_to not in (None, user.username) and user.role != &quot;admin&quot;:
+    raise HTTPException(403, &quot;This lead is assigned to another counsellor&quot;)</code></pre>
+<p><strong>Deny by default:</strong> a new endpoint should require login unless you deliberately make it public. The break &amp; fix service shows what happens when one route forgets.</p>
+<h2 id="login-endpoint-hygiene">Login endpoint hygiene</h2>
+<ul><li>Same error for unknown user and wrong password (no user enumeration).</li><li>Rate-limit login attempts (Module 10).</li><li>HTTPS only in production. Tokens over plain HTTP can be stolen.</li></ul>
+<h2 id="single-sign-on-preview">Single sign-on (preview)</h2>
+<p>Most organizations prefer staff to log in with their existing Google or Microsoft account (SSO via <strong>OpenID Connect</strong>). Then the client's IT controls passwords, multi-factor authentication and leavers. Module 09 replaces AdmitFlow's passwords with Google sign-in.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>Write tests proving that (a) a token signed with a different key is rejected, (b) an expired token is rejected, (c) a counsellor gets <code>403</code>, not <code>401</code>, when assigning a lead.</li><li>Why does AdmitFlow look the user up in the store even though the token already contains their role?</li></ol>
+<p>Next: <a href="modules-04-software-engineering-lessons-05-errors-logging-middleware.html">Lesson 05 — Errors, logging, middleware and background work</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-lessons-03-fastapi.html">← Lesson 03 — FastAPI fundamentals</a><a class="btn ghost" href="modules-04-software-engineering-lessons-05-errors-logging-middleware.html">Lesson 05 — Errors, logging, middleware and background work →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

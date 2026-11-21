@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Evaluating models honestly | FDE Handbook by Vicky</title>
+<meta name="description" content="Evaluation is where models are oversold. A client who acts on an inflated number loses money and stops trusting you. An FDE&#x27;s evaluation must be…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-04-evaluation.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Evaluating models honestly | FDE Handbook by Vicky">
+<meta property="og:description" content="Evaluation is where models are oversold. A client who acts on an inflated number loses money and stops trusting you. An FDE&#x27;s evaluation must be…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-04-evaluation.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Evaluating models honestly | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Evaluation is where models are oversold. A client who acts on an inflated number loses money and stops trusting you. An FDE&#x27;s evaluation must be…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Evaluating models honestly", "description": "Evaluation is where models are oversold. A client who acts on an inflated number loses money and stops trusting you. An FDE's evaluation must be…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-07-ai-and-machine-learning-lessons-04-evaluation.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/04-evaluation.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 07</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/07-ai-and-machine-learning/lessons/04-evaluation.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#always-start-with-baselines">Always start with baselines</a></li><li><a href="#the-confusion-matrix">The confusion matrix</a></li><li><a href="#metrics-for-ranking-and-probabilities">Metrics for ranking and probabilities</a></li><li><a href="#metrics-that-match-the-decision">Metrics that match the decision</a></li><li><a href="#error-analysis">Error analysis</a></li><li><a href="#uncertainty">Uncertainty</a></li><li><a href="#presenting-results-to-a-client">Presenting results to a client</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Evaluating models honestly</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Evaluation is where models are oversold. A client who acts on an inflated number loses money and stops trusting you. An FDE's evaluation must be honest, compared with something simple, and translated into business terms.</p>
+<h2 id="always-start-with-baselines">Always start with baselines</h2>
+<div class="table-wrap"><table><thead><tr><th>Baseline</th><th>AdmitFlow result (2025 test intake)</th></tr></thead><tbody><tr><td><strong>Trivial:</strong> always predict the majority class</td><td>89.3% accuracy ("never enrols")</td></tr><tr><td><strong>Simple:</strong> a rule a spreadsheet user would build</td><td>Source conversion rate: AUC 0.609</td></tr></tbody></table></div>
+<p>A model that doesn't clearly beat the simple baseline isn't worth its complexity.</p>
+<h2 id="the-confusion-matrix">The confusion matrix</h2>
+<p>At a chosen threshold (say, "call first if score &gt; 0.15"):</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>Predicted enrol</th><th>Predicted not</th></tr></thead><tbody><tr><td><strong>Actually enrolled</strong></td><td>True positive (TP)</td><td>False negative (FN): a future student called late</td></tr><tr><td><strong>Didn't enrol</strong></td><td>False positive (FP): an early call that didn't convert</td><td>True negative (TN)</td></tr></tbody></table></div>
+<ul><li><strong>Precision</strong> = TP / (TP + FP): of those we prioritized, how many enrolled?</li><li><strong>Recall</strong> = TP / (TP + FN): of everyone who enrolled, how many did we prioritize?</li><li>They trade off: a lower threshold raises recall and lowers precision.</li></ul>
+<h2 id="metrics-for-ranking-and-probabilities">Metrics for ranking and probabilities</h2>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Question it answers</th><th>AdmitFlow model</th></tr></thead><tbody><tr><td><strong>ROC AUC</strong></td><td>If I pick one enroller and one non-enroller, how often does the model rank the enroller higher? (0.5 = random, 1.0 = perfect)</td><td>0.605</td></tr><tr><td><strong>Precision@20%</strong></td><td>Of the top 20% by score, how many enrolled? Compare with the base rate</td><td>15.7% (base 10.7%)</td></tr><tr><td><strong>Brier score</strong></td><td>Average squared error of the probabilities (lower = better; rewards calibration)</td><td>0.0942</td></tr><tr><td><strong>Calibration</strong></td><td>When the model says 20%, do ~20% enrol?</td><td>Check with <code>sklearn.calibration.calibration_curve</code></td></tr></tbody></table></div>
+<h2 id="metrics-that-match-the-decision">Metrics that match the decision</h2>
+<p>Ask how the output will be <strong>used</strong>. Counsellors can make about 60 first calls a day while ~90 leads arrive on peak days. The real question is <em>"if we call in score order, how many more future students do we reach on day one?"</em></p>
+<p><a href="modules-07-ai-and-machine-learning-exercises-03-capacity.html">Exercise 03</a> answers it: calling by score reaches <strong>123</strong> future students on day one, against <strong>107</strong> in random order, out of 160 on the 2025 intake. That's a real but modest gain, and much smaller than the effect of response time itself (16% vs 2.5% enrolment).</p>
+<h2 id="error-analysis">Error analysis</h2>
+<p>Look at examples, not just averages:</p>
+<ul><li>Which high-scoring leads didn't enrol? Which low scorers did?</li><li>Does performance differ by course, source or campus? (Fairness and robustness: Lesson 07)</li><li>Are there data-quality problems behind the errors (like the walk-in midnight timestamps)?</li></ul>
+<h2 id="uncertainty">Uncertainty</h2>
+<p>On 1,500 test leads with ~160 enrolments, AUC has a margin of several hundredths. <strong>0.605 vs 0.609 is a tie.</strong> Say so. Bootstrap the test set (resample with replacement, recompute, look at the spread) if a decision hinges on a small difference.</p>
+<h2 id="presenting-results-to-a-client">Presenting results to a client</h2>
+<blockquote><p><em>"Using only what we know when an enquiry arrives, the model ranks leads only slightly better than ordering by channel. Calling in score order would reach about 15% more future students on the first day than random order. The far bigger factor is speed: students called within a day enrol about six times as often as those left three days or more."</em></p></blockquote>
+<p>Numbers, a comparison, a business translation and the caveat, in four sentences.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Run the <a href="modules-07-ai-and-machine-learning-break-and-fix-readme.html">break &amp; fix</a> and write the note to Ms. Rao.</p>
+<p>Next: <a href="modules-07-ai-and-machine-learning-lessons-05-serving-models.html">Lesson 05 — Serving and maintaining models</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-07-ai-and-machine-learning-lessons-03-training-models.html">← Lesson 03 — Training models with scikit-learn</a><a class="btn ghost" href="modules-07-ai-and-machine-learning-lessons-05-serving-models.html">Lesson 05 — Serving and maintaining models →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

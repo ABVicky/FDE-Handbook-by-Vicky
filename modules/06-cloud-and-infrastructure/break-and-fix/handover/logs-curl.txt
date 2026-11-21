@@ -1,0 +1,18 @@
+# From the VM itself, outside the container:
+$ curl -v http://localhost:8000/health
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> GET /health HTTP/1.1
+* Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+
+# After the engineer "fixed it" by changing --host to 0.0.0.0 (attempt 2):
+$ curl -s http://localhost:8000/health
+{"status":"ok"}
+$ curl -s http://localhost:8000/ready
+{"error":{"status":503,"detail":"storage unavailable"}}
+
+$ docker compose logs api | tail -3
+api-1  | ERROR readiness check failed: (psycopg.OperationalError) connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+api-1  | 	Is the server running on that host and accepting TCP/IP connections?
+api-1  | INFO request_id=9c1e2a method=GET path=/ready status=503 duration_ms=3.2

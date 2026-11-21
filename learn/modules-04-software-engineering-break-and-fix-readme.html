@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 04 — Break &amp; Fix: The inherited follow-up service | FDE Handbook by Vicky</title>
+<meta name="description" content="Time: 2–3 hours · Do this after Lesson 09.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-readme.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 04 — Break &amp; Fix: The inherited follow-up service | FDE Handbook by Vicky">
+<meta property="og:description" content="Time: 2–3 hours · Do this after Lesson 09.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-readme.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 04 — Break &amp; Fix: The inherited follow-up service | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Time: 2–3 hours · Do this after Lesson 09.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 04 — Break & Fix: The inherited follow-up service", "description": "Time: 2–3 hours · Do this after Lesson 09.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-readme.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/break-and-fix/README.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/break-and-fix/README.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#the-situation">The situation</a></li><li><a href="#your-job">Your job</a></li><li><a href="#rules">Rules</a></li><li><a href="#hints">Hints</a></li></ul></details>
+<h1>Module 04 — Break &amp; Fix: The inherited follow-up service</h1>
+<p><strong>Time:</strong> 2–3 hours · Do this after <a href="modules-04-software-engineering-lessons-09-engineering-practice.html">Lesson 09</a>.</p>
+<h2 id="the-situation">The situation</h2>
+<p>Before you arrived, another contractor started a small <strong>follow-up reminder service</strong> for the institute, then left. The handover consists of two files in <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/04-software-engineering/break-and-fix/followup_service/app.py"><code>followup_service/</code></a> and a message:</p>
+<blockquote><p>"Mostly done. Tests are there. Should be easy to finish."</p></blockquote>
+<p>There is no README. When you run the tests, several fail.</p>
+<h2 id="your-job">Your job</h2>
+<ol><li><strong>Get it running.</strong> Work out how to install and run it and its tests, from the code alone.<br>```bash<br>cd followup_service<br>```<br>```bash<br>python -m pytest -o addopts="" test_app.py<br>```</li><li><strong>Make every test pass</strong> by fixing the application, not by editing the tests. (You may <em>add</em> tests.)</li><li><strong>Find the security problem.</strong> One of the failures is a security hole. Explain what an attacker could do with it, and change the code so the same mistake can't happen again on a <em>new</em> route.</li><li><strong>Write the missing README:</strong> what the service does, how to configure it (which environment variables), run it, test it, and any assumptions (time zones!).</li><li><strong>Write a 5-line handover note</strong> for your engagement lead: what you found, what you fixed, what still worries you.</li></ol>
+<h2 id="rules">Rules</h2>
+<ul><li>Change one thing at a time; rerun the tests after each change.</li><li>For each failing test, write down: symptom → cause → fix.</li></ul>
+<h2 id="hints">Hints</h2>
+<details><summary>Hint 1</summary>Read each assertion message carefully: <code>assert 200 == 201</code> tells you exactly what's expected.</details>
+<details><summary>Hint 2</summary>For pagination: with <code>page=1, size=10</code>, which index does <code>start</code> begin at? Which index <em>should</em> it?</details>
+<details><summary>Hint 3</summary><code>can't compare offset-naive and offset-aware datetimes</code>: one side has a time zone and the other doesn't. Which side comes from the request, and which from the server?</details>
+<details><summary>Hint 4</summary>Compare the decorators of every route. Which one is different? FastAPI can apply a dependency to <em>every</em> route at once.</details>
+<p>When you're done: <a href="modules-04-software-engineering-break-and-fix-solution.html">SOLUTION.md</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-exercises-solutions-04-code-review.html">← Exercise 04 — Model review</a><a class="btn ghost" href="modules-04-software-engineering-break-and-fix-solution.html">Break &amp; Fix — Solution →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise 04 — Model answers (Ubuntu 24.04) | FDE Handbook by Vicky</title>
+<meta name="description" content="1. Service user and directory bash sudo useradd --system --create-home --shell /usr/sbin/nologin admitflow sudo mkdir -p /opt/admitflow &amp;&amp; sudo chown…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-exercises-solutions-04-linux-drills.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Exercise 04 — Model answers (Ubuntu 24.04) | FDE Handbook by Vicky">
+<meta property="og:description" content="1. Service user and directory bash sudo useradd --system --create-home --shell /usr/sbin/nologin admitflow sudo mkdir -p /opt/admitflow &amp;&amp; sudo chown…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-exercises-solutions-04-linux-drills.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise 04 — Model answers (Ubuntu 24.04) | FDE Handbook by Vicky">
+<meta name="twitter:description" content="1. Service user and directory bash sudo useradd --system --create-home --shell /usr/sbin/nologin admitflow sudo mkdir -p /opt/admitflow &amp;&amp; sudo chown…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Exercise 04 — Model answers (Ubuntu 24.04)", "description": "1. Service user and directory bash sudo useradd --system --create-home --shell /usr/sbin/nologin admitflow sudo mkdir -p /opt/admitflow && sudo chown…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-exercises-solutions-04-linux-drills.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/exercises/solutions/04-linux-drills.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/exercises/solutions/04-linux-drills.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+
+<h1>Exercise 04 — Model answers (Ubuntu 24.04)</h1>
+<ol><li><strong>Service user and directory</strong><br>```bash<br>sudo useradd --system --create-home --shell /usr/sbin/nologin admitflow<br>sudo mkdir -p /opt/admitflow &amp;&amp; sudo chown admitflow:admitflow /opt/admitflow<br>```</li><li><strong>Secret file readable only by root and the group</strong><br>```bash<br>sudo mkdir -p /etc/admitflow<br>echo "ADMITFLOW_SECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_urlsafe(48))')" | sudo tee /etc/admitflow/env &gt;/dev/null<br>sudo chown root:admitflow /etc/admitflow/env &amp;&amp; sudo chmod 640 /etc/admitflow/env<br>ls -l /etc/admitflow/env      # -rw-r----- 1 root admitflow …<br>```</li><li><strong>Who's on the port, then stop it:</strong> <code>sudo ss -ltnp | grep :8000</code> shows the PID; <code>kill &lt;PID&gt;</code> (or <code>sudo systemctl stop &lt;service&gt;</code> if it's a service, otherwise it'll just restart).</li><li><strong>Recent logs:</strong> <code>journalctl -u ssh -n 10 --no-pager</code> (in a container without systemd: <code>tail -n 10 /var/log/…</code>, or check the program's own output).</li><li><strong>Largest directories:</strong> <code>sudo du -h --max-depth=1 /var 2&gt;/dev/null | sort -h | tail -5</code></li><li><strong>Backup before editing:</strong> <code>sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak-$(date +%F)</code></li><li><strong>Firewall:</strong> <code>sudo ufw allow OpenSSH &amp;&amp; sudo ufw allow 443/tcp &amp;&amp; sudo ufw enable &amp;&amp; sudo ufw status</code>. In a container, network exposure is controlled by the container runtime (<code>-p</code> / <code>ports:</code>), and containers usually lack the privileges to change host firewall rules.</li><li><strong>systemd unit</strong> <code>/etc/systemd/system/demo-http.service</code>:<br>```ini<br>[Unit]<br>Description=Demo HTTP server<br>After=network.target</li></ol>
+<p>[Service] User=admitflow WorkingDirectory=/opt/admitflow ExecStart=/usr/bin/python3 -m http.server 8000 Restart=on-failure RestartSec=2</p>
+<p>[Install] WantedBy=multi-user.target</p>
+<pre><code></code></pre>
+<p>sudo systemctl daemon-reload &amp;&amp; sudo systemctl enable --now demo-http sudo systemctl kill -s KILL demo-http; sleep 3; systemctl status demo-http   # active again: restarted</p>
+<pre><code>   (`Restart=on-failure` restarts after a crash or kill signal, but not after a clean `systemctl stop`.)
+</code></pre>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-06-cloud-and-infrastructure-exercises-solutions-03-cost-estimate.html">← Exercise 03 — Model answer: how to present a cost estimate</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">Module 06 — Break &amp; Fix: &quot;Works on my laptop&quot; →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

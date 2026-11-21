@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04 — Environment variables, PATH and installing software | FDE Handbook by Vicky</title>
+<meta name="description" content="&quot;It works on my machine&quot; is very often an environment problem: a different Python, a missing variable, or a tool that isn&#x27;t on the PATH. Configuration…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-04-environment-and-path.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 04 — Environment variables, PATH and installing software | FDE Handbook by Vicky">
+<meta property="og:description" content="&quot;It works on my machine&quot; is very often an environment problem: a different Python, a missing variable, or a tool that isn&#x27;t on the PATH. Configuration…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-04-environment-and-path.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 04 — Environment variables, PATH and installing software | FDE Handbook by Vicky">
+<meta name="twitter:description" content="&quot;It works on my machine&quot; is very often an environment problem: a different Python, a missing variable, or a tool that isn&#x27;t on the PATH. Configuration…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 04 — Environment variables, PATH and installing software", "description": "\"It works on my machine\" is very often an environment problem: a different Python, a missing variable, or a tool that isn't on the PATH. Configuration…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-02-computing-foundations-lessons-04-environment-and-path.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/02-computing-foundations/lessons/04-environment-and-path.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 02</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/02-computing-foundations/lessons/04-environment-and-path.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#environment-variables">Environment variables</a></li><li><a href="#path-how-the-shell-finds-programs">PATH: how the shell finds programs</a></li><li><a href="#installing-software">Installing software</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 04 — Environment variables, PATH and installing software</h1>
+<p><strong>Time:</strong> ~2 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>"It works on my machine" is very often an environment problem: a different Python, a missing variable, or a tool that isn't on the <code>PATH</code>. Configuration through environment variables is also how almost every production system (Docker, cloud, CI) passes settings and secrets to applications.</p>
+<h2 id="environment-variables">Environment variables</h2>
+<p>An <strong>environment variable</strong> is a named value that a process can read. Every process has its own set, inherited from whoever started it.</p>
+<pre><code>echo $HOME          # read one
+env                 # list all
+export APP_PORT=8800      # set one, for this shell and programs it starts
+echo $APP_PORT
+unset APP_PORT            # remove it</code></pre>
+<p><strong>With and without <code>export</code>:</strong></p>
+<pre><code>GREETING=hello          # shell variable: only this shell sees it
+export GREETING=hello   # environment variable: programs you start see it too</code></pre>
+<p><strong>For one command only:</strong></p>
+<pre><code>APP_PORT=9000 python3 server.py</code></pre>
+<h3 id="why-applications-use-them">Why applications use them</h3>
+<p>Code stays the same everywhere; configuration changes per environment:</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>On your laptop</th><th>In production</th></tr></thead><tbody><tr><td><code>DATABASE_URL</code></td><td><code>postgresql://localhost/admitflow_dev</code></td><td>the client's managed database</td></tr><tr><td><code>LOG_LEVEL</code></td><td><code>debug</code></td><td><code>info</code></td></tr><tr><td><code>LLM_API_KEY</code></td><td>your test key</td><td>the client's key, from a secrets manager</td></tr></tbody></table></div>
+<p>In Python, reading one looks like this (you'll see it in the break &amp; fix app):</p>
+<pre><code>import os
+port = int(os.environ.get(&quot;APP_PORT&quot;, &quot;8000&quot;))  # optional, with a default
+data_dir = os.environ[&quot;ADMITFLOW_DATA_DIR&quot;]      # required: crashes if missing</code></pre>
+<h3 id="env-files"><code>.env</code> files</h3>
+<p>Projects often keep local settings in a <code>.env</code> file:</p>
+<pre><code>APP_PORT=8800
+ADMITFLOW_DATA_DIR=/home/priya/projects/admitflow/data</code></pre>
+<p>Load it into your shell with:</p>
+<pre><code>set -a; source .env; set +a</code></pre>
+<p><strong>Never commit <code>.env</code> files with secrets to Git.</strong> Commit a <code>.env.example</code> with placeholder values instead, and add <code>.env</code> to <code>.gitignore</code>. Leaked API keys in public repositories are found and abused by automated scanners within minutes.</p>
+<h2 id="path-how-the-shell-finds-programs">PATH: how the shell finds programs</h2>
+<p>When you type <code>python3</code>, the shell searches each folder listed in the <code>PATH</code> variable, in order, and runs the first match.</p>
+<pre><code>echo $PATH</code></pre>
+<pre><code>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</code></pre>
+<pre><code>which python3       # which file actually runs?
+type -a python3     # all matches, in order</code></pre>
+<p>Common problems:</p>
+<div class="table-wrap"><table><thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead><tbody><tr><td><code>command not found</code> right after installing something</td><td>Its folder isn't on <code>PATH</code>, or your shell hasn't reloaded. Open a new terminal</td></tr><tr><td>The "wrong version" runs</td><td>Another copy appears earlier in <code>PATH</code></td></tr><tr><td>Works in your terminal but not in a script, cron job or service</td><td>That environment has a different, shorter <code>PATH</code></td></tr></tbody></table></div>
+<p>Adding a folder to <code>PATH</code> permanently: add a line to your shell's startup file (<code>~/.zshrc</code> for zsh, <code>~/.bashrc</code> for bash):</p>
+<pre><code>export PATH=&quot;$HOME/bin:$PATH&quot;</code></pre>
+<h2 id="installing-software">Installing software</h2>
+<div class="table-wrap"><table><thead><tr><th>Platform</th><th>Package manager</th><th>Example</th></tr></thead><tbody><tr><td>macOS</td><td>Homebrew</td><td><code>brew install jq</code></td></tr><tr><td>Ubuntu/Debian/WSL</td><td>apt</td><td><code>sudo apt install jq</code></td></tr><tr><td>Windows (native)</td><td>winget</td><td><code>winget install jqlang.jq</code></td></tr><tr><td>Python libraries</td><td>pip / uv (Module 03)</td><td><code>pip install requests</code></td></tr><tr><td>JavaScript libraries</td><td>npm (Module 03)</td><td><code>npm install axios</code></td></tr></tbody></table></div>
+<p>Package managers handle downloading, versions and updates. Prefer them to downloading random installers.</p>
+<p><strong>Safety habits</strong></p>
+<ul><li>Install from official sources only.</li><li>Read a <code>curl … | sh</code> install command before you run it; know what it does.</li><li>On client machines, install only what's approved. Many companies maintain an allowed-software list.</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>You set <code>API_KEY=abc</code> (without <code>export</code>) and then run <code>python3 app.py</code>, which reads <code>os.environ[&quot;API_KEY&quot;]</code>. What happens, and why?</li><li>Your colleague's script runs fine by hand but fails as a scheduled job with <code>node: command not found</code>. What's your first hypothesis?</li></ol>
+<p>Next: <a href="modules-02-computing-foundations-lessons-05-networking.html">Lesson 05 — Networking fundamentals</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-02-computing-foundations-lessons-03-command-line.html">← Lesson 03 — The command line</a><a class="btn ghost" href="modules-02-computing-foundations-lessons-05-networking.html">Lesson 05 — Networking fundamentals →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

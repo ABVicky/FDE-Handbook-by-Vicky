@@ -1,0 +1,66 @@
+# Prometheus alerting rules for AdmitFlow (Module 10). Each alert links to a runbook section.
+# Load with: rule_files: ["alerts.yml"] in prometheus.yml. Thresholds are starting points: tune them.
+groups:
+  - name: admitflow
+    rules:
+      - alert: AdmitFlowDown
+        expr: up{job="admitflow"} == 0
+        for: 2m
+        labels: {severity: page}
+        annotations:
+          summary: "AdmitFlow API is not responding"
+          runbook: "docs/runbook.md#api-down"
+
+      - alert: AdmitFlowHighErrorRate
+        # More than 2% of requests failing with 5xx over 10 minutes burns the availability budget fast
+        expr: |
+          sum(rate(admitflow_http_requests_total{status=~"5.."}[10m]))
+            / sum(rate(admitflow_http_requests_total[10m])) > 0.02
+        for: 10m
+        labels: {severity: page}
+        annotations:
+          summary: "More than 2% of API requests are failing"
+          runbook: "docs/runbook.md#high-error-rate"
+
+      - alert: AdmitFlowSlowLeadList
+        expr: |
+          histogram_quantile(0.95, sum by (le) (rate(admitflow_http_request_seconds_bucket{route="/leads"}[15m]))) > 0.5
+        for: 15m
+        labels: {severity: ticket}
+        annotations:
+          summary: "p95 latency of GET /leads is above 500 ms"
+          runbook: "docs/runbook.md#slow-requests"
+
+      - alert: AdmitFlowOutboxStuck
+        # Approved messages waiting more than 30 minutes: students aren't hearing back
+        expr: admitflow_outbox_oldest_approved_minutes > 30
+        for: 5m
+        labels: {severity: page}
+        annotations:
+          summary: "Approved follow-ups have been waiting {{ $value }} minutes to send"
+          runbook: "docs/runbook.md#outbox-stuck"
+
+      - alert: AdmitFlowOutboxFailures
+        expr: increase(admitflow_outbox_failed_total[30m]) > 5
+        labels: {severity: ticket}
+        annotations:
+          summary: "Message sends are failing"
+          runbook: "docs/runbook.md#outbox-stuck"
+
+      - alert: AdmitFlowLoginAttack
+        expr: increase(admitflow_login_failures_total[15m]) > 50 or increase(admitflow_rate_limited_total[15m]) > 200
+        labels: {severity: ticket}
+        annotations:
+          summary: "Unusual number of failed logins or rate-limited requests"
+          runbook: "docs/runbook.md#suspicious-traffic"
+
+      - alert: AdmitFlowAssistantDeclining
+        # A jump in "I don't know" answers usually means a broken document set or index
+        expr: |
+          sum(rate(admitflow_assistant_questions_total{answered="False"}[1h]))
+            / sum(rate(admitflow_assistant_questions_total[1h])) > 0.5
+        for: 30m
+        labels: {severity: ticket}
+        annotations:
+          summary: "The course assistant is declining more than half of questions"
+          runbook: "docs/runbook.md#assistant-declining"

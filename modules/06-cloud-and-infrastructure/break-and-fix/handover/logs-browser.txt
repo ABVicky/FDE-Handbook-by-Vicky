@@ -1,0 +1,12 @@
+# Attempt 3: /ready now returns {"status":"ready"}. A counsellor opens the dashboard at http://10.20.0.15:8080
+# and tries to log in. Browser developer console:
+
+Access to fetch at 'http://10.20.0.15:8000/auth/login' from origin 'http://10.20.0.15:8080' has been blocked
+by CORS policy: Response to preflight request doesn't pass access control check: The value of the
+'Access-Control-Allow-Origin' header in the response must ... (No 'Access-Control-Allow-Origin' header is present)
+
+# Attempt 4: CORS fixed. Login now returns HTTP 500. API log:
+api-1  | ERROR:    Exception in ASGI application
+api-1  |   File "/opt/venv/lib/python3.12/site-packages/admitflow/auth.py", line 44, in secret_key
+api-1  | RuntimeError: ADMITFLOW_SECRET_KEY must be set to a random value of at least 32 characters. Generate one with: python -c 'import secrets; print(secrets.token_urlsafe(48))'
+api-1  | INFO request_id=4b7d10 method=POST path=/auth/login status=500 duration_ms=12.9

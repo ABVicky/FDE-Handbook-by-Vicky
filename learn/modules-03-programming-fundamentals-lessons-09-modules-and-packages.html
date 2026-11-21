@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 09 — Modules, packages and dependencies | FDE Handbook by Vicky</title>
+<meta name="description" content="Any .py file is a module. Split code by responsibility and import what you need:">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-09-modules-and-packages.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 09 — Modules, packages and dependencies | FDE Handbook by Vicky">
+<meta property="og:description" content="Any .py file is a module. Split code by responsibility and import what you need:">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-09-modules-and-packages.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 09 — Modules, packages and dependencies | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Any .py file is a module. Split code by responsibility and import what you need:">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 09 — Modules, packages and dependencies", "description": "Any .py file is a module. Split code by responsibility and import what you need:", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-09-modules-and-packages.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/09-modules-and-packages.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/09-modules-and-packages.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#modules-one-file-one-job">Modules: one file, one job</a></li><li><a href="#packages-a-folder-of-modules">Packages: a folder of modules</a></li><li><a href="#if-__name__--quot__main__quot">if __name__ == &amp;quot;__main__&amp;quot;:</a></li><li><a href="#the-standard-library">The standard library</a></li><li><a href="#third-party-packages">Third-party packages</a></li><li><a href="#choosing-dependencies-an-fde-concern">Choosing dependencies (an FDE concern)</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 09 — Modules, packages and dependencies</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="modules-one-file-one-job">Modules: one file, one job</h2>
+<p>Any <code>.py</code> file is a <strong>module</strong>. Split code by responsibility and import what you need:</p>
+<pre><code># normalize.py
+def normalize_email(value):
+    return value.strip().lower()</code></pre>
+<pre><code># main.py
+from normalize import normalize_email
+import normalize            # or import the whole module
+
+print(normalize_email(&quot; A@B.com &quot;))
+print(normalize.normalize_email(&quot; A@B.com &quot;))</code></pre>
+<h2 id="packages-a-folder-of-modules">Packages: a folder of modules</h2>
+<pre><code>projects/admitflow/
+├── pyproject.toml        ← project metadata and dependencies
+├── admitflow/            ← the package
+│   ├── __init__.py       ← marks the folder as a package
+│   ├── models.py
+│   ├── normalize.py
+│   ├── importers.py
+│   ├── dedupe.py
+│   ├── store.py
+│   └── cli.py
+└── tests/</code></pre>
+<p>Inside a package, modules import each other <strong>relatively</strong>:</p>
+<pre><code># admitflow/importers.py
+from .models import Lead
+from .normalize import normalize_phone</code></pre>
+<h2 id="if-__name__--quot__main__quot"><code>if __name__ == &quot;__main__&quot;:</code></h2>
+<pre><code>def main():
+    print(&quot;running&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
+<p>The block runs only when the file is executed directly (<code>python3 tool.py</code>), not when it's imported. That keeps imports free of side effects, and keeps functions testable.</p>
+<h2 id="the-standard-library">The standard library</h2>
+<p>Python ships with a lot. Check here before installing anything: <code>csv</code>, <code>json</code>, <code>pathlib</code>, <code>datetime</code>, <code>re</code>, <code>logging</code>, <code>argparse</code> (command-line arguments), <code>collections</code>, <code>unicodedata</code>, <code>urllib</code>, <code>sqlite3</code>, <code>unittest</code>… The AdmitFlow CLI uses <strong>only</strong> the standard library, which makes it easy to run on a locked-down client machine.</p>
+<h2 id="third-party-packages">Third-party packages</h2>
+<p>Installed from <a href="https://pypi.org/">PyPI</a> with pip, inside your venv:</p>
+<pre><code>python -m pip install httpx</code></pre>
+<p>Record your dependencies so anyone can recreate the environment. The modern way is <code>pyproject.toml</code>:</p>
+<pre><code>[project]
+name = &quot;admitflow&quot;
+version = &quot;0.3.0&quot;
+requires-python = &quot;&gt;=3.9&quot;
+dependencies = []                       # what the app needs to run
+
+[project.optional-dependencies]
+dev = [&quot;pytest&gt;=8&quot;, &quot;pytest-cov&gt;=5&quot;]    # extra tools for developers
+
+[project.scripts]
+admitflow = &quot;admitflow.cli:main&quot;        # creates an `admitflow` command</code></pre>
+<p>Install the project itself, in <strong>editable</strong> mode (code changes take effect without reinstalling), with dev tools:</p>
+<pre><code>python -m pip install -e &quot;.[dev]&quot;</code></pre>
+<p>You'll also see the older <code>requirements.txt</code> (one package per line, often with exact versions: <code>httpx==0.27.2</code>). <code>pip freeze &gt; requirements.txt</code> captures what's installed.</p>
+<h2 id="choosing-dependencies-an-fde-concern">Choosing dependencies (an FDE concern)</h2>
+<p>Every dependency is code you're trusting, and will have to maintain on the client's systems. Before adding one, ask:</p>
+<ul><li>Does the standard library already do this?</li><li>Is it actively maintained? Widely used?</li><li>What's its licence? Is it compatible with the client's rules?</li><li>Will the client's security team allow it? (Some organizations only allow approved packages from an internal mirror.)</li></ul>
+<p><strong>Pin versions</strong> for anything deployed, so a new release can't break production without you noticing.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<ol><li>Why does <code>from .models import Lead</code> work inside <code>admitflow/importers.py</code> but fail if you run <code>python3 importers.py</code> directly?</li><li>What does <code>pip install -e &quot;.[dev]&quot;</code> install?</li></ol>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-10-classes-and-dataclasses.html">Lesson 10 — Classes and dataclasses</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-08-errors-and-logging.html">← Lesson 08 — Errors, exceptions and logging</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-10-classes-and-dataclasses.html">Lesson 10 — Classes and dataclasses →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

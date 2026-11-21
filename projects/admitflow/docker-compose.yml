@@ -1,0 +1,55 @@
+# Run the whole of AdmitFlow locally:  cp .env.example .env  &&  docker compose up --build
+# Dashboard: http://localhost:8080   API: http://localhost:8000/docs
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admitflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: admitflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admitflow"]
+      interval: 5s
+      retries: 10
+    ports:
+      - "127.0.0.1:5432:5432"   # reachable from your laptop only, not the network
+
+  migrate:
+    build: .
+    command: ["alembic", "upgrade", "head"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://admitflow:${POSTGRES_PASSWORD}@db:5432/admitflow
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    build: .
+    restart: unless-stopped
+    environment:
+      # "db" is the service name: inside the Compose network, "localhost" would mean the api container itself
+      DATABASE_URL: postgresql+psycopg://admitflow:${POSTGRES_PASSWORD}@db:5432/admitflow
+      ADMITFLOW_SECRET_KEY: ${ADMITFLOW_SECRET_KEY:?set ADMITFLOW_SECRET_KEY in .env}
+      ADMITFLOW_CORS_ORIGINS: http://localhost:8080
+    ports:
+      - "8000:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  web:
+    restart: unless-stopped
+    build:
+      context: web
+      args:
+        VITE_API_URL: http://localhost:8000
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

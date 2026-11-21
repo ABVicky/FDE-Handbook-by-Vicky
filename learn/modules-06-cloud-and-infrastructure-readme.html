@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 06 — Cloud and Infrastructure | FDE Handbook by Vicky</title>
+<meta name="description" content="An app on your laptop helps nobody. Here you&#x27;ll learn to package your app so it runs anywhere, test every change automatically, and put it online in…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-readme.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Module 06 — Cloud and Infrastructure | FDE Handbook by Vicky">
+<meta property="og:description" content="An app on your laptop helps nobody. Here you&#x27;ll learn to package your app so it runs anywhere, test every change automatically, and put it online in…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-readme.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 06 — Cloud and Infrastructure | FDE Handbook by Vicky">
+<meta name="twitter:description" content="An app on your laptop helps nobody. Here you&#x27;ll learn to package your app so it runs anywhere, test every change automatically, and put it online in…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Module 06 — Cloud and Infrastructure", "description": "An app on your laptop helps nobody. Here you'll learn to package your app so it runs anywhere, test every change automatically, and put it online in…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-06-cloud-and-infrastructure-readme.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/README.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 06</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/06-cloud-and-infrastructure/README.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#outcome">Outcome</a></li><li><a href="#why-this-matters-to-an-fde">Why this matters to an FDE</a></li><li><a href="#checkpoint">Checkpoint</a></li><li><a href="#lessons">Lessons</a></li><li><a href="#practice">Practice</a></li><li><a href="#build-admitflow-deployed">Build: AdmitFlow, deployed</a></li><li><a href="#break-amp-fix">Break &amp;amp; fix</a></li><li><a href="#field-track">Field Track</a></li><li><a href="#done-when">Done when</a></li><li><a href="#resources">Resources</a></li></ul></details>
+<h1>Module 06 — Cloud and Infrastructure</h1>
+<blockquote><p><strong>In plain words:</strong> An app on your laptop helps nobody. Here you'll learn to package your app so it runs anywhere, test every change automatically, and put it online in the cloud.</p>
+<p><strong>What you'll build:</strong> AdmitFlow running online, with automatic tests on every change and a written guide for keeping it running.</p>
+<p><strong>You can skip for now:</strong> Kubernetes and Terraform (stretch). You can do the build without a cloud account by running everything on your own machine.</p>
+<p><strong>Comes after:</strong> <a href="modules-05-databases-and-data-engineering-readme.html">Module 05: Databases and Data Engineering</a> · <strong>Leads to:</strong> <a href="modules-07-ai-and-machine-learning-readme.html">Module 07: AI and Machine Learning Fundamentals</a></p>
+<p><strong>How to work through it:</strong> read the lessons in order → try the exercises → do the build → do the break &amp; fix → do the Field Track → tick the "Done when" list. New here? Read <a href="start-here.html">Start Here</a> first.</p></blockquote>
+<p><strong>Stage:</strong> 2 — Engineering · <strong>Time:</strong> ~4 weeks at 15–20 h/week · <strong>Builds:</strong> C4 (Deploy and integrate) <strong>Prerequisites:</strong> <a href="modules-05-databases-and-data-engineering-readme.html">Module 05</a>: AdmitFlow on SQL with migrations. A free GitHub account; a cloud free tier or trial for the deployment lessons (optional, but strongly recommended).</p>
+<h2 id="outcome">Outcome</h2>
+<p>After this module you can containerize an application, run a multi-service system locally with one command, test and build every change automatically, deploy to a managed cloud platform with secrets handled properly, roll back, and explain the monthly cost.</p>
+<h2 id="why-this-matters-to-an-fde">Why this matters to an FDE</h2>
+<p>A system that only runs on your laptop delivers no value. AdmitFlow now has to run every day on infrastructure the institute can afford and that Mr. Okafor (part-time IT) can keep alive. FDEs deploy into environments they don't fully control: the client's cloud account, a restricted VM, a security review. Containers, CI and explicit configuration are what make that repeatable instead of heroic.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<p>Already shipping containers through CI to the cloud? Take the <a href="modules-06-cloud-and-infrastructure-checkpoint.html">checkpoint</a>. Score ≥ 80% <strong>and</strong> complete the <a href="modules-06-cloud-and-infrastructure-build.html">build</a> and <a href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">break &amp; fix</a> to move on.</p>
+<h2 id="lessons">Lessons</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Lesson</th><th>Core / Stretch</th><th>Time</th></tr></thead><tbody><tr><td>01</td><td><a href="modules-06-cloud-and-infrastructure-lessons-01-cloud-fundamentals.html">Cloud fundamentals</a></td><td>Core</td><td>3 h</td></tr><tr><td>02</td><td><a href="modules-06-cloud-and-infrastructure-lessons-02-linux-and-ssh.html">Linux servers and SSH</a></td><td>Core</td><td>4 h</td></tr><tr><td>03</td><td><a href="modules-06-cloud-and-infrastructure-lessons-03-docker.html">Docker</a></td><td>Core</td><td>6 h</td></tr><tr><td>04</td><td><a href="modules-06-cloud-and-infrastructure-lessons-04-docker-compose.html">Docker Compose</a></td><td>Core</td><td>3 h</td></tr><tr><td>05</td><td><a href="modules-06-cloud-and-infrastructure-lessons-05-ci-cd.html">CI/CD with GitHub Actions</a></td><td>Core</td><td>4 h</td></tr><tr><td>06</td><td><a href="modules-06-cloud-and-infrastructure-lessons-06-deploying.html">Deploying to the cloud</a></td><td>Core</td><td>6 h</td></tr><tr><td>07</td><td><a href="modules-06-cloud-and-infrastructure-lessons-07-config-secrets-releases.html">Configuration, secrets, environments and releases</a></td><td>Core</td><td>3 h</td></tr><tr><td>08</td><td><a href="modules-06-cloud-and-infrastructure-lessons-08-iac-kubernetes-cost.html">Infrastructure as Code, Kubernetes and cost</a></td><td>Core / Stretch</td><td>4 h</td></tr></tbody></table></div>
+<h2 id="practice">Practice</h2>
+<p><a href="modules-06-cloud-and-infrastructure-exercises-readme.html">exercises/</a>: containerize a service, write its CI workflow, estimate AdmitFlow's monthly cost, and Linux server drills.</p>
+<h2 id="build-admitflow-deployed">Build: AdmitFlow, deployed</h2>
+<p>See <a href="modules-06-cloud-and-infrastructure-build.html">build.md</a>.</p>
+<ul><li><strong>Starting point:</strong> your Module 05 AdmitFlow</li><li><strong>Goal:</strong> images, Compose, CI with PostgreSQL, a cloud deployment with secrets, a scheduled ingest, a tested rollback, a deployment guide and a cost estimate</li><li><strong>Reference solution:</strong> <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/tree/main/projects/admitflow/Dockerfile"><code>Dockerfile</code></a>, <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/docker-compose.yml"><code>docker-compose.yml</code></a>, <a href="projects-admitflow-deploy-readme.html"><code>deploy/</code></a>, <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/.github/workflows/admitflow-ci.yml"><code>.github/workflows/admitflow-ci.yml</code></a></li></ul>
+<h2 id="break-amp-fix">Break &amp; fix</h2>
+<p><a href="modules-06-cloud-and-infrastructure-break-and-fix-readme.html">break-and-fix/</a>: the previous engineer's deployment "works on my laptop" but no counsellor can log in. Diagnose four configuration problems from logs alone.</p>
+<h2 id="field-track">Field Track</h2>
+<p>See <a href="modules-06-cloud-and-infrastructure-field-track.html">field-track.md</a>. Plan a deployment into a client environment with restrictions and a security review.</p>
+<h2 id="done-when">Done when</h2>
+<ul><li>[ ] <code>docker compose up --build</code> starts database, migrations, API and dashboard; you can log in at http://localhost:8080</li><li>[ ] Images run as non-root, contain no secrets, and pass a health check</li><li>[ ] CI runs tests (including PostgreSQL), builds images and smoke-tests them on every pull request, and branch protection requires it</li><li>[ ] AdmitFlow (or the course service) deployed to a cloud platform over HTTPS, with secrets in a secret manager</li><li>[ ] Rollback performed once, on purpose</li><li>[ ] Scheduled ingest configured (or documented for the target platform)</li><li>[ ] Deployment guide and cost estimate written</li><li>[ ] Break &amp; fix diagnosis written up</li><li>[ ] <a href="progress-self-assessment.html"><code>progress/self-assessment.md</code></a> updated</li></ul>
+<h2 id="resources">Resources</h2>
+<p>See <a href="modules-06-cloud-and-infrastructure-resources.html">resources.md</a>.</p>
+<hr>
+<p><em>Last verified: 2026-11-21 · Docker, Compose, cloud and Terraform steps were written against current documentation but <strong>not executed</strong> in the authoring environment; YAML files were validated and CI builds the images. Please open an issue if a step fails for you.</em></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-05-databases-and-data-engineering-resources.html">← Module 05 — Resources</a><a class="btn ghost" href="modules-06-cloud-and-infrastructure-lessons-01-cloud-fundamentals.html">Lesson 01 — Cloud fundamentals →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

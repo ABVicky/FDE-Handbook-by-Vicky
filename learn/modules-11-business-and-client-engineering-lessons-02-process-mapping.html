@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 — Mapping processes and finding root causes | FDE Handbook by Vicky</title>
+<meta name="description" content="Before designing anything, map how work actually happens today, including the workarounds: sticky notes, personal spreadsheets, the WhatsApp group,…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-02-process-mapping.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 02 — Mapping processes and finding root causes | FDE Handbook by Vicky">
+<meta property="og:description" content="Before designing anything, map how work actually happens today, including the workarounds: sticky notes, personal spreadsheets, the WhatsApp group,…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-02-process-mapping.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 02 — Mapping processes and finding root causes | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Before designing anything, map how work actually happens today, including the workarounds: sticky notes, personal spreadsheets, the WhatsApp group,…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 02 — Mapping processes and finding root causes", "description": "Before designing anything, map how work actually happens today, including the workarounds: sticky notes, personal spreadsheets, the WhatsApp group,…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-11-business-and-client-engineering-lessons-02-process-mapping.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/02-process-mapping.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 11</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/11-business-and-client-engineering/lessons/02-process-mapping.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#current-state-first">Current state first</a></li><li><a href="#swimlanes">Swimlanes</a></li><li><a href="#finding-root-causes">Finding root causes</a></li><li><a href="#future-state">Future state</a></li><li><a href="#quantify-the-pain">Quantify the pain</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 02 — Mapping processes and finding root causes</h1>
+<p><strong>Time:</strong> ~3 hours · <strong>Core</strong></p>
+<h2 id="current-state-first">Current state first</h2>
+<p>Before designing anything, map how work <strong>actually</strong> happens today, including the workarounds: sticky notes, personal spreadsheets, the WhatsApp group, "ask Priya." Map from observation and interviews, not from the official procedure document.</p>
+<p>Northbridge's enquiry process before AdmitFlow:</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/11-business-and-client-engineering/lessons/02-process-mapping.md">View it in the interactive reader</a>.</p>
+<p>Mark on the map:</p>
+<ul><li><strong>Delays</strong> (time between steps): the ad export waits days</li><li><strong>Hand-offs</strong> (where things get lost): notebook → spreadsheet</li><li><strong>Duplication</strong>: the same student in three spreadsheets</li><li><strong>Invisible work</strong>: the Friday report</li><li><strong>Pain</strong> in people's own words</li></ul>
+<h2 id="swimlanes">Swimlanes</h2>
+<p>For processes with several roles, draw one lane per role (reception, counsellor, head of admissions, IT). Hand-offs between lanes are where most delays and losses happen.</p>
+<h2 id="finding-root-causes">Finding root causes</h2>
+<p><strong>5 Whys:</strong> keep asking why until you reach something you can change.</p>
+<blockquote><p>Students enrol elsewhere. <em>Why?</em> → Nobody called them back. <em>Why?</em> → The counsellor didn't see the enquiry. <em>Why?</em> → It was in the ad export nobody downloaded. <em>Why?</em> → Downloading is a manual task with no owner. <em>Why?</em> → No system brings enquiries together automatically.</p></blockquote>
+<p><strong>Fishbone (Ishikawa):</strong> list possible causes under headings (People, Process, Tools, Data, Environment) to avoid fixating on one.</p>
+<p>Beware of stopping at a person ("Lucía is slow"); keep going to the system that made the outcome likely.</p>
+<h2 id="future-state">Future state</h2>
+<p>Draw the process as it should work, and note <strong>what changes for each role</strong>, including what they <strong>stop</strong> doing:</p>
+<div class="table-wrap"><table><thead><tr><th>Role</th><th>Starts</th><th>Stops</th></tr></thead><tbody><tr><td>Reception</td><td>Adds phone and walk-in enquiries in AdmitFlow</td><td>The notebook</td></tr><tr><td>Counsellor</td><td>Works from "Due today" in AdmitFlow</td><td>Personal spreadsheets</td></tr><tr><td>Head of Admissions</td><td>Uses the team view</td><td>The Friday spreadsheet</td></tr><tr><td>IT</td><td>Owns accounts via Google</td><td>Password resets</td></tr></tbody></table></div>
+<p>The "Stops" column is where adoption is won or lost. Module 11's break &amp; fix is a project that forgot it.</p>
+<h2 id="quantify-the-pain">Quantify the pain</h2>
+<p>For each pain point, estimate frequency × time × cost, or the lost outcome. "Counsellors spend ~2.5 hours a week each copying between spreadsheets" × 6 counsellors = 15 hours a week. Those numbers feed the business case (Lesson 04).</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Do <a href="modules-11-business-and-client-engineering-exercises-01-process-map.html">Exercise 01</a>: map the current and future state of the <strong>campus visit</strong> process at Northbridge (booking, reminders, attendance, follow-up) from the perspective of three roles, with a starts/stops table.</p>
+<p>Next: <a href="modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html">Lesson 03 — Discovery and requirements, in depth</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-01-how-businesses-work.html">← Lesson 01 — How businesses work (enough to find the value)</a><a class="btn ghost" href="modules-11-business-and-client-engineering-lessons-03-discovery-and-requirements.html">Lesson 03 — Discovery and requirements, in depth →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

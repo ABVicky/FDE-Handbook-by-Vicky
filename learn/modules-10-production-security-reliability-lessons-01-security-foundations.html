@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01 — Security foundations: threat modelling and the OWASP Top 10 | FDE Handbook by Vicky</title>
+<meta name="description" content="By now AdmitFlow holds thousands of students&#x27; contact details, sends messages in the institute&#x27;s name, talks to a CRM, an AI provider and Google, and…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-01-security-foundations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 01 — Security foundations: threat modelling and the OWASP Top 10 | FDE Handbook by Vicky">
+<meta property="og:description" content="By now AdmitFlow holds thousands of students&#x27; contact details, sends messages in the institute&#x27;s name, talks to a CRM, an AI provider and Google, and…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-01-security-foundations.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 01 — Security foundations: threat modelling and the OWASP Top 10 | FDE Handbook by Vicky">
+<meta name="twitter:description" content="By now AdmitFlow holds thousands of students&#x27; contact details, sends messages in the institute&#x27;s name, talks to a CRM, an AI provider and Google, and…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 01 — Security foundations: threat modelling and the OWASP Top 10", "description": "By now AdmitFlow holds thousands of students' contact details, sends messages in the institute's name, talks to a CRM, an AI provider and Google, and…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-10-production-security-reliability-lessons-01-security-foundations.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/01-security-foundations.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 10</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/10-production-security-reliability/lessons/01-security-foundations.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#threat-modelling-in-30-minutes">Threat modelling in 30 minutes</a></li><li><a href="#owasp-top-10-web-applications-applied">OWASP Top 10 (web applications), applied</a></li><li><a href="#defence-in-depth">Defence in depth</a></li><li><a href="#secure-by-default">Secure by default</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 01 — Security foundations: threat modelling and the OWASP Top 10</h1>
+<p><strong>Time:</strong> ~4 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>By now AdmitFlow holds thousands of students' contact details, sends messages in the institute's name, talks to a CRM, an AI provider and Google, and has a public endpoint. Each of those is a way in. Security isn't a feature added at the end; it's a habit of asking <strong>"how could this be abused?"</strong> about everything you build, and fixing the answers in priority order.</p>
+<h2 id="threat-modelling-in-30-minutes">Threat modelling in 30 minutes</h2>
+<p>For each component in the architecture diagram, ask four questions (adapted from the threat-modelling community):</p>
+<ol><li><strong>What are we building?</strong> (the diagram, with data flows and trust boundaries)</li><li><strong>What can go wrong?</strong></li><li><strong>What are we doing about it?</strong></li><li><strong>Did we do a good job?</strong> (tests, reviews)</li></ol>
+<p>A simple prompt list for question 2, <strong>STRIDE</strong>:</p>
+<div class="table-wrap"><table><thead><tr><th>Threat</th><th>Question</th><th>AdmitFlow example</th><th>Control</th></tr></thead><tbody><tr><td><strong>S</strong>poofing</td><td>Can someone pretend to be someone else?</td><td>Forged webhook; stolen session token</td><td>HMAC signatures; short-lived tokens; Google SSO</td></tr><tr><td><strong>T</strong>ampering</td><td>Can data be changed in transit or at rest?</td><td>Edited form body</td><td>Signatures; HTTPS; database permissions</td></tr><tr><td><strong>R</strong>epudiation</td><td>Can someone deny doing something?</td><td>"I never approved that message"</td><td>Audit log (<code>draft.approve</code>, actor, time)</td></tr><tr><td><strong>I</strong>nformation disclosure</td><td>Can data leak?</td><td>Counsellor sees another's leads; logs contain phone numbers</td><td>Row-level checks; log redaction; RAG only public docs</td></tr><tr><td><strong>D</strong>enial of service</td><td>Can it be overwhelmed?</td><td>Bot floods the public assistant</td><td>Rate limits; input caps; budgets</td></tr><tr><td><strong>E</strong>levation of privilege</td><td>Can someone gain powers they shouldn't have?</td><td>Counsellor assigns leads; MCP agent sends messages</td><td>Server-side role checks; no send tool</td></tr></tbody></table></div>
+<p>Write the result as a table in the security review (Module 09 template), prioritized by likelihood × impact.</p>
+<h2 id="owasp-top-10-web-applications-applied">OWASP Top 10 (web applications), applied</h2>
+<p>The <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> lists the most common serious web risks. AdmitFlow's status:</p>
+<div class="table-wrap"><table><thead><tr><th>Risk</th><th>What it is</th><th>AdmitFlow</th></tr></thead><tbody><tr><td>Broken access control</td><td>Users acting outside their permissions</td><td>Role and assignment checks on every route; tests for 401/403</td></tr><tr><td>Cryptographic failures</td><td>Weak or missing encryption</td><td>HTTPS; PBKDF2 password hashing; secrets in a secret manager</td></tr><tr><td>Injection (SQL, command, …)</td><td>Untrusted input interpreted as code</td><td>SQLAlchemy parameters; no shell calls with user input</td></tr><tr><td>Insecure design</td><td>Missing controls by design</td><td>Threat model; approval gates by design (no send tool)</td></tr><tr><td>Security misconfiguration</td><td>Defaults, open CORS, verbose errors</td><td>CORS allow-list; no stack traces to clients; security headers</td></tr><tr><td>Vulnerable components</td><td>Outdated dependencies</td><td>Pinned versions; dependency scanning (Lesson 04)</td></tr><tr><td>Identification &amp; authentication failures</td><td>Weak login handling</td><td>Rate-limited login; generic error messages; SSO</td></tr><tr><td>Software &amp; data integrity failures</td><td>Unverified updates or data</td><td>Signed webhooks; CI-built images</td></tr><tr><td>Logging &amp; monitoring failures</td><td>Attacks go unnoticed</td><td>Audit log; metrics and alerts (Lesson 05)</td></tr><tr><td>Server-side request forgery</td><td>Server tricked into calling internal URLs</td><td>AdmitFlow never fetches user-supplied URLs; keep it that way</td></tr></tbody></table></div>
+<p>For LLM features, use the OWASP Top 10 for LLM Applications as well (Module 08, Lesson 07).</p>
+<h2 id="defence-in-depth">Defence in depth</h2>
+<p>No single control is enough. AdmitFlow's protection of student data, layered:</p>
+<p class="diagram-note">📊 This section has a diagram. <a href="../index.html#modules/10-production-security-reliability/lessons/01-security-foundations.md">View it in the interactive reader</a>.</p>
+<p>If one layer fails (a bug in a role check), the others still limit the damage.</p>
+<h2 id="secure-by-default">Secure by default</h2>
+<ul><li><strong>Deny by default:</strong> new routes require login (Module 04's break &amp; fix)</li><li><strong>Fail closed:</strong> missing webhook secret → 503, never "accept unsigned"</li><li><strong>Least privilege:</strong> every user, service account, database role and AI tool gets only what it needs</li><li><strong>Secure defaults in config:</strong> short session lifetime, strict CORS, production debug off</li></ul>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Draw AdmitFlow's current architecture with trust boundaries (internet ↔ API, API ↔ database, API ↔ third parties). Run STRIDE over the three most exposed components, and list your top five risks with the control for each (existing or needed).</p>
+<p>Next: <a href="modules-10-production-security-reliability-lessons-02-protecting-data.html">Lesson 02 — Protecting data</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-10-production-security-reliability-readme.html">← Module 10 — Production Engineering, Security and Reliability</a><a class="btn ghost" href="modules-10-production-security-reliability-lessons-02-protecting-data.html">Lesson 02 — Protecting data: encryption, secrets, minimization and retention →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

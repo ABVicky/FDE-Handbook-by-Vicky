@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Break &amp; Fix — Solution | FDE Handbook by Vicky</title>
+<meta name="description" content="The fixed service: solution/app.py. The same tests, all passing: solution/testapp.py.">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-solution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta property="og:description" content="The fixed service: solution/app.py. The same tests, all passing: solution/testapp.py.">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-solution.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Break &amp; Fix — Solution | FDE Handbook by Vicky">
+<meta name="twitter:description" content="The fixed service: solution/app.py. The same tests, all passing: solution/testapp.py.">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Break & Fix — Solution", "description": "The fixed service: solution/app.py. The same tests, all passing: solution/testapp.py.", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-04-software-engineering-break-and-fix-solution.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/04-software-engineering/break-and-fix/SOLUTION.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 04</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/04-software-engineering/break-and-fix/SOLUTION.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#the-four-problems">The four problems</a></li><li><a href="#why-4-is-the-serious-one">Why #4 is the serious one</a></li><li><a href="#sample-readme-excerpt">Sample README (excerpt)</a></li><li><a href="#sample-handover-note">Sample handover note</a></li><li><a href="#a-note-on-the-time-zone-bug">A note on the time-zone bug</a></li></ul></details>
+<h1>Break &amp; Fix — Solution</h1>
+<blockquote><p>⚠️ Try it properly first.</p></blockquote>
+<p>The fixed service: <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/04-software-engineering/break-and-fix/solution/app.py"><code>solution/app.py</code></a>. The same tests, all passing: <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/modules/04-software-engineering/break-and-fix/solution/test_app.py"><code>solution/test_app.py</code></a>.</p>
+<h2 id="the-four-problems">The four problems</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Test</th><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td>1</td><td><code>test_create_returns_201</code></td><td><code>assert 200 == 201</code></td><td>FastAPI returns 200 by default</td><td><code>@app.post(&quot;/followups&quot;, status_code=201)</code></td></tr><tr><td>2</td><td><code>test_first_page_contains_earliest</code></td><td>Page 1 has only 2 items</td><td><code>start = page * size</code> skips the first page (page 1 starts at index 10)</td><td><code>start = (page - 1) * size</code>, plus <code>Query(ge=1)</code> so <code>page=0</code> is rejected</td></tr><tr><td>3</td><td><code>test_overdue</code></td><td><code>TypeError: can&#x27;t compare offset-naive and offset-aware datetimes</code> → 500</td><td>Request times have a time zone (<code>…+00:00</code>), but the server compares them with naive <code>datetime.now()</code></td><td>Normalize every input to aware UTC in a validator; compare with <code>datetime.now(timezone.utc)</code></td></tr><tr><td>4</td><td><code>test_delete_requires_token</code></td><td>Delete works <strong>without a token</strong></td><td><code>@app.delete</code> is the only route missing <code>dependencies=[Depends(check)]</code></td><td>Apply the dependency to the <strong>whole app</strong>: <code>FastAPI(dependencies=[Depends(require_token)])</code></td></tr></tbody></table></div>
+<h2 id="why-4-is-the-serious-one">Why #4 is the serious one</h2>
+<p>Anyone who can reach the service can delete every follow-up with a loop of <code>curl -X DELETE …/followups/1</code>, <code>/2</code>, … Counsellors would silently stop getting reminders, and students would stop being called. Nothing would look broken.</p>
+<p>The deeper problem is the <em>pattern</em>: auth was added route by route, so the next developer who adds a route will probably forget it too. Making authentication the <strong>default for the whole app</strong> ("deny by default") fixes the class of bug, not just this instance. Public routes (like <code>/health</code>) should be the ones that need an explicit exception.</p>
+<p>Also fixed in passing: <code>hmac.compare_digest</code> would be better than <code>!=</code> for the token comparison. The solution keeps <code>!=</code> to stay close to the original, so it's a good follow-up for you.</p>
+<h2 id="sample-readme-excerpt">Sample README (excerpt)</h2>
+<blockquote><h1 id="follow-up-reminder-service">Follow-up reminder service</h1>
+<p>Stores follow-up reminders for counsellors and lists those that are overdue.</p>
+<p><strong>Configuration:</strong> <code>FOLLOWUP_TOKEN</code> (required in production): the bearer token every request must send. <strong>Run:</strong> <code>pip install fastapi uvicorn</code> then <code>uvicorn app:app --reload</code> <strong>Test:</strong> <code>pip install pytest httpx</code> then <code>python -m pytest test_app.py</code> <strong>Time zones:</strong> all times are stored as UTC. Times sent without a zone are assumed to be UTC; send <code>…+05:30</code> or <code>…Z</code> explicitly. <strong>Limitations:</strong> data is kept in memory and lost on restart; IDs restart from 1.</p></blockquote>
+<h2 id="sample-handover-note">Sample handover note</h2>
+<blockquote><p>Inherited follow-up service: 4 of 5 tests were failing. Fixed status codes, pagination (page 1 was skipped), and a time-zone crash on the overdue list. <strong>The delete endpoint required no authentication</strong>; fixed by enforcing auth app-wide. Still worrying: data lives in memory (lost on restart) and there's one shared token for everyone. Recommend folding this into AdmitFlow's API, which already has per-user auth and persistent storage.</p></blockquote>
+<h2 id="a-note-on-the-time-zone-bug">A note on the time-zone bug</h2>
+<p>When writing this exercise, the <em>first</em> version of the fixed service treated times without a zone as UTC, and the tests sent local times without a zone. On a machine set to India time (UTC+5:30), a follow-up due "in 5 hours" was stored as already overdue. Time-zone bugs depend on where the code runs, which is why the tests now send explicit UTC times, and why AdmitFlow's own tests run under two time zones.</p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-04-software-engineering-break-and-fix-readme.html">← Module 04 — Break &amp; Fix: The inherited follow-up service</a><a class="btn ghost" href="modules-04-software-engineering-build.html">Module 04 Build — AdmitFlow v1: the counsellor dashboard →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>

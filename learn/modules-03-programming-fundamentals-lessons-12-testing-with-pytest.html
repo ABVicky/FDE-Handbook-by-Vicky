@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 12 — Testing with pytest | FDE Handbook by Vicky</title>
+<meta name="description" content="Tests are how you prove your code works, to yourself, to your team, and to a client&#x27;s sceptical IT department. They also let you change code without…">
+<meta name="author" content="Vicky Prasad Mahato">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-12-testing-with-pytest.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FDE Handbook by Vicky">
+<meta property="og:title" content="Lesson 12 — Testing with pytest | FDE Handbook by Vicky">
+<meta property="og:description" content="Tests are how you prove your code works, to yourself, to your team, and to a client&#x27;s sceptical IT department. They also let you change code without…">
+<meta property="og:url" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-12-testing-with-pytest.html">
+<meta property="og:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson 12 — Testing with pytest | FDE Handbook by Vicky">
+<meta name="twitter:description" content="Tests are how you prove your code works, to yourself, to your team, and to a client&#x27;s sceptical IT department. They also let you change code without…">
+<meta name="twitter:image" content="https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Lesson 12 — Testing with pytest", "description": "Tests are how you prove your code works, to yourself, to your team, and to a client's sceptical IT department. They also let you change code without…", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/learn/modules-03-programming-fundamentals-lessons-12-testing-with-pytest.html", "inLanguage": "en", "learningResourceType": "Handbook chapter", "author": {"@type": "Person", "name": "Vicky Prasad Mahato", "url": "https://abvicky.in"}, "isPartOf": {"@type": "Course", "name": "FDE Handbook by Vicky", "url": "https://abvicky.github.io/FDE-Handbook-by-Vicky/"}, "image": "https://abvicky.github.io/FDE-Handbook-by-Vicky/assets/social-card.png"}</script>
+<style>
+:root{--bg:#F5F4F9;--card:#FFFFFF;--text:#34363D;--muted:#6B6E78;--line:#E4E2EC;--primary:#9E1915;--link:#9E1915;--code:#F0EEF6}
+@media (prefers-color-scheme:dark){:root{--bg:#17191F;--card:#20232B;--text:#E8E8EC;--muted:#A3A6B0;--line:#33363F;--primary:#E53935;--link:#FF8A80;--code:#2A2D36}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-block;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;padding:8px 14px;border-radius:10px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 24px 24px;margin-top:12px;overflow-wrap:break-word}
+h1{font-size:2rem;line-height:1.25}h2{margin-top:2em;line-height:1.3}h3{line-height:1.35}
+pre{background:#1E2028;color:#E8E8EC;padding:14px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.55}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+:not(pre)>code{background:var(--code);padding:1px 5px;border-radius:5px}
+blockquote{margin:1.2em 0;padding:4px 16px;border-left:4px solid var(--primary);background:var(--code);border-radius:0 10px 10px 0}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px}
+.toc{font-size:15px}.toc ul{padding-left:18px;margin:6px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.diagram-note{color:var(--muted);font-size:15px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="../assets/icon.svg" alt="" width="22" height="22" style="vertical-align:-5px;margin-right:6px">FDE Handbook by Vicky</a>
+  <a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/12-testing-with-pytest.md">Open in reader</a>
+</div></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="index.html">All lessons</a> › Module 03</nav>
+<article>
+<div class="cta"><span>📖 This is the text version. The <strong>interactive reader</strong> adds search, diagrams and progress tracking.</span><a class="btn" href="../index.html#modules/03-programming-fundamentals/lessons/12-testing-with-pytest.md">Read interactively</a><a class="btn ghost" href="https://github.com/ABVicky/FDE-Handbook-by-Vicky">⭐ Star on GitHub</a></div>
+<details class="toc"><summary>On this page</summary><ul><li><a href="#why-this-matters">Why this matters</a></li><li><a href="#your-first-test">Your first test</a></li><li><a href="#what-to-test">What to test</a></li><li><a href="#parametrize-many-cases-one-test">Parametrize: many cases, one test</a></li><li><a href="#fixtures-shared-setup">Fixtures: shared setup</a></li><li><a href="#unit-integration-and-end-to-end">Unit, integration and end-to-end</a></li><li><a href="#coverage">Coverage</a></li><li><a href="#arrange-act-assert">Arrange, act, assert</a></li><li><a href="#writing-tests-first-sometimes">Writing tests first (sometimes)</a></li><li><a href="#check-yourself">Check yourself</a></li></ul></details>
+<h1>Lesson 12 — Testing with pytest</h1>
+<p><strong>Time:</strong> ~5 hours · <strong>Core</strong></p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>Tests are how you <em>prove</em> your code works, to yourself, to your team, and to a client's sceptical IT department. They also let you change code without fear: when the client's export format changes next month, the tests tell you within seconds whether you broke anything.</p>
+<p>While the AdmitFlow reference code was being written, a test caught a real bug: importing the same files twice created duplicate records for leads with no contact details. Without that test, it would have reached the counsellors.</p>
+<h2 id="your-first-test">Your first test</h2>
+<pre><code>python -m pip install pytest pytest-cov</code></pre>
+<pre><code># normalize.py
+def normalize_email(value):
+    return value.strip().lower()</code></pre>
+<pre><code># test_normalize.py
+from normalize import normalize_email
+
+def test_strips_and_lowercases():
+    assert normalize_email(&quot;  Grace@Example.COM &quot;) == &quot;grace@example.com&quot;</code></pre>
+<pre><code>pytest</code></pre>
+<p>pytest finds files named <code>test_*.py</code> and functions named <code>test_*</code>, runs them, and reports failures with a clear diff of expected versus actual.</p>
+<h2 id="what-to-test">What to test</h2>
+<p>For each function, think of:</p>
+<ol><li><strong>The normal case:</strong> typical input.</li><li><strong>Edge cases:</strong> empty string, <code>None</code>, very long values, zero, one item.</li><li><strong>Real-world mess:</strong> the actual quirks in the client's data (<code>&quot;Lee, Chloe&quot;</code>, <code>&quot;Website &quot;</code>, <code>&quot;(202) 555-0141&quot;</code>, <code>&quot;Nguyễn&quot;</code>).</li><li><strong>Failure cases:</strong> invalid input should raise the right error.</li></ol>
+<pre><code>import pytest
+from admitflow.normalize import normalize_source
+
+def test_unknown_source_raises():
+    with pytest.raises(ValueError):
+        normalize_source(&quot;carrier pigeon&quot;)</code></pre>
+<h2 id="parametrize-many-cases-one-test">Parametrize: many cases, one test</h2>
+<pre><code>@pytest.mark.parametrize(
+    &quot;raw, expected&quot;,
+    [
+        (&quot;(202) 555-0141&quot;, &quot;+12025550141&quot;),
+        (&quot;202.555.0141&quot;, &quot;+12025550141&quot;),
+        (&quot;555-0141&quot;, None),
+        (&quot;&quot;, None),
+    ],
+)
+def test_normalize_phone(raw, expected):
+    assert normalize_phone(raw) == expected</code></pre>
+<p>Each tuple becomes its own test, reported separately.</p>
+<h2 id="fixtures-shared-setup">Fixtures: shared setup</h2>
+<pre><code>@pytest.fixture
+def store(tmp_path, monkeypatch):
+    path = tmp_path / &quot;leads.json&quot;                    # tmp_path: a fresh temporary folder
+    monkeypatch.setenv(&quot;ADMITFLOW_STORE&quot;, str(path))  # set an env var only for this test
+    return path
+
+def test_import_creates_store(store):
+    main([&quot;import&quot;, &quot;--website&quot;, &quot;data/leads_sample.csv&quot;])
+    assert store.exists()</code></pre>
+<p>Built-in fixtures you'll use constantly: <code>tmp_path</code> (temporary files), <code>monkeypatch</code> (env vars and patching), <code>capsys</code> (capture printed output).</p>
+<h2 id="unit-integration-and-end-to-end">Unit, integration and end-to-end</h2>
+<div class="table-wrap"><table><thead><tr><th>Level</th><th>Tests</th><th>Example in AdmitFlow</th><th>Speed</th></tr></thead><tbody><tr><td><strong>Unit</strong></td><td>One function in isolation</td><td><code>test_normalize.py</code></td><td>Milliseconds</td></tr><tr><td><strong>Integration</strong></td><td>Several parts together, real files</td><td><code>test_importers.py</code></td><td>Fast</td></tr><tr><td><strong>End-to-end</strong></td><td>The whole program as a user runs it</td><td><code>test_cli.py</code> runs <code>main([...])</code></td><td>Slower</td></tr></tbody></table></div>
+<p>Write many unit tests, some integration tests, a few end-to-end tests. Module 04 builds on this as the "testing pyramid."</p>
+<h2 id="coverage">Coverage</h2>
+<pre><code>pytest --cov=admitflow --cov-report=term-missing</code></pre>
+<p>Coverage shows which lines your tests executed, and lists the ones they missed. Aim for ≥ 80% on your build. But coverage is a floor, not a goal: 100% coverage with weak assertions proves little. <strong>A test should fail if the behaviour is wrong.</strong></p>
+<h2 id="arrange-act-assert">Arrange, act, assert</h2>
+<pre><code>def test_same_phone_different_names_is_not_merged():
+    # Arrange
+    leads = [lead(&quot;ENQ-1&quot;, 1, &quot;Amara Costa&quot;, phone=&quot;+12025550174&quot;),
+             lead(&quot;ENQ-2&quot;, 2, &quot;Zara Costa&quot;, phone=&quot;+12025550174&quot;)]
+    # Act
+    unique, merged = dedupe(leads)
+    # Assert
+    assert merged == 0
+    assert len(unique) == 2</code></pre>
+<p>Name tests after the <strong>behaviour</strong>, so a failure explains itself.</p>
+<h2 id="writing-tests-first-sometimes">Writing tests first (sometimes)</h2>
+<p>When fixing a bug: <strong>first write a test that reproduces it</strong> and watch it fail, then fix the code and watch it pass. That test now guards against the bug returning. You'll do exactly this in the break &amp; fix.</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Read <a href="https://github.com/ABVicky/FDE-Handbook-by-Vicky/blob/main/projects/admitflow/tests/test_dedupe.py"><code>projects/admitflow/tests/test_dedupe.py</code></a>. Write one more test for a case it doesn't cover: two leads with the same email but different capitalization (<code>&quot;A@x.com&quot;</code> vs <code>&quot;a@x.com&quot;</code>) after normalization. Does it pass?</p>
+<p>Next: <a href="modules-03-programming-fundamentals-lessons-13-debugging.html">Lesson 13 — Debugging</a></p>
+</article>
+<nav class="pager" aria-label="Page navigation"><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-11-type-hints.html">← Lesson 11 — Type hints</a><a class="btn ghost" href="modules-03-programming-fundamentals-lessons-13-debugging.html">Lesson 13 — Debugging →</a></nav>
+</main>
+<footer>
+<p>FDE Handbook by Vicky · Author: <a href="https://abvicky.in"><strong>Vicky</strong></a> · Platform built by <a href="https://www.manikarnikatechnologies.in/"><strong>Manikarnika Technologies</strong></a> · © 2026 All rights reserved.</p>
+</footer>
+</body>
+</html>
