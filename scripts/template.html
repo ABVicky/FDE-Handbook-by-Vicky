@@ -49,13 +49,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Highlight.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-dark">
 
   <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
 
   <style>
     /* CSS Variables & Theme Tokens - High Contrast & Razor Sharpness */
@@ -1093,8 +1092,11 @@
       overflow-x: auto;
       background: var(--bg-code);
     }
-    .markdown-body pre code {
+    .markdown-body pre code, .markdown-body pre code.hljs {
       background: transparent;
+      border: 0;
+      border-radius: 0;
+      font-weight: 400;
       padding: 0;
       font-size: 13.5px;
       line-height: 1.65;
@@ -3257,9 +3259,17 @@ flowchart LR
     // State Management
     let currentDocPath = 'README.md';
     let currentView = 'reader';
-    let userProgress = JSON.parse(localStorage.getItem('fde_progress') || '{}');
-    let userCompetencies = JSON.parse(localStorage.getItem('fde_competencies') || '{"c1":1,"c2":1,"c3":1,"c4":1,"c5":1}');
-    let completedDocs = JSON.parse(localStorage.getItem('fde_completed_docs') || '[]');
+    // Browser storage can be blocked or full (private windows, strict settings). Never let that break the page.
+    const store = {
+      get(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch (_) { return fallback; } },
+      getRaw(key) { try { return localStorage.getItem(key); } catch (_) { return null; } },
+      set(key, value) { try { localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value)); } catch (_) {} },
+    };
+    let userProgress = store.get('fde_progress', {});
+    let userCompetencies = store.get('fde_competencies', { c1: 1, c2: 1, c3: 1, c4: 1, c5: 1 });
+    let completedDocs = store.get('fde_completed_docs', []);
+    if (!Array.isArray(completedDocs)) completedDocs = [];
+    if (!userProgress || typeof userProgress !== 'object') userProgress = {};
     let currentSearchIndex = -1;
     let searchResults = [];
 
@@ -3365,6 +3375,23 @@ flowchart LR
       });
       tableHtml += '</tbody></table></div>';
       return tableHtml;
+    }
+
+    // Syntax colouring for code blocks (marked v12 dropped its 'highlight' option, so we do it after rendering)
+    function highlightCode(root) {
+      if (!window.hljs) return;
+      root.querySelectorAll('pre code').forEach(el => {
+        if (el.dataset.hl) return;
+        const m = (el.className || '').match(/language-([\w+#-]+)/);
+        const lang = m ? m[1].toLowerCase() : '';
+        if (lang === 'mermaid') return;
+        try {
+          if (lang && hljs.getLanguage(lang)) el.innerHTML = hljs.highlight(el.textContent, { language: lang, ignoreIllegals: true }).value;
+          else if (!lang || lang === 'text' || lang === 'plaintext') return;
+          el.classList.add('hljs');
+          el.dataset.hl = '1';
+        } catch (_) {}
+      });
     }
 
     // Initialize Markdown and Highlight
@@ -4008,6 +4035,7 @@ flowchart LR
         try { addPageHero(outputEl, path, doc); } catch (err) { console.warn('hero error:', err); }
         try {
           postProcessMarkdown(outputEl, path);
+          highlightCode(outputEl);
         } catch (err) {
           console.warn('postProcessMarkdown error:', err);
         }
@@ -4113,7 +4141,7 @@ flowchart LR
         chk.disabled = false;
         chk.onchange = (e) => {
           userProgress[key] = chk.checked;
-          localStorage.setItem('fde_progress', JSON.stringify(userProgress));
+          store.set('fde_progress', userProgress);
           if (chk.checked) triggerConfetti(e.clientX, e.clientY);
           updateHeaderProgress();
         };
@@ -4127,6 +4155,23 @@ flowchart LR
           a.setAttribute('target', '_blank');
           a.setAttribute('rel', 'noopener noreferrer');
         } else {
+          const [pathPart, anchorPart] = href.split('#');
+          if (pathPart) {
+            const target = resolveDocPath(docPath, pathPart);
+            const doc = DOCS_DATA[target] ? target : (DOCS_DATA[target.replace(/\/$/, '') + '/README.md'] ? target.replace(/\/$/, '') + '/README.md' : null);
+            if (!doc) {
+              // A real file the reader doesn't show (Dockerfile, YAML, a folder…): open it on GitHub
+              const isDir = Object.keys(DOCS_DATA).some(k => k.startsWith(target.replace(/\/$/, '') + '/'));
+              a.setAttribute('href', `${REPO_URL}/${isDir ? 'tree' : 'blob'}/main/${target}${anchorPart ? '#' + anchorPart : ''}`);
+              a.setAttribute('target', '_blank');
+              a.setAttribute('rel', 'noopener noreferrer');
+              a.classList.add('external-file');
+              return;
+            }
+            a.setAttribute('href', '#' + doc + (anchorPart ? '?anchor=' + anchorPart : ''));
+            a.onclick = (e) => { e.preventDefault(); loadDoc(doc, anchorPart || null); };
+            return;
+          }
           a.onclick = (e) => {
             e.preventDefault();
             resolveAndNavigate(docPath, href);
@@ -4144,6 +4189,17 @@ flowchart LR
           }
         }, 50);
       }
+    }
+
+    const REPO_URL = 'https://github.com/ABVicky/FDE-Handbook-by-Vicky';
+    function resolveDocPath(currentPath, pathPart) {
+      const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/'));
+      const out = [];
+      for (const p of (currentDir ? currentDir + '/' + pathPart : pathPart).split('/')) {
+        if (!p || p === '.') continue;
+        if (p === '..') out.pop(); else out.push(p);
+      }
+      return out.join('/');
     }
 
     // Resolve relative file link and navigate
@@ -4266,7 +4322,7 @@ flowchart LR
         completedDocs.push(currentDocPath);
         if (e && e.clientX) triggerConfetti(e.clientX, e.clientY);
       }
-      localStorage.setItem('fde_completed_docs', JSON.stringify(completedDocs));
+      store.set('fde_completed_docs', completedDocs);
       updateCompletedBtn(currentDocPath);
       const filterInput = document.getElementById('sidebar-filter-input');
       renderSidebarNav(filterInput ? filterInput.value : '');
@@ -4342,7 +4398,7 @@ flowchart LR
     // Competency Level Selector & Interactive Radar Chart
     function setCapLevel(cap, lvl) {
       userCompetencies[cap] = lvl;
-      localStorage.setItem('fde_competencies', JSON.stringify(userCompetencies));
+      store.set('fde_competencies', userCompetencies);
       updateReadinessScore();
       renderRadarChart();
       if (lvl === 4) triggerConfetti(window.innerWidth / 2, 200);
@@ -4484,10 +4540,10 @@ flowchart LR
         tr.innerHTML = `
           <td><strong>Module ${m.num}</strong></td>
           <td>${m.name}</td>
-          <td><input type="checkbox" id="p_quiz_${m.num}" onchange="saveModuleProgress('quiz_${m.num}', this.checked, event)"></td>
-          <td><input type="checkbox" id="p_build_${m.num}" onchange="saveModuleProgress('build_${m.num}', this.checked, event)"></td>
-          <td><input type="checkbox" id="p_break_${m.num}" onchange="saveModuleProgress('break_${m.num}', this.checked, event)"></td>
-          <td><input type="checkbox" id="p_field_${m.num}" onchange="saveModuleProgress('field_${m.num}', this.checked, event)"></td>
+          <td><input type="checkbox" id="p_quiz_${m.num}" aria-label="Module ${m.num}: checkpoint quiz done" onchange="saveModuleProgress('quiz_${m.num}', this.checked, event)"></td>
+          <td><input type="checkbox" id="p_build_${m.num}" aria-label="Module ${m.num}: build done" onchange="saveModuleProgress('build_${m.num}', this.checked, event)"></td>
+          <td><input type="checkbox" id="p_break_${m.num}" aria-label="Module ${m.num}: break and fix done" onchange="saveModuleProgress('break_${m.num}', this.checked, event)"></td>
+          <td><input type="checkbox" id="p_field_${m.num}" aria-label="Module ${m.num}: Field Track done" onchange="saveModuleProgress('field_${m.num}', this.checked, event)"></td>
         `;
         tbody.appendChild(tr);
 
@@ -4501,7 +4557,7 @@ flowchart LR
 
     function saveModuleProgress(key, val, e) {
       userProgress['m_' + key] = val;
-      localStorage.setItem('fde_progress', JSON.stringify(userProgress));
+      store.set('fde_progress', userProgress);
       if (val && e && e.clientX) triggerConfetti(e.clientX, e.clientY);
       updateHeaderProgress();
     }
@@ -4718,7 +4774,7 @@ flowchart LR
 
     // Theme Management
     function initTheme() {
-      const saved = localStorage.getItem('fde_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const saved = store.getRaw('fde_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       applyTheme(saved);
     }
 
@@ -4726,7 +4782,7 @@ flowchart LR
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
-      localStorage.setItem('fde_theme', next);
+      store.set('fde_theme', next);
     }
 
     function applyTheme(theme) {
@@ -4745,7 +4801,7 @@ flowchart LR
         if (sun) sun.style.display = 'none';
         if (moon) moon.style.display = 'block';
         if (lightHljs && lightHljs.removeAttribute) lightHljs.removeAttribute('disabled');
-        if (darkHljs && darkHljs.setAttribute) darkHljs.setAttribute('disabled', 'true');
+        // Code blocks stay dark in both themes, so the dark code theme stays on
       }
 
       if (window.mermaid && typeof window.mermaid.initialize === 'function') {

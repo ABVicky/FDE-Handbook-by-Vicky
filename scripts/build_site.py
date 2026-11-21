@@ -65,8 +65,8 @@ def collect_all_data():
     ignore_dirs = {'.git', '.gemini', 'scripts', 'learn', 'assets', 'node_modules'}
     
     for root, dirs, files in os.walk(WORKSPACE_ROOT):
-        dirs[:] = [d for d in dirs if d not in ignore_dirs and not d.startswith('.')]
-        for f in files:
+        dirs[:] = sorted(d for d in dirs if d not in ignore_dirs and not d.startswith('.'))
+        for f in sorted(files):  # sorted, so the build is identical on every operating system
             if f == 'index.html' or f.startswith('.'):
                 continue
             full_path = Path(root) / f

@@ -21,6 +21,19 @@ jobs:
           python-version: "3.12"
       - run: python scripts/check_links.py
 
+  site:
+    # The reader (index.html) and the search pages (learn/) are generated from the Markdown.
+    # This fails if someone edits a lesson but forgets to run: python scripts/build_site.py
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_site.py
+      - name: Generated files are up to date
+        run: git diff --exit-code -- index.html learn robots.txt
+
   solutions:
     runs-on: ubuntu-latest
     steps:

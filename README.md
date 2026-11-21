@@ -1,226 +1,277 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="FDE Handbook by Vicky: learn to become a Forward Deployed Engineer, from zero to field-ready" width="100%">
+<img src="assets/banner.svg" alt="FDE Handbook by Vicky: Learn to become a Forward Deployed Engineer from zero to field-ready" width="100%">
 
-# FDE Handbook by Vicky
+# Forward Deployed Engineering (FDE) Handbook
 
-### Learn to become a Forward Deployed Engineer (FDE), step by step, from zero.
+### The Complete, Production-Grade Path from Zero to Enterprise AI Solutions Architect
 
-[![GitHub stars](https://img.shields.io/github/stars/ABVicky/FDE-Handbook-by-Vicky?style=social)](https://github.com/ABVicky/FDE-Handbook-by-Vicky/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/ABVicky/FDE-Handbook-by-Vicky?style=social)](https://github.com/ABVicky/FDE-Handbook-by-Vicky/network/members)
-[![Modules](https://img.shields.io/badge/modules-12-9E1915)](#the-path-12-modules-4-stages)
-[![Project](https://img.shields.io/badge/project-AdmitFlow-E53935)](projects/admitflow/README.md)
-[![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white)](modules/03-programming-fundamentals/README.md)
-[![AI](https://img.shields.io/badge/AI-RAG%20%C2%B7%20agents%20%C2%B7%20MCP-F3B552)](modules/08-generative-ai-engineering/README.md)
-[![License](https://img.shields.io/badge/license-Educational%20Use-218354)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub stars](https://img.shields.io/github/stars/ABVicky/FDE-Handbook-by-Vicky?style=flat-square&color=A31C18)](https://github.com/ABVicky/FDE-Handbook-by-Vicky/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ABVicky/FDE-Handbook-by-Vicky?style=flat-square&color=218354)](https://github.com/ABVicky/FDE-Handbook-by-Vicky/network/members)
+[![Curriculum](https://img.shields.io/badge/curriculum-12%20modules-A31C18?style=flat-square)](#the-path-12-modules-4-stages)
+[![Reference Project](https://img.shields.io/badge/project-AdmitFlow%20(FastAPI%20%2B%20React)-821713?style=flat-square)](projects/admitflow/README.md)
+[![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white)](modules/03-programming-fundamentals/README.md)
+[![AI Stack](https://img.shields.io/badge/AI-RAG%20%C2%B7%20Agents%20%C2%B7%20MCP-D99B45?style=flat-square)](modules/08-generative-ai-engineering/README.md)
+[![License](https://img.shields.io/badge/license-Educational%20Use-218354?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
-**[📖 Read it online](https://abvicky.github.io/FDE-Handbook-by-Vicky/)** · **[🚀 Start here](START-HERE.md)** · **[🗺️ Full roadmap](ROADMAP.md)** · **[🎯 Interview prep](interview-prep/README.md)** · **[ℹ️ About & Author](ABOUT.md)**
+<br>
+
+**[📖 Read Online (Interactive Web App)](https://abvicky.github.io/FDE-Handbook-by-Vicky/)** &nbsp;•&nbsp;
+**[🚀 Start Here](START-HERE.md)** &nbsp;•&nbsp;
+**[🗺️ Full Roadmap](ROADMAP.md)** &nbsp;•&nbsp;
+**[🎯 Interview Prep Suite](interview-prep/README.md)** &nbsp;•&nbsp;
+**[ℹ️ About & Author](ABOUT.md)**
 
 </div>
 
-> ⭐ **If this handbook helps you, please star the repo.** It helps other future FDEs find it, and it tells me which parts to keep improving.
+<br>
+
+> [!TIP]
+> **Experience the Interactive Web Application:** Read this entire handbook with instant fuzzy search (`⌘K`), dark and light cinematic themes, interactive data pipeline visualizers, and an FDE competency radar chart at **[abvicky.github.io/FDE-Handbook-by-Vicky](https://abvicky.github.io/FDE-Handbook-by-Vicky/)**.
 
 ---
 
-## Hi, I'm glad you're here 👋
+## Executive Summary
 
-I wrote this handbook for one kind of person: someone who wants to become a **Forward Deployed Engineer (FDE)** and doesn't know where to begin.
+The **Forward Deployed Engineering (FDE) Handbook** is an open-source, comprehensive engineering curriculum designed to take you from first principles to field-ready deployment. 
 
-Maybe you've never written code. Maybe you're already a developer and you keep seeing "FDE" in job posts. Either way, you're in the right place. I'll take you from the very first idea to the level where you can walk into a company, understand their problem, build a real solution with software and AI, and hand it over working.
+Unlike traditional software engineering courses that focus solely on isolated syntax, or business bootcamps that stop at slide decks, this handbook bridges the critical divide: **deep technical engineering** coupled with **high-stakes, client-facing system delivery**.
 
-You don't need to read everything here. You only need to follow the path, one step at a time. I'll tell you exactly where to go next at the end of every page.
-
----
-
-## So, what is a Forward Deployed Engineer?
-
-In one sentence: **an engineer who goes to where the customer's problem actually is, understands it, and builds the software that fixes it.**
-
-A normal software engineer builds a product for thousands of users. An FDE sits with *one* customer (a school, a hospital, a bank), learns how their work really happens, and makes technology useful *for them*. So an FDE needs two kinds of skill:
-
-| 🛠️ Engineering | 🤝 Working with people |
-| --- | --- |
-| Write code, use data, build with AI, deploy to the cloud | Ask good questions, find the real problem, explain clearly, earn trust |
-
-Most courses teach only the left column. This handbook teaches both, together.
+Throughout the 12 modules, you do not write toy scripts. You build **AdmitFlow**—a complete, production-grade enterprise admissions and lead-intelligence platform for a client from scratch: from raw CLI parsers and SQLite databases to FastAPI microservices, retrieval-augmented generation (RAG), AI scoring agents, OAuth2 security, and multi-tenant Docker deployments.
 
 ---
 
-## How you'll learn: one story, start to finish
+## What is a Forward Deployed Engineer?
 
-Instead of many small unconnected exercises, you'll follow **one client** through the whole handbook.
+In one sentence: **An engineer who deploys directly to where the client's problem is, uncovers the truth of the workflow, and architects, codes, and ships the software and AI that solves it.**
 
-> **Northbridge Institute** (a fictional college) gets hundreds of student enquiries every month. They arrive by website, ads, phone, walk-ins and WhatsApp, and end up in messy spreadsheets. Students wait days for a reply, and many enrol somewhere else. The director says, *"We need an AI chatbot."*
+Originally pioneered and popularized by companies like **Palantir**, the Forward Deployed Engineer role has become the most sought-after engineering discipline of the AI era. Companies do not just need model weights; they need engineers who can integrate complex AI into messy enterprise realities.
 
-Module by module, you'll discover what the institute *really* needs, then build it: **AdmitFlow**, a system that collects every enquiry in one place, helps counsellors reply quickly, answers students' questions with AI, and shows the director which advertising actually works.
-
-By the end, you'll have built (and understood) every piece of it yourself.
-
----
-
-## The path: 12 modules, 4 stages
-
-Go in order. Each module builds on the one before.
-
-| Stage | Module | You'll be able to… |
-| --- | --- | --- |
-| **1. Foundations** | [01 What an FDE does](modules/01-introduction-to-fde/README.md) | explain the role and run your first real conversation with a "client" |
-| | [02 How computers work](modules/02-computing-foundations/README.md) | use the terminal and understand how the internet works |
-| | [03 Programming](modules/03-programming-fundamentals/README.md) | write and test real Python programs |
-| **2. Engineering** | [04 Building web apps](modules/04-software-engineering/README.md) | build a website with a login and a database behind it |
-| | [05 Working with data](modules/05-databases-and-data-engineering/README.md) | use SQL and combine messy data from different places |
-| | [06 Going live in the cloud](modules/06-cloud-and-infrastructure/README.md) | put your app online so others can use it |
-| **3. AI** | [07 AI and machine learning basics](modules/07-ai-and-machine-learning/README.md) | train a simple model and judge honestly if it helps |
-| | [08 Building with AI (LLMs)](modules/08-generative-ai-engineering/README.md) | build an AI assistant that answers correctly and safely |
-| **4. Real-world ready** | [09 Connecting to other systems](modules/09-enterprise-integration/README.md) | link your app to email, WhatsApp, a CRM and company logins |
-| | [10 Keeping it safe and running](modules/10-production-security-reliability/README.md) | protect data, spot problems early, and recover from failures |
-| | [11 Working with clients](modules/11-business-and-client-engineering/README.md) | show business value, communicate well and hand over properly |
-| | [12 Your capstone and career](modules/12-capstone-and-career/README.md) | build your own project and prepare for FDE interviews |
-
-**How long?** Around 9–10 months if you're starting from zero and study 15–20 hours a week. If you already code, you can move much faster: [Start Here](START-HERE.md) shows you which modules to skip.
+| Dimension | 💻 Traditional Software Engineer | 🤝 Solutions / Sales Engineer | ⚡ Forward Deployed Engineer (FDE) |
+| :--- | :--- | :--- | :--- |
+| **Primary Focus** | Internal products for millions of anonymous users | Pre-sales demos, slide decks, and product configuration | Production system delivery & custom business logic |
+| **Working Environment** | Internal engineering teams & backlogs | Sales meetings & conference calls | Client environment, production databases, real users |
+| **Technical Depth** | High (core infrastructure & features) | Medium (scripts, demos, API samples) | **Full-Stack & Deep** (FastAPI, React, SQL, Cloud, AI/RAG) |
+| **Problem Definition** | Given by product managers (Jira tickets) | Defined by RFP requirements | **Uncovered on the ground** by listening to users |
+| **Key Metric** | Story points, uptime, sprint velocity | Closed revenue, deal velocity | **Actual user adoption & measurable business impact** |
 
 ---
 
-## Start here (three steps)
+## The Running Story: One Production Project (AdmitFlow)
 
-1. **Read [START-HERE.md](START-HERE.md).** It's short, and it tells you how to use this handbook without getting overwhelmed.
-2. **Open [Module 01](modules/01-introduction-to-fde/README.md)** and read its first lesson. No setup needed yet.
-3. **Keep a simple record of your progress** in [this checklist](progress/self-assessment.md). Copy it and tick things off as you go.
+Instead of disconnected, throwaway exercises, every module in this handbook builds upon a single running enterprise project:
 
-That's it. Everything else in this repository is there when you need it, and I'll point you to it at the right time.
+```mermaid
+flowchart LR
+    subgraph S1["1. Multi-Channel Ingestion"]
+        direction TB
+        W1["Web Inquiry Forms"]
+        W2["Paid Ads (Meta/Google)"]
+        W3["WhatsApp Business API"]
+        W4["Walk-in CSV Exports"]
+    end
 
----
+    subgraph S2["2. AdmitFlow Core Platform"]
+        direction TB
+        C1["FastAPI Ingestion Engine"]
+        C2["Deduplication & Normalization"]
+        C3[("PostgreSQL / SQLite Storage")]
+        C4["Immutable Audit Logging"]
+    end
 
-## Who this is for
+    subgraph S3["3. Applied AI & RAG Engine"]
+        direction TB
+        A1[("Vector Embeddings (pgvector)")]
+        A2["Hybrid Knowledge Retriever"]
+        A3["LLM Intent & Lead Scorer"]
+        A4["Automated Follow-up Drafter"]
+    end
 
-- **Complete beginners** who have used a computer but never programmed
-- **Students** who want a clear, practical direction
-- **Developers** who want to move into FDE, solutions or AI roles
-- **Consultants and analysts** who understand business and want the engineering side
+    subgraph S4["4. Enterprise Delivery & Operations"]
+        direction TB
+        D1["React Counsellor Dashboard"]
+        D2["Model Context Protocol (MCP)"]
+        D3["Docker / Cloud Run Deploy"]
+        D4["Prometheus & OpenTelemetry"]
+    end
 
-If you're unsure whether you're ready: if you can follow these instructions, you're ready for Module 01.
+    S1 -->|"Raw Webhooks & Batches"| S2
+    S2 <-->|"Embeddings & Context"| S3
+    S2 -->|"Authenticated APIs"| S4
+```
 
----
-
-## What you'll learn
-
-**Client side:** discovery interviews, problem framing, requirements, scoping and estimation, stakeholder communication, ROI and business cases, change management, handover.
-
-**Engineering side:** the terminal, Git, Python, testing, JavaScript and TypeScript, FastAPI, React, authentication, SQL, data pipelines, Docker, CI/CD, cloud deployment, machine learning, LLMs, retrieval-augmented generation (RAG), AI agents, evaluation, MCP, webhooks, CRM and OAuth integrations, security, observability and incident response.
-
-**Career side:** a portfolio built from real work, and practice for every FDE interview round: coding, system design, debugging, client scenarios, take-homes and behavioural questions.
-
----
-
-## Questions people ask me
-
-<details>
-<summary><strong>What is a Forward Deployed Engineer (FDE)?</strong></summary>
-
-An FDE is a software engineer who works directly with a customer, inside their real environment, to understand their problem and build the software (often with AI) that solves it. The role mixes engineering with consulting: you write production code, and you also run discovery, explain trade-offs and make sure the client actually adopts what you built.
-</details>
-
-<details>
-<summary><strong>How do I become a Forward Deployed Engineer?</strong></summary>
-
-Build both halves of the skill: solid engineering (code, data, cloud, AI) and client skills (discovery, communication, business value). This handbook teaches them together through one client project, then helps you build a portfolio and prepare for FDE interviews. Start with [START-HERE.md](START-HERE.md).
-</details>
-
-<details>
-<summary><strong>Do I need to know how to code before I start?</strong></summary>
-
-No. Module 01 needs no code at all, and Modules 02–03 teach you the computer, the terminal and Python from the very beginning.
-</details>
-
-<details>
-<summary><strong>How is an FDE different from a software engineer or a solutions engineer?</strong></summary>
-
-A software engineer usually builds one product for many users. A solutions or sales engineer mostly demonstrates and configures a product before a sale. An FDE builds and ships real, working systems for one customer after (or during) the sale, and owns the result. [Module 01, Lesson 03](modules/01-introduction-to-fde/lessons/03-fde-vs-other-roles.md) compares the roles in detail.
-</details>
-
-<details>
-<summary><strong>How long does it take?</strong></summary>
-
-About 9–10 months from zero at 15–20 hours a week. Experienced developers can skip ahead using each module's checkpoint quiz.
-</details>
-
-<details>
-<summary><strong>Does it help with FDE interviews?</strong></summary>
-
-Yes. [Interview prep](interview-prep/README.md) covers coding, system design, debugging, client scenarios, take-home projects and behavioural questions, and Module 12 walks you through building a portfolio.
-</details>
+> **Client Scenario:** **Northbridge Institute** receives thousands of admissions inquiries each month across web forms, ads, walk-ins, and WhatsApp. Leads sit untouched in disconnected spreadsheets, counsellors waste hours on repetitive questions, and qualified applicants drop out. The director asks for *"an AI chatbot."* 
+> 
+> As an FDE, you discover that what they actually need is an **integrated data pipeline, automated lead scorer, and RAG-powered course assistant** that counsellors trust. You design and build **AdmitFlow** from first principles to full production handover.
 
 ---
 
-## Want to help?
+## The Path: 12 Modules, 4 Stages
 
-If something is unclear, wrong or broken, please tell me: [CONTRIBUTING.md](CONTRIBUTING.md) explains how. Real stories from FDE work and current job descriptions are especially welcome.
+Each stage develops a specific pillar of your engineering and client capabilities:
+
+### Stage 1: Foundations (The Craft, The Machine, & Code)
+*Target: From first concepts to writing production-ready, test-driven Python code.*
+
+| Module | Title & Focus | Key Technical & Client Skills | AdmitFlow Milestone |
+| :---: | :--- | :--- | :--- |
+| **01** | **[What an FDE Does](modules/01-introduction-to-fde/README.md)** | Discovery interviews, stakeholder mapping, identifying last-mile problems | Discovery brief & client problem framing |
+| **02** | **[Computing Foundations](modules/02-computing-foundations/README.md)** | UNIX terminal, shell pipelines, TCP/IP, DNS, HTTP/HTTPS fundamentals | Automated lead file processor via shell script |
+| **03** | **[Programming Fundamentals](modules/03-programming-fundamentals/README.md)** | Python 3, object-oriented design, error handling, `pytest`, static typing | Ingestion pipeline CLI & data normalizer |
+
+### Stage 2: Engineering (Web Architecture, Data, & Infrastructure)
+*Target: Architecting full-stack web applications, relational databases, and containerized cloud services.*
+
+| Module | Title & Focus | Key Technical & Client Skills | AdmitFlow Milestone |
+| :---: | :--- | :--- | :--- |
+| **04** | **[Software Engineering](modules/04-software-engineering/README.md)** | FastAPI backend, React/TypeScript UI, token-based authentication (JWT) | AdmitFlow REST API & Counsellor Web UI |
+| **05** | **[Databases & Data Engineering](modules/05-databases-and-data-engineering/README.md)** | PostgreSQL, SQLite, schema normalization, Alembic migrations, deduplication | Robust database repository & deduplication engine |
+| **06** | **[Cloud & Infrastructure](modules/06-cloud-and-infrastructure/README.md)** | Docker multi-stage builds, Docker Compose, CI/CD with GitHub Actions | Containerized stack & automated CI test harness |
+
+### Stage 3: Applied AI (Machine Learning, RAG, & Agentic Systems)
+*Target: Moving past toy prompts to build evaluation-backed, grounded AI systems that operate safely in production.*
+
+| Module | Title & Focus | Key Technical & Client Skills | AdmitFlow Milestone |
+| :---: | :--- | :--- | :--- |
+| **07** | **[AI & Machine Learning](modules/07-ai-and-machine-learning/README.md)** | Supervised learning, classification, evaluation metrics (precision/recall), scikit-learn | Machine-learned conversion likelihood scorer |
+| **08** | **[Generative AI Engineering](modules/08-generative-ai-engineering/README.md)** | RAG pipelines, chunking strategies, vector embeddings, prompt engineering, evals | Course Assistant RAG & automated drafting agent |
+
+### Stage 4: Real-World Ready (Integration, Security, Client Leadership, & Career)
+*Target: Integrating with enterprise legacy systems, bulletproofing reliability, and landing high-paying FDE roles.*
+
+| Module | Title & Focus | Key Technical & Client Skills | AdmitFlow Milestone |
+| :---: | :--- | :--- | :--- |
+| **09** | **[Enterprise Integration](modules/09-enterprise-integration/README.md)** | Webhooks, OAuth2, CRM sync, rate limits, Model Context Protocol (MCP) | WhatsApp webhook adapter & CRM sync |
+| **10** | **[Production Security & Reliability](modules/10-production-security-reliability/README.md)** | OWASP Top 10, prompt injection defence, PII redacting, logging & alerts | Production hardening, audit trail, & health alerts |
+| **11** | **[Business & Client Engineering](modules/11-business-and-client-engineering/README.md)** | Business case & ROI modeling, scoping, change management, client handover | Executive business case & deployment runbook |
+| **12** | **[Capstone & Career Strategy](modules/12-capstone-and-career/README.md)** | Independent capstone architecture, portfolio positioning, interview prep | Full end-to-end portfolio presentation |
 
 ---
 
-## What Makes This Reader Special
+## The 5 Core FDE Competencies (C1–C5)
 
-We built this learning environment to be fast, distraction-free, 100% offline-ready, and respectful of your privacy:
+This handbook evaluates your progress across the exact matrix used to evaluate Forward Deployed Engineers at leading tech enterprises:
 
-- 🏗️ **One Running Production Project:** You build *AdmitFlow*, an enterprise AI admissions system for an educational institution, incrementally across every module.
-- 🎯 **Competency Radar & Self-Assessment:** Visual spider chart and capability scorecards across the 5 core FDE disciplines (C1–C5).
-- ⚡ **Interactive Architecture Flow:** Real-time data pipeline visualizer showing lead ingestion, deduplication, SQLite/PostgreSQL storage, RAG retrieval, and LLM scoring.
-- 🔎 **Instant Fuzzy Search:** Press **⌘K** or **/** anywhere in the platform to instantly search across 239 handbook lessons and code files.
-- 🌗 **High-Contrast Cinematic Theme:** Custom light and dark themes using a focused Crimson (`#A31C18` / `#E53935`), Emerald (`#218354` / `#39A875`), and Charcoal palette tested for WCAG AAA readability.
-- 📱 **100% Offline & Private:** Zero third-party trackers, zero cookies, zero runtime bloat. Your progress stays in your local browser storage.
-- ⌨️ **Keyboard-First Navigation:** Use **⌘K** to search, **Esc** to dismiss modals, and seamless navigation across all 12 modules.
+```
+                  C1: Technical Craft
+                         100%
+                          /\
+                         /  \
+     C5: Client Leadership /    \ C2: Systems & Data
+                   100% /______\ 100%
+                        \      /
+                         \    /
+      C4: Security & Ops  \  /  C3: Applied AI & RAG
+                   100%    \/   100%
+```
+
+1. **C1 — Technical Craft & Architecture:** Clean, modular code, OOP patterns, comprehensive unit and integration testing, and modern frontend/backend API contracts.
+2. **C2 — Systems & Data Engineering:** Relational modeling, migrations, ACID transactions, data deduplication, pipelines, and containerized deployment.
+3. **C3 — Applied AI, RAG & Agents:** Information retrieval, semantic embeddings, grounded generation, automated prompt evaluation, and agent tool execution (MCP).
+4. **C4 — Production Security & Reliability:** Defense-in-depth, secrets hygiene, prompt injection mitigations, graceful degradation, and production observability.
+5. **C5 — Client Leadership & Business Impact:** Discovery interviewing, stakeholder mapping, translating ambiguity into technical roadmaps, executive communication, and change management.
+
+---
+
+## Comprehensive Interview Preparation Suite
+
+Preparing for FDE interviews requires far more than generic LeetCode grinding. We provide dedicated interview prep tracks with real questions, evaluation rubrics, and model solutions:
+
+* **[Interview Prep Overview](interview-prep/README.md):** Demystifying the FDE hiring pipeline and how hiring managers evaluate candidates.
+* **[Coding Round](interview-prep/coding.md):** Practical data wrangling, API handlers, and clean systems programming (with [Python solutions](interview-prep/solutions/coding_solutions.py)).
+* **[System Design Round](interview-prep/system-design.md):** Designing resilient data pipelines, multi-tenant AI systems, and offline-tolerant enterprise architectures.
+* **[Live Debugging & Incident Response](interview-prep/debugging.md):** Step-by-step troubleshooting of real-world production outages, latency spikes, and corrupt data.
+* **[Client Scenarios & Discovery](interview-prep/client-scenarios.md):** Realistic roleplays with difficult clients, budget constraints, and scoping negotiations.
+* **[Take-Home Assignment](interview-prep/take-home.md):** Guidance on structuring, documenting, and defending a production-quality take-home project.
+* **[Behavioural & Leadership](interview-prep/behavioural.md):** High-impact framing for ownership, client conflict, ethical AI, and cross-functional leadership.
+
+---
+
+## What Makes This Platform Special
+
+The companion reading web app ([abvicky.github.io/FDE-Handbook-by-Vicky](https://abvicky.github.io/FDE-Handbook-by-Vicky/)) was engineered from the ground up to provide a distraction-free, lightning-fast learning environment:
+
+* 🔎 **Instant Client-Side Fuzzy Search (`⌘K`):** Search instantly across all 421 documents, exercises, and code files with zero network latency.
+* 🌗 **High-Contrast Cinematic Theme:** Engineered with crisp light and dark modes utilizing deep crimson (`#A31C18`), emerald (`#218354`), and charcoal backgrounds tested for WCAG AAA accessibility.
+* 📊 **Interactive Competency Radar:** Measure your real-time skill scorecards across C1–C5 as you check off module exercises.
+* 🔄 **Live Pipeline Visualizer:** Interactive data-flow diagram simulating the movement of customer leads through AdmitFlow's architecture.
+* 📦 **100% Offline & Local-First:** Zero trackers, zero cookies, zero external framework bloat. Your progress is persisted securely in your browser's local storage.
+* 📱 **Fully Responsive:** Optimized reading experience across mobile phones, tablets, and wide-screen desktop monitors.
+
+---
+
+## Getting Started
+
+You do not need to read everything in one sitting. Follow these three steps:
+
+1. **Read [START-HERE.md](START-HERE.md):** A concise, 5-minute guide that helps you diagnose your starting point and select the right study path.
+2. **Open [Module 01: What an FDE Does](modules/01-introduction-to-fde/README.md):** Begin the first lesson with zero software installation required.
+3. **Track Your Milestones:** Duplicate the [Progress Self-Assessment Checklist](progress/self-assessment.md) and check off your skills as you complete them.
 
 ---
 
 ## Meet the Author
 
-<div class="profile-card">
-  <div class="profile-avatar">
-    <img src="https://avatars.githubusercontent.com/u/103195071?v=4" alt="Vicky Prasad Mahato" width="104" height="104">
-  </div>
-  <div class="profile-body">
-    <h3>Vicky Prasad Mahato</h3>
-    <span class="profile-role">Author · System Architect</span>
-    <p>
-      Vicky Prasad Mahato (online as <strong>abvicky</strong>) is a system architect, software engineer, and digital product builder based in Kolkata, India. He builds resilient digital systems and software tools, with a strong focus on offline-first architectures, personal data sovereignty, and practical artificial intelligence.
-    </p>
-    <p>
-      As the founder of the <strong>Coders' Club at BBIT Kolkata</strong> and former student coordinator at the Innovation and Incubation Center (IIC) and Entrepreneurship Development Cell (EDC), Vicky has mentored hundreds of student developers in software design, problem solving, and modern development practices. He is also the creator of open-source projects including <em>Mera Paisaa</em>, an offline-first personal expense and financial tracking system.
-    </p>
-    <div class="profile-quote">
-      <strong>Author's Teaching Philosophy:</strong> <em>"Forward Deployed Engineering is not about knowing every framework or memorizing algorithms. It is the high-velocity discipline of stepping directly into a client's messy reality, understanding their business problem, and shipping resilient, production-ready software and AI systems that create measurable business value."</em>
-    </div>
-    <div class="profile-pills">
-      <a class="pill-btn primary" href="https://abvicky.in" target="_blank" rel="noopener">🌐 abvicky.in</a>
-      <a class="pill-btn" href="https://www.linkedin.com/in/abvicky/" target="_blank" rel="noopener">💼 LinkedIn Profile</a>
-      <a class="pill-btn" href="https://github.com/ABVicky" target="_blank" rel="noopener">💻 GitHub (@ABVicky)</a>
-    </div>
-  </div>
-</div>
+<table>
+  <tr>
+    <td width="120" align="center" valign="top">
+      <img src="https://avatars.githubusercontent.com/u/103195071?v=4" width="100" height="100" style="border-radius: 50%;" alt="Vicky Prasad Mahato">
+      <br><br>
+      <a href="https://github.com/ABVicky"><img src="https://img.shields.io/badge/GitHub-ABVicky-181717?style=flat-square&logo=github" alt="GitHub"></a>
+      <br>
+      <a href="https://www.linkedin.com/in/abvicky/"><img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=flat-square&logo=linkedin" alt="LinkedIn"></a>
+      <br>
+      <a href="https://abvicky.in"><img src="https://img.shields.io/badge/Website-abvicky.in-A31C18?style=flat-square" alt="Portfolio"></a>
+    </td>
+    <td valign="top">
+      <h3>Vicky Prasad Mahato</h3>
+      <p><strong>Author · System Architect · Digital Product Builder</strong></p>
+      <p>
+        Vicky Prasad Mahato (known online as <strong>abvicky</strong>) is a system architect and software engineer based in Kolkata, India. He builds resilient digital systems and software tools, with a dedicated focus on offline-first architectures, data sovereignty, and applied artificial intelligence.
+      </p>
+      <p>
+        As the founder of the <strong>Coders' Club at BBIT Kolkata</strong> and former student coordinator at the Innovation and Incubation Center (IIC) and Entrepreneurship Development Cell (EDC), Vicky has mentored hundreds of aspiring engineers in software design, problem solving, and modern development practices. He is also the creator of open-source projects including <em>Mera Paisaa</em>, an offline-first personal financial management system.
+      </p>
+      <blockquote>
+        <em>"Forward Deployed Engineering is not about memorizing syntax or chasing frameworks. It is the high-velocity discipline of stepping directly into a client's messy reality, understanding their fundamental business problem, and shipping resilient, production-ready systems that create undeniable value."</em>
+      </blockquote>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ## Platform & Technical Infrastructure
 
-<div class="profile-card">
-  <div class="profile-avatar">
-    <img class="platform-logo" src="https://www.manikarnikatechnologies.in/_next/image?url=%2Ficon_logo.png&w=96&q=75" alt="Manikarnika Technologies Logo" width="100" height="100">
-  </div>
-  <div class="profile-body">
-    <h3>Manikarnika Technologies</h3>
-    <span class="profile-role platform">Platform Architecture & Development</span>
-    <p>
-      The custom reading experience, interactive design system, live competency radar engine, client-side search infrastructure, interactive pipeline visualizer, and responsive web components were designed and engineered by <strong>Manikarnika Technologies</strong>.
-    </p>
-    <p>
-      Manikarnika Technologies builds high-performance, distraction-free educational platforms, developer tooling, and modern digital infrastructure. The platform was created from the ground up without heavy external frameworks, providing instantaneous page loads, zero runtime bloat, 100% offline capability, and full privacy for learners worldwide.
-    </p>
-    <div class="profile-pills">
-      <a class="pill-btn primary" href="https://www.manikarnikatechnologies.in/" target="_blank" rel="noopener">🌐 manikarnikatechnologies.in</a>
-    </div>
-  </div>
-</div>
+<table>
+  <tr>
+    <td width="120" align="center" valign="top">
+      <img src="https://www.manikarnikatechnologies.in/_next/image?url=%2Ficon_logo.png&w=96&q=75" width="96" height="96" alt="Manikarnika Technologies Logo">
+      <br><br>
+      <a href="https://www.manikarnikatechnologies.in/"><img src="https://img.shields.io/badge/Visit-Website-218354?style=flat-square" alt="Manikarnika Technologies"></a>
+    </td>
+    <td valign="top">
+      <h3>Manikarnika Technologies</h3>
+      <p><strong>Platform Architecture, Design System & Digital Infrastructure</strong></p>
+      <p>
+        The custom reading platform, interactive design system, live competency radar engine, client-side search indexing, and responsive web components were designed and engineered by <strong>Manikarnika Technologies</strong>.
+      </p>
+      <p>
+        Manikarnika Technologies builds high-performance, distraction-free educational platforms, developer tooling, and modern digital infrastructure. The platform was created from the ground up without heavy external frameworks, providing instantaneous page loads, zero runtime bloat, 100% offline capability, and complete privacy for learners worldwide.
+      </p>
+    </td>
+  </tr>
+</table>
+
+---
+
+## Contributing & Community
+
+We actively welcome contributions from the community! Whether you want to fix a typo, suggest a real-world case study, or submit a new exercise:
+- Please review our **[Contributing Guidelines](CONTRIBUTING.md)** for detailed instructions.
+- All participants are expected to adhere to our **[Code of Conduct](CODE_OF_CONDUCT.md)**.
+- For security vulnerabilities, please consult our **[Security Policy](SECURITY.md)**.
 
 ---
 
@@ -228,9 +279,8 @@ We built this learning environment to be fast, distraction-free, 100% offline-re
 
 © 2026 **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**. All rights reserved.
 
-- **Author:** **[Vicky Prasad Mahato](https://abvicky.in)** ([LinkedIn](https://www.linkedin.com/in/abvicky/) · [GitHub](https://github.com/ABVicky))
-- **Platform Architecture & Development:** **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**
-- **License & Terms:** See **[LICENSE](LICENSE)** for detailed personal learning and educational use terms.
+* **Author:** **[Vicky Prasad Mahato](https://abvicky.in)** ([LinkedIn](https://www.linkedin.com/in/abvicky/) · [GitHub](https://github.com/ABVicky))
+* **Platform Architecture & Development:** **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**
+* **License & Terms:** See **[LICENSE](LICENSE)** for complete personal learning and educational use terms.
 
 This guide, including its curriculum structure, code examples, case studies, interactive tools, and instructional designs, is provided for personal learning and educational use. Redistribution, commercial resale, republication, or training on these materials without express written authorization is prohibited. All product names, logos, and brands mentioned are property of their respective owners and are used solely for identification and educational reference.
-
