@@ -1,14 +1,14 @@
 # Module 04 — Software Engineering
 
-> **In plain words:** Now your program becomes a real web application: a website counsellors log into, backed by a server that keeps their data safe. You'll learn how the pieces talk to each other and how professionals keep code tidy and tested.
+> 💡 **In plain words:** Now your program becomes a real web application: a website counsellors log into, backed by a server that keeps their data safe. You'll learn how the pieces talk to each other and how professionals keep code tidy and tested.
 >
-> **What you'll build:** AdmitFlow's first real version: a login, a list of enquiries, notes and follow-ups, in a web dashboard.
+> 🛠️ **What you'll build:** AdmitFlow's first real version: a login, a list of enquiries, notes and follow-ups, in a web dashboard.
 >
-> **You can skip for now:** Stretch topics (GraphQL, Next.js, design patterns). The React lessons can feel like a lot; aim to understand, not to memorize.
+> ⏭️ **You can skip for now:** Stretch topics (GraphQL, Next.js, design patterns). The React lessons can feel like a lot; aim to understand, not to memorize.
 >
-> **Comes after:** [Module 03: Programming Fundamentals](../03-programming-fundamentals/README.md) · **Leads to:** [Module 05: Databases and Data Engineering](../05-databases-and-data-engineering/README.md)
+> 🧭 **Comes after:** [Module 03: Programming Fundamentals](../03-programming-fundamentals/README.md) · **Leads to:** [Module 05: Databases and Data Engineering](../05-databases-and-data-engineering/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 2 — Engineering · **Time:** ~5 weeks at 15–20 h/week · **Builds:** C2 (Build software)
 **Prerequisites:** [Module 03](../03-programming-fundamentals/README.md): Python with tests, basic JavaScript/TypeScript, Git with pull requests.

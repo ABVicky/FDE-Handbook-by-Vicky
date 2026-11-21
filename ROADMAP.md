@@ -94,6 +94,8 @@ Everything in this roadmap maps to five capabilities. Each module states which o
 Each capability has four levels used in self-assessment (see [§11](#11-assessment-how-you-know-you-are-ready)):
 **1 — Aware · 2 — Guided · 3 — Independent · 4 — Field-ready**
 
+![The five FDE capabilities C1 to C5, each tracked on four levels from aware to field-ready](assets/diagrams/capabilities.svg)
+
 ---
 
 ## 4. How the curriculum is designed
@@ -133,6 +135,10 @@ Every module follows the same shape:
 **The goal:** more enquiries become admissions, with less manual effort, and leadership can see why.
 
 ### Target architecture (what you will have built by Module 10)
+
+![AdmitFlow architecture: enquiries are cleaned, stored, served by an API and used by a dashboard, AI assistant, lead scoring and integrations](assets/diagrams/admitflow-architecture.svg)
+
+The same system in more technical detail:
 
 ```mermaid
 flowchart LR
@@ -191,14 +197,7 @@ flowchart LR
 | **Stage 3 — AI** | 07 AI & ML fundamentals · 08 Generative AI engineering | Build, evaluate, and ship AI features responsibly |
 | **Stage 4 — Field-ready** | 09 Enterprise integration · 10 Production engineering · 11 Client engineering · 12 Capstone & career | Deploy into a real environment and run an engagement |
 
-```mermaid
-flowchart LR
-    M01[01 Intro] --> M02[02 Computing] --> M03[03 Programming] --> M04[04 Software Eng]
-    M04 --> M05[05 Data] --> M06[06 Cloud]
-    M06 --> M07[07 AI/ML] --> M08[08 GenAI]
-    M08 --> M09[09 Integration] --> M10[10 Production] --> M11[11 Client Eng] --> M12[12 Capstone]
-    FT[[Field Track: every module]] -.-> M01 & M04 & M08 & M11
-```
+![Course map: 12 modules in 4 stages, from foundations to real-world ready, with what you build in each stage](assets/diagrams/learning-path.svg)
 
 ---
 
@@ -652,12 +651,7 @@ This module consolidates the Field Track exercises from every earlier module int
 
 ## 8. The FDE engagement lifecycle
 
-```mermaid
-flowchart LR
-    D[1. Discover] --> F[2. Define] --> G[3. Design] --> P[4. Prototype] --> V[5. Validate] --> L[6. Deploy] --> M[7. Monitor] --> H[8. Scale & hand over]
-    V -- not good enough --> P
-    M -- new needs --> D
-```
+![The FDE engagement lifecycle: discover, define, design, prototype, validate, deploy, monitor, hand over](assets/diagrams/engagement-lifecycle.svg)
 
 | Stage | Key question | Main outputs | Common failure |
 | --- | --- | --- | --- |

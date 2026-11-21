@@ -1,14 +1,14 @@
 # Module 12 — Capstone, Portfolio and Career
 
-> **In plain words:** This is where you show you can do it on your own. You'll pick a new client problem and take it all the way, from the first conversation to a working, handed-over system. Then you'll prepare for real FDE interviews.
+> 💡 **In plain words:** This is where you show you can do it on your own. You'll pick a new client problem and take it all the way, from the first conversation to a working, handed-over system. Then you'll prepare for real FDE interviews.
 >
-> **What you'll build:** Your own capstone project, a portfolio that shows your work, and practice for every kind of FDE interview.
+> 🛠️ **What you'll build:** Your own capstone project, a portfolio that shows your work, and practice for every kind of FDE interview.
 >
-> **You can skip for now:** Nothing. This is the finish line.
+> ⏭️ **You can skip for now:** Nothing. This is the finish line.
 >
-> **Comes after:** [Module 11: Business and Client Engineering](../11-business-and-client-engineering/README.md) · **Leads to:** your first FDE role 🎉
+> 🧭 **Comes after:** [Module 11: Business and Client Engineering](../11-business-and-client-engineering/README.md) · **Leads to:** your first FDE role 🎉
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 4 — Field-ready · **Time:** ~4–6 weeks · **Builds:** C1–C5
 **Prerequisites:** Modules 01–11.

@@ -46,6 +46,8 @@ Throughout the 12 modules, you do not write toy scripts. You build **AdmitFlow**
 
 In one sentence: **An engineer who deploys directly to where the client's problem is, uncovers the truth of the workflow, and architects, codes, and ships the software and AI that solves it.**
 
+![What an FDE does: engineering skills and people skills combined to build what a real client needs](assets/diagrams/fde-role.svg)
+
 Originally pioneered and popularized by companies like **Palantir**, the Forward Deployed Engineer role has become the most sought-after engineering discipline of the AI era. Companies do not just need model weights; they need engineers who can integrate complex AI into messy enterprise realities.
 
 | Dimension | 💻 Traditional Software Engineer | 🤝 Solutions / Sales Engineer | ⚡ Forward Deployed Engineer (FDE) |
@@ -109,6 +111,8 @@ flowchart LR
 
 ## The Path: 12 Modules, 4 Stages
 
+![Course map: 12 modules in 4 stages, from foundations to real-world ready, with what you build in each stage](assets/diagrams/learning-path.svg)
+
 Each stage develops a specific pillar of your engineering and client capabilities:
 
 ### Stage 1: Foundations (The Craft, The Machine, & Code)
@@ -151,26 +155,15 @@ Each stage develops a specific pillar of your engineering and client capabilitie
 
 ## The 5 Core FDE Competencies (C1–C5)
 
-This handbook evaluates your progress across the exact matrix used to evaluate Forward Deployed Engineers at leading tech enterprises:
+Every module builds one or more of these five capabilities, and you track yourself on four levels (1 Aware · 2 Guided · 3 Independent · 4 Field-ready) in [your self-assessment](progress/self-assessment.md).
 
-```
-                  C1: Technical Craft
-                         100%
-                          /\
-                         /  \
-     C5: Client Leadership /    \ C2: Systems & Data
-                   100% /______\ 100%
-                        \      /
-                         \    /
-      C4: Security & Ops  \  /  C3: Applied AI & RAG
-                   100%    \/   100%
-```
+![The five FDE capabilities C1 to C5, each tracked on four levels from aware to field-ready](assets/diagrams/capabilities.svg)
 
-1. **C1 — Technical Craft & Architecture:** Clean, modular code, OOP patterns, comprehensive unit and integration testing, and modern frontend/backend API contracts.
-2. **C2 — Systems & Data Engineering:** Relational modeling, migrations, ACID transactions, data deduplication, pipelines, and containerized deployment.
-3. **C3 — Applied AI, RAG & Agents:** Information retrieval, semantic embeddings, grounded generation, automated prompt evaluation, and agent tool execution (MCP).
-4. **C4 — Production Security & Reliability:** Defense-in-depth, secrets hygiene, prompt injection mitigations, graceful degradation, and production observability.
-5. **C5 — Client Leadership & Business Impact:** Discovery interviewing, stakeholder mapping, translating ambiguity into technical roadmaps, executive communication, and change management.
+1. **C1 — Understand the business:** map a workflow, find the bottleneck, put a cost on it, and define what success looks like.
+2. **C2 — Build software:** write, test, debug and maintain a full-stack application.
+3. **C3 — Apply AI and data:** decide when AI helps (and when it doesn't), build RAG and agents, and evaluate them honestly.
+4. **C4 — Deploy and integrate:** ship into a real environment, connect to existing systems, and secure and monitor it.
+5. **C5 — Lead the engagement:** run discovery, manage expectations, explain trade-offs, hand over, and measure impact.
 
 ---
 

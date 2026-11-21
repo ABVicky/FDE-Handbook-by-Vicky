@@ -1,14 +1,14 @@
 # Module 03 — Programming Fundamentals
 
-> **In plain words:** This is where you learn to program, mainly in Python, with a little JavaScript at the end. It's the longest module, and that's okay. Go slowly and type every example yourself.
+> 💡 **In plain words:** This is where you learn to program, mainly in Python, with a little JavaScript at the end. It's the longest module, and that's okay. Go slowly and type every example yourself.
 >
-> **What you'll build:** A command-line tool that cleans Northbridge's messy enquiry files and finds students who enquired more than once.
+> 🛠️ **What you'll build:** A command-line tool that cleans Northbridge's messy enquiry files and finds students who enquired more than once.
 >
-> **You can skip for now:** Lessons 15–16 (async, Big-O) on a first pass if they feel heavy; come back before interviews. Experienced programmers: take the checkpoint.
+> ⏭️ **You can skip for now:** Lessons 15–16 (async, Big-O) on a first pass if they feel heavy; come back before interviews. Experienced programmers: take the checkpoint.
 >
-> **Comes after:** [Module 02: Computing Foundations](../02-computing-foundations/README.md) · **Leads to:** [Module 04: Software Engineering](../04-software-engineering/README.md)
+> 🧭 **Comes after:** [Module 02: Computing Foundations](../02-computing-foundations/README.md) · **Leads to:** [Module 04: Software Engineering](../04-software-engineering/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 1 — Foundations · **Time:** ~6 weeks at 15–20 h/week · **Builds:** C2 (Build software)
 **Prerequisites:** [Module 02](../02-computing-foundations/README.md): you're comfortable in the terminal, with a working Python 3.9+ and Git.

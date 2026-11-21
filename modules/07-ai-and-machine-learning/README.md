@@ -1,14 +1,14 @@
 # Module 07 — AI and Machine Learning Fundamentals
 
-> **In plain words:** Before building with AI, you need to understand it, and to be honest about when it helps. You'll train a simple prediction model and learn the most common way people fool themselves with AI.
+> 💡 **In plain words:** Before building with AI, you need to understand it, and to be honest about when it helps. You'll train a simple prediction model and learn the most common way people fool themselves with AI.
 >
-> **What you'll build:** A model that predicts which enquiries are likely to enrol. You'll also discover something more useful: replying quickly matters far more than any prediction.
+> 🛠️ **What you'll build:** A model that predicts which enquiries are likely to enrol. You'll also discover something more useful: replying quickly matters far more than any prediction.
 >
-> **You can skip for now:** Lesson 06's deeper topics (neural networks, PyTorch) beyond the main ideas.
+> ⏭️ **You can skip for now:** Lesson 06's deeper topics (neural networks, PyTorch) beyond the main ideas.
 >
-> **Comes after:** [Module 06: Cloud and Infrastructure](../06-cloud-and-infrastructure/README.md) · **Leads to:** [Module 08: Generative AI Engineering](../08-generative-ai-engineering/README.md)
+> 🧭 **Comes after:** [Module 06: Cloud and Infrastructure](../06-cloud-and-infrastructure/README.md) · **Leads to:** [Module 08: Generative AI Engineering](../08-generative-ai-engineering/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 3 — AI · **Time:** ~3 weeks at 15–20 h/week · **Builds:** C3 (Apply AI and data)
 **Prerequisites:** [Module 05](../05-databases-and-data-engineering/README.md) (data) and [Module 06](../06-cloud-and-infrastructure/README.md) (deployment). No maths beyond school level.

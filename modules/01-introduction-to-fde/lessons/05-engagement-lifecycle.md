@@ -4,12 +4,7 @@
 
 Most FDE engagements follow the same eight stages. You'll return to this map in every module; each later module goes deep on one or two stages.
 
-```mermaid
-flowchart LR
-    D[1. Discover] --> F[2. Define] --> G[3. Design] --> P[4. Prototype] --> V[5. Validate] --> L[6. Deploy] --> M[7. Monitor] --> H[8. Scale & hand over]
-    V -- not good enough --> P
-    M -- new needs --> D
-```
+![The FDE engagement lifecycle: discover, define, design, prototype, validate, deploy, monitor, hand over](../../../assets/diagrams/engagement-lifecycle.svg)
 
 The arrows going backwards matter. Real engagements loop: validation sends you back to prototyping, and monitoring surfaces new problems that start fresh discovery.
 

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">The five FDE capabilities</title>
+  <desc id="d">C1 understand the business, C2 build software, C3 apply AI and data, C4 deploy and integrate, C5 lead the engagement, each tracked on four levels from aware to field-ready.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#231819"/><stop offset=".55" stop-color="#161315"/><stop offset="1" stop-color="#0F1013"/></linearGradient>
+    <radialGradient id="glowR" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E53935" stop-opacity=".30"/><stop offset="1" stop-color="#E53935" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F7AE2E" stop-opacity=".18"/><stop offset="1" stop-color="#F7AE2E" stop-opacity="0"/></radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E53935"/><stop offset="1" stop-color="#9E1915"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B9B0AD"/></marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E53935"/></marker>
+    <clipPath id="clip"><rect width="1200" height="560" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1200" height="560" fill="url(#bg)"/>
+    <circle cx="1120" cy="20" r="392" fill="url(#glowR)"/>
+    <circle cx="60" cy="560" r="336" fill="url(#glowG)"/>
+<text x="48" y="62" fill="#F7AE2E" font-size="13" font-weight="800" letter-spacing="2.2">THE FIVE FDE CAPABILITIES</text><text x="48" y="98" fill="#F5F1EE" font-size="28" font-weight="800" letter-spacing="-.5">Every module builds one or more of these. Track yourself on four levels.</text>
+<polygon points="300.0,288.8 339.2,317.3 324.2,363.4 275.8,363.4 260.8,317.3" fill="none" stroke="rgba(255,255,255,0.11)"/>
+<polygon points="300.0,247.5 378.5,304.5 348.5,396.7 251.5,396.7 221.5,304.5" fill="none" stroke="rgba(255,255,255,0.14)"/>
+<polygon points="300.0,206.2 417.7,291.8 372.7,430.1 227.3,430.1 182.3,291.8" fill="none" stroke="rgba(255,255,255,0.17)"/>
+<polygon points="300.0,165.0 456.9,279.0 397.0,463.5 203.0,463.5 143.1,279.0" fill="none" stroke="rgba(255,255,255,0.20)"/>
+<line x1="300" y1="330" x2="300.0" y2="165.0" stroke="rgba(255,255,255,.12)"/>
+<line x1="300" y1="330" x2="456.9" y2="279.0" stroke="rgba(255,255,255,.12)"/>
+<line x1="300" y1="330" x2="397.0" y2="463.5" stroke="rgba(255,255,255,.12)"/>
+<line x1="300" y1="330" x2="203.0" y2="463.5" stroke="rgba(255,255,255,.12)"/>
+<line x1="300" y1="330" x2="143.1" y2="279.0" stroke="rgba(255,255,255,.12)"/>
+<polygon points="300.0,206.2 456.9,279.0 372.7,430.1 227.3,430.1 143.1,279.0" fill="#E53935" fill-opacity=".22" stroke="#E53935" stroke-width="2.5"/>
+<circle cx="300.0" cy="135.0" r="20" fill="#5AA2F5"/><text x="300.0" y="140.0" fill="#141214" font-size="13" font-weight="900" text-anchor="middle" >C1</text>
+<circle cx="485.5" cy="269.7" r="20" fill="#F7AE2E"/><text x="485.45602067755493" y="274.74168609688525" fill="#141214" font-size="13" font-weight="900" text-anchor="middle" >C2</text>
+<circle cx="414.6" cy="487.8" r="20" fill="#B48CFF"/><text x="414.6181241970323" y="492.75831390311475" fill="#141214" font-size="13" font-weight="900" text-anchor="middle" >C3</text>
+<circle cx="185.4" cy="487.8" r="20" fill="#3DD68C"/><text x="185.38187580296776" y="492.75831390311475" fill="#141214" font-size="13" font-weight="900" text-anchor="middle" >C4</text>
+<circle cx="114.5" cy="269.7" r="20" fill="#FF8A80"/><text x="114.54397932244504" y="274.7416860968853" fill="#141214" font-size="13" font-weight="900" text-anchor="middle" >C5</text>
+<text x="306" y="302.75" fill="#B9B0AD" font-size="10.5" font-weight="600" text-anchor="start" >1 Aware</text>
+<text x="306" y="261.5" fill="#B9B0AD" font-size="10.5" font-weight="600" text-anchor="start" >2 Guided</text>
+<text x="306" y="220.25" fill="#B9B0AD" font-size="10.5" font-weight="600" text-anchor="start" >3 Independent</text>
+<text x="306" y="179.0" fill="#B9B0AD" font-size="10.5" font-weight="600" text-anchor="start" >4 Field-ready</text>
+<rect x="130" y="520" width="14" height="4" rx="2" fill="#E53935"/><text x="152" y="525" fill="#B9B0AD" font-size="12.5" font-weight="400" text-anchor="start" >Target to call yourself field-ready: all at 3+, two at 4</text>
+<rect x="560" y="118" width="592" height="68" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="576" y="132" width="40" height="40" rx="11" fill="#5AA2F5" fill-opacity=".16"/><g transform="translate(585 141) scale(0.9167)" fill="none" stroke="#5AA2F5" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></g>
+<text x="630" y="149" fill="#F5F1EE" font-size="16" font-weight="800" text-anchor="start" >C1  Understand the business</text>
+<text x="630" y="170" fill="#B9B0AD" font-size="13.5" font-weight="500" text-anchor="start" >Map the workflow, find the bottleneck, measure success</text>
+<rect x="560" y="200" width="592" height="68" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="576" y="214" width="40" height="40" rx="11" fill="#F7AE2E" fill-opacity=".16"/><g transform="translate(585 223) scale(0.9167)" fill="none" stroke="#F7AE2E" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></g>
+<text x="630" y="231" fill="#F5F1EE" font-size="16" font-weight="800" text-anchor="start" >C2  Build software</text>
+<text x="630" y="252" fill="#B9B0AD" font-size="13.5" font-weight="500" text-anchor="start" >Write, test and maintain a full-stack app</text>
+<rect x="560" y="282" width="592" height="68" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="576" y="296" width="40" height="40" rx="11" fill="#B48CFF" fill-opacity=".16"/><g transform="translate(585 305) scale(0.9167)" fill="none" stroke="#B48CFF" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></g>
+<text x="630" y="313" fill="#F5F1EE" font-size="16" font-weight="800" text-anchor="start" >C3  Apply AI and data</text>
+<text x="630" y="334" fill="#B9B0AD" font-size="13.5" font-weight="500" text-anchor="start" >Know when AI helps; build RAG and agents; evaluate honestly</text>
+<rect x="560" y="364" width="592" height="68" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="576" y="378" width="40" height="40" rx="11" fill="#3DD68C" fill-opacity=".16"/><g transform="translate(585 387) scale(0.9167)" fill="none" stroke="#3DD68C" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></g>
+<text x="630" y="395" fill="#F5F1EE" font-size="16" font-weight="800" text-anchor="start" >C4  Deploy and integrate</text>
+<text x="630" y="416" fill="#B9B0AD" font-size="13.5" font-weight="500" text-anchor="start" >Ship into a real environment, connect systems, secure it</text>
+<rect x="560" y="446" width="592" height="68" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="576" y="460" width="40" height="40" rx="11" fill="#FF8A80" fill-opacity=".16"/><g transform="translate(585 469) scale(0.9167)" fill="none" stroke="#FF8A80" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></g>
+<text x="630" y="477" fill="#F5F1EE" font-size="16" font-weight="800" text-anchor="start" >C5  Lead the engagement</text>
+<text x="630" y="498" fill="#B9B0AD" font-size="13.5" font-weight="500" text-anchor="start" >Run discovery, set expectations, hand over, show impact</text>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="559" rx="23.5" fill="none" stroke="rgba(255,255,255,.1)"/>
+</svg>

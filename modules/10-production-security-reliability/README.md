@@ -1,14 +1,14 @@
 # Module 10 — Production Engineering, Security and Reliability
 
-> **In plain words:** A working app isn't the same as a trustworthy one. Here you'll learn to protect people's data, notice problems before users do, and recover calmly when something breaks, because something always does.
+> 💡 **In plain words:** A working app isn't the same as a trustworthy one. Here you'll learn to protect people's data, notice problems before users do, and recover calmly when something breaks, because something always does.
 >
-> **What you'll build:** A hardened AdmitFlow: protection against abuse, an activity log, alerts when things go wrong, tested backups, and a step-by-step guide for emergencies.
+> 🛠️ **What you'll build:** A hardened AdmitFlow: protection against abuse, an activity log, alerts when things go wrong, tested backups, and a step-by-step guide for emergencies.
 >
-> **You can skip for now:** Load testing and tracing (stretch).
+> ⏭️ **You can skip for now:** Load testing and tracing (stretch).
 >
-> **Comes after:** [Module 09: Enterprise Systems and Integration](../09-enterprise-integration/README.md) · **Leads to:** [Module 11: Business and Client Engineering](../11-business-and-client-engineering/README.md)
+> 🧭 **Comes after:** [Module 09: Enterprise Systems and Integration](../09-enterprise-integration/README.md) · **Leads to:** [Module 11: Business and Client Engineering](../11-business-and-client-engineering/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 4 — Field-ready · **Time:** ~3 weeks at 15–20 h/week · **Builds:** C4 (Deploy and integrate)
 **Prerequisites:** [Module 09](../09-enterprise-integration/README.md).

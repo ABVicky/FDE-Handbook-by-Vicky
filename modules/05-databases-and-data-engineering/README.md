@@ -1,14 +1,14 @@
 # Module 05 — Databases and Data Engineering
 
-> **In plain words:** Real businesses run on data, and their data is always messy. You'll learn SQL (the language for asking databases questions), how to make slow queries fast, and how to bring data from different systems together reliably.
+> 💡 **In plain words:** Real businesses run on data, and their data is always messy. You'll learn SQL (the language for asking databases questions), how to make slow queries fast, and how to bring data from different systems together reliably.
 >
-> **What you'll build:** A proper database for AdmitFlow, plus a report that finally answers the director's question: which channels bring students who actually enrol?
+> 🛠️ **What you'll build:** A proper database for AdmitFlow, plus a report that finally answers the director's question: which channels bring students who actually enrol?
 >
-> **You can skip for now:** Lessons 07–08 are mostly awareness; read them lightly on a first pass.
+> ⏭️ **You can skip for now:** Lessons 07–08 are mostly awareness; read them lightly on a first pass.
 >
-> **Comes after:** [Module 04: Software Engineering](../04-software-engineering/README.md) · **Leads to:** [Module 06: Cloud and Infrastructure](../06-cloud-and-infrastructure/README.md)
+> 🧭 **Comes after:** [Module 04: Software Engineering](../04-software-engineering/README.md) · **Leads to:** [Module 06: Cloud and Infrastructure](../06-cloud-and-infrastructure/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 2 — Engineering · **Time:** ~3 weeks at 15–20 h/week · **Builds:** C2 (Build software), C3 (Apply AI and data)
 **Prerequisites:** [Module 04](../04-software-engineering/README.md): the AdmitFlow API and dashboard.

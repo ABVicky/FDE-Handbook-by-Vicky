@@ -2344,6 +2344,7 @@
     .hp-next-text span { font-size: 13.5px; color: var(--text-muted); }
     .hp-h2 { margin: 44px 0 6px; font-size: 24px; letter-spacing: -.01em; color: var(--text-main); border: 0; padding: 0; }
     .hp-lead { margin: 0 0 16px; color: var(--text-muted); font-size: 15px; }
+    .hp-diagram { display: block; width: 100%; height: auto; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.16); }
     .hp-stages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .hp-stage { padding: 18px; border-radius: 18px; border: 1px solid var(--border-color); background: var(--bg-surface); }
     .hp-stage-head { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
@@ -2382,6 +2383,20 @@
       .finish-card { flex-direction: column; align-items: stretch; }
       .fc-actions { flex-direction: column-reverse; }
       .fc-actions button { width: 100%; }
+    }
+
+    /* Diagrams and images inside pages */
+    .markdown-body img { max-width: 100%; height: auto; }
+    .markdown-body img.diagram { display: block; width: 100%; margin: 22px 0 26px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.16); }
+    .markdown-body p:has(img.diagram) { margin: 0; }
+    .diagram-wrap { display: block; margin: 22px 0 26px; border-radius: 18px; }
+    .diagram-wrap img.diagram { margin: 0; }
+    .diagram-hint { display: none; }
+    @media (max-width: 640px) {
+      .diagram-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 18px -16px 6px; padding: 0 16px 8px; border-radius: 0; }
+      .diagram-wrap img.diagram { width: 760px; max-width: none; }
+      .diagram-hint { display: block; margin: 0 0 22px; font-size: 12px; color: var(--text-muted); text-align: center; }
+      .hp-diagram { width: 100%; }
     }
     /* Responsive Mobile styles */
     .nav-tab { white-space: nowrap; }
@@ -3913,6 +3928,9 @@ flowchart LR
           <div class="hp-next-text"><small>${escHtml(nextCard.k)}</small><b>${escHtml(nextCard.t)}</b><span>${escHtml(nextCard.d)}</span></div>
           <button type="button" class="hp-btn primary" data-go="${escHtml(nextCard.path)}">${nextCard.b}</button>
         </section>
+        <h2 class="hp-h2">What does an FDE actually do?</h2>
+        <p class="hp-lead">Two skill sets, one job: understand a client's real problem, then build and ship what fixes it.</p>
+        <img class="hp-diagram" src="assets/diagrams/fde-role.svg" alt="What an FDE does: engineering skills and people skills combined to build what a real client needs" loading="lazy" decoding="async">
         <h2 class="hp-h2">Your learning path</h2>
         <p class="hp-lead">Four stages, twelve modules. Go in order: each module builds on the one before.</p>
         <section class="hp-stages">${stageCards}</section>
@@ -4145,6 +4163,31 @@ flowchart LR
           if (chk.checked) triggerConfetti(e.clientX, e.clientY);
           updateHeaderProgress();
         };
+      });
+
+      // 3b. Images: resolve paths relative to the page, so ../../assets/x.svg works from any folder
+      container.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (!src || /^(https?:|data:|\/)/.test(src)) return;
+        img.setAttribute('src', resolveDocPath(docPath, src));
+        img.setAttribute('loading', 'lazy');
+        img.setAttribute('decoding', 'async');
+        if (/assets\/diagrams\//.test(src)) {
+          img.classList.add('diagram');
+          // Wrap so phones can swipe the diagram at a readable size, or tap to open it full screen
+          const link = document.createElement('a');
+          link.className = 'diagram-wrap';
+          link.href = img.getAttribute('src');
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.title = 'Open the diagram full size';
+          img.parentNode.insertBefore(link, img);
+          link.appendChild(img);
+          const hint = document.createElement('span');
+          hint.className = 'diagram-hint';
+          hint.textContent = 'Swipe to see more · tap to open full size';
+          link.after(hint);
+        }
       });
 
       // 4. Intercept all internal relative links

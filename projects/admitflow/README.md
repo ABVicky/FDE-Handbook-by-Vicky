@@ -5,6 +5,8 @@ The running project for the whole handbook: an admissions system for a fictional
 - **Client brief:** [BRIEF.md](BRIEF.md). Start here.
 - **How it grows module by module:** [ROADMAP §5](../../ROADMAP.md#5-the-running-project-admitflow)
 
+![AdmitFlow architecture: enquiries are cleaned, stored, served by an API and used by a dashboard, AI assistant, lead scoring and integrations](../../assets/diagrams/admitflow-architecture.svg)
+
 ## How it grew, module by module
 
 | Module | Added |

@@ -5,6 +5,8 @@ Copy this file into your own fork and update it at the end of every module. Rati
 **Levels:** 1 — Aware · 2 — Guided · 3 — Independent · 4 — Field-ready
 (Definitions: [ROADMAP §11](../ROADMAP.md#11-assessment-how-you-know-you-are-ready))
 
+![The five FDE capabilities C1 to C5, each tracked on four levels from aware to field-ready](../assets/diagrams/capabilities.svg)
+
 ## Capability summary
 
 | Capability | Current level | Evidence (links) | Last updated |

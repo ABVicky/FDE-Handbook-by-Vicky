@@ -235,7 +235,7 @@ def build_module(docs, m_dir, m_num):
         sections.append({'title': 'Answers & code', 'extra': True,
                          'items': [_item(docs, p, answer_title(p), extra=True) for p in extras]})
     def box(label):
-        m = re.search(r'> \*\*' + re.escape(label) + r':\*\*\s*(.+)', content)
+        m = re.search(r'> (?:\S+\s+)?\*\*' + re.escape(label) + r':\*\*\s*(.+)', content)
         return re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', m.group(1)).strip() if m else ''
     plain = box('In plain words')
     first = re.split(r'(?<=[.!?])\s+', plain)[0] if plain else ''

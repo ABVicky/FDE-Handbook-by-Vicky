@@ -1,14 +1,14 @@
 # Module 06 — Cloud and Infrastructure
 
-> **In plain words:** An app on your laptop helps nobody. Here you'll learn to package your app so it runs anywhere, test every change automatically, and put it online in the cloud.
+> 💡 **In plain words:** An app on your laptop helps nobody. Here you'll learn to package your app so it runs anywhere, test every change automatically, and put it online in the cloud.
 >
-> **What you'll build:** AdmitFlow running online, with automatic tests on every change and a written guide for keeping it running.
+> 🛠️ **What you'll build:** AdmitFlow running online, with automatic tests on every change and a written guide for keeping it running.
 >
-> **You can skip for now:** Kubernetes and Terraform (stretch). You can do the build without a cloud account by running everything on your own machine.
+> ⏭️ **You can skip for now:** Kubernetes and Terraform (stretch). You can do the build without a cloud account by running everything on your own machine.
 >
-> **Comes after:** [Module 05: Databases and Data Engineering](../05-databases-and-data-engineering/README.md) · **Leads to:** [Module 07: AI and Machine Learning Fundamentals](../07-ai-and-machine-learning/README.md)
+> 🧭 **Comes after:** [Module 05: Databases and Data Engineering](../05-databases-and-data-engineering/README.md) · **Leads to:** [Module 07: AI and Machine Learning Fundamentals](../07-ai-and-machine-learning/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 2 — Engineering · **Time:** ~4 weeks at 15–20 h/week · **Builds:** C4 (Deploy and integrate)
 **Prerequisites:** [Module 05](../05-databases-and-data-engineering/README.md): AdmitFlow on SQL with migrations. A free GitHub account; a cloud free tier or trial for the deployment lessons (optional, but strongly recommended).

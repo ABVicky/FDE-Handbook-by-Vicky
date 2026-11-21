@@ -2,6 +2,10 @@
 
 Each template has a blank version here and a worked AdmitFlow example linked from inside it. The full list of planned documents is in [ROADMAP §10](../ROADMAP.md#10-the-fde-documentation-kit).
 
+Each template belongs to a stage of the engagement lifecycle:
+
+![The FDE engagement lifecycle: discover, define, design, prototype, validate, deploy, monitor, hand over](../assets/diagrams/engagement-lifecycle.svg)
+
 | Template | Lifecycle stage | Status |
 | --- | --- | --- |
 | [Module template](module-template.md) | (for contributors) | ✅ |

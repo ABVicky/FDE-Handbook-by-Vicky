@@ -28,20 +28,7 @@ Today you'll see the role (and variations of it) at AI labs, data and AI platfor
 
 Think of an FDE as doing two jobs at once:
 
-```mermaid
-flowchart LR
-    subgraph Engineering
-        E1[Write production code]
-        E2[Integrate with existing systems]
-        E3[Deploy, secure, monitor]
-    end
-    subgraph Field
-        F1[Understand the business problem]
-        F2[Work with stakeholders]
-        F3[Prove measurable impact]
-    end
-    Engineering <--> Field
-```
+![What an FDE does: engineering skills and people skills combined to build what a real client needs](../../../assets/diagrams/fde-role.svg)
 
 Many people are good at one half. FDEs are valuable because they do both. They can sit in a meeting with a hospital's operations director in the morning and debug a data pipeline in the afternoon, and each activity improves the other.
 

@@ -1,14 +1,14 @@
 # Module 01 — Introduction to Forward Deployed Engineering
 
-> **In plain words:** Before any code, I want you to understand the job itself. What does an FDE actually do all day? How is it different from being a developer or a consultant? And why does the first conversation with a client matter more than the first line of code?
+> 💡 **In plain words:** Before any code, I want you to understand the job itself. What does an FDE actually do all day? How is it different from being a developer or a consultant? And why does the first conversation with a client matter more than the first line of code?
 >
-> **What you'll build:** No code yet. You'll write a short "discovery pack" for Northbridge Institute: who's involved, what questions to ask, and what the real problem is.
+> 🛠️ **What you'll build:** No code yet. You'll write a short "discovery pack" for Northbridge Institute: who's involved, what questions to ask, and what the real problem is.
 >
-> **You can skip for now:** Nothing. This module is short and everything in it matters.
+> ⏭️ **You can skip for now:** Nothing. This module is short and everything in it matters.
 >
-> **Comes after:** nothing, just curiosity · **Leads to:** [Module 02: Computing Foundations](../02-computing-foundations/README.md)
+> 🧭 **Comes after:** nothing, just curiosity · **Leads to:** [Module 02: Computing Foundations](../02-computing-foundations/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 1 — Foundations · **Time:** ~1 week at 15–20 h/week · **Builds:** C1 (Understand the business), C5 (Lead the engagement)
 **Prerequisites:** None. You don't need to know how to code yet.

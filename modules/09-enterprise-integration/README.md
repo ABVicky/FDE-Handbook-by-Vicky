@@ -1,14 +1,14 @@
 # Module 09 — Enterprise Systems and Integration
 
-> **In plain words:** Companies already use many systems, and your app has to work with them. You'll connect AdmitFlow to the website, email, WhatsApp, a customer-management system (CRM) and company logins, without creating duplicates or security holes.
+> 💡 **In plain words:** Companies already use many systems, and your app has to work with them. You'll connect AdmitFlow to the website, email, WhatsApp, a customer-management system (CRM) and company logins, without creating duplicates or security holes.
 >
-> **What you'll build:** Website enquiries arriving instantly, approved messages actually being sent, a sync to the marketing team's CRM, and sign-in with Google.
+> 🛠️ **What you'll build:** Website enquiries arriving instantly, approved messages actually being sent, a sync to the marketing team's CRM, and sign-in with Google.
 >
-> **You can skip for now:** Lesson 07 (big platforms like SAP and Salesforce) is awareness only. The MCP server needs a newer Python; it's fine to read it first.
+> ⏭️ **You can skip for now:** Lesson 07 (big platforms like SAP and Salesforce) is awareness only. The MCP server needs a newer Python; it's fine to read it first.
 >
-> **Comes after:** [Module 08: Generative AI Engineering](../08-generative-ai-engineering/README.md) · **Leads to:** [Module 10: Production Engineering, Security and Reliability](../10-production-security-reliability/README.md)
+> 🧭 **Comes after:** [Module 08: Generative AI Engineering](../08-generative-ai-engineering/README.md) · **Leads to:** [Module 10: Production Engineering, Security and Reliability](../10-production-security-reliability/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 4 — Field-ready · **Time:** ~3 weeks at 15–20 h/week · **Builds:** C4 (Deploy and integrate)
 **Prerequisites:** [Module 08](../08-generative-ai-engineering/README.md). Optional: a free developer account on a CRM.

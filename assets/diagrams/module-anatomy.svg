@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How every module works</title>
+  <desc id="d">Lessons, then practice, then apply it (build, break and fix, Field Track), then check yourself with a quiz.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#231819"/><stop offset=".55" stop-color="#161315"/><stop offset="1" stop-color="#0F1013"/></linearGradient>
+    <radialGradient id="glowR" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E53935" stop-opacity=".30"/><stop offset="1" stop-color="#E53935" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F7AE2E" stop-opacity=".18"/><stop offset="1" stop-color="#F7AE2E" stop-opacity="0"/></radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E53935"/><stop offset="1" stop-color="#9E1915"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B9B0AD"/></marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E53935"/></marker>
+    <clipPath id="clip"><rect width="1200" height="440" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1200" height="440" fill="url(#bg)"/>
+    <circle cx="1120" cy="20" r="308" fill="url(#glowR)"/>
+    <circle cx="60" cy="440" r="264" fill="url(#glowG)"/>
+<text x="48" y="62" fill="#F7AE2E" font-size="13" font-weight="800" letter-spacing="2.2">HOW EVERY MODULE WORKS</text><text x="48" y="98" fill="#F5F1EE" font-size="28" font-weight="800" letter-spacing="-.5">The same four parts in every module, so you always know what comes next</text>
+<rect x="48" y="128" width="252" height="230" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="68" y="150" width="46" height="46" rx="13" fill="#5AA2F5" fill-opacity=".16"/><g transform="translate(79 161) scale(1.0000)" fill="none" stroke="#5AA2F5" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></g>
+<text x="128" y="168" fill="#5AA2F5" font-size="11.5" font-weight="800" text-anchor="start" letter-spacing="1.6">STEP 1</text>
+<text x="128" y="190" fill="#F5F1EE" font-size="19" font-weight="800" text-anchor="start" >Lessons</text>
+<text x="70" y="232" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Learn the idea in</text>
+<text x="70" y="255" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >plain words, with</text>
+<text x="70" y="278" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >real examples</text>
+<path d="M303 243h24" stroke="#B9B0AD" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="332" y="128" width="252" height="230" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="352" y="150" width="46" height="46" rx="13" fill="#F7AE2E" fill-opacity=".16"/><g transform="translate(363 161) scale(1.0000)" fill="none" stroke="#F7AE2E" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4z"/></g>
+<text x="412" y="168" fill="#F7AE2E" font-size="11.5" font-weight="800" text-anchor="start" letter-spacing="1.6">STEP 2</text>
+<text x="412" y="190" fill="#F5F1EE" font-size="19" font-weight="800" text-anchor="start" >Practice</text>
+<text x="354" y="232" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Short exercises.</text>
+<text x="354" y="255" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Answers are kept</text>
+<text x="354" y="278" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >separate</text>
+<path d="M587 243h24" stroke="#B9B0AD" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="616" y="128" width="252" height="230" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="636" y="150" width="46" height="46" rx="13" fill="#B48CFF" fill-opacity=".16"/><g transform="translate(647 161) scale(1.0000)" fill="none" stroke="#B48CFF" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 4.36L22 8.7l-3 3-4.36-4.36"/><path d="M12.5 5.5l5-1.5"/></g>
+<text x="696" y="168" fill="#B48CFF" font-size="11.5" font-weight="800" text-anchor="start" letter-spacing="1.6">STEP 3</text>
+<text x="696" y="190" fill="#F5F1EE" font-size="19" font-weight="800" text-anchor="start" >Apply it</text>
+<text x="638" y="232" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Build: a piece of AdmitFlow</text>
+<text x="638" y="255" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Break &amp; fix: repair a</text>
+<text x="638" y="278" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >broken system</text>
+<text x="638" y="301" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Field Track: practise</text>
+<text x="638" y="324" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >with real people</text>
+<path d="M871 243h24" stroke="#B9B0AD" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="900" y="128" width="252" height="230" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+<rect x="920" y="150" width="46" height="46" rx="13" fill="#3DD68C" fill-opacity=".16"/><g transform="translate(931 161) scale(1.0000)" fill="none" stroke="#3DD68C" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></g>
+<text x="980" y="168" fill="#3DD68C" font-size="11.5" font-weight="800" text-anchor="start" letter-spacing="1.6">STEP 4</text>
+<text x="980" y="190" fill="#F5F1EE" font-size="19" font-weight="800" text-anchor="start" >Check yourself</text>
+<text x="922" y="232" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >Checkpoint quiz and</text>
+<text x="922" y="255" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >the &quot;Done when&quot; list.</text>
+<text x="922" y="278" fill="#E2DCD9" font-size="14.5" font-weight="500" text-anchor="start" >All ticked? Next module!</text>
+<rect x="48" y="380" width="1104" height="40" rx="12" fill="rgba(255,255,255,.05)"/>
+<g transform="translate(64 390) scale(0.8333)" fill="none" stroke="#F7AE2E" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></g>
+<text x="94" y="405" fill="#F5F1EE" font-size="14" font-weight="500" text-anchor="start" >Already know the topic? Take the checkpoint quiz first. Score 80%+ and do the build to skip ahead.</text>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="439" rx="23.5" fill="none" stroke="rgba(255,255,255,.1)"/>
+</svg>

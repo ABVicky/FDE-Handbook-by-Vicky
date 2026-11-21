@@ -270,8 +270,7 @@ def describe(md: str, title: str) -> str:
         if not b or b.startswith(("#", "|", "```", "<", "---", "- [", "!")) or b.startswith("**Stage:**"):
             continue
         text = plain(b)
-        if text.lower().startswith("in plain words:"):
-            text = text[len("in plain words:"):].strip()
+        text = re.sub(r"^\W*in plain words:\s*", "", text, flags=re.I)
         if len(text) > 40:
             if len(text) > 155:
                 text = text[:152].rsplit(" ", 1)[0] + "…"

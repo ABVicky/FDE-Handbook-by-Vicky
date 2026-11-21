@@ -1,14 +1,14 @@
 # Module 11 — Business and Client Engineering
 
-> **In plain words:** This module is about people and business, and it's what separates an FDE from an engineer who happens to sit near a client. You'll learn to show the value of your work in money and time, communicate with different people, and make sure your system is actually used.
+> 💡 **In plain words:** This module is about people and business, and it's what separates an FDE from an engineer who happens to sit near a client. You'll learn to show the value of your work in money and time, communicate with different people, and make sure your system is actually used.
 >
-> **What you'll build:** The documents that close a project: the business case, a presentation for the director's board, a user guide, and a proper handover.
+> 🛠️ **What you'll build:** The documents that close a project: the business case, a presentation for the director's board, a user guide, and a proper handover.
 >
-> **You can skip for now:** Nothing essential. If you already work in consulting, take the checkpoint.
+> ⏭️ **You can skip for now:** Nothing essential. If you already work in consulting, take the checkpoint.
 >
-> **Comes after:** [Module 10: Production Engineering, Security and Reliability](../10-production-security-reliability/README.md) · **Leads to:** [Module 12: Capstone, Portfolio and Career](../12-capstone-and-career/README.md)
+> 🧭 **Comes after:** [Module 10: Production Engineering, Security and Reliability](../10-production-security-reliability/README.md) · **Leads to:** [Module 12: Capstone, Portfolio and Career](../12-capstone-and-career/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 4 — Field-ready · **Time:** ~2 weeks (plus the Field Track throughout) · **Builds:** C1 (Understand the business), C5 (Lead the engagement)
 **Prerequisites:** Modules 01–10 (this module consolidates the Field Track exercises from every earlier module).

@@ -1,14 +1,14 @@
 # Module 02 — Computing Foundations
 
-> **In plain words:** Here you'll get comfortable with the computer itself: the terminal (the text window developers type commands into), files, and how the internet carries a request from a browser to a server. These are the basics every later module quietly depends on.
+> 💡 **In plain words:** Here you'll get comfortable with the computer itself: the terminal (the text window developers type commands into), files, and how the internet carries a request from a browser to a server. These are the basics every later module quietly depends on.
 >
-> **What you'll build:** A small script that counts Northbridge's enquiries by channel, using only the terminal.
+> 🛠️ **What you'll build:** A small script that counts Northbridge's enquiries by channel, using only the terminal.
 >
-> **You can skip for now:** The stretch topics inside lessons. If you already use the terminal daily, take the checkpoint quiz.
+> ⏭️ **You can skip for now:** The stretch topics inside lessons. If you already use the terminal daily, take the checkpoint quiz.
 >
-> **Comes after:** [Module 01: Introduction to Forward Deployed Engineering](../01-introduction-to-fde/README.md) · **Leads to:** [Module 03: Programming Fundamentals](../03-programming-fundamentals/README.md)
+> 🧭 **Comes after:** [Module 01: Introduction to Forward Deployed Engineering](../01-introduction-to-fde/README.md) · **Leads to:** [Module 03: Programming Fundamentals](../03-programming-fundamentals/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 1 — Foundations · **Time:** ~2 weeks at 15–20 h/week · **Builds:** C2 (Build software), C4 (Deploy and integrate)
 **Prerequisites:** [Module 01](../01-introduction-to-fde/README.md). No programming experience needed.

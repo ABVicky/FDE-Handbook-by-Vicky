@@ -1,14 +1,14 @@
 # Module 08 — Generative AI Engineering
 
-> **In plain words:** This is the AI module most people come for. You'll build with large language models (LLMs, the technology behind tools like Claude and ChatGPT), and learn to make them answer from the client's own documents, correctly, with sources, and safely.
+> 💡 **In plain words:** This is the AI module most people come for. You'll build with large language models (LLMs, the technology behind tools like Claude and ChatGPT), and learn to make them answer from the client's own documents, correctly, with sources, and safely.
 >
-> **What you'll build:** AdmitFlow's AI assistant that answers students' questions about fees and courses, plus AI-written follow-up messages that a counsellor must approve before they're sent.
+> 🛠️ **What you'll build:** AdmitFlow's AI assistant that answers students' questions about fees and courses, plus AI-written follow-up messages that a counsellor must approve before they're sent.
 >
-> **You can skip for now:** Lesson 04's vector-database details on a first pass. You don't need a paid AI account: everything works offline.
+> ⏭️ **You can skip for now:** Lesson 04's vector-database details on a first pass. You don't need a paid AI account: everything works offline.
 >
-> **Comes after:** [Module 07: AI and Machine Learning Fundamentals](../07-ai-and-machine-learning/README.md) · **Leads to:** [Module 09: Enterprise Systems and Integration](../09-enterprise-integration/README.md)
+> 🧭 **Comes after:** [Module 07: AI and Machine Learning Fundamentals](../07-ai-and-machine-learning/README.md) · **Leads to:** [Module 09: Enterprise Systems and Integration](../09-enterprise-integration/README.md)
 >
-> **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
+> 🪜 **How to work through it:** read the lessons in order → try the exercises → do the build → do the break & fix → do the Field Track → tick the "Done when" list. New here? Read [Start Here](../../START-HERE.md) first.
 
 **Stage:** 3 — AI · **Time:** ~5 weeks at 15–20 h/week · **Builds:** C3 (Apply AI and data) · *Core specialization for AI FDE roles*
 **Prerequisites:** [Module 07](../07-ai-and-machine-learning/README.md). An Anthropic API key (or another provider's) is optional; every required exercise and test runs offline.

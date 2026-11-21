@@ -12,11 +12,17 @@ You don't need to read this repository from top to bottom. You only need to do *
 
 Every page ends with a **"Next:"** link. Follow it, and you'll never be lost.
 
+![Course map: 12 modules in 4 stages, from foundations to real-world ready, with what you build in each stage](assets/diagrams/learning-path.svg)
+
 ---
 
 ## What's inside every module
 
-Each module has the same parts, so once you've done one, you'll know your way around all of them. Here's what each part is, in plain words:
+Each module has the same parts, so once you've done one, you'll know your way around all of them.
+
+![How every module works: lessons, practice, apply it, check yourself](assets/diagrams/module-anatomy.svg)
+
+Here's what each part is, in plain words:
 
 | Part | What it is | Do I need it? |
 | --- | --- | --- |
