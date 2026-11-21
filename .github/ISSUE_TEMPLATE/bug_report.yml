@@ -1,0 +1,57 @@
+name: 🐛 Bug or Typo Report
+description: Report a broken link, code error, or typo in the handbook
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep the **FDE Handbook** accurate and production-grade!
+  - type: dropdown
+    id: module
+    attributes:
+      label: Affected Module or Section
+      description: Which part of the handbook contains the issue?
+      options:
+        - "Module 01: Introduction to FDE"
+        - "Module 02: Computing Foundations"
+        - "Module 03: Programming Fundamentals"
+        - "Module 04: Software Engineering"
+        - "Module 05: Databases & Data Engineering"
+        - "Module 06: Cloud & Infrastructure (AdmitFlow)"
+        - "Module 07: AI & Machine Learning Foundations"
+        - "Module 08: Generative AI Engineering (LLMs & RAG)"
+        - "Module 09: Enterprise Integration"
+        - "Module 10: Production Security & Reliability"
+        - "Module 11: Business & Client Engineering"
+        - "Module 12: Capstone & Career Strategy"
+        - "Interview Prep Suite"
+        - "AdmitFlow Reference Project"
+        - "Web App Reader UI / UX"
+        - "Other"
+    validations:
+      required: true
+  - type: input
+    id: file_path
+    attributes:
+      label: File Path or URL
+      description: Link to the page or local file (e.g., `modules/08-generative-ai-engineering/lessons/02-rag.md`)
+      placeholder: "e.g. modules/04-software-engineering/build.md"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the Problem
+      description: What is broken, incorrect, or unclear?
+      placeholder: "Explain the bug, broken link, or runtime error..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior / Suggested Correction
+      description: What should it say or do instead?
+      placeholder: "Suggested fix or correct code..."
+    validations:
+      required: false

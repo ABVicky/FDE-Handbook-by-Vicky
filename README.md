@@ -12,8 +12,10 @@
 [![Project](https://img.shields.io/badge/project-AdmitFlow-E53935)](projects/admitflow/README.md)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white)](modules/03-programming-fundamentals/README.md)
 [![AI](https://img.shields.io/badge/AI-RAG%20%C2%B7%20agents%20%C2%B7%20MCP-F3B552)](modules/08-generative-ai-engineering/README.md)
+[![License](https://img.shields.io/badge/license-Educational%20Use-218354)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**[📖 Read it online](https://abvicky.github.io/FDE-Handbook-by-Vicky/)** · **[🚀 Start here](START-HERE.md)** · **[🗺️ Full roadmap](ROADMAP.md)** · **[🎯 Interview prep](interview-prep/README.md)**
+**[📖 Read it online](https://abvicky.github.io/FDE-Handbook-by-Vicky/)** · **[🚀 Start here](START-HERE.md)** · **[🗺️ Full roadmap](ROADMAP.md)** · **[🎯 Interview prep](interview-prep/README.md)** · **[ℹ️ About & Author](ABOUT.md)**
 
 </div>
 
@@ -228,6 +230,7 @@ We built this learning environment to be fast, distraction-free, 100% offline-re
 
 - **Author:** **[Vicky Prasad Mahato](https://abvicky.in)** ([LinkedIn](https://www.linkedin.com/in/abvicky/) · [GitHub](https://github.com/ABVicky))
 - **Platform Architecture & Development:** **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**
+- **License & Terms:** See **[LICENSE](LICENSE)** for detailed personal learning and educational use terms.
 
 This guide, including its curriculum structure, code examples, case studies, interactive tools, and instructional designs, is provided for personal learning and educational use. Redistribution, commercial resale, republication, or training on these materials without express written authorization is prohibited. All product names, logos, and brands mentioned are property of their respective owners and are used solely for identification and educational reference.
 

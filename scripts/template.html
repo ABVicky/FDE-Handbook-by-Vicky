@@ -117,7 +117,7 @@
       --shadow-lg: 0 16px 32px -4px rgba(13, 18, 15, 0.14), 0 0 0 1px var(--border);
       --shadow-modal: 0 25px 60px -12px rgba(13, 18, 15, 0.35), 0 0 0 1px var(--border-strong);
       
-      --sidebar-width: 290px;
+      --sidebar-width: 300px;
       --toc-width: 240px;
       --header-height: 60px;
       --radius-sm: 6px;
@@ -2185,6 +2185,202 @@
       z-index: 3000;
     }
 
+
+    /* ---------- Sidebar (stages -> modules -> sections) ---------- */
+    #sidebar-nav-container { display: flex; flex-direction: column; gap: 2px; }
+    .side-progress { display: flex; align-items: center; gap: 14px; padding: 12px 14px; margin-bottom: 8px; border-radius: 14px; background: var(--bg-surface); border: 1px solid var(--border-color); }
+    .side-progress .ring { width: 52px; height: 52px; flex: none; position: relative; }
+    .side-progress .ring svg { width: 52px; height: 52px; transform: rotate(-90deg); }
+    .side-progress .ring circle { fill: none; stroke-width: 6; }
+    .side-progress .ring .track { stroke: var(--border-color); }
+    .side-progress .ring .val { stroke: var(--primary); stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+    .side-progress .ring span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 12.5px; font-weight: 700; color: var(--text-main); }
+    .side-progress b { display: block; font-size: 13.5px; color: var(--text-main); }
+    .side-progress small { color: var(--text-muted); font-size: 12px; }
+    .side-quick { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 6px; }
+    .side-link { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; color: var(--text-secondary); font-size: 13px; font-weight: 500; text-decoration: none; }
+    .side-link .si { width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; background: var(--bg-surface); border: 1px solid var(--border-color); flex: none; }
+    .side-link .si svg { width: 13px; height: 13px; }
+    .side-link:hover, .side-page:hover, .side-mod-link:hover { background: var(--bg-hover); color: var(--text-main); text-decoration: none; }
+    .side-link.active { background: var(--primary-subtle); color: var(--primary-text); font-weight: 700; }
+    .side-group-title { margin: 14px 10px 4px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .side-stage { margin-top: 2px; }
+    .side-stage-head { width: 100%; display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 0; background: none; border-radius: 10px; cursor: pointer;
+      font: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); text-align: left; }
+    .side-stage-head:hover { background: var(--bg-hover); color: var(--text-main); }
+    .side-stage-head .dot { width: 10px; height: 10px; border-radius: 4px; background: var(--primary); flex: none; }
+    .side-stage-head .label { flex: 1; }
+    .side-stage-head .count { font-variant-numeric: tabular-nums; font-weight: 600; letter-spacing: 0; text-transform: none; font-size: 12px; color: var(--text-muted); }
+    .chev { flex: none; transition: transform .2s ease; }
+    .side-stage.collapsed .side-stage-head .chev { transform: rotate(-90deg); }
+    .side-stage.collapsed .side-items { display: none; }
+    .side-items { display: flex; flex-direction: column; gap: 2px; padding: 2px 0 6px; }
+    .side-module { border-radius: 12px; }
+    .side-module.open { background: var(--bg-surface); border: 1px solid var(--border-color); padding-bottom: 6px; margin: 2px 0 4px; }
+    .side-mod-row { display: flex; align-items: stretch; }
+    .side-mod-link { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 10px; border-radius: 10px; color: var(--text-main); text-decoration: none; }
+    .side-mod-link.as-btn { border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
+    .side-mod-link .num { width: 30px; height: 26px; border-radius: 8px; flex: none; display: grid; place-items: center; margin-top: 1px;
+      font-size: 11.5px; font-weight: 800; font-variant-numeric: tabular-nums; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-secondary); }
+    .side-mod-link .num.icon svg { width: 14px; height: 14px; }
+    .side-module.here .side-mod-link .num { background: var(--primary); color: #fff; border-color: transparent; }
+    .side-mod-link .num.done { background: var(--success); color: #fff; border-color: transparent; }
+    .side-mod-link .t { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+    .side-mod-link .t b { font-size: 13.5px; font-weight: 650; line-height: 1.3; }
+    .side-mod-link .t small { font-size: 11.5px; color: var(--text-muted); line-height: 1.3; }
+    .side-mod-link.active { box-shadow: inset 3px 0 0 var(--primary); background: var(--primary-subtle); }
+    .side-mod-toggle { flex: none; width: 30px; border: 0; background: none; border-radius: 10px; color: var(--text-muted); cursor: pointer; display: grid; place-items: center; }
+    .side-mod-toggle:hover { background: var(--bg-hover); color: var(--text-main); }
+    .side-module:not(.open) .side-mod-toggle .chev { transform: rotate(-90deg); }
+    .side-mod-body { padding: 0 6px 0 8px; }
+    .side-sec-title { margin: 10px 8px 3px 42px; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .side-page { display: flex; align-items: flex-start; gap: 8px; padding: 5px 8px; margin-left: 4px; border-radius: 8px; color: var(--text-secondary); font-size: 13px; line-height: 1.35; text-decoration: none; }
+    .side-page .pnum, .side-page .picon { width: 26px; height: 20px; flex: none; display: grid; place-items: center; border-radius: 6px; margin-top: 0; font-size: 10.5px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+    .side-page .pnum { background: var(--bg-hover); }
+    .side-page .picon svg { width: 13px; height: 13px; }
+    .side-page .pnum.done { background: var(--success); color: #fff; }
+    .side-page .pt { min-width: 0; display: flex; flex-direction: column; }
+    .side-page .pt small { font-size: 11px; color: var(--text-muted); }
+    .side-page.active { background: var(--primary-subtle); color: var(--primary-text); font-weight: 700; }
+    .side-page.active .pnum { background: var(--primary); color: #fff; }
+    .side-page.extra { font-size: 12.5px; }
+    .side-extra-toggle { display: flex; align-items: center; gap: 8px; width: calc(100% - 4px); margin: 10px 0 2px 4px; padding: 6px 8px 6px 42px; border: 0; border-top: 1px dashed var(--border-color);
+      background: none; font: inherit; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; text-align: left; }
+    .side-extra-toggle span:first-child { flex: 1; }
+    .side-extra-toggle .cnt { font-weight: 600; letter-spacing: 0; }
+    .side-extra-toggle:not(.open) .chev { transform: rotate(-90deg); }
+    .side-extra-toggle:hover { color: var(--text-main); }
+    .side-empty { padding: 8px 10px; font-size: 13px; color: var(--text-muted); }
+
+    /* ---------- Calm header: breadcrumbs instead of tabs ---------- */
+    .header-center { background: none !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; flex: 1; min-width: 0; margin: 0 20px; justify-content: flex-start; }
+    .header-crumbs { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: 13.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; }
+    .header-crumbs a { color: var(--text-secondary); cursor: pointer; font-weight: 500; }
+    .header-crumbs a:hover { color: var(--primary); text-decoration: none; }
+    .header-crumbs span:last-child { color: var(--text-main); font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+    .header-crumbs svg { flex: none; opacity: .6; }
+    .doc-header { display: none !important; }
+
+    /* ---------- Sidebar with pinned author watermark (bottom-left) ---------- */
+    aside.app-sidebar { overflow: hidden !important; padding-bottom: 0 !important; gap: 12px !important; }
+    #sidebar-nav-container { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-bottom: 12px; margin: 0 -4px; padding-left: 4px; padding-right: 4px; }
+    .side-foot { flex: none; display: flex; align-items: center; gap: 10px; margin: 0 -12px; padding: 12px 14px; border-top: 1px solid var(--border-color);
+      background: var(--bg-sidebar); font-size: 11.5px; line-height: 1.5; color: var(--text-muted); }
+    .side-foot a { color: var(--text-secondary); font-weight: 600; }
+    .side-foot a:hover { color: var(--primary); text-decoration: none; }
+    .avatar { position: relative; overflow: hidden; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none;
+      font-weight: 800; font-size: 13px; color: var(--primary); background: var(--primary-subtle); border: 1.5px solid var(--primary); }
+    .avatar img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .avatar.sm { width: 34px; height: 34px; font-size: 11px; }
+    .side-quick { grid-template-columns: 1fr 1fr; }
+
+    /* ---------- Page title card ---------- */
+    .page-hero { margin: 0 0 28px; padding: 22px 24px; border-radius: 18px; border: 1px solid var(--border-color);
+      background: linear-gradient(135deg, var(--primary-subtle), transparent 60%), var(--bg-surface); }
+    .ph-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+    .ph-chip { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--primary-text); background: var(--primary-subtle);
+      border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 999px; }
+    .ph-pos { font-size: 12.5px; font-weight: 600; color: var(--text-muted); }
+    .ph-main { display: flex; gap: 16px; align-items: center; }
+    .ph-icon { position: relative; width: 60px; height: 60px; flex: none; border-radius: 16px; display: grid; place-items: center; color: #fff;
+      background: linear-gradient(135deg, #E53935, #9E1915); box-shadow: 0 8px 22px var(--primary-glow); }
+    .ph-icon svg { width: 26px; height: 26px; }
+    .ph-icon span { position: absolute; right: -6px; bottom: -6px; font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 8px; background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-color); }
+    .page-hero h1 { margin: 0 !important; padding: 0 !important; border: 0 !important; font-size: clamp(24px, 3.2vw, 32px) !important; line-height: 1.2 !important; }
+    .ph-num { display: inline-block; margin-right: 10px; color: var(--primary); font-variant-numeric: tabular-nums; }
+    .page-hero p { margin: 6px 0 0 !important; color: var(--text-secondary); font-size: 15px; line-height: 1.5; }
+    .ph-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .ph-chips span { font-size: 12.5px; font-weight: 600; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-secondary); }
+    .ph-chips span.ok { color: var(--success); border-color: var(--success); }
+
+    /* ---------- Finished this page? ---------- */
+    .finish-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 40px 0 18px; padding: 18px 20px;
+      border-radius: 16px; border: 1.5px dashed var(--border-color); background: var(--bg-surface); }
+    .finish-card.is-done { border-style: solid; border-color: var(--success); }
+    .fc-text b { display: block; font-size: 16px; color: var(--text-main); }
+    .fc-text small { color: var(--text-muted); font-size: 13px; }
+    .fc-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .fc-primary, .fc-secondary, .hp-btn { font: inherit; font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 11px; cursor: pointer; border: 1px solid transparent; }
+    .fc-primary, .hp-btn.primary { background: var(--primary); color: #fff; }
+    .fc-primary:hover, .hp-btn.primary:hover { background: var(--primary-hover); }
+    .fc-secondary, .hp-btn.ghost { background: transparent; color: var(--text-main); border-color: var(--border-color); }
+    .fc-secondary:hover, .hp-btn.ghost:hover { background: var(--bg-hover); }
+
+    /* ---------- Home page ---------- */
+    .home-view { width: 100%; max-width: 1040px; }
+    .hp-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: center; padding: 44px 44px; border-radius: 26px; color: #FBF9F4; overflow: hidden; position: relative;
+      background: radial-gradient(600px 300px at 90% 0%, rgba(229,57,53,.45), transparent 70%), radial-gradient(500px 300px at 0% 100%, rgba(247,174,46,.22), transparent 70%), linear-gradient(135deg, #26191A, #141216 60%, #0E0F13); }
+    .hp-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #F7AE2E; border: 1px solid rgba(247,174,46,.45);
+      background: rgba(247,174,46,.1); padding: 6px 12px; border-radius: 999px; }
+    .hp-hero h1 { margin: 18px 0 12px; font-size: clamp(36px, 5vw, 56px); line-height: 1.02; letter-spacing: -.03em; color: #fff; border: 0; padding: 0; }
+    .hp-hero h1 span { display: block; background: linear-gradient(90deg, #FF6B5F, #F7AE2E, #FFD98A); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hp-hero p { font-size: 16.5px; line-height: 1.6; color: #E6E1DC; max-width: 520px; margin: 0; }
+    .hp-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 24px 0 22px; }
+    .hp-hero .hp-btn.ghost { color: #fff; border-color: rgba(255,255,255,.3); }
+    .hp-hero .hp-btn.ghost:hover { background: rgba(255,255,255,.08); }
+    .hp-by { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #CFC8C4; line-height: 1.5; }
+    .hp-by a { color: #fff; }
+    .hp-hero-art { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+    .hp-term { width: 100%; max-width: 340px; background: #111014; border: 1px solid rgba(229,57,53,.6); border-radius: 16px; padding: 14px 18px 18px; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+    .hp-term .dots { display: flex; gap: 6px; align-items: center; margin-bottom: 14px; }
+    .hp-term .dots i { width: 10px; height: 10px; border-radius: 50%; background: #FF6B5F; }
+    .hp-term .dots i:nth-child(2) { background: #F7AE2E; } .hp-term .dots i:nth-child(3) { background: #3DD68C; }
+    .hp-term .dots em { margin-left: auto; font-style: normal; font-size: 11.5px; color: #8E8A90; font-family: 'JetBrains Mono', monospace; }
+    .hp-term code { display: block; background: none; border: 0; padding: 4px 0; color: #E4E0DD; font-size: 14px; font-family: 'JetBrains Mono', monospace; }
+    .hp-term b { font-weight: 600; } .c1 { color: #FF6B5F; } .c2 { color: #F7AE2E; } .c3 { color: #5AA2F5; } .c4 { color: #3DD68C; }
+    .hp-done { background: #13201A; border: 1px solid rgba(61,214,140,.6); color: #fff; font-weight: 700; font-size: 14px; padding: 12px 16px; border-radius: 14px; }
+    .hp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; }
+    .hp-stats div { padding: 18px; border-radius: 16px; border: 1px solid var(--border-color); background: var(--bg-surface); }
+    .hp-stats b { display: block; font-size: 28px; font-weight: 800; color: var(--primary); letter-spacing: -.02em; }
+    .hp-stats span { font-size: 13px; color: var(--text-muted); }
+    .hp-next { display: flex; align-items: center; gap: 18px; padding: 20px 22px; border-radius: 18px; border: 1.5px solid var(--primary); background: linear-gradient(135deg, var(--primary-subtle), transparent 70%), var(--bg-surface); }
+    .hp-next-icon { width: 52px; height: 52px; flex: none; border-radius: 14px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #E53935, #9E1915); }
+    .hp-next-icon svg { width: 24px; height: 24px; }
+    .hp-next-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .hp-next-text small { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--primary-text); }
+    .hp-next-text b { font-size: 17px; color: var(--text-main); }
+    .hp-next-text span { font-size: 13.5px; color: var(--text-muted); }
+    .hp-h2 { margin: 44px 0 6px; font-size: 24px; letter-spacing: -.01em; color: var(--text-main); border: 0; padding: 0; }
+    .hp-lead { margin: 0 0 16px; color: var(--text-muted); font-size: 15px; }
+    .hp-stages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .hp-stage { padding: 18px; border-radius: 18px; border: 1px solid var(--border-color); background: var(--bg-surface); }
+    .hp-stage-head { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+    .hp-stage-num { width: 34px; height: 34px; flex: none; border-radius: 10px; display: grid; place-items: center; font-weight: 800; color: #fff; background: var(--primary); }
+    .hp-stage-head b { display: block; font-size: 16px; color: var(--text-main); }
+    .hp-stage-head small { color: var(--text-muted); font-size: 13px; }
+    .hp-stage ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+    .hp-stage li a { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 10px; cursor: pointer; color: var(--text-main); text-decoration: none; }
+    .hp-stage li a:hover { background: var(--bg-hover); }
+    .hp-stage .n { width: 30px; height: 26px; flex: none; border-radius: 8px; display: grid; place-items: center; font-size: 11.5px; font-weight: 800; border: 1px solid var(--border-color); color: var(--text-secondary); }
+    .hp-stage .n.done { background: var(--success); color: #fff; border-color: transparent; }
+    .hp-stage .t { display: flex; flex-direction: column; font-size: 14px; font-weight: 600; line-height: 1.3; }
+    .hp-stage .t small { font-weight: 500; font-size: 12px; color: var(--text-muted); }
+    .hp-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .hp-steps div { padding: 16px; border-radius: 16px; border: 1px solid var(--border-color); background: var(--bg-surface); display: flex; flex-direction: column; gap: 6px; }
+    .hp-steps span { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-weight: 800; font-size: 13px; color: var(--primary-text); background: var(--primary-subtle); }
+    .hp-steps b { font-size: 15px; color: var(--text-main); }
+    .hp-steps small { font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+    .hp-story { display: flex; align-items: center; gap: 18px; margin: 28px 0 10px; padding: 22px; border-radius: 18px; border: 1px solid var(--border-color); background: var(--bg-surface); }
+    .hp-story > div { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .hp-story small { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--primary-text); }
+    .hp-story b { font-size: 16px; color: var(--text-main); }
+    .hp-story span { font-size: 14px; color: var(--text-muted); }
+    @media (max-width: 1100px) {
+      .hp-hero { grid-template-columns: 1fr; padding: 32px 28px; }
+      .hp-hero-art { display: none; }
+      .hp-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .header-center { display: none !important; }
+      .hp-stats { grid-template-columns: repeat(2, 1fr); }
+      .hp-stages, .hp-steps { grid-template-columns: 1fr; }
+      .hp-next, .hp-story { flex-direction: column; align-items: flex-start; }
+      .page-hero { padding: 18px; }
+      .ph-icon { width: 48px; height: 48px; border-radius: 13px; }
+      .finish-card { flex-direction: column; align-items: stretch; }
+      .fc-actions { flex-direction: column-reverse; }
+      .fc-actions button { width: 100%; }
+    }
     /* Responsive Mobile styles */
     .nav-tab { white-space: nowrap; }
     @media (max-width: 1180px) {
@@ -2257,6 +2453,36 @@
         text-align: left;
       }
     }
+
+    /* ---------- Small screens: final responsive polish ---------- */
+    @media (max-width: 640px) {
+      header.app-header { padding: 0 12px; gap: 8px; }
+      .header-left { gap: 8px; min-width: 0; }
+      .brand-logo { font-size: 15px; }
+      main.app-content { padding: 18px 16px 48px !important; }
+      .roadmap-view-hero { padding: 8px 4px 24px; }
+      .roadmap-view-hero h1 { font-size: 26px; }
+      .admitflow-hero h2 { font-size: 24px; }
+      .about-hero h1 { font-size: 26px; }
+      #readiness-title { font-size: 19px; }
+      .pipeline-visual-container { padding: 16px; }
+      .pipeline-flow { flex-direction: column; align-items: stretch; min-width: 0; gap: 8px; }
+      .pipeline-connector { transform: rotate(90deg); animation: none; opacity: .7; }
+      .hp-hero { padding: 26px 20px; border-radius: 20px; }
+      .hp-hero h1 { font-size: 34px; }
+      .hp-hero p { font-size: 15px; }
+      .hp-actions .hp-btn { flex: 1 1 auto; }
+      .hp-stats b { font-size: 24px; }
+      .hp-stats div { padding: 14px; }
+      .page-hero h1 { font-size: 22px !important; }
+      .ph-main { gap: 12px; align-items: flex-start; }
+      .markdown-body table { font-size: 13.5px; }
+    }
+    @media (max-width: 360px) {
+      .brand-logo > span { display: none; }
+      .hp-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .side-quick { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -2273,7 +2499,7 @@
       <button class="btn-mobile-menu" id="btn-toggle-sidebar" aria-label="Toggle Sidebar">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
-      <div class="brand-logo" onclick="switchView('reader'); loadDoc('README.md');">
+      <div class="brand-logo" onclick="switchView('home');" title="Home">
         <div class="brand-icon">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 64 64"><path d="M14 22l10 10-10 10" stroke-width="5.5"/><path d="M43 47c-6.5-7-10-12-10-17a10 10 0 0 1 20 0c0 5-3.5 10-10 17z" stroke-width="5.5"/><circle cx="43" cy="30" r="3.6" fill="#F3B552" stroke="none"/></svg>
         </div>
@@ -2283,26 +2509,7 @@
 
     <!-- View Switcher Tabs -->
     <div class="header-center">
-      <button class="nav-tab active" id="tab-reader" onclick="switchView('reader')">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-        <span>Reader</span>
-      </button>
-      <button class="nav-tab" id="tab-roadmap" onclick="switchView('roadmap')">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-        <span>Curriculum Map</span>
-      </button>
-      <button class="nav-tab" id="tab-admitflow" onclick="switchView('admitflow')">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <span>AdmitFlow Hub</span>
-      </button>
-      <button class="nav-tab" id="tab-progress" onclick="switchView('progress')">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        <span>Assessment</span>
-      </button>
-      <button class="nav-tab" id="tab-about" onclick="switchView('about')">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        <span>About</span>
-      </button>
+      <nav class="header-crumbs" id="header-crumbs" aria-label="You are here"></nav>
     </div>
 
     <!-- Actions -->
@@ -2335,27 +2542,26 @@
 
     <!-- Sidebar Navigation -->
     <aside class="app-sidebar" id="app-sidebar">
-      <div class="mobile-views" aria-label="Sections">
-        <button type="button" onclick="switchView('reader'); closeMobileSidebar();">📖 Reader</button>
-        <button type="button" onclick="switchView('roadmap'); closeMobileSidebar();">🗺️ Curriculum map</button>
-        <button type="button" onclick="switchView('admitflow'); closeMobileSidebar();">🏗️ AdmitFlow hub</button>
-        <button type="button" onclick="switchView('progress'); closeMobileSidebar();">🎯 My progress</button>
-        <button type="button" onclick="switchView('about'); closeMobileSidebar();">ℹ️ About</button>
-      </div>
       <div class="sidebar-filter">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="sidebar-filter-input" placeholder="Filter documents..." oninput="filterSidebar(this.value)">
+        <input type="text" id="sidebar-filter-input" placeholder="Find a lesson or topic…" oninput="filterSidebar(this.value)">
       </div>
 
       <nav id="sidebar-nav-container">
         <!-- Rendered dynamically from nav structure -->
       </nav>
+      <div class="side-foot">
+        <span class="avatar sm"><img src="https://avatars.githubusercontent.com/u/103195071?v=4" alt="Vicky Prasad Mahato" referrerpolicy="no-referrer" onerror="this.remove()"><span aria-hidden="true">V</span></span>
+        <span>Author: <a href="https://abvicky.in" target="_blank" rel="noopener"><strong>Vicky</strong></a><br>Platform built by <a href="https://www.manikarnikatechnologies.in/" target="_blank" rel="noopener"><strong>Manikarnika Technologies</strong></a><br>© 2026 All rights reserved.</span>
+      </div>
     </aside>
 
     <!-- Main Content -->
     <main class="app-content">
 
       <!-- View 1: Reader View -->
+      <div class="view-container home-view" id="view-home" style="display:none;"></div>
+
       <div class="reader-container" id="view-reader">
         <div class="doc-header">
           <div class="doc-breadcrumbs" id="doc-breadcrumbs"></div>
@@ -2382,6 +2588,15 @@
         <article class="markdown-body" id="markdown-output">
           <!-- Rendered document markdown content -->
         </article>
+
+        <!-- Finished this page? -->
+        <div class="finish-card" id="finish-card">
+          <div class="fc-text"><b id="fc-title">Finished this page?</b><small id="fc-sub">Mark it done and move on. Your progress is saved in this browser.</small></div>
+          <div class="fc-actions">
+            <button type="button" class="fc-secondary" id="fc-mark" onclick="toggleDocCompleted(event)">Mark as done</button>
+            <button type="button" class="fc-primary" id="fc-next" onclick="finishAndNext(event)">Done, next page →</button>
+          </div>
+        </div>
 
         <!-- Document Footer Navigation -->
         <div class="doc-nav-footer" id="doc-nav-footer">
@@ -2996,7 +3211,7 @@ flowchart LR
     const DOCS_DATA = /*{{DOCS_JSON}}*/{};
     const SYLLABI_DATA = /*{{SYLLABI_JSON}}*/{};
     const LEADS_DATA = /*{{LEADS_JSON}}*/[];
-    const NAV_STRUCTURE = /*{{NAV_JSON}}*/[];
+    const NAV_STRUCTURE = /*{{NAV_JSON}}*/{};
 
     // Modern SVG Icons Dictionary - Sharpened 2.2px Stroke
     const ICONS = {
@@ -3029,6 +3244,7 @@ flowchart LR
       zap: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
       target: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
       sparkles: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 001.3 1.3L21 12l-5.8 1.9a2 2 0 00-1.3 1.3L12 21l-1.9-5.8a2 2 0 00-1.3-1.3L3 12l5.8-1.9a2 2 0 001.3-1.3L12 3z"/></svg>`,
+      chevron: `<svg class="chev" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>`,
       check: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`,
       info: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
       user: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`
@@ -3215,20 +3431,7 @@ flowchart LR
             loadDoc('README.md');
           }
         } else {
-          loadDoc('README.md');
-          let last = null;
-          try { last = localStorage.getItem('fde_last_doc'); } catch (_) {}
-          if (last && last !== 'README.md' && DOCS_DATA[last]) {
-            const out = document.getElementById('markdown-output');
-            if (out) {
-              const bar = document.createElement('div');
-              bar.className = 'resume-bar';
-              bar.innerHTML = `<span>Welcome back. You were reading <strong></strong>.</span><button type="button">Continue →</button>`;
-              bar.querySelector('strong').textContent = DOCS_DATA[last].title;
-              bar.querySelector('button').onclick = () => loadDoc(last);
-              out.prepend(bar);
-            }
-          }
+          switchView('home');
         }
       } catch (e) {
         console.error('Doc load error:', e);
@@ -3328,7 +3531,7 @@ flowchart LR
     // Browser back/forward and typed links: follow the address bar
     window.addEventListener('hashchange', () => {
       const hash = decodeURIComponent(window.location.hash.replace(/^#\/?/, ''));
-      if (!hash) { loadDoc('README.md'); return; }
+      if (!hash) { switchView('home'); return; }
       if (hash.startsWith('view=')) {
         const v = hash.replace('view=', '');
         if (v !== currentView) switchView(v);
@@ -3343,7 +3546,7 @@ flowchart LR
     // Switch between Reader, Roadmap, AdmitFlow, Progress, and About views
     function switchView(viewName) {
       currentView = viewName;
-      ['reader', 'roadmap', 'admitflow', 'progress', 'about'].forEach(v => {
+      ['home', 'reader', 'roadmap', 'admitflow', 'progress', 'about'].forEach(v => {
         const el = document.getElementById('view-' + v);
         const tab = document.getElementById('tab-' + v);
         const toc = document.getElementById('app-toc');
@@ -3355,6 +3558,10 @@ flowchart LR
 
       if (viewName !== 'reader') {
         window.location.hash = 'view=' + viewName;
+        const names = { home: 'Home', roadmap: 'Course map', admitflow: 'AdmitFlow hub', progress: 'My progress', about: 'About' };
+        setHeaderCrumbs(viewName === 'home' ? `<span>Home</span>` : `<a onclick="switchView('home')">Home</a>${CRUMB_SEP}<span>${names[viewName] || viewName}</span>`);
+        if (viewName === 'home') renderHome();
+        try { renderSidebarNavKeepScroll(); } catch (_) {}
       }
 
       if (viewName === 'roadmap' || viewName === 'admitflow') {
@@ -3370,121 +3577,338 @@ flowchart LR
     }
 
     // Render Sidebar Navigation with Contextual Icons
-    const openGroups = new Set();
+    // ---------- Sidebar: stages -> modules -> headed sections (inspired by the Prompt Engineering reader) ----------
+    const NAV = NAV_STRUCTURE;
+    const escHtml = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const loadSet = (k) => { try { return new Set(JSON.parse(localStorage.getItem(k) || '[]')); } catch (_) { return new Set(); } };
+    const saveSet = (k, set) => { try { localStorage.setItem(k, JSON.stringify([...set])); } catch (_) {} };
+    const collapsedStages = loadSet('fde_side_collapsed');
+    const openModules = new Set();
+    const openExtras = new Set();
+
+    // Every page in reading order, with where it lives. Used by the sidebar, Next/Previous and progress.
+    const NAV_INDEX = (() => {
+      const flat = [], where = {};
+      const add = (item, ctx, ownerId, inPath, info = {}) => {
+        where[item.path] = { ctx, ownerId, extra: !!item.extra, title: item.title, num: item.num, ...info };
+        if (inPath && !item.extra) flat.push({ ...item, ctx, ownerId });
+      };
+      (NAV.quick || []).filter(q => q.path === 'README.md' || q.path === 'START-HERE.md').forEach(q => add(q, 'Getting started', 'quick', true));
+      (NAV.stages || []).forEach(st => st.modules.forEach(m => {
+        add({ path: m.path, title: 'Module overview' }, `Module ${m.num}`, m.id, true, { stage: st, module: m, section: 'Module overview' });
+        m.sections.forEach(sec => sec.items.forEach((it, k) => add(it, `Module ${m.num}`, m.id, !sec.extra,
+          { stage: st, module: m, section: sec.title, pos: k + 1, of: sec.items.length })));
+      }));
+      (NAV.quick || []).filter(q => q.path !== 'README.md' && q.path !== 'START-HERE.md').forEach(q => add(q, 'Handbook', 'quick', true));
+      (NAV.more || []).forEach(c => c.sections.forEach(sec => sec.items.forEach(it => add(it, c.title, c.id, !sec.extra, { collection: c, section: sec.title }))));
+      return { flat, where };
+    })();
+    const TRACKED = NAV_INDEX.flat.filter(i => /^modules\//.test(i.path)).map(i => i.path);
+
+    function moduleDone(m) {
+      const pages = [m.path];
+      m.sections.forEach(sec => { if (!sec.extra) sec.items.forEach(i => pages.push(i.path)); });
+      return [pages.filter(p => completedDocs.includes(p)).length, pages.length];
+    }
+
+    function pageLink(it, showCtx) {
+      const done = completedDocs.includes(it.path);
+      const badge = done ? `<span class="pnum done">✓</span>`
+        : it.num ? `<span class="pnum">${escHtml(it.num)}</span>`
+        : `<span class="picon">${getIconSvg(it.icon)}</span>`;
+      const ctx = showCtx && NAV_INDEX.where[it.path] ? `<small>${escHtml(NAV_INDEX.where[it.path].ctx)}</small>` : '';
+      return `<a class="side-page${it.path === currentDocPath ? ' active' : ''}${it.extra ? ' extra' : ''}" data-path="${escHtml(it.path)}" href="#${escHtml(it.path)}">${badge}<span class="pt">${escHtml(it.title)}${ctx}</span></a>`;
+    }
+
+    function sectionsHtml(ownerId, sections) {
+      return sections.map((sec, k) => {
+        const key = ownerId + ':' + k;
+        if (sec.extra) {
+          const open = openExtras.has(key) || sec.items.some(i => i.path === currentDocPath);
+          return `<button type="button" class="side-extra-toggle${open ? ' open' : ''}" data-extra="${key}" aria-expanded="${open}">`
+            + `<span>${escHtml(sec.title)}</span><span class="cnt">${sec.items.length}</span>${ICONS.chevron || ''}</button>`
+            + `<div class="side-extra-body"${open ? '' : ' hidden'}>${sec.items.map(i => pageLink(i)).join('')}</div>`;
+        }
+        return `<div class="side-sec-title">${escHtml(sec.title)}</div>` + sec.items.map(i => pageLink(i)).join('');
+      }).join('');
+    }
+
     function renderSidebarNav(filterText = '') {
       const container = document.getElementById('sidebar-nav-container');
-      container.innerHTML = '';
+      if (!container) return;
       const filter = filterText.toLowerCase().trim();
+      const here = NAV_INDEX.where[currentDocPath] || {};
+      let html = '';
 
-      NAV_STRUCTURE.forEach(sec => {
-        let hasMatches = false;
-        const secEl = document.createElement('div');
-        secEl.className = 'nav-section';
-
-        const titleEl = document.createElement('div');
-        titleEl.className = 'nav-section-title';
-        titleEl.innerHTML = `${getIconSvg(sec.icon)} <span>${sec.title}</span>`;
-        secEl.appendChild(titleEl);
-
-        sec.items.forEach(item => {
-          if (item.type === 'group') {
-            const groupEl = document.createElement('div');
-            groupEl.className = 'nav-subgroup';
-
-            const headerEl = document.createElement('div');
-            headerEl.className = 'nav-subgroup-header';
-            headerEl.innerHTML = `
-              <div style="display:flex; align-items:center; gap:8px;">
-                ${getIconSvg(item.icon || 'book')}
-                <span>${item.title}</span>
-              </div>
-              <svg class="nav-subgroup-chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-            `;
-
-            const itemsContainer = document.createElement('div');
-            itemsContainer.className = 'nav-subgroup-items';
-
-            // Only the module you're in is open; the rest stay folded so the list stays short.
-            const holdsCurrent = item.items.some(si => si.path === currentDocPath);
-            const startOpen = !!filter || holdsCurrent || openGroups.has(item.title);
-            if (!startOpen) {
-              itemsContainer.classList.add('collapsed');
-              headerEl.classList.add('collapsed');
-            }
-            headerEl.setAttribute('role', 'button');
-            headerEl.setAttribute('tabindex', '0');
-            headerEl.setAttribute('aria-expanded', String(startOpen));
-            headerEl.onclick = () => {
-              const nowCollapsed = itemsContainer.classList.toggle('collapsed');
-              headerEl.classList.toggle('collapsed', nowCollapsed);
-              headerEl.setAttribute('aria-expanded', String(!nowCollapsed));
-              if (nowCollapsed) openGroups.delete(item.title); else openGroups.add(item.title);
-            };
-            headerEl.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); headerEl.onclick(); } };
-
-            let groupMatches = false;
-            item.items.forEach(subItem => {
-              if (subItem.type === 'label') {
-                if (!filter) {
-                  const lab = document.createElement('div');
-                  lab.className = 'nav-extra-label';
-                  lab.textContent = subItem.title;
-                  itemsContainer.appendChild(lab);
-                }
-                return;
-              }
-              if (!filter || subItem.title.toLowerCase().includes(filter) || subItem.path.toLowerCase().includes(filter)) {
-                groupMatches = true;
-                hasMatches = true;
-                itemsContainer.appendChild(createNavLink(subItem));
-              }
-            });
-
-            if (filter && !groupMatches) return;
-            groupEl.appendChild(headerEl);
-            groupEl.appendChild(itemsContainer);
-            secEl.appendChild(groupEl);
-          } else {
-            if (!filter || item.title.toLowerCase().includes(filter) || item.path.toLowerCase().includes(filter)) {
-              hasMatches = true;
-              secEl.appendChild(createNavLink(item));
-            }
-          }
+      if (filter) {
+        const hits = [];
+        Object.keys(NAV_INDEX.where).forEach(path => {
+          const d = DOCS_DATA[path];
+          const title = (NAV_INDEX.flat.find(f => f.path === path) || {}).title || (d && d.title) || path;
+          if ((title + ' ' + path + ' ' + NAV_INDEX.where[path].ctx).toLowerCase().includes(filter)) hits.push({ path, title, icon: 'fileText' });
         });
+        html = `<div class="side-sec-title">${hits.length} match${hits.length === 1 ? '' : 'es'}</div>`
+          + (hits.slice(0, 80).map(h => pageLink(h, true)).join('') || `<p class="side-empty">Nothing matches. Try a shorter word.</p>`);
+        container.innerHTML = html;
+        return;
+      }
 
-        if (!filter || hasMatches) {
-          container.appendChild(secEl);
-        }
+      // Progress card
+      const doneN = TRACKED.filter(p => completedDocs.includes(p)).length;
+      const pct = TRACKED.length ? Math.round((100 * doneN) / TRACKED.length) : 0;
+      const C = 2 * Math.PI * 22;
+      const msg = doneN === 0 ? 'Start with Module 01' : (doneN === TRACKED.length ? 'All done! 🎉' : 'Keep going, nice work');
+      html += `<div class="side-progress"><div class="ring"><svg viewBox="0 0 52 52" aria-hidden="true"><circle class="track" cx="26" cy="26" r="22"/>`
+        + `<circle class="val" cx="26" cy="26" r="22" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C * (1 - pct / 100)).toFixed(1)}"/></svg><span>${pct}%</span></div>`
+        + `<div><b>${doneN} of ${TRACKED.length} pages done</b><small>${msg}</small></div></div>`;
+
+      // Quick links: the home page, the guide, and the four tools
+      const QUICK = [
+        { view: 'home', title: 'Home', icon: 'bookOpen' }, { path: 'START-HERE.md', title: 'Start here', icon: 'rocket' },
+        { view: 'roadmap', title: 'Course map', icon: 'map' }, { view: 'progress', title: 'My progress', icon: 'target' },
+        { view: 'admitflow', title: 'AdmitFlow', icon: 'cpu' }, { path: 'GLOSSARY.md', title: 'Glossary', icon: 'bookmark' },
+      ];
+      html += `<div class="side-quick">` + QUICK.map(q => {
+        const active = q.view ? currentView === q.view : (currentView === 'reader' && q.path === currentDocPath);
+        const attr = q.view ? `data-view="${q.view}" href="#view=${q.view}"` : `data-path="${escHtml(q.path)}" href="#${escHtml(q.path)}"`;
+        return `<a class="side-link${active ? ' active' : ''}" ${attr}><span class="si">${getIconSvg(q.icon)}</span>${escHtml(q.title)}</a>`;
+      }).join('') + `</div>`;
+
+      // Stages and modules
+      html += `<div class="side-group-title">The course</div>`;
+      (NAV.stages || []).forEach(st => {
+        const holds = st.modules.some(m => m.id === here.ownerId);
+        const collapsed = collapsedStages.has(st.id) && !holds;
+        let d = 0, t = 0;
+        st.modules.forEach(m => { const [a, b] = moduleDone(m); d += a; t += b; });
+        html += `<section class="side-stage${collapsed ? ' collapsed' : ''}" data-stage="${st.id}">`
+          + `<button type="button" class="side-stage-head" aria-expanded="${!collapsed}" title="${escHtml(st.desc)}"><span class="dot"></span>`
+          + `<span class="label">${escHtml(st.label)} · ${escHtml(st.name)}</span><span class="count">${d}/${t}</span>${ICONS.chevron || ''}</button>`
+          + `<div class="side-items">`;
+        st.modules.forEach(m => {
+          const isHere = here.ownerId === m.id;
+          const open = (isHere && !openModules.has('closed:' + m.id)) || openModules.has(m.id);
+          const [md, mt] = moduleDone(m);
+          html += `<div class="side-module${open ? ' open' : ''}${isHere ? ' here' : ''}" data-module="${m.id}">`
+            + `<div class="side-mod-row"><a class="side-mod-link${m.path === currentDocPath ? ' active' : ''}" data-path="${escHtml(m.path)}" href="#${escHtml(m.path)}">`
+            + `<span class="num${md === mt ? ' done' : ''}">${md === mt ? '✓' : m.num}</span>`
+            + `<span class="t"><b>${escHtml(m.title)}</b><small>${escHtml(m.meta)}${md ? ` · ${md}/${mt} done` : ''}</small></span></a>`
+            + `<button type="button" class="side-mod-toggle" data-toggle="${m.id}" aria-expanded="${open}" aria-label="${open ? 'Hide' : 'Show'} the pages in Module ${m.num}">${ICONS.chevron || ''}</button></div>`
+            + (open ? `<div class="side-mod-body">${sectionsHtml(m.id, m.sections)}</div>` : '')
+            + `</div>`;
+        });
+        html += `</div></section>`;
       });
+
+      // Everything else
+      html += `<div class="side-group-title">More</div>`;
+      (NAV.more || []).forEach(c => {
+        const isHere = here.ownerId === c.id;
+        const open = (isHere && !openModules.has('closed:' + c.id)) || openModules.has(c.id);
+        html += `<div class="side-module side-more${open ? ' open' : ''}${isHere ? ' here' : ''}" data-module="${c.id}">`
+          + `<div class="side-mod-row"><button type="button" class="side-mod-link as-btn" data-toggle="${c.id}" aria-expanded="${open}">`
+          + `<span class="num icon">${getIconSvg(c.icon)}</span><span class="t"><b>${escHtml(c.title)}</b><small>${escHtml(c.desc)}</small></span></button>`
+          + `<button type="button" class="side-mod-toggle" data-toggle="${c.id}" aria-expanded="${open}" aria-label="${open ? 'Hide' : 'Show'} ${escHtml(c.title)}">${ICONS.chevron || ''}</button></div>`
+          + (open ? `<div class="side-mod-body">${sectionsHtml(c.id, c.sections)}</div>` : '')
+          + `</div>`;
+      });
+
+      container.innerHTML = html;
     }
 
-    function createNavLink(item) {
-      const a = document.createElement('a');
-      a.className = 'nav-item-link' + (item.extra ? ' extra' : '') + (item.path === currentDocPath ? ' active' : '');
-      a.setAttribute('data-path', item.path);
-      
-      const isCompleted = completedDocs.includes(item.path);
-      const iconSvg = isCompleted
-        ? `<span style="color:var(--success);" title="Completed">${ICONS.check}</span>`
-        : getIconSvg(item.icon);
-
-      a.innerHTML = `
-        <span class="nav-item-title">
-          <span class="nav-item-icon">${iconSvg}</span>
-          <span>${item.title}</span>
-        </span>
-        ${item.badge ? `<span class="nav-badge ${item.badge.toLowerCase()}">${item.badge}</span>` : ''}
-      `;
-
-      a.onclick = (e) => {
+    // One click handler for the whole sidebar
+    document.addEventListener('click', (e) => {
+      const nav = e.target.closest('#sidebar-nav-container');
+      if (!nav) return;
+      const viewLink = e.target.closest('a[data-view]');
+      if (viewLink) {
         e.preventDefault();
-        loadDoc(item.path);
-        if (window.innerWidth < 768) {
-          document.getElementById('app-sidebar').classList.remove('open');
-        }
-      };
-      return a;
+        switchView(viewLink.getAttribute('data-view'));
+        closeMobileSidebar();
+        return;
+      }
+      const link = e.target.closest('a[data-path]');
+      if (link) {
+        e.preventDefault();
+        loadDoc(link.getAttribute('data-path'));
+        closeMobileSidebar();
+        return;
+      }
+      const stageHead = e.target.closest('.side-stage-head');
+      if (stageHead) {
+        const sec = stageHead.closest('.side-stage');
+        const id = sec.getAttribute('data-stage');
+        const nowCollapsed = sec.classList.toggle('collapsed');
+        stageHead.setAttribute('aria-expanded', String(!nowCollapsed));
+        if (nowCollapsed) collapsedStages.add(id); else collapsedStages.delete(id);
+        saveSet('fde_side_collapsed', collapsedStages);
+        return;
+      }
+      const tog = e.target.closest('[data-toggle]');
+      if (tog) {
+        const id = tog.getAttribute('data-toggle');
+        const box = tog.closest('.side-module');
+        if (box && box.classList.contains('open')) { openModules.delete(id); if (box.classList.contains('here')) openModules.add('closed:' + id); }
+        else { openModules.add(id); openModules.delete('closed:' + id); }
+        renderSidebarNavKeepScroll();
+        return;
+      }
+      const ex = e.target.closest('[data-extra]');
+      if (ex) {
+        const key = ex.getAttribute('data-extra');
+        if (openExtras.has(key)) openExtras.delete(key); else openExtras.add(key);
+        ex.classList.toggle('open');
+        ex.setAttribute('aria-expanded', String(ex.classList.contains('open')));
+        const body = ex.nextElementSibling;
+        if (body) body.hidden = !body.hidden;
+      }
+    });
+
+    function renderSidebarNavKeepScroll() {
+      const sb = document.getElementById('sidebar-nav-container');
+      const top = sb ? sb.scrollTop : 0;
+      const fi = document.getElementById('sidebar-filter-input');
+      renderSidebarNav(fi ? fi.value : '');
+      if (sb) sb.scrollTop = top;
     }
+
+    const CRUMB_SEP = ` <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg> `;
+    let nextDocPath = null;
+
+    function setHeaderCrumbs(html) {
+      const el = document.getElementById('header-crumbs');
+      if (el) el.innerHTML = html;
+    }
+
+    function finishAndNext(e) {
+      if (!completedDocs.includes(currentDocPath)) toggleDocCompleted(e);
+      if (nextDocPath) loadDoc(nextDocPath);
+    }
+
+    // Title card at the top of every page (stage, position in module, study time)
+    function addPageHero(outputEl, path, doc) {
+      const info = NAV_INDEX.where[path] || {};
+      const h1 = outputEl.querySelector('h1');
+      if (h1) h1.remove();
+      // The 'Time: ...' line is shown as a chip in the title card instead
+      const firstP = outputEl.querySelector(':scope > p');
+      if (firstP && /^Time:/.test(firstP.textContent.trim()) && firstP.textContent.length < 160) firstP.remove();
+      const m = info.module, st = info.stage;
+      let chip = '', pos = '', title = info.title || doc.title, sub = '', icon = 'fileText', badge = '';
+      if (m) {
+        chip = `${st.label} · ${st.name}`;
+        icon = m.icon; badge = m.num;
+        if (path === m.path) { title = m.title; sub = m.desc; pos = `Module ${m.num} of 12`; }
+        else {
+          sub = `Module ${m.num} · ${m.title}`;
+          pos = info.extra ? 'Answer / code' : (info.section === 'Lessons' ? `Lesson ${info.pos} of ${info.of}` : info.section);
+        }
+      } else if (info.collection) {
+        chip = info.collection.title; icon = info.collection.icon; pos = info.section !== info.collection.title ? info.section : '';
+        sub = info.collection.desc;
+      } else {
+        chip = 'Handbook'; icon = path === 'START-HERE.md' ? 'rocket' : 'bookOpen';
+      }
+      const studyM = (doc.content || '').match(/\*\*Time:\*\*\s*([^·\n*]+)/);
+      const study = studyM ? studyM[1].replace(/\(.*?\)/g, '').replace(/\s+at\s+.*$/, '').trim() : '';
+      const done = completedDocs.includes(path);
+      const hero = document.createElement('header');
+      hero.className = 'page-hero';
+      hero.innerHTML = `
+        <div class="ph-top"><span class="ph-chip">${escHtml(chip)}</span>${pos ? `<span class="ph-pos">${escHtml(pos)}</span>` : ''}</div>
+        <div class="ph-main">
+          <div class="ph-icon">${getIconSvg(icon)}${badge ? `<span>${badge}</span>` : ''}</div>
+          <div><h1>${info.num ? `<span class="ph-num">${escHtml(info.num)}</span>` : ''}${escHtml(title)}</h1>${sub ? `<p>${escHtml(sub)}</p>` : ''}</div>
+        </div>
+        <div class="ph-chips">
+          ${study ? `<span>⏱ Study time ${escHtml(study)}</span>` : ''}
+          <span>📖 ${doc.readTime} min read</span>
+          ${done ? `<span class="ok">✓ Done</span>` : ''}
+        </div>`;
+      outputEl.prepend(hero);
+    }
+
+    // Home page (the landing view)
+    function renderHome() {
+      const el = document.getElementById('view-home');
+      if (!el) return;
+      const mods = []; (NAV.stages || []).forEach(st => st.modules.forEach(m => mods.push({ ...m, stage: st })));
+      const lessons = mods.reduce((n, m) => n + (m.lessons || 0), 0);
+      const practice = mods.reduce((n, m) => n + m.sections.filter(s => s.title === 'Practice' || s.title === 'Apply it').reduce((k, s) => k + s.items.length, 0), 0);
+      let last = null; try { last = localStorage.getItem('fde_last_doc'); } catch (_) {}
+      if (last && !DOCS_DATA[last]) last = null;
+      const lastInfo = last ? (NAV_INDEX.where[last] || {}) : null;
+      const doneN = TRACKED.filter(p => completedDocs.includes(p)).length;
+      const startPath = last || 'START-HERE.md';
+      const nextCard = last ? {
+        k: 'Pick up where you left off', t: lastInfo.title || DOCS_DATA[last].title,
+        d: lastInfo.module ? `Module ${lastInfo.module.num} · ${lastInfo.module.title}` : (lastInfo.ctx || ''), b: 'Continue →', icon: lastInfo.module ? lastInfo.module.icon : 'bookOpen', path: last
+      } : {
+        k: 'Your first step', t: 'Read "Start here" (10 minutes)', d: 'It shows you how this handbook works, what to skip, and how to study without feeling lost.',
+        b: 'Start here →', icon: 'rocket', path: 'START-HERE.md'
+      };
+      const stageCards = (NAV.stages || []).map((st, i) => `
+        <article class="hp-stage">
+          <div class="hp-stage-head"><span class="hp-stage-num">${i + 1}</span><div><b>${escHtml(st.name)}</b><small>${escHtml(st.desc)}</small></div></div>
+          <ul>${st.modules.map(m => {
+            const [md, mt] = moduleDone(m);
+            return `<li><a data-go="${escHtml(m.path)}"><span class="n${md === mt ? ' done' : ''}">${md === mt ? '✓' : m.num}</span><span class="t">${escHtml(m.title)}<small>${escHtml(m.time)}</small></span></a></li>`;
+          }).join('')}</ul>
+        </article>`).join('');
+      el.innerHTML = `
+        <section class="hp-hero">
+          <div class="hp-hero-text">
+            <span class="hp-eyebrow">✦ From zero to field-ready</span>
+            <h1>FDE Handbook <span>by Vicky</span></h1>
+            <p>Learn to become a Forward Deployed Engineer, step by step: understand a client's real problem, build the software and AI that solves it, and hand it over working.</p>
+            <div class="hp-actions">
+              <button type="button" class="hp-btn primary" data-go="${escHtml(startPath)}">${last ? 'Continue learning →' : 'Start learning →'}</button>
+              <button type="button" class="hp-btn ghost" data-view="roadmap">See the course map</button>
+            </div>
+            <div class="hp-by"><span class="avatar"><img src="https://avatars.githubusercontent.com/u/103195071?v=4" alt="Vicky Prasad Mahato" referrerpolicy="no-referrer" onerror="this.remove()"><span aria-hidden="true">V</span></span>
+              <span>Author: <a href="https://abvicky.in" target="_blank" rel="noopener"><strong>Vicky</strong></a><br>Platform built by <a href="https://www.manikarnikatechnologies.in/" target="_blank" rel="noopener"><strong>Manikarnika Technologies</strong></a></span></div>
+          </div>
+          <div class="hp-hero-art" aria-hidden="true">
+            <div class="hp-term"><div class="dots"><i></i><i></i><i></i><em>engagement.sh</em></div>
+              <code><b class="c1">$ discover</b> the real problem</code><code><b class="c2">$ build</b> app + data + AI</code>
+              <code><b class="c3">$ deploy</b> to the cloud</code><code><b class="c4">$ handover</b> to the client</code></div>
+            <div class="hp-done">✓ Client problem solved</div>
+          </div>
+        </section>
+        <section class="hp-stats">
+          <div><b>12</b><span>modules in 4 stages</span></div>
+          <div><b>${lessons}</b><span>lessons</span></div>
+          <div><b>${practice}</b><span>exercises & builds</span></div>
+          <div><b>${doneN ? Math.round(100 * doneN / TRACKED.length) + '%' : '~9 mo'}</b><span>${doneN ? 'of the course done' : 'from zero, part-time'}</span></div>
+        </section>
+        <section class="hp-next">
+          <div class="hp-next-icon">${getIconSvg(nextCard.icon)}</div>
+          <div class="hp-next-text"><small>${escHtml(nextCard.k)}</small><b>${escHtml(nextCard.t)}</b><span>${escHtml(nextCard.d)}</span></div>
+          <button type="button" class="hp-btn primary" data-go="${escHtml(nextCard.path)}">${nextCard.b}</button>
+        </section>
+        <h2 class="hp-h2">Your learning path</h2>
+        <p class="hp-lead">Four stages, twelve modules. Go in order: each module builds on the one before.</p>
+        <section class="hp-stages">${stageCards}</section>
+        <h2 class="hp-h2">How every module works</h2>
+        <p class="hp-lead">Every module has the same four parts, so once you've done one, you know your way around all of them.</p>
+        <section class="hp-steps">
+          <div><span>1</span><b>Lessons</b><small>Learn the idea in plain words, with examples.</small></div>
+          <div><span>2</span><b>Practice</b><small>Short exercises to make it stick. Answers are kept separate.</small></div>
+          <div><span>3</span><b>Apply it</b><small>Build a real piece of AdmitFlow, fix a broken system, and practise with real people.</small></div>
+          <div><span>4</span><b>Check yourself</b><small>A quick quiz tells you if you're ready to move on.</small></div>
+        </section>
+        <section class="hp-story">
+          <div><small>The story you'll follow</small><b>Northbridge Institute gets hundreds of student enquiries a month, and loses many of them.</b>
+          <span>The director asks for "an AI chatbot". Module by module, you'll find out what they really need and build it: AdmitFlow.</span></div>
+          <button type="button" class="hp-btn ghost" data-view="admitflow">Meet the client →</button>
+        </section>`;
+    }
+    document.addEventListener('click', (e) => {
+      const go = e.target.closest('#view-home [data-go]');
+      if (go) { e.preventDefault(); loadDoc(go.getAttribute('data-go')); return; }
+      const v = e.target.closest('#view-home [data-view]');
+      if (v) { e.preventDefault(); switchView(v.getAttribute('data-view')); }
+    });
 
     function closeMobileSidebar() {
       if (window.innerWidth < 768) document.getElementById('app-sidebar').classList.remove('open');
@@ -3505,7 +3929,7 @@ flowchart LR
       // Update sidebar: open the current module and highlight this page
       const filterInput = document.getElementById('sidebar-filter-input');
       renderSidebarNav(filterInput ? filterInput.value : '');
-      const activeLink = document.querySelector(`.nav-item-link[data-path="${CSS.escape(path)}"]`);
+      const activeLink = document.querySelector(`#sidebar-nav-container [data-path="${CSS.escape(path)}"]`);
       if (activeLink) activeLink.scrollIntoView({ block: 'nearest' });
       try { localStorage.setItem('fde_last_doc', path); } catch (_) {}
 
@@ -3513,7 +3937,7 @@ flowchart LR
       const breadcrumbsEl = document.getElementById('doc-breadcrumbs');
       const parts = path.split('/');
       const sep = ` <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg> `;
-      let crumbHtml = `<a onclick="loadDoc('README.md')">${ICONS.bookOpen} Handbook</a>`;
+      let crumbHtml = `<a onclick="switchView('home')">Home</a>`;
       const modM = path.match(/^modules\/(\d\d)-/);
       if (modM) {
         const modReadme = path.replace(/^(modules\/[^\/]+)\/.*$/, '$1/README.md');
@@ -3523,6 +3947,7 @@ flowchart LR
       }
       if (path !== 'README.md') crumbHtml += sep + `<span>${(doc.title || parts[parts.length - 1]).replace(/</g, '&lt;')}</span>`;
       breadcrumbsEl.innerHTML = crumbHtml;
+      setHeaderCrumbs(crumbHtml);
 
       // Update Meta
       const readTimeEl = document.getElementById('doc-read-time');
@@ -3580,6 +4005,7 @@ flowchart LR
 
       if (outputEl) {
         outputEl.innerHTML = rawHtml;
+        try { addPageHero(outputEl, path, doc); } catch (err) { console.warn('hero error:', err); }
         try {
           postProcessMarkdown(outputEl, path);
         } catch (err) {
@@ -3796,17 +4222,11 @@ flowchart LR
 
     // Render Prev / Next Buttons
     function renderPrevNextNav(currentPath) {
-      const allPaths = [];
-      NAV_STRUCTURE.forEach(sec => {
-        sec.items.forEach(item => {
-          if (item.type === 'group') {
-            item.items.forEach(sub => { if (sub.path && !sub.extra) allPaths.push({ ...sub, group: item.title }); });
-          } else {
-            allPaths.push(item);
-          }
-        });
-      });
-
+      let allPaths = NAV_INDEX.flat;
+      const here = NAV_INDEX.where[currentPath];
+      // Answers and code pages step through their own list
+      if (here && here.extra) allPaths = Object.keys(NAV_INDEX.where).filter(p => NAV_INDEX.where[p].ownerId === here.ownerId && NAV_INDEX.where[p].extra)
+        .map(p => ({ path: p, title: NAV_INDEX.where[p].title || p, ctx: here.ctx, ownerId: here.ownerId }));
       const idx = allPaths.findIndex(p => p.path === currentPath);
       const prevBtn = document.getElementById('doc-nav-prev');
       const nextBtn = document.getElementById('doc-nav-next');
@@ -3816,19 +4236,20 @@ flowchart LR
         if (prevBtn) {
           prevBtn.style.display = 'flex';
           const titleEl = document.getElementById('doc-nav-prev-title');
-          if (titleEl) titleEl.textContent = (prevItem.group && prevItem.group !== (allPaths[idx] || {}).group) ? `${prevItem.group} · ${prevItem.title}` : prevItem.title;
+          if (titleEl) titleEl.textContent = (prevItem.ctx && prevItem.ctx !== (allPaths[idx] || {}).ctx) ? `${prevItem.ctx} · ${prevItem.title}` : prevItem.title;
           prevBtn.onclick = (e) => { e.preventDefault(); loadDoc(prevItem.path); };
         }
       } else {
         if (prevBtn) prevBtn.style.display = 'none';
       }
 
+      nextDocPath = (idx >= 0 && idx < allPaths.length - 1) ? allPaths[idx + 1].path : null;
       if (idx >= 0 && idx < allPaths.length - 1) {
         const nextItem = allPaths[idx + 1];
         if (nextBtn) {
           nextBtn.style.display = 'flex';
           const titleEl = document.getElementById('doc-nav-next-title');
-          if (titleEl) titleEl.textContent = (nextItem.group && nextItem.group !== (allPaths[idx] || {}).group) ? `${nextItem.group} · ${nextItem.title}` : nextItem.title;
+          if (titleEl) titleEl.textContent = (nextItem.ctx && nextItem.ctx !== (allPaths[idx] || {}).ctx) ? `${nextItem.ctx} · ${nextItem.title}` : nextItem.title;
           nextBtn.onclick = (e) => { e.preventDefault(); loadDoc(nextItem.path); };
         }
       } else {
@@ -3858,11 +4279,18 @@ flowchart LR
       const isCompleted = completedDocs.includes(path);
       if (btn) btn.classList.toggle('completed', isCompleted);
       if (label) label.textContent = isCompleted ? 'Completed ✓' : 'Mark completed';
+      const fcTitle = document.getElementById('fc-title'), fcSub = document.getElementById('fc-sub');
+      const fcMark = document.getElementById('fc-mark'), fcNext = document.getElementById('fc-next'), card = document.getElementById('finish-card');
+      if (card) card.classList.toggle('is-done', isCompleted);
+      if (fcTitle) fcTitle.textContent = isCompleted ? '✓ You finished this page' : 'Finished this page?';
+      if (fcSub) fcSub.textContent = isCompleted ? 'Nice work. Keep the momentum going.' : 'Mark it done and move on. Your progress is saved in this browser.';
+      if (fcMark) fcMark.textContent = isCompleted ? 'Mark as not done' : 'Mark as done';
+      if (fcNext) { fcNext.textContent = isCompleted ? 'Next page →' : 'Done, next page →'; fcNext.style.display = nextDocPath ? '' : 'none'; }
     }
 
     function updateHeaderProgress() {
-      const total = Object.keys(DOCS_DATA).length || 97;
-      const done = completedDocs.length;
+      const total = TRACKED.length || 1;
+      const done = TRACKED.filter(p => completedDocs.includes(p)).length;
       const pct = Math.min(100, Math.round((done / total) * 100));
 
       const progText = document.getElementById('header-progress-text');

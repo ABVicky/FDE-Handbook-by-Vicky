@@ -137,229 +137,170 @@ def get_icon_for_path(path):
     if 'admitflow' in p: return 'cpu'
     return 'fileText'
 
-def build_dynamic_navigation(docs):
-    nav = []
+STAGE_INFO = [
+    ('s1', 'Stage 1', 'Foundations', 'The job, the computer, and programming.', range(1, 4)),
+    ('s2', 'Stage 2', 'Engineering', 'Web apps, data, and the cloud.', range(4, 7)),
+    ('s3', 'Stage 3', 'AI', 'Machine learning and building with LLMs.', range(7, 9)),
+    ('s4', 'Stage 4', 'Real-world ready', 'Integrations, production, clients, career.', range(9, 13)),
+]
 
-    # 1. Start Here
-    nav.append({
-        "id": "start",
-        "title": "Start Here",
-        "icon": "rocket",
-        "items": [
-            {"path": "README.md", "title": "Handbook Overview", "badge": "Guide", "icon": "bookOpen"},
-            {"path": "START-HERE.md", "title": "Start Here", "badge": "Begin", "icon": "rocket"},
-            {"path": "ROADMAP.md", "title": "Master Roadmap", "badge": "Core", "icon": "map"},
-            {"path": "ABOUT.md", "title": "About & Infrastructure", "badge": "About", "icon": "info"},
-            {"path": "GLOSSARY.md", "title": "FDE Glossary", "badge": "Glossary", "icon": "bookmark"},
-            {"path": "CONTRIBUTING.md", "title": "Contributing", "badge": "Community", "icon": "gitPull"},
-            {"path": "SECURITY.md", "title": "Security Policy", "badge": "Security", "icon": "shield"},
-            {"path": "CODE_OF_CONDUCT.md", "title": "Code of Conduct", "badge": "Community", "icon": "award"}
-        ]
-    })
 
-    # 2. Stages 1 to 4
-    stages = {
-        'stage1': {'id': 'stage1', 'title': 'Stage 1 — Foundations', 'icon': 'terminal', 'items': []},
-        'stage2': {'id': 'stage2', 'title': 'Stage 2 — Engineering', 'icon': 'layers', 'items': []},
-        'stage3': {'id': 'stage3', 'title': 'Stage 3 — AI & ML', 'icon': 'brain', 'items': []},
-        'stage4': {'id': 'stage4', 'title': 'Stage 4 — Field-Ready', 'icon': 'shieldCheck', 'items': []}
-    }
+def _strip_prefix(title):
+    t = re.sub(r'^Module \d\d\s*[—–-]\s*', '', title)
+    t = re.sub(r'^Module \d\d\s+', '', t)
+    return t.strip()
 
-    # Discover all modules in modules/
-    modules_dir = WORKSPACE_ROOT / 'modules'
-    if modules_dir.exists():
-        mod_dirs = sorted([d for d in os.listdir(modules_dir) if (modules_dir / d).is_dir() and not d.startswith('.')])
-        for m in mod_dirs:
-            try:
-                m_num = int(m.split('-')[0])
-            except ValueError:
-                continue
 
-            stage_key = 'stage1' if m_num <= 3 else ('stage2' if m_num <= 6 else ('stage3' if m_num <= 8 else 'stage4'))
-            m_path = f'modules/{m}'
-            m_files = [p for p in docs if p.startswith(m_path + '/')]
-            
-            # Module Title
-            readme_title = docs.get(f'{m_path}/README.md', {}).get('title', m.replace('-', ' ').title())
-            clean_title = re.sub(r'^(Module \d\d\s*[—–-]\s*)', '', readme_title).strip()
-            
-            # Assign appropriate module icon
-            m_icon = 'sparkles' if m_num == 1 else ('cpu' if m_num == 2 else ('code' if m_num == 3 else ('layers' if m_num == 4 else ('database' if m_num == 5 else ('cloud' if m_num == 6 else ('brain' if m_num == 7 else ('bot' if m_num == 8 else 'shieldCheck')))))))
+def _numbered(title):
+    """'Lesson 03 — FDE vs. roles' -> ('03', 'FDE vs. roles')."""
+    m = re.match(r'^(?:Lesson|Exercise set|Exercise)\s+(\d+)\s*[—–:-]\s*(.+)$', title)
+    return (m.group(1), m.group(2).strip()) if m else (None, title)
 
-            # Learning order inside a module: the path a learner follows with "Next".
-            # Answers, materials and code files go into a separate, clearly labelled list
-            # at the end, so nobody meets a solution before the lesson.
-            def is_extra(p):
-                sub = p[len(m_path) + 1:]
-                return (not p.endswith('.md') or '/solutions/' in p or '/solution/' in p
-                        or sub == 'build-solution.md' or sub.endswith('SOLUTION.md')
-                        or (sub.startswith('break-and-fix/') and sub != 'break-and-fix/README.md'))
 
-            def path_rank(p):
-                sub = p[len(m_path) + 1:]
-                order = [('README.md', 0), ('setup.md', 1)]
-                for name, rank in order:
-                    if sub == name:
-                        return (rank, sub)
-                if sub.startswith('lessons/'): return (2, sub)
-                if sub == 'exercises/README.md': return (3, '')
-                if sub.startswith('exercises/'): return (4, sub)
-                if sub == 'capstones/README.md': return (5, '')
-                if sub.startswith('capstones/'): return (6, sub)
-                if sub == 'build.md': return (7, sub)
-                if sub == 'break-and-fix/README.md': return (8, sub)
-                if sub == 'field-track.md': return (9, sub)
-                if sub == 'checkpoint.md': return (10, sub)
-                if sub == 'resources.md': return (11, sub)
-                return (12, sub)
+def _item(docs, path, title=None, icon=None, extra=False):
+    t = title or (docs[path]['title'] if path.endswith('.md') else os.path.basename(path))
+    num, t = _numbered(_strip_prefix(t)) if title is None else (None, t)
+    it = {'path': path, 'title': t, 'icon': icon or get_icon_for_path(path)}
+    if num:
+        it['num'] = num
+    if extra:
+        it['extra'] = True
+    return it
 
-            def short_title(p):
-                sub = p[len(m_path) + 1:]
-                if sub == 'README.md': return 'Start: module overview'
-                if sub == 'exercises/README.md': return 'Exercises: overview'
-                if sub == 'checkpoint.md': return 'Checkpoint quiz'
-                if sub == 'resources.md': return 'Resources'
-                t = docs[p]['title'] if p.endswith('.md') else os.path.basename(p)
-                t = re.sub(r'^Module \d\d\s*[—–-]\s*', '', t)
-                t = re.sub(r'^Module \d\d\s+', '', t)
-                return t
 
-            main_files = sorted((f for f in m_files if not is_extra(f)), key=path_rank)
-            extra_files = sorted((f for f in m_files if is_extra(f)), key=lambda f: (not f.endswith('.md'), f))
+def build_module(docs, m_dir, m_num):
+    """One module: its overview page plus pages grouped under plain-language headings."""
+    m_path = f'modules/{m_dir}'
+    files = [p for p in docs if p.startswith(m_path + '/')]
+    readme = f'{m_path}/README.md'
+    content = docs.get(readme, {}).get('content', '')
+    title = _strip_prefix(docs.get(readme, {}).get('title', m_dir))
+    time_m = re.search(r'\*\*Time:\*\*\s*([^·*\n]+?)\s+at\b', content) or re.search(r'\*\*Time:\*\*\s*([^·*\n]+)', content)
+    lessons = sorted(p for p in files if '/lessons/' in p)
+    meta = ' · '.join(x for x in [time_m.group(1).strip() if time_m else '', f'{len(lessons)} lessons' if lessons else ''] if x)
 
-            group = {
-                'type': 'group',
-                'title': f'Module {m_num:02d}: {clean_title}',
-                'icon': m_icon,
-                'items': [{'path': f, 'title': short_title(f), 'icon': get_icon_for_path(f)} for f in main_files]
-            }
-            if extra_files:
-                group['items'].append({'type': 'label', 'title': 'Answers, materials & code'})
-                group['items'] += [{'path': f, 'title': short_title(f), 'icon': get_icon_for_path(f), 'extra': True}
-                                   for f in extra_files]
-            stages[stage_key]['items'].append(group)
+    def sub(p):
+        return p[len(m_path) + 1:]
 
-    for s in stages.values():
-        if s['items']:
-            nav.append(s)
+    def is_extra(p):
+        sp = sub(p)
+        return (not p.endswith('.md') or '/solutions/' in p or '/solution/' in p or sp == 'build-solution.md'
+                or sp.endswith('SOLUTION.md') or (sp.startswith('break-and-fix/') and sp != 'break-and-fix/README.md'))
 
-    # 3. Running Project: AdmitFlow
-    admitflow_files = [p for p in docs if p.startswith('projects/admitflow/')]
-    admitflow_group = {
-        'id': 'admitflow',
-        'title': 'Project AdmitFlow',
-        'icon': 'cpu',
-        'items': [
-            {'path': 'projects/admitflow/README.md', 'title': 'AdmitFlow Overview', 'badge': 'Project', 'icon': 'bookOpen'},
-            {'path': 'projects/admitflow/BRIEF.md', 'title': 'Client Brief: Northbridge', 'badge': 'Spec', 'icon': 'fileText'}
-        ]
-    }
-
-    # Python source files
-    py_files = [p for p in admitflow_files if p.endswith('.py') and not 'test' in p and not '__init__' in p]
-    if py_files:
-        admitflow_group['items'].append({
-            'type': 'group',
-            'title': 'AdmitFlow Python Core',
-            'badge': 'Code',
-            'icon': 'fileCode',
-            'items': [{'path': p, 'title': os.path.basename(p), 'icon': 'fileCode'} for p in sorted(py_files)]
-        })
-
-    # Datasets
-    csv_files = [p for p in admitflow_files if p.endswith('.csv')]
-    if csv_files:
-        admitflow_group['items'].append({
-            'type': 'group',
-            'title': 'Synthetic Datasets',
-            'badge': 'CSV',
-            'icon': 'table',
-            'items': [{'path': p, 'title': os.path.basename(p), 'icon': 'table'} for p in sorted(csv_files)]
-        })
-
-    # Tests
-    test_files = [p for p in admitflow_files if 'test' in p]
-    if test_files:
-        admitflow_group['items'].append({
-            'type': 'group',
-            'title': 'Test Suite',
-            'badge': 'Tests',
-            'icon': 'activity',
-            'items': [{'path': p, 'title': os.path.basename(p), 'icon': 'activity'} for p in sorted(test_files)]
-        })
-
-    # Architecture, ADRs & Runbooks
-    doc_files = [p for p in admitflow_files if p.startswith('projects/admitflow/docs/')]
-    if doc_files:
-        admitflow_group['items'].append({
-            'type': 'group',
-            'title': 'Architecture & Runbooks',
-            'badge': 'Docs',
-            'icon': 'fileText',
-            'items': [{'path': p, 'title': docs[p]['title'], 'icon': 'fileText'} for p in sorted(doc_files)]
-        })
-
-    if 'projects/practice/README.md' in docs:
-        admitflow_group['items'].append({'path': 'projects/practice/README.md', 'title': 'Practice Ladder Projects', 'badge': 'Ladder', 'icon': 'layers'})
-
-    nav.append(admitflow_group)
-
-    # 4. Interview Preparation
-    interview_files = sorted([p for p in docs if p.startswith('interview-prep/') and p != 'interview-prep/README.md'])
-    if 'interview-prep/README.md' in docs:
-        nav.append({
-            'id': 'interview',
-            'title': 'Interview Preparation',
-            'icon': 'award',
-            'items': [
-                {'path': 'interview-prep/README.md', 'title': 'Interview Prep Overview', 'badge': 'Guide', 'icon': 'award'}
-            ] + [{'path': p, 'title': docs[p]['title'], 'icon': get_icon_for_path(p)} for p in interview_files]
-        })
-
-    # 5. Case Studies
-    case_files = sorted([p for p in docs if p.startswith('case-studies/')])
-    if case_files:
-        nav.append({
-            'id': 'cases',
-            'title': 'Case Studies',
-            'icon': 'fileText',
-            'items': [{'path': p, 'title': docs[p]['title'], 'icon': 'fileText'} for p in case_files]
-        })
-
-    # 6. Documentation Kit & Templates
-    tmpl_files = sorted([p for p in docs if p.startswith('templates/')])
-    if tmpl_files:
-        nav.append({
-            'id': 'templates',
-            'title': 'Documentation Kit',
-            'icon': 'layers',
-            'items': [{'path': p, 'title': docs[p]['title'], 'icon': 'layers'} for p in tmpl_files]
-        })
-
-    # 7. Cookbooks
-    cookbook_files = sorted([p for p in docs if p.startswith('cookbooks/')])
-    if cookbook_files:
-        nav.append({
-            'id': 'cookbooks',
-            'title': 'Cookbooks & Patterns',
-            'icon': 'zap',
-            'items': [{'path': p, 'title': docs[p]['title'], 'icon': 'zap'} for p in cookbook_files]
-        })
-
-    # 8. Resources & Progress
-    resource_items = []
-    for p in ['field-track/README.md', 'resources/README.md', 'resources/job-descriptions/README.md', 'progress/self-assessment.md']:
+    sections = []
+    top = []
+    if f'{m_path}/setup.md' in docs:
+        top.append(_item(docs, f'{m_path}/setup.md', 'Set up your computer', 'terminal'))
+    if top:
+        sections.append({'title': 'Before you start', 'items': top})
+    if lessons:
+        sections.append({'title': 'Lessons', 'items': [_item(docs, p) for p in lessons]})
+    practice = []
+    if f'{m_path}/exercises/README.md' in docs:
+        practice.append(_item(docs, f'{m_path}/exercises/README.md', 'All exercises: how they work', 'activity'))
+    practice += [_item(docs, p) for p in sorted(p for p in files if '/exercises/' in p and not is_extra(p)
+                                                 and sub(p) != 'exercises/README.md')]
+    if practice:
+        sections.append({'title': 'Practice', 'items': practice})
+    apply_it = []
+    if f'{m_path}/capstones/README.md' in docs:
+        apply_it.append(_item(docs, f'{m_path}/capstones/README.md', 'Capstone: choose your project', 'award'))
+        apply_it += [_item(docs, p, icon='award') for p in sorted(p for p in files if '/capstones/' in p and not p.endswith('capstones/README.md'))]
+    for name, label, icon in [('build.md', 'Build', 'hammer'), ('break-and-fix/README.md', 'Break & fix', 'bug'),
+                              ('field-track.md', 'Field Track', 'compass')]:
+        p = f'{m_path}/{name}'
         if p in docs:
-            resource_items.append({'path': p, 'title': docs[p]['title'], 'icon': get_icon_for_path(p)})
-    if resource_items:
-        nav.append({
-            'id': 'resources',
-            'title': 'Resources & Prep',
-            'icon': 'compass',
-            'items': resource_items
-        })
+            t = _strip_prefix(docs[p]['title'])
+            t = re.sub(r'^(Build|Break & Fix|Field Track)\s*[—–:-]\s*', '', t)
+            apply_it.append(_item(docs, p, f'{label}: {t}', icon))
+    if apply_it:
+        sections.append({'title': 'Apply it', 'items': apply_it})
+    check = []
+    if f'{m_path}/checkpoint.md' in docs:
+        check.append(_item(docs, f'{m_path}/checkpoint.md', 'Checkpoint quiz', 'helpCircle'))
+    if f'{m_path}/resources.md' in docs:
+        check.append(_item(docs, f'{m_path}/resources.md', 'Further reading', 'bookmark'))
+    if check:
+        sections.append({'title': 'Check yourself', 'items': check})
+    extras = sorted((p for p in files if is_extra(p)), key=lambda p: (not p.endswith('.md'), p))
+    if extras:
+        def answer_title(p):
+            sp = sub(p)
+            if sp == 'build-solution.md': return 'Build: my reference answer'
+            if sp.endswith('SOLUTION.md'): return 'Break & fix: answer'
+            if sp == 'exercises/solutions/README.md': return 'Exercise answers'
+            m = re.match(r'exercises/solutions/(\d+)-', sp)
+            if m and p.endswith('.md'): return f'Exercise {m.group(1)}: model answer'
+            return None
+        sections.append({'title': 'Answers & code', 'extra': True,
+                         'items': [_item(docs, p, answer_title(p), extra=True) for p in extras]})
+    def box(label):
+        m = re.search(r'> \*\*' + re.escape(label) + r':\*\*\s*(.+)', content)
+        return re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', m.group(1)).strip() if m else ''
+    plain = box('In plain words')
+    first = re.split(r'(?<=[.!?])\s+', plain)[0] if plain else ''
+    icons = {1: 'sparkles', 2: 'cpu', 3: 'code', 4: 'layers', 5: 'database', 6: 'cloud', 7: 'brain', 8: 'bot',
+             9: 'zap', 10: 'shieldCheck', 11: 'briefcase', 12: 'award'}
+    return {'id': f'm{m_num:02d}', 'num': f'{m_num:02d}', 'title': title, 'path': readme, 'meta': meta,
+            'time': time_m.group(1).strip() if time_m else '', 'lessons': len(lessons), 'icon': icons.get(m_num, 'book'),
+            'desc': first, 'build': box("What you'll build"), 'sections': sections}
 
-    return nav
+
+def build_dynamic_navigation(docs):
+    """Sidebar tree: quick links, stages -> modules -> headed sections, then 'more' collections."""
+    quick = [{'path': p, 'title': t, 'icon': i} for p, t, i in [
+        ('START-HERE.md', 'Start here', 'rocket'), ('GLOSSARY.md', 'Glossary', 'bookmark')] if p in docs]
+
+    modules_dir = WORKSPACE_ROOT / 'modules'
+    mods = {}
+    for d in sorted(os.listdir(modules_dir)):
+        if (modules_dir / d).is_dir() and d[:2].isdigit():
+            mods[int(d[:2])] = build_module(docs, d, int(d[:2]))
+    stages = [{'id': sid, 'label': label, 'name': name, 'desc': desc, 'modules': [mods[n] for n in rng if n in mods]}
+              for sid, label, name, desc, rng in STAGE_INFO]
+
+    def coll(cid, title, icon, desc, sections):
+        sections = [s for s in sections if s['items']]
+        return {'id': cid, 'title': title, 'icon': icon, 'desc': desc, 'sections': sections} if sections else None
+
+    af = [p for p in docs if p.startswith('projects/admitflow/')]
+    more = [
+        coll('admitflow', 'AdmitFlow project', 'cpu', 'My finished version of the system you build.', [
+            {'title': 'Read first', 'items': [_item(docs, p, t, i) for p, t, i in [
+                ('projects/admitflow/README.md', 'Project overview', 'bookOpen'),
+                ('projects/admitflow/BRIEF.md', 'The client brief', 'fileText'),
+                ('projects/practice/README.md', 'Practice projects', 'layers')] if p in docs]},
+            {'title': 'Design docs & runbooks', 'items': [_item(docs, p) for p in sorted(af) if ('/docs/' in p or '/deploy/' in p) and p.endswith('.md')]},
+            {'title': 'Assistant knowledge base', 'extra': True, 'items': [_item(docs, p, extra=True) for p in sorted(af) if '/course_docs/' in p]},
+            {'title': 'Source code', 'extra': True, 'items': [_item(docs, p, extra=True) for p in sorted(af)
+                                                             if p.endswith('.py') and 'test' not in p and '__init__' not in p]},
+            {'title': 'Tests', 'extra': True, 'items': [_item(docs, p, extra=True) for p in sorted(af) if p.endswith('.py') and 'test' in p]},
+            {'title': 'Sample data', 'extra': True, 'items': [_item(docs, p, extra=True) for p in sorted(af) if p.endswith('.csv')]},
+        ]),
+        coll('interview', 'Interview prep', 'award', 'Practice for every FDE interview round.', [
+            {'title': 'Rounds', 'items': [_item(docs, 'interview-prep/README.md', 'How FDE interviews work', 'award')] +
+             [_item(docs, p) for p in sorted(p for p in docs if p.startswith('interview-prep/') and p.endswith('.md')
+                                             and '/solutions/' not in p and p != 'interview-prep/README.md')]},
+            {'title': 'Model answers', 'extra': True, 'items': [_item(docs, p, extra=True) for p in sorted(
+                p for p in docs if p.startswith('interview-prep/solutions/'))]},
+        ]),
+        coll('cases', 'Case studies', 'fileText', 'Real-style FDE engagements to learn from.', [
+            {'title': 'Case studies', 'items': [_item(docs, p) for p in sorted(p for p in docs if p.startswith('case-studies/'))]}]),
+        coll('templates', 'Templates', 'layers', 'Ready-to-copy documents for client work.', [
+            {'title': 'Templates', 'items': [_item(docs, p) for p in sorted(p for p in docs if p.startswith('templates/'))]}]),
+        coll('cookbooks', 'Cookbooks', 'zap', 'Patterns and fixes you will reuse.', [
+            {'title': 'Cookbooks', 'items': [_item(docs, p) for p in sorted(p for p in docs if p.startswith('cookbooks/'))]}]),
+        coll('extras', 'Resources & progress', 'compass', 'Your checklist, Field Track, and reading list.', [
+            {'title': 'Resources', 'items': [_item(docs, p) for p in ['progress/self-assessment.md', 'field-track/README.md',
+                                                                     'resources/README.md', 'resources/job-descriptions/README.md'] if p in docs]}]),
+        coll('about', 'About this handbook', 'info', 'Who made it, and how to help.', [
+            {'title': 'About', 'items': [_item(docs, p, t, i) for p, t, i in [
+                ('README.md', 'Handbook overview', 'bookOpen'), ('ROADMAP.md', 'The full roadmap (detailed plan)', 'map'),
+                ('ABOUT.md', 'About the handbook', 'info'), ('CONTRIBUTING.md', 'How to contribute', 'gitPull'),
+                ('CODE_OF_CONDUCT.md', 'Code of conduct', 'award'), ('SECURITY.md', 'Security policy', 'shield')] if p in docs]}]),
+    ]
+    return {'quick': quick, 'stages': stages, 'more': [c for c in more if c]}
+
 
 def safe_json(obj):
     s = json.dumps(obj, ensure_ascii=False)
@@ -389,7 +330,7 @@ def build():
     html = template.replace('/*{{DOCS_JSON}}*/{}', docs_json)
     html = html.replace('/*{{SYLLABI_JSON}}*/{}', syllabi_json)
     html = html.replace('/*{{LEADS_JSON}}*/[]', leads_json)
-    html = html.replace('/*{{NAV_JSON}}*/[]', nav_json)
+    html = html.replace('/*{{NAV_JSON}}*/{}', nav_json)
     html = html.replace('%%SITE%%', seo_pages.SITE)
     html = html.replace('%%DOC_COUNT%%', str(len(docs)))
 
