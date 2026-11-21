@@ -186,47 +186,58 @@ def build_dynamic_navigation(docs):
             # Assign appropriate module icon
             m_icon = 'sparkles' if m_num == 1 else ('cpu' if m_num == 2 else ('code' if m_num == 3 else ('layers' if m_num == 4 else ('database' if m_num == 5 else ('cloud' if m_num == 6 else ('brain' if m_num == 7 else ('bot' if m_num == 8 else 'shieldCheck')))))))
 
-            # Sorting order inside module
-            def file_sort_key(p):
-                filename = os.path.basename(p)
-                if filename == 'README.md' and not '/capstones/' in p: return (0, filename)
-                if 'setup' in p: return (1, filename)
-                if 'checkpoint' in p: return (2, filename)
-                if 'lessons/' in p: return (3, filename)
-                if 'exercises/' in p: return (4, filename)
-                if 'capstones/' in p: return (5, filename)
-                if 'build' in p: return (6, filename)
-                if 'break-and-fix' in p: return (7, filename)
-                if 'field-track' in p: return (8, filename)
-                if 'resources' in p: return (9, filename)
-                return (10, filename)
+            # Learning order inside a module: the path a learner follows with "Next".
+            # Answers, materials and code files go into a separate, clearly labelled list
+            # at the end, so nobody meets a solution before the lesson.
+            def is_extra(p):
+                sub = p[len(m_path) + 1:]
+                return (not p.endswith('.md') or '/solutions/' in p or '/solution/' in p
+                        or sub == 'build-solution.md' or sub.endswith('SOLUTION.md')
+                        or (sub.startswith('break-and-fix/') and sub != 'break-and-fix/README.md'))
 
-            sorted_files = sorted(m_files, key=file_sort_key)
+            def path_rank(p):
+                sub = p[len(m_path) + 1:]
+                order = [('README.md', 0), ('setup.md', 1)]
+                for name, rank in order:
+                    if sub == name:
+                        return (rank, sub)
+                if sub.startswith('lessons/'): return (2, sub)
+                if sub == 'exercises/README.md': return (3, '')
+                if sub.startswith('exercises/'): return (4, sub)
+                if sub == 'capstones/README.md': return (5, '')
+                if sub.startswith('capstones/'): return (6, sub)
+                if sub == 'build.md': return (7, sub)
+                if sub == 'break-and-fix/README.md': return (8, sub)
+                if sub == 'field-track.md': return (9, sub)
+                if sub == 'checkpoint.md': return (10, sub)
+                if sub == 'resources.md': return (11, sub)
+                return (12, sub)
 
-            if len(sorted_files) <= 1:
-                # Lean single module link
-                stages[stage_key]['items'].append({
-                    'path': f'{m_path}/README.md',
-                    'title': f'Module {m_num:02d}: {clean_title}',
-                    'badge': 'Curriculum',
-                    'icon': m_icon
-                })
-            else:
-                # Group with sub-items
-                group = {
-                    'type': 'group',
-                    'title': f'Module {m_num:02d}: {clean_title}',
-                    'badge': 'Ready' if len(sorted_files) > 4 else 'Core',
-                    'icon': m_icon,
-                    'items': []
-                }
-                for f in sorted_files:
-                    group['items'].append({
-                        'path': f,
-                        'title': docs[f]['title'],
-                        'icon': get_icon_for_path(f)
-                    })
-                stages[stage_key]['items'].append(group)
+            def short_title(p):
+                sub = p[len(m_path) + 1:]
+                if sub == 'README.md': return 'Start: module overview'
+                if sub == 'exercises/README.md': return 'Exercises: overview'
+                if sub == 'checkpoint.md': return 'Checkpoint quiz'
+                if sub == 'resources.md': return 'Resources'
+                t = docs[p]['title'] if p.endswith('.md') else os.path.basename(p)
+                t = re.sub(r'^Module \d\d\s*[—–-]\s*', '', t)
+                t = re.sub(r'^Module \d\d\s+', '', t)
+                return t
+
+            main_files = sorted((f for f in m_files if not is_extra(f)), key=path_rank)
+            extra_files = sorted((f for f in m_files if is_extra(f)), key=lambda f: (not f.endswith('.md'), f))
+
+            group = {
+                'type': 'group',
+                'title': f'Module {m_num:02d}: {clean_title}',
+                'icon': m_icon,
+                'items': [{'path': f, 'title': short_title(f), 'icon': get_icon_for_path(f)} for f in main_files]
+            }
+            if extra_files:
+                group['items'].append({'type': 'label', 'title': 'Answers, materials & code'})
+                group['items'] += [{'path': f, 'title': short_title(f), 'icon': get_icon_for_path(f), 'extra': True}
+                                   for f in extra_files]
+            stages[stage_key]['items'].append(group)
 
     for s in stages.values():
         if s['items']:
@@ -366,6 +377,10 @@ def build():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
 
+    readme = docs.get('README.md')
+    if readme:
+        lines = readme['content'].split('\n')
+        readme['content'] = '\n'.join(l for l in lines if not l.startswith('[![') and 'Read it online' not in l)
     docs_json = safe_json(docs)
     syllabi_json = safe_json(syllabi)
     leads_json = safe_json(leads_sample)
