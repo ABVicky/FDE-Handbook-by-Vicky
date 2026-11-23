@@ -12,7 +12,7 @@
 [![Reference Project](https://img.shields.io/badge/project-AdmitFlow%20(FastAPI%20%2B%20React)-821713?style=flat-square)](projects/admitflow/README.md)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white)](modules/03-programming-fundamentals/README.md)
 [![AI Stack](https://img.shields.io/badge/AI-RAG%20%C2%B7%20Agents%20%C2%B7%20MCP-D99B45?style=flat-square)](modules/08-generative-ai-engineering/README.md)
-[![License](https://img.shields.io/badge/license-Educational%20Use-218354?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-A31C18?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
 <br>
@@ -270,10 +270,21 @@ We actively welcome contributions from the community! Whether you want to fix a 
 
 ## Copyright & Terms of Use
 
-© 2026 **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**. All rights reserved.
+© 2026 **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)** and **[Vicky Prasad Mahato](https://abvicky.in)**. **All Rights Reserved.**
 
 * **Author:** **[Vicky Prasad Mahato](https://abvicky.in)** ([LinkedIn](https://www.linkedin.com/in/abvicky/) · [GitHub](https://github.com/ABVicky))
 * **Platform Architecture & Development:** **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**
-* **License & Terms:** See **[LICENSE](LICENSE)** for complete personal learning and educational use terms.
+* **License & Terms:** See **[LICENSE](LICENSE)** for complete terms.
 
-This guide, including its curriculum structure, code examples, case studies, interactive tools, and instructional designs, is provided for personal learning and educational use. Redistribution, commercial resale, republication, or training on these materials without express written authorization is prohibited. All product names, logos, and brands mentioned are property of their respective owners and are used solely for identification and educational reference.
+This repository is publicly accessible on GitHub for **viewing, reading, study, and educational inspection only**. All rights to the original source code, scripts, software architecture, curriculum structure, lessons, exercises, reference application (AdmitFlow), case studies, and instructional designs are reserved by the copyright owners.
+
+Without prior written permission from the copyright owners, nobody is permitted to:
+- **Copy or redistribute** the source code, curriculum, or materials in whole or in part.
+- **Re-upload or republish** the code, reader platform, AdmitFlow reference system, or content in another repository or platform.
+- **Claim the original code or content** as their own.
+- **Modify and distribute** derivative versions or adaptations of this work.
+- **Use the code or curriculum commercially** (including paid courses, bootcamps, client work, or books).
+- **Reuse substantial portions** of the code, reference application, or reader architecture in other projects.
+- **AI Training & Dataset Extraction:** Ingest, scrape, or extract this curriculum, code, or documentation for training, fine-tuning, or evaluating commercial AI models or proprietary machine learning datasets without explicit prior authorization.
+
+For complete license terms, restrictions, permissions, and third-party dependency notices, please see the full **[LICENSE](LICENSE)** file.

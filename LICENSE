@@ -1,32 +1,67 @@
 # Copyright and Terms of Use
 
-© 2026 Manikarnika Technologies (https://www.manikarnikatechnologies.in/). All rights reserved.
+Copyright (c) 2026 Manikarnika Technologies (https://www.manikarnikatechnologies.in/) and Vicky Prasad Mahato (https://abvicky.in).
+All Rights Reserved.
 
-- **Author:** Vicky Prasad Mahato (https://abvicky.in)
+---
+
+### 1. Ownership of Original Source Code & Materials
+
+All original source code, scripts, software architecture, stylesheets, user interface designs, curriculum structure, instructional lessons, exercises, solutions, break-and-fix challenges, reference application source code (**AdmitFlow** — FastAPI backend, React frontend, database schemas, and AI pipelines), case studies, interactive tools, competency radar engines, diagrams, and written documentation contained within this repository are the exclusive intellectual property of the Copyright Owners:
 - **Platform Architecture & Development:** Manikarnika Technologies (https://www.manikarnikatechnologies.in/)
+- **Author & Content Creator:** Vicky Prasad Mahato (https://abvicky.in)
+
+All rights not expressly granted herein are strictly reserved by the Copyright Owners.
 
 ---
 
-### Permitted Use
+### 2. Public Visibility & Permitted Use
 
-This handbook, including its curriculum structure, lessons, exercises, solutions, break-and-fix challenges, reference application source code (AdmitFlow), case studies, interactive tools, and instructional designs, is made publicly accessible for **personal learning, individual study, and educational reference**.
+This repository is maintained as a public repository on GitHub for the sole purpose of enabling **public viewing, reading, study, and educational inspection**.
 
-You are encouraged to:
-- Read, study, and follow all 12 modules and interview-prep materials.
-- Run, test, and adapt the exercise and project code in your personal learning environment.
-- Star, fork, and link to this repository to share with fellow learners and developers.
+Under this notice, you are permitted to:
+- View, browse, and read the repository's original source code, curriculum documents, reference applications, and instructional materials for personal study and non-commercial educational inspection.
+- Access, read, and interact with the live public handbook web application hosted at https://abvicky.github.io/FDE-Handbook-by-Vicky/.
+- Run, test, and execute the exercise code and the AdmitFlow reference project locally on your machine strictly for personal learning and individual study.
+- Star or fork the repository exclusively for personal study and bookmarking within GitHub, provided that no prohibited actions listed below are undertaken.
 
----
-
-### Prohibitions
-
-Without express prior written authorization from the copyright holders:
-- Commercial resale, sublicensing, or paid distribution of these materials is strictly prohibited.
-- Republishing, scraping, mirroring, or packaging this curriculum into paid courses, bootcamps, books, or subscription services is prohibited.
-- Utilizing this handbook's proprietary textual curriculum and instructional materials for commercial AI model training datasets without permission is prohibited.
+No license or permission is granted to reproduce, publish, or distribute the materials outside of this personal inspection and individual learning scope.
 
 ---
 
-### Trademarks & Disclaimer
+### 3. Usage Restrictions & Prohibitions
 
-All product names, logos, registered trademarks, and company names mentioned throughout this handbook (such as Palantir, FastAPI, PostgreSQL, Docker, React, etc.) are the property of their respective owners and are used solely for identification, technical illustration, and educational reference.
+Without prior written permission from the Copyright Owners, no individual, entity, or organization is permitted to:
+
+1. **Copy or Redistribute:** Copy, download for redistribution, mirror, scrape, host, sublicense, publish, or redistribute the source code, curriculum, reference applications, or instructional assets, in whole or in part, through any digital or physical medium.
+2. **Re-upload or Republish:** Re-upload, mirror, or republish the source code, reading platform, AdmitFlow reference platform, or curriculum files in another repository (on GitHub, GitLab, Bitbucket, or any other hosting service), website, portal, learning management system (LMS), or online course platform.
+3. **Claim Attribution or Ownership:** Claim the original source code, platform architecture, AdmitFlow application, instructional framework, or written content as their own, or remove, alter, or obscure any copyright, trademark, authorship, or ownership notices.
+4. **Modify or Distribute Derivative Versions:** Modify, translate, adapt, alter, remix, or create derivative versions of this codebase, reader application, reference project, or curriculum for public distribution, sharing, or republication.
+5. **Commercial Use:** Use the code, materials, templates, reference applications, frameworks, or curriculum for any commercial purpose, including but not limited to paid courses, commercial bootcamps, corporate training, client engagements, books, subscription services, or paid digital products.
+6. **Reuse Substantial Portions:** Extract, port, or reuse substantial portions of the application logic, custom design system, interactive reader code, or AdmitFlow architecture in other software projects, products, or commercial platforms.
+7. **AI Training & Dataset Extraction:** Ingest, scrape, or extract this curriculum, exercise solutions, reference application code, or documentation for training, fine-tuning, or evaluating commercial AI models or proprietary machine learning datasets without explicit prior authorization.
+
+---
+
+### 4. Third-Party Dependencies and Open-Source Notices
+
+This repository and its reference applications utilize certain third-party open-source libraries, packages, and fonts. The Copyright Owners do not claim ownership of these third-party components, which remain the property of their respective creators and are governed by their respective licenses:
+
+- **FastAPI** (https://fastapi.tiangolo.com/) — MIT License (Copyright (c) Sebastián Ramírez).
+- **React** (https://react.dev/) — MIT License (Copyright (c) Meta Platforms, Inc.).
+- **SQLAlchemy, Pydantic, Uvicorn, SQLite, PostgreSQL** — Governed by their respective open-source licenses.
+- **Marked.js** (https://marked.js.org/) — MIT License (Copyright (c) Christopher Jeffrey).
+- **Highlight.js** (https://highlightjs.org/) — BSD 3-Clause License (Copyright (c) Ivan Sagalaev).
+- **Mermaid.js** (https://mermaid.js.org/) — MIT License (Copyright (c) Knut Sveidqvist).
+- **Google Fonts (Inter, Plus Jakarta Sans, JetBrains Mono)** — SIL Open Font License 1.1.
+
+All other product names, registered trademarks, service marks, and company names mentioned throughout this handbook (such as Palantir, Docker, Meta, Google, OpenAI, Anthropic, etc.) are the property of their respective owners and are used solely for identification, technical illustration, and educational reference.
+
+---
+
+### 5. Inquiries and Permissions
+
+For commercial licensing requests, corporate training inquiries, institutional partnerships, or permissions beyond the scope of this notice, please contact:
+
+- **Manikarnika Technologies:** https://www.manikarnikatechnologies.in/
+- **Vicky Prasad Mahato:** https://abvicky.in · Email: vickyprasadmahato34@gmail.com

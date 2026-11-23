@@ -71,9 +71,12 @@ We built this learning environment to be fast, distraction-free, 100% offline-re
 
 ## 4. Copyright & Terms of Use
 
-© 2026 **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**. All rights reserved.
+© 2026 **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)** and **[Vicky Prasad Mahato](https://abvicky.in)**. **All Rights Reserved.**
 
 - **Author:** **[Vicky Prasad Mahato](https://abvicky.in)** ([LinkedIn](https://www.linkedin.com/in/abvicky/) · [GitHub](https://github.com/ABVicky))
 - **Platform Architecture & Development:** **[Manikarnika Technologies](https://www.manikarnikatechnologies.in/)**
+- **License & Terms:** See **[LICENSE](LICENSE)** for complete terms.
 
-This guide, including its curriculum structure, code examples, case studies, interactive tools, and instructional designs, is provided for personal learning and educational use. Redistribution, commercial resale, republication, or training on these materials without express written authorization is prohibited. All product names, logos, and brands mentioned are property of their respective owners and are used solely for identification and educational reference.
+This repository is publicly accessible on GitHub for **viewing, reading, study, and educational inspection only**. All rights to the original source code, scripts, software architecture, curriculum structure, lessons, exercises, reference application (AdmitFlow), case studies, and instructional designs are reserved by the copyright owners.
+
+Without prior written permission from the copyright owners, nobody is permitted to copy, redistribute, re-upload, claim ownership of, commercially exploit, create derivative versions of, or extract datasets for AI training from this codebase or curriculum. For full terms and restrictions, see the **[LICENSE](LICENSE)** file.
