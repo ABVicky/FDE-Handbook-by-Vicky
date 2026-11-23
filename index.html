@@ -539,7 +539,6 @@
       user-select: none;
       scrollbar-width: thin;
       scrollbar-color: var(--border-color) transparent;
-      position: relative;
       transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease;
     }
     aside.app-sidebar::-webkit-scrollbar {
@@ -2717,13 +2716,14 @@
     </div>
   </header>
 
+  <button class="sidebar-expand-tab" id="sidebar-expand-tab" aria-label="Expand navigation sidebar" title="Expand sidebar ([)">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+    <span>Sidebar</span>
+    <kbd>[</kbd>
+  </button>
+
   <!-- Main Container -->
   <div class="app-container">
-    <button class="sidebar-expand-tab" id="sidebar-expand-tab" aria-label="Expand navigation sidebar" title="Expand sidebar ([)">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
-      <span>Sidebar</span>
-      <kbd>[</kbd>
-    </button>
 
     <!-- Sidebar Navigation -->
     <aside class="app-sidebar" id="app-sidebar">
