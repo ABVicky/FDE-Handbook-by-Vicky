@@ -22,6 +22,7 @@
 **[🗺️ Full Roadmap](ROADMAP.md)** &nbsp;•&nbsp;
 **[🎯 Interview Prep Suite](interview-prep/README.md)** &nbsp;•&nbsp;
 **[ℹ️ About & Author](ABOUT.md)**
+**[![M8ven Score](https://m8ven.ai/badge/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?v=1258201332213dcb7d8559a2094e05c8)](https://m8ven.ai/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?s=readme)**
 
 </div>
 
