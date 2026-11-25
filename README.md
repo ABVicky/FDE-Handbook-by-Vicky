@@ -14,7 +14,7 @@
 [![AI Stack](https://img.shields.io/badge/AI-RAG%20%C2%B7%20Agents%20%C2%B7%20MCP-D99B45?style=flat-square)](modules/08-generative-ai-engineering/README.md)
 [![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-A31C18?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
-
+[![M8ven Score](https://m8ven.ai/badge/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?v=1258201332213dcb7d8559a2094e05c8)](https://m8ven.ai/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?s=readme)
 <br>
 
 **[📖 Read Online (Interactive Web App)](https://abvicky.github.io/FDE-Handbook-by-Vicky/)** &nbsp;•&nbsp;
@@ -22,7 +22,7 @@
 **[🗺️ Full Roadmap](ROADMAP.md)** &nbsp;•&nbsp;
 **[🎯 Interview Prep Suite](interview-prep/README.md)** &nbsp;•&nbsp;
 **[ℹ️ About & Author](ABOUT.md)**
-**[![M8ven Score](https://m8ven.ai/badge/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?v=1258201332213dcb7d8559a2094e05c8)](https://m8ven.ai/mcp/abvicky-fde-handbook-by-vicky-6dmn6m?s=readme)**
+
 
 </div>
 
